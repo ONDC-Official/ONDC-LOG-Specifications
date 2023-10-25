@@ -2,8 +2,12 @@
   "context": {
     "domain": "ONDC:DLG",
     "location": {
-      "city": "std:080",
-      "country": "IND"
+      "city": {
+        "code": "std:080"
+      },
+      "country": {
+        "code": "IND"
+      }
     },
     "action": "on_search",
     "version": "2.0.0",
