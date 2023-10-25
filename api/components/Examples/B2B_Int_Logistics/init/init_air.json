@@ -1,17 +1,23 @@
 {
     "context": {
-        "domain": "ONDC:LGP",
+        "domain": "ONDC:DLG",
         "location": {
-            "city": "std:080",
-            "country": "IND"
+            "city": {
+                "code": "UN:SIN"
+              },
+              "country": {
+                "code": "SGP"
+              }
         },
-        "action": "search",
+        "action": "init",
         "version": "2.0.0",
         "bap_id": "logistics_buyer.com",
         "bap_uri": "https://logistics_buyer.com/ondc",
+        "bpp_id": "logistics_seller.com",
+        "bpp_uri": "https://logistics_seller.com/ondc",
         "transaction_id": "9fdb667c-76c6-456a-9742-ba9caa5eb765",
         "message_id": "1755281254860",
-        "timestamp": "2023-02-06T21:00:00.000Z",
+        "timestamp": "2023-10-17T21:11:00.000Z",
         "ttl": "PT30S"
     },
     "message": {
@@ -27,8 +33,11 @@
             "items": [
                 {
                     "id": "I3",
+                    "category_ids": ["C1","A1"],
                     "fulfillment_ids": ["1"],
-                    "category_ids": ["C1","A1"]
+                    "descriptor": {
+                        "code": "P2H2P"
+                    }
                 }
             ],
             "fulfillments": [
@@ -40,15 +49,17 @@
                             "type": "start",
                             "location": {
                                 "gps": "12.4535445,77.9283792",
-                                "address": {
-                                    "name": "My building #",
-                                    "building": "My building name",
-                                    "locality": "My street name",
-                                    "city": "Bengaluru",
-                                    "state": "Karnataka",
-                                    "country": "India",
-                                    "area_code": "560041"
-                                }
+                                "address": "My House #, My buildin",
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "code": "IND"
+                                },
+                                "area_code": "560041"
                             },
                             "contact": {
                                 "phone": "9886098860",
@@ -58,16 +69,18 @@
                         {
                             "type": "end",
                             "location": {
-                                "gps": "12.342769,77.9129423",
-                                "address": {
-                                    "name": "My house #",
-                                    "building": "My house or building name",
-                                    "locality": "My street name",
-                                    "city": "Bengaluru",
-                                    "state": "Karnataka",
-                                    "country": "Singapore",
-                                    "area_code": "636806"
-                                }
+                                "gps": "1.3806217468119772, 103.74636438437074",
+                                "address": "My House #, My buildin",
+                                "city": {
+                                    "name": "Jurong East"
+                                },
+                                "state":{
+                                    "name": ""
+                                },
+                                "country": {
+                                    "code": "SGP"
+                                },
+                                "area_code":"680230"
                             },
                             "contact": {
                                 "phone": "9886098860",
@@ -77,73 +90,20 @@
                     ]
                 }
             ],
-            "quote": {
-                "price": {
-                    "currency": "INR",
-                    "value": "6000.0"
-                },
-                "breakup": [
-                    {
-                        "item": {
-                            "id": "I3"
-                        },
-                        "title": "Origin Charges",
-                        "price": {
-                            "currency": "INR",
-                            "value": "500.0"
-                        }
-                    },
-                    {
-                        "item": {
-                            "id": "I3"
-                        },
-                        "title": "Freight Charges",
-                        "price": {
-                            "currency": "INR",
-                            "value": "500.0"
-                        }
-                    },
-                    {
-                        "item": {
-                            "id": "I3"
-                        },
-                        "title": "Destination Charges",
-                        "price": {
-                            "currency": "INR",
-                            "value": "500.0"
-                        }
-                    },
-                    {
-                        "item": {
-                            "id": "I3"
-                        },
-                        "title": "Custom Clearance Service Charges",
-                        "price": {
-                            "currency": "INR",
-                            "value": "500.0"
-                        }
-                    },
-                    {
-                        "item": {
-                            "id": "I3"
-                        },
-                        "title": "tax",
-                        "price": {
-                            "currency": "INR",
-                            "value": "500.0"
-                        }
-                    }
-                ]
+            "billing": {
+                "name": "ONDC sellerapp",
+                "address": "My house or building name",
+                "city": "Jurong East",
+                "state": "Jurong East",
+                "tax_id": "XXXXXXXXXXXXXXX",
+                "phone": "9886098860",
+                "email": "abcd.efgh@gmail.com",
+                "time": {
+                    "timestamp": "2023-10-17T21:11:00.000Z"
+                }
             },
-            "payments": [{
-                "id": "P1",
+            "payment": {
                 "collected_by": "BPP",
-                "params": {
-                    "amount": "6000",
-                    "currency": "INR",
-                    "bank_account_number": "xxxxxxxx",
-                    "virtual_payment_address": "xxx@xxxx"
-                },
                 "type": "PRE-FULFILMENT",
                 "tags": [
                     {
@@ -190,7 +150,14 @@
                         ]
                     }
                 ]
-            }]
+            },
+            "xinput": {
+                "form": {
+                    "url": "https://lsp.com/xxx/kyc",
+                    "mime_type": "text/html"
+                },
+                "required": true
+            }
         }
     }
 }
