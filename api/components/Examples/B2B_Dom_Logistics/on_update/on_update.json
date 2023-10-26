@@ -2,8 +2,12 @@
     "context": {
         "domain": "ONDC:LGP",
         "location": {
-            "city": "std:080",
-            "country": "IND"
+            "city": {
+                "code": "std:080"
+            },
+            "country": {
+                "code": "IND"
+            }
         },
         "action": "on_update",
         "version": "2.0.0",
@@ -112,22 +116,21 @@
                             "type": "start",
                             "location": {
                                 "gps": "12.4535445,77.9283792",
-                                "area_code": "560041",
-                                "map_url": "",
                                 "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India"
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "code": "IND"
+                                },
+                                "area_code": "560041"
                             },
                             "contact": {
                                 "phone": "9886098860",
                                 "email": "abcd.efgh@gmail.com"
-                            },
-                            "authorization": {
-                                "type": "QR",
-                                "token": "XYZ2",
-                                "valid_from": "",
-                                "valid_to": ""
                             },
                             "instructions": {
                                 "short_desc": "Shipping label",
@@ -154,22 +157,22 @@
                             "type": "end",
                             "location": {
                                 "gps": "12.342769,77.9129423",
-                                "map_url": "",
                                 "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India",
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "name": "India",
+                                    "code": "IND"
+                                },
                                 "area_code": "560043"
                             },
                             "contact": {
                                 "phone": "9886098860",
                                 "email": "abcd.efgh@gmail.com"
-                            },
-                            "authorization": {
-                                "type": "QR",
-                                "token": "XYZ2",
-                                "valid_from": "",
-                                "valid_to": ""
                             },
                             "instructions": {
                                 "short_desc": "",
@@ -190,7 +193,7 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "fulfillment_terms"
+                                "code": "DELIVERY_TERMS"
                             },
                             "list": [
                                 {
@@ -223,7 +226,10 @@
                 "state": "Karnataka",
                 "tax_id": "XXXXXXXXXXXXXXX",
                 "phone": "9886098860",
-                "email": "abcd.efgh@gmail.com"
+                "email": "abcd.efgh@gmail.com",
+                "time": {
+                    "timestamp": "2023-10-17T21:11:00.000Z"
+                }
             },
             "payment": [
                 {
@@ -286,26 +292,20 @@
             "tags": [
                 {
                     "descriptor": {
-                        "code": "Quantity"
+                        "code": "Package_Weight"
                     },
                     "list": [
                         {
                             "descriptor": {
-                                "code": "count"
-                            },
-                            "value": "1000"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "MEASURE_UNIT"
+                                "code": "UNIT"
                             },
                             "value": "kilogram"
                         },
                         {
                             "descriptor": {
-                                "code": "MEASURE_VALUE"
+                                "code": "Value"
                             },
-                            "value": "1000"
+                            "Value": "5"
                         }
                     ]
                 },
@@ -324,19 +324,19 @@
                             "descriptor": {
                                 "code": "Length"
                             },
-                            "value": "1"
+                            "value": "100"
                         },
                         {
                             "descriptor": {
                                 "code": "Breadth"
                             },
-                            "value": "1"
+                            "value": "100"
                         },
                         {
                             "descriptor": {
                                 "code": "Height"
                             },
-                            "value": "1"
+                            "value": "100"
                         }
                     ]
                 },
@@ -347,52 +347,70 @@
                     "list": [
                         {
                             "descriptor": {
-                                "code": "category"
+                                "code": "CATEGORY"
                             },
                             "value": "Grocery"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "UNIT_PRICE"
-                            },
-                            "value": "100"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "ITEM_PRICE"
-                            },
-                            "value": "100000"
                         },
                         {
                             "descriptor": {
                                 "code": "dangerous_goods"
                             },
                             "value": "true"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "stackable"
+                            },
+                            "value": "true"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Shipment_Value"
+                            },
+                            "value": "50000"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Package_Count"
+                            },
+                            "value": "10"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "HSN_Code"
+                            },
+                            "value": "xxxxxxx"
                         }
                     ]
                 },
                 {
                     "descriptor": {
-                        "code": "Quantity_Diff"
+                        "code": "Cold_Logistics"
                     },
                     "list": [
                         {
                             "descriptor": {
-                                "code": "count"
+                                "code": "Temp_Control"
                             },
-                            "value": "1000"
+                            "value": "true"
                         },
                         {
                             "descriptor": {
-                                "code": "MEASURE_UNIT"
+                                "code": "Temp_Unit"
                             },
-                            "value": "kilogram"
+                            "value": "Celcius"
                         },
                         {
                             "descriptor": {
-                                "code": "MEASURE_VALUE"
+                                "code": "Temp_Range"
                             },
-                            "value": "1200"
+                            "value": "-18"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Packaging"
+                            },
+                            "value": "Barrels"
                         }
                     ]
                 },
