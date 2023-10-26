@@ -91,22 +91,22 @@
                             "type": "start",
                             "location": {
                                 "gps": "12.4535445,77.9283792",
-                                "area_code": "560041",
-                                "map_url": "",
                                 "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India"
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "name": "India",
+                                    "code": "IND"
+                                },
+                                "area_code": "560041"
                             },
                             "contact": {
                                 "phone": "9886098860",
                                 "email": "abcd.efgh@gmail.com"
-                            },
-                            "authorization": {
-                                "type": "QR",
-                                "token": "XYZ2",
-                                "valid_from": "",
-                                "valid_to": ""
                             },
                             "time": {
                                 "range": {
@@ -121,22 +121,22 @@
                             "type": "end",
                             "location": {
                                 "gps": "12.342769,77.9129423",
-                                "map_url": "",
                                 "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India",
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "name": "India",
+                                    "code": "IND"
+                                },
                                 "area_code": "560043"
                             },
                             "contact": {
                                 "phone": "9886098860",
                                 "email": "abcd.efgh@gmail.com"
-                            },
-                            "authorization": {
-                                "type": "QR",
-                                "token": "XYZ2",
-                                "valid_from": "",
-                                "valid_to": ""
                             },
                             "instructions": {
                                 "short_desc": "",

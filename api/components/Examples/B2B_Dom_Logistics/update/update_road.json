@@ -36,6 +36,9 @@
             "items": [
                 {
                     "id": "I1",
+                    "fulfillment_ids": [
+                        "1"
+                    ],
                     "category_ids": [
                         "C1",
                         "R1"
@@ -45,35 +48,6 @@
                     }
                 }
             ],
-            "quote": {
-                "price": {
-                    "currency": "INR",
-                    "value": "4000.0"
-                },
-                "breakup": [
-                    {
-                        "item": {
-                            "id": "I1"
-                        },
-                        "title": "delivery",
-                        "price": {
-                            "currency": "INR",
-                            "value": "3500.0"
-                        }
-                    },
-                    {
-                        "item": {
-                            "id": "I1"
-                        },
-                        "title": "tax",
-                        "price": {
-                            "currency": "INR",
-                            "value": "500.0"
-                        }
-                    }
-                ],
-                "ttl": "PT15M"
-            },
             "fulfillments": [
                 {
                     "id": "1",
@@ -89,49 +63,26 @@
                             "id": "L1",
                             "parent_stop_id": "",
                             "type": "start",
-                            "location": {
-                                "gps": "12.4535445,77.9283792",
-                                "area_code": "560041",
-                                "map_url": "",
-                                "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India"
-                            },
-                            "contact": {
-                                "phone": "9886098860",
-                                "email": "abcd.efgh@gmail.com"
+                            "instructions": {
+                                "code": "2",
+                                "short_desc": "value of PCC",
+                                "long_desc": "QR code will be attached to package",
+                                "additional_desc": {
+                                    "content_type": "text/html",
+                                    "url": "https://shipping/label/image.htm"
+                                }
                             },
                             "authorization": {
                                 "type": "QR",
                                 "token": "XYZ2",
                                 "valid_from": "",
                                 "valid_to": ""
-                            },
-                            "time": {
-                                "range": {
-                                    "start": "2023-10-17T21:12:00.710Z",
-                                    "end": "2023-10-20T21:12:00.710Z"
-                                }
                             }
                         },
                         {
                             "id": "L2",
                             "parent_stop_id": "L1",
                             "type": "end",
-                            "location": {
-                                "gps": "12.342769,77.9129423",
-                                "map_url": "",
-                                "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India",
-                                "area_code": "560043"
-                            },
-                            "contact": {
-                                "phone": "9886098860",
-                                "email": "abcd.efgh@gmail.com"
-                            },
                             "authorization": {
                                 "type": "QR",
                                 "token": "XYZ2",
@@ -145,19 +96,13 @@
                                     "content_type": "text/html",
                                     "url": "URL for instructions"
                                 }
-                            },
-                            "time": {
-                                "range": {
-                                    "start": "2023-10-21T21:12:00.710Z",
-                                    "end": "2023-10-24T21:12:00.710Z"
-                                }
                             }
                         }
                     ],
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "fulfillment_terms"
+                                "code": "DELIVERY_TERMS"
                             },
                             "list": [
                                 {
@@ -168,76 +113,9 @@
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "rto_action"
+                                        "code": ""
                                     },
-                                    "value": "no"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "billing": {
-                "name": "ONDC sellerapp",
-                "address": "My house or building name",
-                "city": "Bengaluru",
-                "state": "Karnataka",
-                "tax_id": "XXXXXXXXXXXXXXX",
-                "phone": "9886098860",
-                "email": "abcd.efgh@gmail.com"
-            },
-            "payment": [
-                {
-                    "id": "P1",
-                    "collected_by": "BPP",
-                    "params": {
-                        "amount": "4000",
-                        "currency": "INR",
-                        "bank_account_number": "xxxxxxxx",
-                        "virtual_payment_address": "xxx@xxxx"
-                    },
-                    "type": "PRE-FULFILMENT",
-                    "tags": [
-                        {
-                            "descriptor": {
-                                "code": "settlement_details"
-                            },
-                            "list": [
-                                {
-                                    "descriptor": {
-                                        "code": "counterparty"
-                                    },
-                                    "value": "BAP"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "mode"
-                                    },
-                                    "value": "UPI"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "beneficiary_name"
-                                    },
-                                    "value": "xxxxx"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "bank_account_no"
-                                    },
-                                    "value": "xxxxx"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "ifsc_code"
-                                    },
-                                    "value": "xxxxxxx"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "upi_address"
-                                    },
-                                    "value": "xxxxxxx"
+                                    "value": "1227262193237777"
                                 }
                             ]
                         }
@@ -247,26 +125,20 @@
             "tags": [
                 {
                     "descriptor": {
-                        "code": "QUANTITY"
+                        "code": "Package_Weight"
                     },
                     "list": [
                         {
                             "descriptor": {
-                                "code": "count"
-                            },
-                            "value": "1000"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "MEASURE_UNIT"
+                                "code": "UNIT"
                             },
                             "value": "kilogram"
                         },
                         {
                             "descriptor": {
-                                "code": "MEASURE_VALUE"
+                                "code": "Value"
                             },
-                            "value": "1000"
+                            "Value": "5"
                         }
                     ]
                 },
@@ -285,56 +157,87 @@
                             "descriptor": {
                                 "code": "Length"
                             },
-                            "value": "1"
+                            "value": "100"
                         },
                         {
                             "descriptor": {
                                 "code": "Breadth"
                             },
-                            "value": "1"
+                            "value": "100"
                         },
                         {
                             "descriptor": {
                                 "code": "Height"
                             },
-                            "value": "1"
+                            "value": "100"
                         }
                     ]
                 },
                 {
                     "descriptor": {
-                        "code": "package_details"
+                        "code": "Package_Details"
                     },
                     "list": [
                         {
                             "descriptor": {
-                                "code": "IEC"
-                            },
-                            "value": "xxxxxxxxxxxx"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "category"
+                                "code": "CATEGORY"
                             },
                             "value": "Grocery"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "UNIT_PRICE"
-                            },
-                            "value": "100"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "ITEM_PRICE"
-                            },
-                            "value": "100000"
                         },
                         {
                             "descriptor": {
                                 "code": "dangerous_goods"
                             },
                             "value": "true"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "stackable"
+                            },
+                            "value": "true"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Shipment_Value"
+                            },
+                            "value": "50000"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Package_Count"
+                            },
+                            "value": "10"
+                        }
+                    ]
+                },
+                {
+                    "descriptor": {
+                        "code": "Cold_Logistics"
+                    },
+                    "list": [
+                        {
+                            "descriptor": {
+                                "code": "Temp_Control"
+                            },
+                            "value": "true"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Temp_Unit"
+                            },
+                            "value": "Celcius"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Temp_Range"
+                            },
+                            "value": "-18"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Packaging"
+                            },
+                            "value": "Barrels"
                         }
                     ]
                 }
