@@ -87,7 +87,26 @@
                                 "email": "abcd.efgh@gmail.com"
                             }
                         }
-                    ]
+                    ],
+                    "tags": {
+                        "descriptor": {
+                          "code": "DELIVERY_TERMS"
+                        },
+                        "list": [
+                          {
+                            "descriptor": {
+                              "code": "INCOTERMS"
+                            },
+                            "value": "CIF"
+                          },
+                          {
+                            "descriptor": {
+                              "code": "NAMED_PLACE_OF_DELIVERY"
+                            },
+                            "value": "UN:SIN"
+                          }
+                        ]
+                      }
                 }
             ],
             "billing": {
