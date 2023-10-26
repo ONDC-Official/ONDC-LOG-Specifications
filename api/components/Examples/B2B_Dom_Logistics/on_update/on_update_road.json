@@ -9,27 +9,21 @@
                 "code": "IND"
             }
         },
-        "action": "on_cancel",
+        "action": "on_update",
         "version": "2.0.0",
         "bap_id": "logistics_buyer.com",
         "bap_uri": "https://logistics_buyer.com/ondc",
         "bpp_id": "logistics_seller.com",
         "bpp_uri": "https://logistics_seller.com/ondc",
         "transaction_id": "9fdb667c-76c6-456a-9742-ba9caa5eb765",
-        "message_id": "1755281254860",
-        "timestamp": "2023-10-23T21:00:00.000Z",
+        "message_id": "1755281254862",
+        "timestamp": "2023-10-17T21:13:00.601Z",
         "ttl": "PT30S"
     },
     "message": {
         "order": {
             "id": "O2",
-            "status": "Cancelled",
-            "cancellation": {
-                "cancelled_by": "logistics_buyer.com",
-                "reason": {
-                    "id": "004"
-                }
-            },
+            "status": "In-progress",
             "provider": {
                 "id": "P1",
                 "locations": [
@@ -40,46 +34,66 @@
             },
             "items": [
                 {
-                    "id": "I3",
+                    "id": "I1",
                     "category_ids": [
                         "C1",
-                        "A1"
+                        "R1"
                     ],
+                    "fulfillment_ids": ["1"],
                     "descriptor": {
                         "code": "P2H2P"
                     },
-                    "fulfillment_ids": ["1"],
                     "time": {
                         "label": "TAT",
-                        "duration": "PT45M",
-                        "timestamp": "2023-10-23"
+                        "duration": "PT7D",
+                        "timestamp": "2023-10-17"
                     }
                 }
             ],
             "quote": {
                 "price": {
                     "currency": "INR",
-                    "value": "0.00"
+                    "value": "4056.0"
                 },
                 "breakup": [
                     {
                         "item": {
-                            "id": "I3"
+                            "id": "I1"
                         },
                         "title": "delivery",
                         "price": {
                             "currency": "INR",
-                            "value": "0.00"
+                            "value": "3500.0"
                         }
                     },
                     {
                         "item": {
-                            "id": "I3"
+                            "id": "I1"
                         },
                         "title": "tax",
                         "price": {
                             "currency": "INR",
-                            "value": "0.00"
+                            "value": "500.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I1"
+                        },
+                        "title": "delivery_diff",
+                        "price": {
+                            "currency": "INR",
+                            "value": "50.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I1"
+                        },
+                        "title": "tax_diff",
+                        "price": {
+                            "currency": "INR",
+                            "value": "6.0"
                         }
                     }
                 ],
@@ -91,7 +105,7 @@
                     "type": "DELIVERY",
                     "state": {
                         "descriptor": {
-                            "code": "Cancelled"
+                            "code": "Pending"
                         }
                     },
                     "tracking": false,
@@ -102,22 +116,22 @@
                             "type": "start",
                             "location": {
                                 "gps": "12.4535445,77.9283792",
-                                "area_code": "560041",
-                                "map_url": "",
                                 "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India"
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "name": "India",
+                                    "code": "IND"
+                                },
+                                "area_code": "560041"
                             },
                             "contact": {
                                 "phone": "9886098860",
                                 "email": "abcd.efgh@gmail.com"
-                            },
-                            "authorization": {
-                                "type": "QR",
-                                "token": "XYZ2",
-                                "valid_from": "",
-                                "valid_to": ""
                             },
                             "instructions": {
                                 "short_desc": "Shipping label",
@@ -132,9 +146,10 @@
                             },
                             "time": {
                                 "range": {
-                                    "start": "2023-02-06T22:30:00.000Z",
-                                    "end": "2023-02-06T22:45:00.000Z"
-                                }
+                                    "start": "2023-10-17T21:12:00.710Z",
+                                    "end": "2023-10-20T21:12:00.710Z"
+                                },
+                                "timestamp":"2023-10-17T21:13:00.601Z"
                             }
                         },
                         {
@@ -143,22 +158,22 @@
                             "type": "end",
                             "location": {
                                 "gps": "12.342769,77.9129423",
-                                "map_url": "",
                                 "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India",
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "name": "India",
+                                    "code": "IND"
+                                },
                                 "area_code": "560043"
                             },
                             "contact": {
                                 "phone": "9886098860",
                                 "email": "abcd.efgh@gmail.com"
-                            },
-                            "authorization": {
-                                "type": "QR",
-                                "token": "XYZ2",
-                                "valid_from": "",
-                                "valid_to": ""
                             },
                             "instructions": {
                                 "short_desc": "",
@@ -170,8 +185,8 @@
                             },
                             "time": {
                                 "range": {
-                                    "start": "2023-02-14T22:30:00.000Z",
-                                    "end": "2023-02-14T22:45:00.000Z"
+                                    "start": "2023-10-21T21:12:00.710Z",
+                                    "end": "2023-10-24T21:12:00.710Z"
                                 }
                             }
                         }
@@ -179,7 +194,7 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "fulfillment_terms"
+                                "code": "DELIVERY_TERMS"
                             },
                             "list": [
                                 {
@@ -190,15 +205,9 @@
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "awb_no"
+                                        "code": ""
                                     },
-                                    "value": "1209878992826353"
-                                },
-                                {
-                                    "descriptor": {
-                                        "code": "rto_action"
-                                    },
-                                    "value": "no"
+                                    "value": "1227262193237777"
                                 }
                             ]
                         }
@@ -219,7 +228,7 @@
                     "id": "P1",
                     "collected_by": "BPP",
                     "params": {
-                        "amount": "6000",
+                        "amount": "4000",
                         "currency": "INR",
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"
@@ -275,26 +284,20 @@
             "tags": [
                 {
                     "descriptor": {
-                        "code": "Quantity"
+                        "code": "Package_Weight"
                     },
                     "list": [
                         {
                             "descriptor": {
-                                "code": "count"
-                            },
-                            "value": "1000"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "MEASURE_UNIT"
+                                "code": "UNIT"
                             },
                             "value": "kilogram"
                         },
                         {
                             "descriptor": {
-                                "code": "MEASURE_VALUE"
+                                "code": "Value"
                             },
-                            "value": "1000"
+                            "Value": "5"
                         }
                     ]
                 },
@@ -313,19 +316,19 @@
                             "descriptor": {
                                 "code": "Length"
                             },
-                            "value": "1"
+                            "value": "100"
                         },
                         {
                             "descriptor": {
                                 "code": "Breadth"
                             },
-                            "value": "1"
+                            "value": "100"
                         },
                         {
                             "descriptor": {
                                 "code": "Height"
                             },
-                            "value": "1"
+                            "value": "100"
                         }
                     ]
                 },
@@ -336,63 +339,69 @@
                     "list": [
                         {
                             "descriptor": {
-                                "code": "category"
+                                "code": "CATEGORY"
                             },
                             "value": "Grocery"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "UNIT_PRICE"
-                            },
-                            "value": "100"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "ITEM_PRICE"
-                            },
-                            "value": "100000"
                         },
                         {
                             "descriptor": {
                                 "code": "dangerous_goods"
                             },
                             "value": "true"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "stackable"
+                            },
+                            "value": "true"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Shipment_Value"
+                            },
+                            "value": "50000"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Package_Count"
+                            },
+                            "value": "10"
                         }
                     ]
                 },
                 {
                     "descriptor": {
-                        "code": "Package_Dimensions_Diff"
+                        "code": "Cold_Logistics"
                     },
                     "list": [
                         {
                             "descriptor": {
-                                "code": "unit"
+                                "code": "Temp_Control"
                             },
-                            "value": "centimeter"
+                            "value": "true"
                         },
                         {
                             "descriptor": {
-                                "code": "Length"
+                                "code": "Temp_Unit"
                             },
-                            "value": "1.5"
+                            "value": "Celcius"
                         },
                         {
                             "descriptor": {
-                                "code": "Breadth"
+                                "code": "Temp_Range"
                             },
-                            "value": "1.5"
+                            "value": "-18"
                         },
                         {
                             "descriptor": {
-                                "code": "Height"
+                                "code": "Packaging"
                             },
-                            "value": "1.5"
+                            "value": "Barrels"
                         }
                     ]
                 }
             ],
-            "updated_at": "2023-02-06T22:00:30.000Z"
+            "updated_at": "2023-10-17T21:13:00.601Z"
         }
     }
 }

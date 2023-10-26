@@ -9,25 +9,27 @@
                 "code": "IND"
             }
         },
-        "action": "on_cancel",
+        "action": "on_status",
         "version": "2.0.0",
         "bap_id": "logistics_buyer.com",
         "bap_uri": "https://logistics_buyer.com/ondc",
         "bpp_id": "logistics_seller.com",
         "bpp_uri": "https://logistics_seller.com/ondc",
         "transaction_id": "9fdb667c-76c6-456a-9742-ba9caa5eb765",
-        "message_id": "1755281254860",
-        "timestamp": "2023-10-23T21:00:00.000Z",
+        "message_id": "1755281254863",
+        "timestamp": "2023-10-19T21:00:00.800Z",
         "ttl": "PT30S"
     },
     "message": {
         "order": {
             "id": "O2",
             "status": "Cancelled",
-            "cancellation": {
-                "cancelled_by": "logistics_buyer.com",
-                "reason": {
-                    "id": "004"
+            "cancellation":
+            {
+                "cancelled_by":"buyerNP.com",
+                "reason":
+                {
+                "id":"004"
                 }
             },
             "provider": {
@@ -40,46 +42,72 @@
             },
             "items": [
                 {
-                    "id": "I3",
+                    "id": "I1",
                     "category_ids": [
                         "C1",
-                        "A1"
+                        "R1"
                     ],
+                    "fulfillment_ids": ["1"],
                     "descriptor": {
                         "code": "P2H2P"
                     },
-                    "fulfillment_ids": ["1"],
                     "time": {
                         "label": "TAT",
-                        "duration": "PT45M",
-                        "timestamp": "2023-10-23"
+                        "duration": "PT7D",
+                        "timestamp": "2023-10-19"
+                    }
+                },
+                {
+                    "id": "I2",
+                    "category_ids": [
+                        "C1",
+                        "R1"
+                    ],
+                    "fulfillment_ids": ["2"],
+                    "descriptor": {
+                        "code": "P2H2P"
+                    },
+                    "time": {
+                        "label": "TAT",
+                        "duration": "PT7D",
+                        "timestamp": "2023-10-19"
                     }
                 }
             ],
             "quote": {
                 "price": {
                     "currency": "INR",
-                    "value": "0.00"
+                    "value": "6000.0"
                 },
                 "breakup": [
                     {
                         "item": {
-                            "id": "I3"
+                            "id": "I1"
                         },
                         "title": "delivery",
                         "price": {
                             "currency": "INR",
-                            "value": "0.00"
+                            "value": "3500.0"
                         }
                     },
                     {
                         "item": {
-                            "id": "I3"
+                            "id": "I1"
                         },
                         "title": "tax",
                         "price": {
                             "currency": "INR",
-                            "value": "0.00"
+                            "value": "500.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I2"
+                        },
+                        "title": "rto",
+                        "price": {
+                            "currency": "INR",
+                            "value": "2000.0"
                         }
                     }
                 ],
@@ -91,7 +119,7 @@
                     "type": "DELIVERY",
                     "state": {
                         "descriptor": {
-                            "code": "Cancelled"
+                            "code": "Pending"
                         }
                     },
                     "tracking": false,
@@ -132,9 +160,10 @@
                             },
                             "time": {
                                 "range": {
-                                    "start": "2023-02-06T22:30:00.000Z",
-                                    "end": "2023-02-06T22:45:00.000Z"
-                                }
+                                    "start": "2023-10-17T21:12:00.710Z",
+                                    "end": "2023-10-20T21:12:00.710Z"
+                                },
+                                "timestamp":"2023-06-07T00:00:00.000Z"
                             }
                         },
                         {
@@ -170,8 +199,8 @@
                             },
                             "time": {
                                 "range": {
-                                    "start": "2023-02-14T22:30:00.000Z",
-                                    "end": "2023-02-14T22:45:00.000Z"
+                                    "start": "2023-10-21T21:12:00.710Z",
+                                    "end": "2023-10-24T21:12:00.710Z"
                                 }
                             }
                         }
@@ -203,6 +232,72 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "id": "1",
+                    "type": "RTO",
+                    "state": {
+                        "descriptor": {
+                            "code": "RTO-Initiated"
+                        }
+                    },
+                    "tracking": false,
+                    "stops": [
+                        {
+                            "id": "L1",
+                            "parent_stop_id": "",
+                            "type": "start",
+                            "location": {
+                                "gps": "12.342769,77.9129423",
+                                "map_url": "",
+                                "address": "My house or building name, street name",
+                                "city": "Bengaluru",
+                                "state": "Karnataka",
+                                "country": "India",
+                                "area_code": "560043"
+                            },
+                            "contact": {
+                                "phone": "9886098860",
+                                "email": "abcd.efgh@gmail.com"
+                            },
+                            "time": {
+                                "range": {
+                                    "start": "2023-02-06T22:30:00.000Z",
+                                    "end": "2023-02-06T22:45:00.000Z"
+                                },
+                                "timestamp":"2023-06-07T00:00:00.000Z"
+                            }
+                        }
+                    ],
+                    "agent": {
+                        "person": {
+                            "name": "xxxxx"
+                        },
+                        "contact": {
+                            "phone": "9999999999"
+                        }
+                    },
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "code": "fulfillment_terms"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "awb_no"
+                                    },
+                                    "value": "1209878992826353"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "rto_action"
+                                    },
+                                    "value": "yes"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
             "billing": {
@@ -224,7 +319,7 @@
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"
                     },
-                    "type": "PRE-FULFILMENT",
+                    "type": "POST-FULFILMENT",
                     "tags": [
                         {
                             "descriptor": {
@@ -362,6 +457,31 @@
                 },
                 {
                     "descriptor": {
+                        "code": "Quantity_Diff"
+                    },
+                    "list": [
+                        {
+                            "descriptor": {
+                                "code": "count"
+                            },
+                            "value": "1000"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "MEASURE_UNIT"
+                            },
+                            "value": "kilogram"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "MEASURE_VALUE"
+                            },
+                            "value": "1200"
+                        }
+                    ]
+                },
+                {
+                    "descriptor": {
                         "code": "Package_Dimensions_Diff"
                     },
                     "list": [
@@ -390,9 +510,28 @@
                             "value": "1.5"
                         }
                     ]
+                },
+                {
+                    "descriptor": {
+                        "code": "Diff_Proof"
+                    },
+                    "list": [
+                        {
+                            "descriptor": {
+                                "code": "type"
+                            },
+                            "value": "image"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "url"
+                            },
+                            "value": "https://xxxxx/xx.png"
+                        }
+                    ]
                 }
             ],
-            "updated_at": "2023-02-06T22:00:30.000Z"
+            "updated_at": "2023-10-19T21:00:00.800Z"
         }
     }
 }
