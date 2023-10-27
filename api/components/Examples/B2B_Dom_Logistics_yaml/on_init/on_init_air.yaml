@@ -33,7 +33,7 @@ value:
             - A1
       fulfillments:
         - id: '1'
-          type: DELIVERY
+          type: Delivery
           stops:
             - type: start
               location:
@@ -81,6 +81,52 @@ value:
               currency: INR
               value: '500.0'
         ttl: PT15M
+      cancellation_terms:
+        - fulfillment_state:
+            descriptor:
+              code: Pending
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '0.0'
+        - fulfillment_state:
+            descriptor:
+              code: Out-for-pickup
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '500.00'
+        - fulfillment_state:
+            descriptor:
+              code: In-transit
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '700.00'
+        - fulfillment_state:
+            descriptor:
+              code: At-destination-hub
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '1000.00'
+        - fulfillment_state:
+            descriptor:
+              code: Out-for-delivery
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '4000.00'
       payments:
         - id: P1
           collected_by: BPP
@@ -89,7 +135,7 @@ value:
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
-          type: PRE-FULFILMENT
+          type: PRE-FULFILLMENT
           tags:
             - descriptor:
                 code: settlement_details

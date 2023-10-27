@@ -38,7 +38,7 @@ value:
                 value: '2023-10-01T00:00:00.000Z'
       fulfillments:
         - id: '1'
-          type: DELIVERY
+          type: Delivery
         - id: '2'
           type: RTO
       providers:

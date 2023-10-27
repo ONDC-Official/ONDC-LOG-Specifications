@@ -38,7 +38,7 @@ value:
             code: P2H2P
       fulfillments:
         - id: '1'
-          type: DELIVERY
+          type: Delivery
           state:
             descriptor:
               code: Pending
@@ -81,14 +81,14 @@ value:
                     code: ready_to_ship
                   value: 'yes'
                 - descriptor:
-                    code: ''
+                    code: awb_no
                   value: '1227262193237777'
       tags:
         - descriptor:
             code: Package_Weight
           list:
             - descriptor:
-                code: UNIT
+                code: Unit
               value: kilogram
             - descriptor:
                 code: Value
@@ -97,7 +97,7 @@ value:
             code: Package_Dimensions
           list:
             - descriptor:
-                code: unit
+                code: Unit
               value: centimeter
             - descriptor:
                 code: Length
@@ -112,13 +112,13 @@ value:
             code: Package_Details
           list:
             - descriptor:
-                code: CATEGORY
+                code: Category
               value: Grocery
             - descriptor:
-                code: dangerous_goods
+                code: Dangerous_Goods
               value: 'true'
             - descriptor:
-                code: stackable
+                code: Stackable
               value: 'true'
             - descriptor:
                 code: Shipment_Value
@@ -134,11 +134,8 @@ value:
               value: 'true'
             - descriptor:
                 code: Temp_Unit
-              value: Celcius
+              value: Celsius
             - descriptor:
                 code: Temp_Range
               value: '-18'
-            - descriptor:
-                code: Packaging
-              value: Barrels
       updated_at: '2023-02-06T22:00:30.000Z'

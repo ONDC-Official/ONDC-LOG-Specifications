@@ -3326,13 +3326,13 @@ x-flows:
                     days: 1,2,3,4,5,6,7
                     schedule:
                       holidays:
-                        - '2022-08-15'
-                        - '2022-08-19'
+                        - '2023-10-18'
+                        - '2023-10-19'
                     range:
                       start: '1100'
                       end: '2100'
                 fulfillments:
-                  type: DELIVERY
+                  type: Delivery
                   stops:
                     - id: L1
                       parent_stop_id: ''
@@ -3352,7 +3352,7 @@ x-flows:
                         area_code: '636806'
                 payment:
                   collected_by: BPP
-                  type: ON-FULFILMENT
+                  type: ON-FULFILLMENT
                   params:
                     amount: '20000'
                     currency: INR
@@ -3361,7 +3361,7 @@ x-flows:
                       code: Package_Weight
                     list:
                       - descriptor:
-                          code: UNIT
+                          code: Unit
                         value: kilogram
                       - descriptor:
                           code: Value
@@ -3370,7 +3370,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -3385,13 +3385,13 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: CATEGORY
+                          code: Category
                         value: Grocery
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                       - descriptor:
-                          code: stackable
+                          code: Stackable
                         value: 'true'
                       - descriptor:
                           code: Shipment_Value
@@ -3407,13 +3407,10 @@ x-flows:
                         value: 'true'
                       - descriptor:
                           code: Temp_Unit
-                        value: Celcius
+                        value: Celsius
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
-                      - descriptor:
-                          code: Packaging
-                        value: Barrels
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
@@ -3459,7 +3456,7 @@ x-flows:
                           value: '2023-10-01T00:00:00.000Z'
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                   - id: '2'
                     type: RTO
                 providers:
@@ -3617,7 +3614,7 @@ x-flows:
                       code: P2H2P
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     stops:
                       - type: start
                         location:
@@ -3659,7 +3656,7 @@ x-flows:
                     timestamp: '2023-10-17T21:11:00.000Z'
                 payment:
                   collected_by: BPP
-                  type: PRE-FULFILMENT
+                  type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
                         code: settlement_details
@@ -3722,7 +3719,7 @@ x-flows:
                       - R1
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     stops:
                       - type: start
                         location:
@@ -3770,6 +3767,52 @@ x-flows:
                         currency: INR
                         value: '500.0'
                   ttl: PT15M
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-pickup
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '500.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: In-transit
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '700.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: At-destination-hub
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '4000.00'
                 payments:
                   - id: P1
                     collected_by: BPP
@@ -3778,7 +3821,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                      type: PRE-FULFILMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -3881,7 +3924,7 @@ x-flows:
                   ttl: PT15M
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     agent:
                       person:
                         name: Ramu
@@ -3942,7 +3985,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -3970,7 +4013,7 @@ x-flows:
                       code: Package_Weight
                     list:
                       - descriptor:
-                          code: UNIT
+                          code: Unit
                         value: kilogram
                       - descriptor:
                           code: Value
@@ -3979,7 +4022,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -3994,13 +4037,13 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: CATEGORY
+                          code: Category
                         value: Grocery
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                       - descriptor:
-                          code: stackable
+                          code: Stackable
                         value: 'true'
                       - descriptor:
                           code: Shipment_Value
@@ -4016,7 +4059,7 @@ x-flows:
                         value: 'true'
                       - descriptor:
                           code: Temp_Unit
-                        value: Celcius
+                        value: Celsius
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
@@ -4117,7 +4160,7 @@ x-flows:
                   ttl: PT15M
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     state:
                       descriptor:
                         code: Pending
@@ -4181,6 +4224,52 @@ x-flows:
                           - descriptor:
                               code: rto_action
                             value: 'no'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-pickup
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '500.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: In-transit
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '700.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: At-destination-hub
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '4000.00'
                 billing:
                   name: ONDC sellerapp
                   address: My house or building name
@@ -4197,7 +4286,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -4237,7 +4326,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -4255,7 +4344,7 @@ x-flows:
                           code: IEC
                         value: xxxxxxxxxxxx
                       - descriptor:
-                          code: category
+                          code: Category
                         value: Grocery
                       - descriptor:
                           code: UNIT_PRICE
@@ -4264,7 +4353,7 @@ x-flows:
                           code: ITEM_PRICE
                         value: '100000'
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                 created_at: '2023-10-17T21:12:00.710Z'
                 updated_at: '2023-10-17T21:12:30.710Z'
@@ -4313,7 +4402,7 @@ x-flows:
                       code: P2H2P
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     state:
                       descriptor:
                         code: Pending
@@ -4363,7 +4452,7 @@ x-flows:
                       code: Package_Weight
                     list:
                       - descriptor:
-                          code: UNIT
+                          code: Unit
                         value: kilogram
                       - descriptor:
                           code: Value
@@ -4372,7 +4461,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -4387,13 +4476,13 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: CATEGORY
+                          code: Category
                         value: Grocery
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                       - descriptor:
-                          code: stackable
+                          code: Stackable
                         value: 'true'
                       - descriptor:
                           code: Shipment_Value
@@ -4409,7 +4498,7 @@ x-flows:
                         value: 'true'
                       - descriptor:
                           code: Temp_Unit
-                        value: Celcius
+                        value: Celsius
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
@@ -4497,7 +4586,7 @@ x-flows:
                   ttl: PT15M
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     state:
                       descriptor:
                         code: Pending
@@ -4586,7 +4675,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -4614,7 +4703,7 @@ x-flows:
                       code: Package_Weight
                     list:
                       - descriptor:
-                          code: UNIT
+                          code: Unit
                         value: kilogram
                       - descriptor:
                           code: Value
@@ -4623,7 +4712,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -4638,13 +4727,13 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: CATEGORY
+                          code: Category
                         value: Grocery
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                       - descriptor:
-                          code: stackable
+                          code: Stackable
                         value: 'true'
                       - descriptor:
                           code: Shipment_Value
@@ -4660,7 +4749,7 @@ x-flows:
                         value: 'true'
                       - descriptor:
                           code: Temp_Unit
-                        value: Celcius
+                        value: Celsius
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
@@ -4771,7 +4860,7 @@ x-flows:
                   ttl: PT15M
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     state:
                       descriptor:
                         code: Pickup-approved
@@ -4867,7 +4956,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -4907,7 +4996,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -4922,7 +5011,7 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: category
+                          code: Category
                         value: Grocery
                       - descriptor:
                           code: UNIT_PRICE
@@ -4931,7 +5020,7 @@ x-flows:
                           code: ITEM_PRICE
                         value: '100000'
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                   - descriptor:
                       code: Quantity_Diff
@@ -4949,7 +5038,7 @@ x-flows:
                       code: Package_Dimensions_Diff
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -5009,13 +5098,13 @@ x-flows:
                     days: 1,2,3,4,5,6,7
                     schedule:
                       holidays:
-                        - '2022-08-15'
-                        - '2022-08-19'
+                        - '2023-10-18'
+                        - '2023-10-19'
                     range:
                       start: '1100'
                       end: '2100'
                 fulfillments:
-                  type: DELIVERY
+                  type: Delivery
                   stops:
                     - id: L1
                       parent_stop_id: ''
@@ -5035,7 +5124,7 @@ x-flows:
                         area_code: '636806'
                 payment:
                   collected_by: BPP
-                  type: ON-FULFILMENT
+                  type: ON-FULFILLMENT
                   params:
                     amount: '20000'
                     currency: INR
@@ -5044,7 +5133,7 @@ x-flows:
                       code: Package_Weight
                     list:
                       - descriptor:
-                          code: UNIT
+                          code: Unit
                         value: kilogram
                       - descriptor:
                           code: Value
@@ -5053,7 +5142,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -5068,13 +5157,13 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: CATEGORY
+                          code: Category
                         value: Grocery
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                       - descriptor:
-                          code: stackable
+                          code: Stackable
                         value: 'true'
                       - descriptor:
                           code: Shipment_Value
@@ -5090,13 +5179,10 @@ x-flows:
                         value: 'true'
                       - descriptor:
                           code: Temp_Unit
-                        value: Celcius
+                        value: Celsius
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
-                      - descriptor:
-                          code: Packaging
-                        value: Barrels
       - summary: Returns item/ catalog
         api: on_search
         description: Catalog provided by the Seller App
@@ -5142,7 +5228,7 @@ x-flows:
                           value: '2023-10-01T00:00:00.000Z'
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                   - id: '2'
                     type: RTO
                 providers:
@@ -5300,7 +5386,7 @@ x-flows:
                       code: P2H2P
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     stops:
                       - type: start
                         location:
@@ -5342,7 +5428,7 @@ x-flows:
                     timestamp: '2023-10-17T21:11:00.000Z'
                 payment:
                   collected_by: BPP
-                  type: PRE-FULFILMENT
+                  type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
                         code: settlement_details
@@ -5405,7 +5491,7 @@ x-flows:
                       - A1
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     stops:
                       - type: start
                         location:
@@ -5453,6 +5539,52 @@ x-flows:
                         currency: INR
                         value: '500.0'
                   ttl: PT15M
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-pickup
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '500.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: In-transit
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '700.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: At-destination-hub
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '4000.00'
                 payments:
                   - id: P1
                     collected_by: BPP
@@ -5461,7 +5593,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -5546,7 +5678,7 @@ x-flows:
                       code: P2H2P
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     agent:
                       person:
                         name: Ramu
@@ -5627,7 +5759,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -5655,7 +5787,7 @@ x-flows:
                       code: Package_Weight
                     list:
                       - descriptor:
-                          code: UNIT
+                          code: Unit
                         value: kilogram
                       - descriptor:
                           code: Value
@@ -5664,7 +5796,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -5679,13 +5811,13 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: CATEGORY
+                          code: Category
                         value: Grocery
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                       - descriptor:
-                          code: stackable
+                          code: Stackable
                         value: 'true'
                       - descriptor:
                           code: Shipment_Value
@@ -5701,7 +5833,7 @@ x-flows:
                         value: 'true'
                       - descriptor:
                           code: Temp_Unit
-                        value: Celcius
+                        value: Celsius
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
@@ -5802,7 +5934,7 @@ x-flows:
                   ttl: PT15M
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     state:
                       descriptor:
                         code: Pending
@@ -5862,16 +5994,52 @@ x-flows:
                           range:
                             start: '2023-02-14T22:30:00.000Z'
                             end: '2023-02-14T22:45:00.000Z'
-                    tags:
-                      - descriptor:
-                          code: DELIVERY_TERMS
-                        list:
-                          - descriptor:
-                              code: ready_to_ship
-                            value: 'no'
-                          - descriptor:
-                              code: rto_action
-                            value: 'no'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-pickup
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '500.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: In-transit
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '700.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: At-destination-hub
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000.00'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Out-for-delivery
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '4000.00'
                 billing:
                   name: ONDC sellerapp
                   address: My house or building name
@@ -5890,7 +6058,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -5918,7 +6086,7 @@ x-flows:
                       code: Package_Weight
                     list:
                       - descriptor:
-                          code: UNIT
+                          code: Unit
                         value: kilogram
                       - descriptor:
                           code: Value
@@ -5927,7 +6095,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -5942,13 +6110,13 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: CATEGORY
+                          code: Category
                         value: Grocery
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                       - descriptor:
-                          code: stackable
+                          code: Stackable
                         value: 'true'
                       - descriptor:
                           code: Shipment_Value
@@ -5964,13 +6132,10 @@ x-flows:
                         value: 'true'
                       - descriptor:
                           code: Temp_Unit
-                        value: Celcius
+                        value: Celsius
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
-                      - descriptor:
-                          code: Packaging
-                        value: Barrels
                   - descriptor:
                       code: bpp_terms
                     list:
@@ -6046,7 +6211,7 @@ x-flows:
                       code: P2H2P
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     state:
                       descriptor:
                         code: Pending
@@ -6089,14 +6254,14 @@ x-flows:
                               code: ready_to_ship
                             value: 'yes'
                           - descriptor:
-                              code: ''
+                              code: awb_no
                             value: '1227262193237777'
                 tags:
                   - descriptor:
                       code: Package_Weight
                     list:
                       - descriptor:
-                          code: UNIT
+                          code: Unit
                         value: kilogram
                       - descriptor:
                           code: Value
@@ -6105,7 +6270,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -6120,13 +6285,13 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: CATEGORY
+                          code: Category
                         value: Grocery
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                       - descriptor:
-                          code: stackable
+                          code: Stackable
                         value: 'true'
                       - descriptor:
                           code: Shipment_Value
@@ -6142,13 +6307,10 @@ x-flows:
                         value: 'true'
                       - descriptor:
                           code: Temp_Unit
-                        value: Celcius
+                        value: Celsius
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
-                      - descriptor:
-                          code: Packaging
-                        value: Barrels
                 updated_at: '2023-02-06T22:00:30.000Z'
       - summary: Seller Accepts PO
         api: on_update
@@ -6230,7 +6392,7 @@ x-flows:
                   ttl: PT15M
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     state:
                       descriptor:
                         code: Pending
@@ -6323,7 +6485,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -6351,7 +6513,7 @@ x-flows:
                       code: Package_Weight
                     list:
                       - descriptor:
-                          code: UNIT
+                          code: Unit
                         value: kilogram
                       - descriptor:
                           code: Value
@@ -6360,7 +6522,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -6375,13 +6537,13 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: CATEGORY
+                          code: Category
                         value: Grocery
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                       - descriptor:
-                          code: stackable
+                          code: Stackable
                         value: 'true'
                       - descriptor:
                           code: Shipment_Value
@@ -6400,18 +6562,15 @@ x-flows:
                         value: 'true'
                       - descriptor:
                           code: Temp_Unit
-                        value: Celcius
+                        value: Celsius
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
-                      - descriptor:
-                          code: Packaging
-                        value: Barrels
                   - descriptor:
                       code: Package_Dimensions_Diff
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -6513,7 +6672,7 @@ x-flows:
                   ttl: PT15M
                 fulfillments:
                   - id: '1'
-                    type: DELIVERY
+                    type: Delivery
                     state:
                       descriptor:
                         code: Pickup-approved
@@ -6609,7 +6768,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -6649,7 +6808,7 @@ x-flows:
                       code: Package_Dimensions
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -6664,7 +6823,7 @@ x-flows:
                       code: Package_Details
                     list:
                       - descriptor:
-                          code: category
+                          code: Category
                         value: Grocery
                       - descriptor:
                           code: UNIT_PRICE
@@ -6673,7 +6832,7 @@ x-flows:
                           code: ITEM_PRICE
                         value: '100000'
                       - descriptor:
-                          code: dangerous_goods
+                          code: Dangerous_Goods
                         value: 'true'
                   - descriptor:
                       code: Quantity_Diff
@@ -6691,7 +6850,7 @@ x-flows:
                       code: Package_Dimensions_Diff
                     list:
                       - descriptor:
-                          code: unit
+                          code: Unit
                         value: centimeter
                       - descriptor:
                           code: Length
@@ -6753,13 +6912,13 @@ x-examples:
                       days: 1,2,3,4,5,6,7
                       schedule:
                         holidays:
-                          - '2022-08-15'
-                          - '2022-08-19'
+                          - '2023-10-18'
+                          - '2023-10-19'
                       range:
                         start: '1100'
                         end: '2100'
                   fulfillments:
-                    type: DELIVERY
+                    type: Delivery
                     stops:
                       - id: L1
                         parent_stop_id: ''
@@ -6779,7 +6938,7 @@ x-examples:
                           area_code: '636806'
                   payment:
                     collected_by: BPP
-                    type: ON-FULFILMENT
+                    type: ON-FULFILLMENT
                     params:
                       amount: '20000'
                       currency: INR
@@ -6788,7 +6947,7 @@ x-examples:
                         code: Package_Weight
                       list:
                         - descriptor:
-                            code: UNIT
+                            code: Unit
                           value: kilogram
                         - descriptor:
                             code: Value
@@ -6797,7 +6956,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -6812,13 +6971,13 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: CATEGORY
+                            code: Category
                           value: Grocery
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                         - descriptor:
-                            code: stackable
+                            code: Stackable
                           value: 'true'
                         - descriptor:
                             code: Shipment_Value
@@ -6834,13 +6993,10 @@ x-examples:
                           value: 'true'
                         - descriptor:
                             code: Temp_Unit
-                          value: Celcius
+                          value: Celsius
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
-                        - descriptor:
-                            code: Packaging
-                          value: Barrels
           - summary: Return the fulfillment types
             description: Return the fulfillment types
             value:
@@ -6869,13 +7025,13 @@ x-examples:
                       days: 1,2,3,4,5,6,7
                       schedule:
                         holidays:
-                          - '2022-08-15'
-                          - '2022-08-19'
+                          - '2023-10-18'
+                          - '2023-10-19'
                       range:
                         start: '1100'
                         end: '2100'
                   fulfillments:
-                    type: DELIVERY
+                    type: Delivery
                     stops:
                       - id: L1
                         parent_stop_id: ''
@@ -6895,7 +7051,7 @@ x-examples:
                           area_code: '636806'
                   payment:
                     collected_by: BPP
-                    type: ON-FULFILMENT
+                    type: ON-FULFILLMENT
                     params:
                       amount: '20000'
                       currency: INR
@@ -6904,7 +7060,7 @@ x-examples:
                         code: Package_Weight
                       list:
                         - descriptor:
-                            code: UNIT
+                            code: Unit
                           value: kilogram
                         - descriptor:
                             code: Value
@@ -6913,7 +7069,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -6928,13 +7084,13 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: CATEGORY
+                            code: Category
                           value: Grocery
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                         - descriptor:
-                            code: stackable
+                            code: Stackable
                           value: 'true'
                         - descriptor:
                             code: Shipment_Value
@@ -6950,13 +7106,10 @@ x-examples:
                           value: 'true'
                         - descriptor:
                             code: Temp_Unit
-                          value: Celcius
+                          value: Celsius
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
-                        - descriptor:
-                            code: Packaging
-                          value: Barrels
       init:
         examples:
           - summary: Return the fulfillment types
@@ -6996,7 +7149,7 @@ x-examples:
                         code: P2H2P
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       stops:
                         - type: start
                           location:
@@ -7038,7 +7191,7 @@ x-examples:
                       timestamp: '2023-10-17T21:11:00.000Z'
                   payment:
                     collected_by: BPP
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -7098,7 +7251,7 @@ x-examples:
                         code: P2H2P
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       stops:
                         - type: start
                           location:
@@ -7140,7 +7293,7 @@ x-examples:
                       timestamp: '2023-10-17T21:11:00.000Z'
                   payment:
                     collected_by: BPP
-                    type: PRE-FULFILMENT
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: settlement_details
@@ -7222,7 +7375,7 @@ x-examples:
                     ttl: PT15M
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       agent:
                         person:
                           name: Ramu
@@ -7283,7 +7436,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -7311,7 +7464,7 @@ x-examples:
                         code: Package_Weight
                       list:
                         - descriptor:
-                            code: UNIT
+                            code: Unit
                           value: kilogram
                         - descriptor:
                             code: Value
@@ -7320,7 +7473,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -7335,13 +7488,13 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: CATEGORY
+                            code: Category
                           value: Grocery
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                         - descriptor:
-                            code: stackable
+                            code: Stackable
                           value: 'true'
                         - descriptor:
                             code: Shipment_Value
@@ -7357,7 +7510,7 @@ x-examples:
                           value: 'true'
                         - descriptor:
                             code: Temp_Unit
-                          value: Celcius
+                          value: Celsius
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
@@ -7433,7 +7586,7 @@ x-examples:
                         code: P2H2P
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       agent:
                         person:
                           name: Ramu
@@ -7514,7 +7667,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -7542,7 +7695,7 @@ x-examples:
                         code: Package_Weight
                       list:
                         - descriptor:
-                            code: UNIT
+                            code: Unit
                           value: kilogram
                         - descriptor:
                             code: Value
@@ -7551,7 +7704,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -7566,13 +7719,13 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: CATEGORY
+                            code: Category
                           value: Grocery
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                         - descriptor:
-                            code: stackable
+                            code: Stackable
                           value: 'true'
                         - descriptor:
                             code: Shipment_Value
@@ -7588,7 +7741,7 @@ x-examples:
                           value: 'true'
                         - descriptor:
                             code: Temp_Unit
-                          value: Celcius
+                          value: Celsius
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
@@ -7667,7 +7820,7 @@ x-examples:
                         code: P2H2P
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       state:
                         descriptor:
                           code: Pending
@@ -7717,7 +7870,7 @@ x-examples:
                         code: Package_Weight
                       list:
                         - descriptor:
-                            code: UNIT
+                            code: Unit
                           value: kilogram
                         - descriptor:
                             code: Value
@@ -7726,7 +7879,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -7741,13 +7894,13 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: CATEGORY
+                            code: Category
                           value: Grocery
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                         - descriptor:
-                            code: stackable
+                            code: Stackable
                           value: 'true'
                         - descriptor:
                             code: Shipment_Value
@@ -7763,7 +7916,7 @@ x-examples:
                           value: 'true'
                         - descriptor:
                             code: Temp_Unit
-                          value: Celcius
+                          value: Celsius
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
@@ -7811,7 +7964,7 @@ x-examples:
                         code: P2H2P
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       state:
                         descriptor:
                           code: Pending
@@ -7854,14 +8007,14 @@ x-examples:
                                 code: ready_to_ship
                               value: 'yes'
                             - descriptor:
-                                code: ''
+                                code: awb_no
                               value: '1227262193237777'
                   tags:
                     - descriptor:
                         code: Package_Weight
                       list:
                         - descriptor:
-                            code: UNIT
+                            code: Unit
                           value: kilogram
                         - descriptor:
                             code: Value
@@ -7870,7 +8023,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -7885,13 +8038,13 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: CATEGORY
+                            code: Category
                           value: Grocery
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                         - descriptor:
-                            code: stackable
+                            code: Stackable
                           value: 'true'
                         - descriptor:
                             code: Shipment_Value
@@ -7907,13 +8060,10 @@ x-examples:
                           value: 'true'
                         - descriptor:
                             code: Temp_Unit
-                          value: Celcius
+                          value: Celsius
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
-                        - descriptor:
-                            code: Packaging
-                          value: Barrels
                   updated_at: '2023-02-06T22:00:30.000Z'
       status:
         examples:
@@ -7979,7 +8129,7 @@ x-examples:
                             value: '2023-10-01T00:00:00.000Z'
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                     - id: '2'
                       type: RTO
                   providers:
@@ -8133,7 +8283,7 @@ x-examples:
                             value: '2023-10-01T00:00:00.000Z'
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                     - id: '2'
                       type: RTO
                   providers:
@@ -8284,7 +8434,7 @@ x-examples:
                         - R1
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       stops:
                         - type: start
                           location:
@@ -8332,6 +8482,52 @@ x-examples:
                           currency: INR
                           value: '500.0'
                     ttl: PT15M
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '0.0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Out-for-pickup
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '500.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: In-transit
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '700.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: At-destination-hub
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '1000.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Out-for-delivery
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '4000.00'
                   payments:
                     - id: P1
                       collected_by: BPP
@@ -8340,7 +8536,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                        type: PRE-FULFILMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -8414,7 +8610,7 @@ x-examples:
                         - A1
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       stops:
                         - type: start
                           location:
@@ -8462,6 +8658,52 @@ x-examples:
                           currency: INR
                           value: '500.0'
                     ttl: PT15M
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '0.0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Out-for-pickup
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '500.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: In-transit
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '700.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: At-destination-hub
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '1000.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Out-for-delivery
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '4000.00'
                   payments:
                     - id: P1
                       collected_by: BPP
@@ -8470,7 +8712,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -8568,7 +8810,7 @@ x-examples:
                     ttl: PT15M
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       state:
                         descriptor:
                           code: Pending
@@ -8632,6 +8874,52 @@ x-examples:
                             - descriptor:
                                 code: rto_action
                               value: 'no'
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '0.0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Out-for-pickup
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '500.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: In-transit
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '700.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: At-destination-hub
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '1000.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Out-for-delivery
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '4000.00'
                   billing:
                     name: ONDC sellerapp
                     address: My house or building name
@@ -8648,7 +8936,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -8688,7 +8976,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -8706,7 +8994,7 @@ x-examples:
                             code: IEC
                           value: xxxxxxxxxxxx
                         - descriptor:
-                            code: category
+                            code: Category
                           value: Grocery
                         - descriptor:
                             code: UNIT_PRICE
@@ -8715,7 +9003,7 @@ x-examples:
                             code: ITEM_PRICE
                           value: '100000'
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                   created_at: '2023-10-17T21:12:00.710Z'
                   updated_at: '2023-10-17T21:12:30.710Z'
@@ -8776,7 +9064,7 @@ x-examples:
                     ttl: PT15M
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       state:
                         descriptor:
                           code: Pending
@@ -8836,16 +9124,52 @@ x-examples:
                             range:
                               start: '2023-02-14T22:30:00.000Z'
                               end: '2023-02-14T22:45:00.000Z'
-                      tags:
-                        - descriptor:
-                            code: DELIVERY_TERMS
-                          list:
-                            - descriptor:
-                                code: ready_to_ship
-                              value: 'no'
-                            - descriptor:
-                                code: rto_action
-                              value: 'no'
+                  cancellation_terms:
+                    - fulfillment_state:
+                        descriptor:
+                          code: Pending
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '0.0'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Out-for-pickup
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '500.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: In-transit
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '700.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: At-destination-hub
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '1000.00'
+                    - fulfillment_state:
+                        descriptor:
+                          code: Out-for-delivery
+                          short_desc: ''
+                      reason_required: false
+                      cancellation_fee:
+                        amount:
+                          currency: INR
+                          value: '4000.00'
                   billing:
                     name: ONDC sellerapp
                     address: My house or building name
@@ -8864,7 +9188,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -8892,7 +9216,7 @@ x-examples:
                         code: Package_Weight
                       list:
                         - descriptor:
-                            code: UNIT
+                            code: Unit
                           value: kilogram
                         - descriptor:
                             code: Value
@@ -8901,7 +9225,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -8916,13 +9240,13 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: CATEGORY
+                            code: Category
                           value: Grocery
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                         - descriptor:
-                            code: stackable
+                            code: Stackable
                           value: 'true'
                         - descriptor:
                             code: Shipment_Value
@@ -8938,13 +9262,10 @@ x-examples:
                           value: 'true'
                         - descriptor:
                             code: Temp_Unit
-                          value: Celcius
+                          value: Celsius
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
-                        - descriptor:
-                            code: Packaging
-                          value: Barrels
                     - descriptor:
                         code: bpp_terms
                       list:
@@ -9048,7 +9369,7 @@ x-examples:
                     ttl: PT15M
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       state:
                         descriptor:
                           code: Pickup-approved
@@ -9144,7 +9465,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -9184,7 +9505,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -9199,7 +9520,7 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: category
+                            code: Category
                           value: Grocery
                         - descriptor:
                             code: UNIT_PRICE
@@ -9208,7 +9529,7 @@ x-examples:
                             code: ITEM_PRICE
                           value: '100000'
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                     - descriptor:
                         code: Quantity_Diff
@@ -9226,7 +9547,7 @@ x-examples:
                         code: Package_Dimensions_Diff
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -9316,7 +9637,7 @@ x-examples:
                     ttl: PT15M
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       state:
                         descriptor:
                           code: Pickup-approved
@@ -9412,7 +9733,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -9452,7 +9773,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -9467,7 +9788,7 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: category
+                            code: Category
                           value: Grocery
                         - descriptor:
                             code: UNIT_PRICE
@@ -9476,7 +9797,7 @@ x-examples:
                             code: ITEM_PRICE
                           value: '100000'
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                     - descriptor:
                         code: Quantity_Diff
@@ -9494,7 +9815,7 @@ x-examples:
                         code: Package_Dimensions_Diff
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -9590,7 +9911,7 @@ x-examples:
                     ttl: PT15M
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       state:
                         descriptor:
                           code: Pending
@@ -9679,7 +10000,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -9707,7 +10028,7 @@ x-examples:
                         code: Package_Weight
                       list:
                         - descriptor:
-                            code: UNIT
+                            code: Unit
                           value: kilogram
                         - descriptor:
                             code: Value
@@ -9716,7 +10037,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -9731,13 +10052,13 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: CATEGORY
+                            code: Category
                           value: Grocery
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                         - descriptor:
-                            code: stackable
+                            code: Stackable
                           value: 'true'
                         - descriptor:
                             code: Shipment_Value
@@ -9753,7 +10074,7 @@ x-examples:
                           value: 'true'
                         - descriptor:
                             code: Temp_Unit
-                          value: Celcius
+                          value: Celsius
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
@@ -9834,7 +10155,7 @@ x-examples:
                     ttl: PT15M
                   fulfillments:
                     - id: '1'
-                      type: DELIVERY
+                      type: Delivery
                       state:
                         descriptor:
                           code: Pending
@@ -9927,7 +10248,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
                             code: settlement_details
@@ -9955,7 +10276,7 @@ x-examples:
                         code: Package_Weight
                       list:
                         - descriptor:
-                            code: UNIT
+                            code: Unit
                           value: kilogram
                         - descriptor:
                             code: Value
@@ -9964,7 +10285,7 @@ x-examples:
                         code: Package_Dimensions
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length
@@ -9979,13 +10300,13 @@ x-examples:
                         code: Package_Details
                       list:
                         - descriptor:
-                            code: CATEGORY
+                            code: Category
                           value: Grocery
                         - descriptor:
-                            code: dangerous_goods
+                            code: Dangerous_Goods
                           value: 'true'
                         - descriptor:
-                            code: stackable
+                            code: Stackable
                           value: 'true'
                         - descriptor:
                             code: Shipment_Value
@@ -10004,18 +10325,15 @@ x-examples:
                           value: 'true'
                         - descriptor:
                             code: Temp_Unit
-                          value: Celcius
+                          value: Celsius
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
-                        - descriptor:
-                            code: Packaging
-                          value: Barrels
                     - descriptor:
                         code: Package_Dimensions_Diff
                       list:
                         - descriptor:
-                            code: unit
+                            code: Unit
                           value: centimeter
                         - descriptor:
                             code: Length

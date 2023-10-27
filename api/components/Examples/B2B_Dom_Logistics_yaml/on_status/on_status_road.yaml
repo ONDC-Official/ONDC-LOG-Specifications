@@ -69,7 +69,7 @@ value:
         ttl: PT15M
       fulfillments:
         - id: '1'
-          type: DELIVERY
+          type: Delivery
           state:
             descriptor:
               code: Pickup-approved
@@ -165,7 +165,7 @@ value:
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
-          type: PRE-FULFILMENT
+          type: PRE-FULFILLMENT
           tags:
             - descriptor:
                 code: settlement_details
@@ -205,7 +205,7 @@ value:
             code: Package_Dimensions
           list:
             - descriptor:
-                code: unit
+                code: Unit
               value: centimeter
             - descriptor:
                 code: Length
@@ -220,7 +220,7 @@ value:
             code: Package_Details
           list:
             - descriptor:
-                code: category
+                code: Category
               value: Grocery
             - descriptor:
                 code: UNIT_PRICE
@@ -229,7 +229,7 @@ value:
                 code: ITEM_PRICE
               value: '100000'
             - descriptor:
-                code: dangerous_goods
+                code: Dangerous_Goods
               value: 'true'
         - descriptor:
             code: Quantity_Diff
@@ -247,7 +247,7 @@ value:
             code: Package_Dimensions_Diff
           list:
             - descriptor:
-                code: unit
+                code: Unit
               value: centimeter
             - descriptor:
                 code: Length
