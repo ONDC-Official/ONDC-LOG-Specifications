@@ -52,7 +52,7 @@
                         "item": {
                             "id": "I1"
                         },
-                        "title": "Origin Charges",
+                        "title": "Origin",
                         "price": {
                             "currency": "INR",
                             "value": "2000.0"
@@ -62,7 +62,7 @@
                         "item": {
                             "id": "I1"
                         },
-                        "title": "Freight Charges",
+                        "title": "Freight",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -72,7 +72,7 @@
                         "item": {
                             "id": "I1"
                         },
-                        "title": "Destination Charges",
+                        "title": "Destination",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -82,7 +82,17 @@
                         "item": {
                             "id": "I1"
                         },
-                        "title": "Custom Clearance Service Charges",
+                        "title": "Clearance_Service_Origin",
+                        "price": {
+                            "currency": "INR",
+                            "value": "500.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I1"
+                        },
+                        "title": "Clearance_Service_Destination",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -223,6 +233,113 @@
                             ]
                         }
                     ]
+                }
+            ],
+            "cancellation_terms": [
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Pending",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "0.0"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Pickup-approved",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "0.0"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "At-domestic-hub",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "500"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Custom-cleared-domestic",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "700"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Shipped",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "1000"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Shipped",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "1000"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Reached-destination-country",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "5000"
+                        }
+                    }
                 }
             ],
             "billing": {

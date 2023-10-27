@@ -57,7 +57,7 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Origin Charges",
+                        "title": "Origin",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -67,7 +67,7 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Freight Charges",
+                        "title": "Freight",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -77,7 +77,7 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Destination Charges",
+                        "title": "Destination",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -87,7 +87,17 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Custom Clearance Service Charges",
+                        "title": "Clearance_Service_Origin",
+                        "price": {
+                            "currency": "INR",
+                            "value": "500.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I3"
+                        },
+                        "title": "Clearance_Service_Destination",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -423,12 +433,6 @@
                       "code": "Temp_Range"
                     },
                     "value": "-18"
-                  },
-                  {
-                    "descriptor": {
-                      "code": "Packaging"
-                    },
-                    "value": "Barrels"
                   }
                 ]
               },

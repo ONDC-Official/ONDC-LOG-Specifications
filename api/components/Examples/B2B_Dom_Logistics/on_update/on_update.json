@@ -405,12 +405,6 @@
                                 "code": "Temp_Range"
                             },
                             "value": "-18"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Packaging"
-                            },
-                            "value": "Barrels"
                         }
                     ]
                 },
