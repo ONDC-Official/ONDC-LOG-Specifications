@@ -116,7 +116,7 @@
             "fulfillments": [
                 {
                     "id": "1",
-                    "type": "DELIVERY",
+                    "type": "Delivery",
                     "state": {
                         "descriptor": {
                             "code": "Pending"
@@ -400,7 +400,7 @@
                     "list": [
                         {
                             "descriptor": {
-                                "code": "unit"
+                                "code": "Unit"
                             },
                             "value": "centimeter"
                         },
@@ -431,7 +431,7 @@
                     "list": [
                         {
                             "descriptor": {
-                                "code": "category"
+                                "code": "Category"
                             },
                             "value": "Grocery"
                         },
@@ -449,7 +449,7 @@
                         },
                         {
                             "descriptor": {
-                                "code": "dangerous_goods"
+                                "code": "Dangerous_Goods"
                             },
                             "value": "true"
                         }
@@ -487,7 +487,7 @@
                     "list": [
                         {
                             "descriptor": {
-                                "code": "unit"
+                                "code": "Unit"
                             },
                             "value": "centimeter"
                         },

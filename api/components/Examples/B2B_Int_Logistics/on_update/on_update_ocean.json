@@ -57,7 +57,7 @@
                         "item": {
                             "id": "I1"
                         },
-                        "title": "Origin Charges",
+                        "title": "Origin",
                         "price": {
                             "currency": "INR",
                             "value": "2000.0"
@@ -67,7 +67,7 @@
                         "item": {
                             "id": "I1"
                         },
-                        "title": "Freight Charges",
+                        "title": "Freight",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -77,7 +77,7 @@
                         "item": {
                             "id": "I1"
                         },
-                        "title": "Destination Charges",
+                        "title": "Destination",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -87,7 +87,17 @@
                         "item": {
                             "id": "I1"
                         },
-                        "title": "Custom Clearance Service Charges",
+                        "title": "Clearance_Service_Origin",
+                        "price": {
+                            "currency": "INR",
+                            "value": "500.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I1"
+                        },
+                        "title": "Clearance_Service_Destination",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -109,7 +119,7 @@
             "fulfillments": [
                 {
                     "id": "1",
-                    "type": "DELIVERY",
+                    "type": "Delivery",
                     "state": {
                         "descriptor": {
                             "code": "Pending"
@@ -259,7 +269,7 @@
                     "bank_account_number": "xxxxxxxx",
                     "virtual_payment_address": "xxx@xxxx"
                 },
-                "type": "PRE-FULFILMENT",
+                "type": "PRE-FULFILLMENT",
                 "tags": [
                     {
                         "descriptor": {
@@ -315,7 +325,7 @@
                 "list": [
                   {
                     "descriptor": {
-                      "code": "UNIT"
+                      "code": "Unit"
                     },
                     "value": "kilogram"
                   },
@@ -334,7 +344,7 @@
                 "list": [
                   {
                     "descriptor": {
-                      "code": "unit"
+                      "code": "Unit"
                     },
                     "value": "centimeter"
                   },
@@ -365,19 +375,19 @@
                 "list": [
                   {
                     "descriptor": {
-                      "code": "CATEGORY"
+                      "code": "Category"
                     },
                     "value": "Grocery"
                   },
                   {
                     "descriptor": {
-                      "code": "dangerous_goods"
+                      "code": "Dangerous_Goods"
                     },
                     "value": "true"
                   },
                   {
                     "descriptor": {
-                      "code": "stackable"
+                      "code": "Stackable"
                     },
                     "value": "true"
                   },
@@ -416,7 +426,7 @@
                     "descriptor": {
                       "code": "Temp_Unit"
                     },
-                    "value": "Celcius"
+                    "value": "Celsius"
                   },
                   {
                     "descriptor": {
@@ -439,7 +449,7 @@
                   "list": [
                       {
                           "descriptor": {
-                              "code": "unit"
+                              "code": "Unit"
                           },
                           "value": "centimeter"
                       },

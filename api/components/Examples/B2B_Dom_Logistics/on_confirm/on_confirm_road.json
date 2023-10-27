@@ -77,7 +77,7 @@
             "fulfillments": [
                 {
                     "id": "1",
-                    "type": "DELIVERY",
+                    "type": "Delivery",
                     "state": {
                         "descriptor": {
                             "code": "Pending"
@@ -177,6 +177,84 @@
                     ]
                 }
             ],
+            "cancellation_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Pending",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "0.0"
+                    }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Out-for-pickup",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "500.00"
+                    }
+                  }
+                },
+        
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "In-transit",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "700.00"
+                    }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "At-destination-hub",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "1000.00"
+                    }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Out-for-delivery",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "4000.00"
+                    }
+                  }
+                }
+              ],
             "billing": {
                 "name": "ONDC sellerapp",
                 "address": "My house or building name",
@@ -196,7 +274,7 @@
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"
                     },
-                    "type": "PRE-FULFILMENT",
+                    "type": "PRE-FULFILLMENT",
                     "tags": [
                         {
                             "descriptor": {
@@ -277,7 +355,7 @@
                     "list": [
                         {
                             "descriptor": {
-                                "code": "unit"
+                                "code": "Unit"
                             },
                             "value": "centimeter"
                         },
@@ -314,7 +392,7 @@
                         },
                         {
                             "descriptor": {
-                                "code": "category"
+                                "code": "Category"
                             },
                             "value": "Grocery"
                         },
@@ -332,7 +410,7 @@
                         },
                         {
                             "descriptor": {
-                                "code": "dangerous_goods"
+                                "code": "Dangerous_Goods"
                             },
                             "value": "true"
                         }

@@ -40,7 +40,7 @@
             "fulfillments": [
                 {
                     "id": "1",
-                    "type": "DELIVERY",
+                    "type": "Delivery",
                     "stops": [
                         {
                             "type": "start",
@@ -116,7 +116,7 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Origin Charges",
+                        "title": "Origin",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -126,7 +126,7 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Freight Charges",
+                        "title": "Freight",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -136,7 +136,7 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Destination Charges",
+                        "title": "Destination",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -146,7 +146,17 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Custom Clearance Service Charges",
+                        "title": "Custom_Clearance_Service_Origin",
+                        "price": {
+                            "currency": "INR",
+                            "value": "500.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I3"
+                        },
+                        "title": "Custom_Clearance_Service_Destination",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -165,6 +175,113 @@
                 ],
                 "ttl": "PT15M"
             },
+            "cancellation_terms": [
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Pending",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "0.0"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Pickup-approved",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "0.0"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "At-domestic-hub",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "500"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Custom-cleared-domestic",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "700"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Shipped",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "1000"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Shipped",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "1000"
+                        }
+                    }
+                },
+                {
+                    "fulfillment_state": {
+                        "descriptor": {
+                            "code": "Reached-destination-country",
+                            "short_desc": ""
+                        }
+                    },
+                    "reason_required": false,
+                    "cancellation_fee": {
+                        "amount": {
+                            "currency": "INR",
+                            "value": "5000"
+                        }
+                    }
+                }
+            ],
             "payments": [{
                 "id": "P1",
                 "collected_by": "BPP",
@@ -174,11 +291,11 @@
                     "bank_account_number": "xxxxxxxx",
                     "virtual_payment_address": "xxx@xxxx"
                 },
-                "type": "PRE-FULFILMENT",
+                "type": "PRE-FULFILLMENT",
                 "tags": [
                     {
                         "descriptor": {
-                            "code": "settlement_details"
+                            "code": "SETTLEMENT_DETAILS"
                         },
                         "list": [
                             {

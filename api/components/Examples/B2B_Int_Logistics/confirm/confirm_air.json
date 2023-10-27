@@ -50,7 +50,7 @@
             "fulfillments": [
                 {
                     "id": "1",
-                    "type": "DELIVERY",
+                    "type": "Delivery",
                     "stops": [
                         {
                             "id": "L1",
@@ -138,7 +138,7 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Origin Charges",
+                        "title": "Origin",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -148,7 +148,7 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Freight Charges",
+                        "title": "Freight",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -158,7 +158,7 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Destination Charges",
+                        "title": "Destination",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -168,12 +168,22 @@
                         "item": {
                             "id": "I3"
                         },
-                        "title": "Custom Clearance Service Charges",
+                        "title": "Clearance_Service_Origin",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
                         }
                     },
+                    {
+                      "item": {
+                          "id": "I3"
+                      },
+                      "title": "Clearance_Service_Destination",
+                      "price": {
+                          "currency": "INR",
+                          "value": "500.0"
+                      }
+                  },
                     {
                         "item": {
                             "id": "I3"
@@ -209,11 +219,11 @@
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"
                     },
-                    "type": "PRE-FULFILMENT",
+                    "type": "PRE-FULFILLMENT",
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "settlement_details"
+                                "code": "SETTLEMENT_DETAILS"
                             },
                             "list": [
                                 {
@@ -265,7 +275,7 @@
                     "list": [
                       {
                         "descriptor": {
-                          "code": "UNIT"
+                          "code": "Unit"
                         },
                         "value": "kilogram"
                       },
@@ -284,7 +294,7 @@
                     "list": [
                       {
                         "descriptor": {
-                          "code": "unit"
+                          "code": "Unit"
                         },
                         "value": "centimeter"
                       },
@@ -315,19 +325,19 @@
                     "list": [
                       {
                         "descriptor": {
-                          "code": "CATEGORY"
+                          "code": "Category"
                         },
                         "value": "Grocery"
                       },
                       {
                         "descriptor": {
-                          "code": "dangerous_goods"
+                          "code": "Dangerous_Goods"
                         },
                         "value": "true"
                       },
                       {
                         "descriptor": {
-                          "code": "stackable"
+                          "code": "Stackable"
                         },
                         "value": "true"
                       },
@@ -366,19 +376,13 @@
                         "descriptor": {
                           "code": "Temp_Unit"
                         },
-                        "value": "Celcius"
+                        "value": "Celsius"
                       },
                       {
                         "descriptor": {
                           "code": "Temp_Range"
                         },
                         "value": "-18"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Packaging"
-                        },
-                        "value": "Barrels"
                       }
                     ]
                   },

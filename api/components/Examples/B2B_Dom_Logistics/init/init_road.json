@@ -43,7 +43,7 @@
             "fulfillments": [
                 {
                     "id": "1",
-                    "type": "DELIVERY",
+                    "type": "Delivery",
                     "stops": [
                         {   
                             "type": "start",
@@ -104,7 +104,7 @@
             },
             "payment": {
                 "collected_by": "BPP",
-                "type": "PRE-FULFILMENT",
+                "type": "PRE-FULFILLMENT",
                 "tags": [
                     {
                         "descriptor": {
