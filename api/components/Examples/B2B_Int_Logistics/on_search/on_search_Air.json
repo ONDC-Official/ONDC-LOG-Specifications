@@ -57,7 +57,7 @@
       "fulfillments": [
         {
           "id": "1",
-          "type": "DELIVERY"
+          "type": "Delivery"
         },
         {
           "id": "2",

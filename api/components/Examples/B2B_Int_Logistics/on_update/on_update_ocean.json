@@ -119,7 +119,7 @@
             "fulfillments": [
                 {
                     "id": "1",
-                    "type": "DELIVERY",
+                    "type": "Delivery",
                     "state": {
                         "descriptor": {
                             "code": "Pending"
@@ -269,7 +269,7 @@
                     "bank_account_number": "xxxxxxxx",
                     "virtual_payment_address": "xxx@xxxx"
                 },
-                "type": "PRE-FULFILMENT",
+                "type": "PRE-FULFILLMENT",
                 "tags": [
                     {
                         "descriptor": {
@@ -325,7 +325,7 @@
                 "list": [
                   {
                     "descriptor": {
-                      "code": "UNIT"
+                      "code": "Unit"
                     },
                     "value": "kilogram"
                   },
@@ -344,7 +344,7 @@
                 "list": [
                   {
                     "descriptor": {
-                      "code": "unit"
+                      "code": "Unit"
                     },
                     "value": "centimeter"
                   },
@@ -375,19 +375,19 @@
                 "list": [
                   {
                     "descriptor": {
-                      "code": "CATEGORY"
+                      "code": "Category"
                     },
                     "value": "Grocery"
                   },
                   {
                     "descriptor": {
-                      "code": "dangerous_goods"
+                      "code": "Dangerous_Goods"
                     },
                     "value": "true"
                   },
                   {
                     "descriptor": {
-                      "code": "stackable"
+                      "code": "Stackable"
                     },
                     "value": "true"
                   },
@@ -426,7 +426,7 @@
                     "descriptor": {
                       "code": "Temp_Unit"
                     },
-                    "value": "Celcius"
+                    "value": "Celsius"
                   },
                   {
                     "descriptor": {
@@ -449,7 +449,7 @@
                   "list": [
                       {
                           "descriptor": {
-                              "code": "unit"
+                              "code": "Unit"
                           },
                           "value": "centimeter"
                       },

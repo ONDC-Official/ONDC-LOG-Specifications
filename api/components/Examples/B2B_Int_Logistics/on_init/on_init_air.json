@@ -40,7 +40,7 @@
             "fulfillments": [
                 {
                     "id": "1",
-                    "type": "DELIVERY",
+                    "type": "Delivery",
                     "stops": [
                         {
                             "type": "start",
@@ -291,7 +291,7 @@
                     "bank_account_number": "xxxxxxxx",
                     "virtual_payment_address": "xxx@xxxx"
                 },
-                "type": "PRE-FULFILMENT",
+                "type": "PRE-FULFILLMENT",
                 "tags": [
                     {
                         "descriptor": {

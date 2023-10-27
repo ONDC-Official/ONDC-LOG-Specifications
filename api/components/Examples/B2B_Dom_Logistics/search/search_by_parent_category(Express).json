@@ -30,8 +30,8 @@
           "days": "1,2,3,4,5,6,7",
           "schedule": {
             "holidays": [
-              "2022-08-15",
-              "2022-08-19"
+              "2023-10-18",
+              "2023-10-19"
             ]
           },
           "range": {
@@ -41,7 +41,7 @@
         }
       },
       "fulfillments": {
-        "type": "DELIVERY",
+        "type": "Delivery",
         "stops": [
           {
             "id": "L1",
@@ -71,7 +71,7 @@
       },
       "payment": {
         "collected_by": "BPP",
-        "type": "ON-FULFILMENT",
+        "type": "ON-FULFILLMENT",
         "params": {
           "amount": "20000",
           "currency": "INR"
@@ -85,7 +85,7 @@
           "list": [
             {
               "descriptor": {
-                "code": "UNIT"
+                "code": "Unit"
               },
               "value": "kilogram"
             },
@@ -104,7 +104,7 @@
           "list": [
             {
               "descriptor": {
-                "code": "unit"
+                "code": "Unit"
               },
               "value": "centimeter"
             },
@@ -135,19 +135,19 @@
           "list": [
             {
               "descriptor": {
-                "code": "CATEGORY"
+                "code": "Category"
               },
               "value": "Grocery"
             },
             {
               "descriptor": {
-                "code": "dangerous_goods"
+                "code": "Dangerous_Goods"
               },
               "value": "true"
             },
             {
               "descriptor": {
-                "code": "stackable"
+                "code": "Stackable"
               },
               "value": "true"
             },
@@ -180,7 +180,7 @@
               "descriptor": {
                 "code": "Temp_Unit"
               },
-              "value": "Celcius"
+              "value": "Celsius"
             },
             {
               "descriptor": {
