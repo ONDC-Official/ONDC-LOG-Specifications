@@ -4,3 +4,5 @@
 # - $ref: "./B2B_prepaid_BPP/index.yaml"
 # - $ref: "./B2B_prepaid_BAP/index.yaml"
 - $ref: "./B2B_domestic_air/index.yaml"
+- $ref: "./B2B_int_air/index.yaml"
+- $ref: "./B2B_int_ocean/index.yaml"

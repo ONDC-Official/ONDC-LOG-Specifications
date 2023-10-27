@@ -1,0 +1,64 @@
+summary: B2B International Ocean
+description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
+reference: if any
+steps:
+  - summary: Search based on the category
+    api: search
+    description: Search intent sent by the buyer based on the category
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/search/search_Ocean_Cargo.yaml"
+  - summary: Returns item/ catalog
+    api: on_search
+    description: Catalog provided by the Seller App 
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_search/on_search_ocean.yaml"
+  # - summary: Select the item
+  #   api: select
+  #   description: Buyer selects an item 
+  #   reference: if any
+  #   example:
+  #     $ref: "../../Examples/B2B_Int_Logistics_yaml/select/select_domestic.yaml"
+  # - summary: Returns item breakup
+  #   api: on_select
+  #   description: Seller app provides the quote for the selected items
+  #   reference: if any
+  #   example:
+  #     $ref: "../../Examples/B2B_Int_Logistics_yaml/on_select/on_select.yaml"
+  - summary: Requests for Quotation
+    api: init
+    description: Buyer requests for quotation for the selected item with all the customizations and the quantity of items required
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/init/init_ocean.yaml"
+  - summary: Responds to Quotation
+    api: on_init
+    description: Seller provides the final quotation and breakup with logistics charges
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_init/on_init_ocean.yaml"
+  - summary: Buyer raises PO
+    api: confirm
+    description: Buyer receives the quotation and once agreed to go ahead with the quotation received, creates a PO and sends the PO
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/confirm/confirm_ocean.yaml"
+  - summary: Seller Accepts PO
+    api: on_confirm
+    description: Seller app sends an on_confirm call to the buyer app relaying the PO acceptance.
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_confirm/on_confirm_ocean.yaml"
+  - summary: Buyer update PO
+    api: update
+    description: Buyer update the PO
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/update/update_ocean.yaml"
+  - summary: Seller Accepts PO
+    api: on_update
+    description: Seller app sends an on_update call to the buyer app relaying the PO acceptance.
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_update/on_update_ocean.yaml"   

@@ -6871,6 +6871,3453 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-02-06T22:00:30.000Z'
+  - summary: B2B International Air
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order bulk items
+    reference: if any
+    steps:
+      - summary: Search based on the category
+        api: search
+        description: Search intent sent by the buyer based on the category
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGS
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: search
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-10-17T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              intent:
+                category:
+                  descriptor:
+                    code: AIR_CARGO
+                provider:
+                  time:
+                    days: 1,2,3,4,5,6,7
+                    schedule:
+                      holidays:
+                        - '2023-10-18'
+                        - '2023-10-19'
+                    range:
+                      start: '1100'
+                      end: '2100'
+                fulfillments:
+                  type: Delivery
+                  stops:
+                    - id: L1
+                      parent_stop_id: ''
+                      type: start
+                      location:
+                        gps: 12.4535445,77.9283792
+                        area_code: '560041'
+                      time:
+                        range:
+                          start: '2023-10-23T10:00:00.000Z'
+                          end: '2023-10-25T10:30:00.000Z'
+                    - id: L2
+                      parent_stop_id: L1
+                      type: end
+                      location:
+                        gps: 1.3806217468119772, 103.74636438437074
+                        area_code: '680230'
+                  tags:
+                    descriptor:
+                      code: DELIVERY_TERMS
+                    list:
+                      - descriptor:
+                          code: INCOTERMS
+                        value: CIF
+                      - descriptor:
+                          code: NAMED_PLACE_OF_DELIVERY
+                        value: UN:SIN
+                payment:
+                  collected_by: BPP
+                  type: ON-FULFILLMENT
+                  params:
+                    amount: '20000'
+                    currency: INR
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+      - summary: Returns item/ catalog
+        api: on_search
+        description: Catalog provided by the Seller App
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:DLG
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_search
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-10-17T21:10:00.000Z'
+              ttl: PT30S
+            message:
+              catalog:
+                descriptor:
+                  name: LSP Aggregator Inc
+                  tags:
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: static_terms
+                          value: ''
+                        - descriptor:
+                            code: static_terms_new
+                          value: >-
+                            https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
+                        - descriptor:
+                            code: effective_date
+                          value: '2023-10-01T00:00:00.000Z'
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                  - id: '2'
+                    type: RTO
+                providers:
+                  - id: P1
+                    descriptor:
+                      name: Courier Inc
+                      short_desc: Courier Inc
+                      long_desc: Courier Inc
+                    categories:
+                      - id: C1
+                        descriptor:
+                          code: EXPRESS_DELIVERY
+                      - id: O1
+                        parent_category_id: C1
+                        descriptor:
+                          code: OCEAN_CARGO
+                        time:
+                          label: TAT
+                          duration: P7D
+                          timestamp: '2023-10-17'
+                      - id: A1
+                        parent_category_id: C1
+                        descriptor:
+                          code: AIR_CARGO
+                        time:
+                          label: TAT
+                          duration: P4D
+                          timestamp: '2023-10-17'
+                    locations:
+                      - id: L1
+                        gps: 12.967555,77.749666
+                        address:
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                    items:
+                      - id: I1
+                        parent_item_id: ''
+                        category_ids:
+                          - C1
+                          - O1
+                        fulfillment_ids:
+                          - '1'
+                        descriptor:
+                          code: P2H2P
+                          name: OCEAN Cargo
+                          short_desc: Ocean Cargo
+                          long_desc: Ocean Cargo
+                        price:
+                          currency: INR
+                          value: '4000.0'
+                        time:
+                          label: TAT
+                          duration: P7D
+                          timestamp: '2023-10-24T21:00:00.000Z'
+                      - id: I2
+                        parent_item_id: I1
+                        category_ids:
+                          - C1
+                          - O1
+                        fulfillment_ids:
+                          - '2'
+                        descriptor:
+                          code: P2H2P
+                          name: RTO quote
+                          short_desc: RTO quote
+                          long_desc: RTO quote
+                        price:
+                          currency: INR
+                          value: '2000.0'
+                        time:
+                          label: TAT
+                          duration: P7D
+                          timestamp: '2023-10-31T21:00:00.000Z'
+                      - id: I3
+                        parent_item_id: ''
+                        category_ids:
+                          - C1
+                          - A1
+                        fulfillment_ids:
+                          - '1'
+                        descriptor:
+                          code: P2H2P
+                          name: Air Cargo
+                          short_desc: Air Cargo
+                          long_desc: Air Cargo
+                        price:
+                          currency: INR
+                          value: '6000.0'
+                        time:
+                          label: TAT
+                          duration: P4D
+                          timestamp: '2023-10-21T21:00:00.000Z'
+                      - id: I4
+                        parent_item_id: I3
+                        category_ids:
+                          - C1
+                          - A1
+                        fulfillment_ids:
+                          - '2'
+                        descriptor:
+                          code: P2H2P
+                          name: RTO quote
+                          short_desc: RTO quote
+                          long_desc: RTO quote
+                        price:
+                          currency: INR
+                          value: '3000.0'
+                        time:
+                          label: TAT
+                          duration: P4D
+                          timestamp: '2023-10-25T21:00:00.000Z'
+      - summary: Requests for Quotation
+        api: init
+        description: >-
+          Buyer requests for quotation for the selected item with all the
+          customizations and the quantity of items required
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:DLG
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: init
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-10-17T21:11:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    category_ids:
+                      - C1
+                      - A1
+                    fulfillment_ids:
+                      - '1'
+                    descriptor:
+                      code: P2H2P
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    stops:
+                      - type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                      - type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                    tags:
+                      descriptor:
+                        code: DELIVERY_TERMS
+                      list:
+                        - descriptor:
+                            code: INCOTERMS
+                          value: CIF
+                        - descriptor:
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: UN:SIN
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payment:
+                  collected_by: BPP
+                  type: PRE-FULFILLMENT
+                  tags:
+                    - descriptor:
+                        code: settlement_details
+                      list:
+                        - descriptor:
+                            code: counterparty
+                          value: BAP
+                        - descriptor:
+                            code: mode
+                          value: UPI
+                        - descriptor:
+                            code: beneficiary_name
+                          value: xxxxx
+                        - descriptor:
+                            code: bank_account_no
+                          value: xxxxx
+                        - descriptor:
+                            code: ifsc_code
+                          value: xxxxxxx
+                        - descriptor:
+                            code: upi_address
+                          value: xxxxxxx
+                xinput:
+                  form:
+                    url: https://lsp.com/xxx/kyc
+                    mime_type: text/html
+                  required: true
+      - summary: Responds to Quotation
+        api: on_init
+        description: Seller provides the final quotation and breakup with logistics charges
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_init
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-02-06T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - A1
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    stops:
+                      - type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                      - type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                    tags:
+                      descriptor:
+                        code: DELIVERY_TERMS
+                      list:
+                        - descriptor:
+                            code: INCOTERMS
+                          value: CIF
+                        - descriptor:
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: UN:SIN
+                quote:
+                  price:
+                    currency: INR
+                    value: '6000.0'
+                  breakup:
+                    - item:
+                        id: I3
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Custom_Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Custom_Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                  ttl: PT15M
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pickup-approved
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: At-domestic-hub
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '500'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Custom-cleared-domestic
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '700'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Shipped
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Shipped
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Reached-destination-country
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '5000'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '6000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: counterparty
+                            value: BAP
+                          - descriptor:
+                              code: mode
+                            value: UPI
+                          - descriptor:
+                              code: beneficiary_name
+                            value: xxxxx
+                          - descriptor:
+                              code: bank_account_no
+                            value: xxxxx
+                          - descriptor:
+                              code: ifsc_code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: upi_address
+                            value: xxxxxxx
+                tags:
+                  - code: bpp_terms
+                    list:
+                      - code: max_liability
+                        value: '2'
+                      - code: max_liability_cap
+                        value: '10000'
+                      - code: mandatory_arbitration
+                        value: 'false'
+                      - code: court_jurisdiction
+                        value: Bengaluru
+                      - code: delay_interest
+                        value: '1000'
+                      - code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+      - summary: Buyer raises PO
+        api: confirm
+        description: >-
+          Buyer receives the quotation and once agreed to go ahead with the
+          quotation received, creates a PO and sends the PO
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: confirm
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-02-06T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: Created
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - A1
+                    descriptor:
+                      code: P2H2P
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                    tags:
+                      descriptor:
+                        code: DELIVERY_TERMS
+                      list:
+                        - descriptor:
+                            code: INCOTERMS
+                          value: CIF
+                        - descriptor:
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: UN:SIN
+                quote:
+                  price:
+                    currency: INR
+                    value: '6000.0'
+                  breakup:
+                    - item:
+                        id: I3
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                  ttl: PT15M
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '6000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: counterparty
+                            value: BAP
+                          - descriptor:
+                              code: mode
+                            value: UPI
+                          - descriptor:
+                              code: beneficiary_name
+                            value: xxxxx
+                          - descriptor:
+                              code: bank_account_no
+                            value: xxxxx
+                          - descriptor:
+                              code: ifsc_code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: upi_address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                      - descriptor:
+                          code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-02-06T22:00:00.000Z'
+                updated_at: '2023-02-06T22:00:00.000Z'
+      - summary: Seller Accepts PO
+        api: on_confirm
+        description: >-
+          Seller app sends an on_confirm call to the buyer app relaying the PO
+          acceptance.
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_confirm
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-02-06T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - A1
+                    descriptor:
+                      code: P2H2P
+                quote:
+                  price:
+                    currency: INR
+                    value: '6000.0'
+                  breakup:
+                    - item:
+                        id: I3
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                  ttl: PT15M
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Pending
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          code: '2'
+                          short_desc: value of PCC
+                          long_desc: QR code will be attached to package
+                          additional_desc:
+                            content_type: text/html
+                            url: https://shipping/label/image.htm
+                        time:
+                          range:
+                            start: '2023-02-06T22:30:00.000Z'
+                            end: '2023-02-06T22:45:00.000Z'
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                        time:
+                          range:
+                            start: '2023-02-14T22:30:00.000Z'
+                            end: '2023-02-14T22:45:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: DELIVERY_TERMS
+                        list:
+                          - descriptor:
+                              code: ready_to_ship
+                            value: 'no'
+                          - descriptor:
+                              code: rto_action
+                            value: 'no'
+                          - descriptor:
+                              code: INCOTERMS
+                            value: CIF
+                          - descriptor:
+                              code: NAMED_PLACE_OF_DELIVERY
+                            value: UN:SIN
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pickup-approved
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: At-domestic-hub
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '500'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Custom-cleared-domestic
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '700'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Shipped
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Shipped
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Reached-destination-country
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '5000'
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '6000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: settlement_details
+                        list:
+                          - descriptor:
+                              code: counterparty
+                            value: BAP
+                          - descriptor:
+                              code: mode
+                            value: UPI
+                          - descriptor:
+                              code: beneficiary_name
+                            value: xxxxx
+                          - descriptor:
+                              code: bank_account_no
+                            value: xxxxx
+                          - descriptor:
+                              code: ifsc_code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: upi_address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                      - descriptor:
+                          code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-02-06T22:00:00.000Z'
+                updated_at: '2023-02-06T22:00:30.000Z'
+      - summary: Buyer update PO
+        api: update
+        description: Buyer update the PO
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: update
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-02-06T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              update_target: fulfillment
+              order:
+                id: O2
+                status: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - A1
+                    descriptor:
+                      code: P2H2P
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Pending
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        instructions:
+                          code: '2'
+                          short_desc: value of PCC
+                          long_desc: QR code will be attached to package
+                          additional_desc:
+                            content_type: text/html
+                            url: https://shipping/label/image.htm
+                        authorization:
+                          type: QR
+                          token: XYZ2
+                          valid_from: ''
+                          valid_to: ''
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        authorization:
+                          type: QR
+                          token: XYZ2
+                          valid_from: ''
+                          valid_to: ''
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                    tags:
+                      - descriptor:
+                          code: DELIVERY_TERMS
+                        list:
+                          - descriptor:
+                              code: ready_to_ship
+                            value: 'yes'
+                          - descriptor:
+                              code: awb_no
+                            value: '1209878992826353'
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+                updated_at: '2023-02-06T22:00:00.000Z'
+      - summary: Seller Accepts PO
+        api: on_update
+        description: >-
+          Seller app sends an on_update call to the buyer app relaying the PO
+          acceptance.
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_update
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-02-06T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: In-progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - A1
+                    descriptor:
+                      code: P2H2P
+                    time:
+                      label: TAT
+                      duration: PT45M
+                      timestamp: '2023-10-23'
+                quote:
+                  price:
+                    currency: INR
+                    value: '6000.0'
+                  breakup:
+                    - item:
+                        id: I3
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                  ttl: PT15M
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Pending
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: Shipping label
+                          long_desc: ''
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                          images:
+                            - link/to/shipping/label
+                        time:
+                          range:
+                            start: '2023-02-06T22:30:00.000Z'
+                            end: '2023-02-06T22:45:00.000Z'
+                          timestamp: '2023-06-07T00:00:00.000Z'
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                        time:
+                          range:
+                            start: '2023-02-14T22:30:00.000Z'
+                            end: '2023-02-14T22:45:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: DELIVERY_TERMS
+                        list:
+                          - descriptor:
+                              code: ready_to_ship
+                            value: 'yes'
+                          - descriptor:
+                              code: awb_no
+                            value: '1209878992826353'
+                          - descriptor:
+                              code: rto_action
+                            value: 'no'
+                          - descriptor:
+                              code: INCOTERMS
+                            value: CIF
+                          - descriptor:
+                              code: NAMED_PLACE_OF_DELIVERY
+                            value: UN:SIN
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '6000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: settlement_details
+                        list:
+                          - descriptor:
+                              code: counterparty
+                            value: BAP
+                          - descriptor:
+                              code: mode
+                            value: UPI
+                          - descriptor:
+                              code: beneficiary_name
+                            value: xxxxx
+                          - descriptor:
+                              code: bank_account_no
+                            value: xxxxx
+                          - descriptor:
+                              code: ifsc_code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: upi_address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+                  - descriptor:
+                      code: Package_Dimensions_Diff
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '1.5'
+                      - descriptor:
+                          code: Breadth
+                        value: '1.5'
+                      - descriptor:
+                          code: Height
+                        value: '1.5'
+                  - descriptor:
+                      code: Diff_Proof
+                    list:
+                      - descriptor:
+                          code: type
+                        value: image
+                      - descriptor:
+                          code: url
+                        value: https://xxxxx/xx.png
+                updated_at: '2023-02-06T22:00:30.000Z'
+  - summary: B2B International Ocean
+    description: >-
+      The following is an illustrative flow to perform a transaction of a nature
+      where a buyer would like to order bulk items
+    reference: if any
+    steps:
+      - summary: Search based on the category
+        api: search
+        description: Search intent sent by the buyer based on the category
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGS
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: search
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-10-17T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              intent:
+                category:
+                  descriptor:
+                    code: OCEAN_CARGO
+                provider:
+                  time:
+                    days: 1,2,3,4,5,6,7
+                    schedule:
+                      holidays:
+                        - '2023-10-18'
+                        - '2023-10-19'
+                    range:
+                      start: '1100'
+                      end: '2100'
+                fulfillments:
+                  type: Delivery
+                  stops:
+                    - id: L1
+                      parent_stop_id: ''
+                      type: start
+                      location:
+                        gps: 12.4535445,77.9283792
+                        area_code: '560041'
+                      time:
+                        range:
+                          start: '2023-10-23T10:00:00.000Z'
+                          end: '2023-10-25T10:30:00.000Z'
+                    - id: L2
+                      parent_stop_id: L1
+                      type: end
+                      location:
+                        gps: 1.3806217468119772, 103.74636438437074
+                        area_code: '680230'
+                  tags:
+                    descriptor:
+                      code: DELIVERY_TERMS
+                    list:
+                      - descriptor:
+                          code: INCOTERMS
+                        value: CIF
+                      - descriptor:
+                          code: NAMED_PLACE_OF_DELIVERY
+                        value: UN:SGSIN
+                payment:
+                  collected_by: BPP
+                  type: ON-FULFILLMENT
+                  params:
+                    amount: '20000'
+                    currency: INR
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+      - summary: Returns item/ catalog
+        api: on_search
+        description: Catalog provided by the Seller App
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:DLG
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_search
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-10-17T21:00:00.690Z'
+              ttl: PT30S
+            message:
+              catalog:
+                descriptor:
+                  name: LSP Aggregator Inc
+                  tags:
+                    - descriptor:
+                        code: bpp_terms
+                      list:
+                        - descriptor:
+                            code: static_terms
+                          value: ''
+                        - descriptor:
+                            code: static_terms_new
+                          value: >-
+                            https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
+                        - descriptor:
+                            code: effective_date
+                          value: '2023-10-01T00:00:00.000Z'
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                  - id: '2'
+                    type: RTO
+                providers:
+                  - id: P1
+                    descriptor:
+                      name: Courier Inc
+                      short_desc: Courier Inc
+                      long_desc: Courier Inc
+                    categories:
+                      - id: C1
+                        descriptor:
+                          code: EXPRESS_DELIVERY
+                      - id: O1
+                        parent_category_id: C1
+                        descriptor:
+                          code: OCEAN_CARGO
+                        time:
+                          label: TAT
+                          duration: P7D
+                          timestamp: '2023-10-17'
+                      - id: A1
+                        parent_category_id: C1
+                        descriptor:
+                          code: AIR_CARGO
+                        time:
+                          label: TAT
+                          duration: P4D
+                          timestamp: '2023-10-17'
+                    locations:
+                      - id: L1
+                        gps: 12.967555,77.749666
+                        address:
+                          street: Jayanagar 4th Block
+                          city: Bengaluru
+                          area_code: '560076'
+                          state: KA
+                    items:
+                      - id: I1
+                        parent_item_id: ''
+                        category_ids:
+                          - C1
+                          - O1
+                        fulfillment_ids:
+                          - '1'
+                        descriptor:
+                          code: P2H2P
+                          name: OCEAN Cargo
+                          short_desc: Ocean Cargo
+                          long_desc: Ocean Cargo
+                        price:
+                          currency: INR
+                          value: '4000.0'
+                        time:
+                          label: TAT
+                          duration: P7D
+                          timestamp: '2023-10-24T21:00:00.000Z'
+                      - id: I2
+                        parent_item_id: I1
+                        category_ids:
+                          - C1
+                          - O1
+                        fulfillment_ids:
+                          - '2'
+                        descriptor:
+                          code: P2H2P
+                          name: RTO quote
+                          short_desc: RTO quote
+                          long_desc: RTO quote
+                        price:
+                          currency: INR
+                          value: '2000.0'
+                        time:
+                          label: TAT
+                          duration: P7D
+                          timestamp: '2023-10-31T21:00:00.000Z'
+                      - id: I3
+                        parent_item_id: ''
+                        category_ids:
+                          - C1
+                          - A1
+                        fulfillment_ids:
+                          - '1'
+                        descriptor:
+                          code: P2H2P
+                          name: Air Cargo
+                          short_desc: Air Cargo
+                          long_desc: Air Cargo
+                        price:
+                          currency: INR
+                          value: '6000.0'
+                        time:
+                          label: TAT
+                          duration: P4D
+                          timestamp: '2023-10-21T21:00:00.000Z'
+                      - id: I4
+                        parent_item_id: I3
+                        category_ids:
+                          - C1
+                          - A1
+                        fulfillment_ids:
+                          - '2'
+                        descriptor:
+                          code: P2H2P
+                          name: RTO quote
+                          short_desc: RTO quote
+                          long_desc: RTO quote
+                        price:
+                          currency: INR
+                          value: '3000.0'
+                        time:
+                          label: TAT
+                          duration: P4D
+                          timestamp: '2023-10-25T21:00:00.000Z'
+      - summary: Requests for Quotation
+        api: init
+        description: >-
+          Buyer requests for quotation for the selected item with all the
+          customizations and the quantity of items required
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:DLG
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: init
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254861'
+              timestamp: '2023-10-17T21:11:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    category_ids:
+                      - C1
+                      - O1
+                    fulfillment_ids:
+                      - '1'
+                    descriptor:
+                      code: P2H2P
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    stops:
+                      - type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                      - type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                    tags:
+                      descriptor:
+                        code: DELIVERY_TERMS
+                      list:
+                        - descriptor:
+                            code: INCOTERMS
+                          value: CIF
+                        - descriptor:
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: UN:SIN
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payment:
+                  collected_by: BPP
+                  type: PRE-FULFILLMENT
+                  tags:
+                    - descriptor:
+                        code: settlement_details
+                      list:
+                        - descriptor:
+                            code: counterparty
+                          value: BAP
+                        - descriptor:
+                            code: mode
+                          value: UPI
+                        - descriptor:
+                            code: beneficiary_name
+                          value: xxxxx
+                        - descriptor:
+                            code: bank_account_no
+                          value: xxxxx
+                        - descriptor:
+                            code: ifsc_code
+                          value: xxxxxxx
+                        - descriptor:
+                            code: upi_address
+                          value: xxxxxxx
+                xinput:
+                  form:
+                    url: https://lsp.com/xxx/kyc
+                    mime_type: text/html
+                  required: true
+      - summary: Responds to Quotation
+        api: on_init
+        description: Seller provides the final quotation and breakup with logistics charges
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_init
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254861'
+              timestamp: '2023-02-06T21:11:00.801Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - O1
+                    descriptor:
+                      code: P2H2P
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    stops:
+                      - type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                      - type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                    tags:
+                      descriptor:
+                        code: DELIVERY_TERMS
+                      list:
+                        - descriptor:
+                            code: INCOTERMS
+                          value: CIF
+                        - descriptor:
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: UN:SIN
+                quote:
+                  price:
+                    currency: INR
+                    value: '4000.0'
+                  breakup:
+                    - item:
+                        id: I1
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '2000.0'
+                    - item:
+                        id: I1
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                  ttl: PT15M
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pickup-approved
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: At-domestic-hub
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '500'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Custom-cleared-domestic
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '700'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Shipped
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Reached-destination-country
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '5000'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '4000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: settlement_details
+                        list:
+                          - descriptor:
+                              code: counterparty
+                            value: BAP
+                          - descriptor:
+                              code: mode
+                            value: UPI
+                          - descriptor:
+                              code: beneficiary_name
+                            value: xxxxx
+                          - descriptor:
+                              code: bank_account_no
+                            value: xxxxx
+                          - descriptor:
+                              code: ifsc_code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: upi_address
+                            value: xxxxxxx
+                tags:
+                  - code: bpp_terms
+                    list:
+                      - code: max_liability
+                        value: '2'
+                      - code: max_liability_cap
+                        value: '10000'
+                      - code: mandatory_arbitration
+                        value: 'false'
+                      - code: court_jurisdiction
+                        value: Bengaluru
+                      - code: delay_interest
+                        value: '1000'
+                      - code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+      - summary: Buyer raises PO
+        api: confirm
+        description: >-
+          Buyer receives the quotation and once agreed to go ahead with the
+          quotation received, creates a PO and sends the PO
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: confirm
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254862'
+              timestamp: '2023-10-17T21:12:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: Created
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - O1
+                    descriptor:
+                      code: P2H2P
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                    tags:
+                      descriptor:
+                        code: DELIVERY_TERMS
+                      list:
+                        - descriptor:
+                            code: INCOTERMS
+                          value: CIF
+                        - descriptor:
+                            code: NAMED_PLACE_OF_DELIVERY
+                          value: UN:SIN
+                quote:
+                  price:
+                    currency: INR
+                    value: '4000.0'
+                  breakup:
+                    - item:
+                        id: I1
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '2000.0'
+                    - item:
+                        id: I1
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                  ttl: PT15M
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '4000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: settlement_details
+                        list:
+                          - descriptor:
+                              code: counterparty
+                            value: BAP
+                          - descriptor:
+                              code: mode
+                            value: UPI
+                          - descriptor:
+                              code: beneficiary_name
+                            value: xxxxx
+                          - descriptor:
+                              code: bank_account_no
+                            value: xxxxx
+                          - descriptor:
+                              code: ifsc_code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: upi_address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+                      - descriptor:
+                          code: Packaging
+                        value: Barrels
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                      - descriptor:
+                          code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-10-17T21:12:00.000Z'
+                updated_at: '2023-10-17T21:12:00.000Z'
+      - summary: Seller Accepts PO
+        api: on_confirm
+        description: >-
+          Seller app sends an on_confirm call to the buyer app relaying the PO
+          acceptance.
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_confirm
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254862'
+              timestamp: '2023-10-17T21:12:00.720Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - O1
+                    descriptor:
+                      code: P2H2P
+                quote:
+                  price:
+                    currency: INR
+                    value: '4000.0'
+                  breakup:
+                    - item:
+                        id: I1
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '2000.0'
+                    - item:
+                        id: I1
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                  ttl: PT15M
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Pending
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          code: '2'
+                          short_desc: value of PCC
+                          long_desc: QR code will be attached to package
+                          additional_desc:
+                            content_type: text/html
+                            url: https://shipping/label/image.htm
+                        time:
+                          range:
+                            start: '2023-10-17T21:12:00.720Z'
+                            end: '2023-10-20T21:12:00.720Z'
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                        time:
+                          range:
+                            start: '2023-10-21T21:12:00.720Z'
+                            end: '2023-10-24T21:12:00.720Z'
+                    tags:
+                      - descriptor:
+                          code: DELIVERY_TERMS
+                        list:
+                          - descriptor:
+                              code: ready_to_ship
+                            value: 'no'
+                          - descriptor:
+                              code: rto_action
+                            value: 'no'
+                          - descriptor:
+                              code: INCOTERMS
+                            value: CIF
+                          - descriptor:
+                              code: NAMED_PLACE_OF_DELIVERY
+                            value: UN:SIN
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pending
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Pickup-approved
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '0.0'
+                  - fulfillment_state:
+                      descriptor:
+                        code: At-domestic-hub
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '500'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Custom-cleared-domestic
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '700'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Shipped
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Shipped
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '1000'
+                  - fulfillment_state:
+                      descriptor:
+                        code: Reached-destination-country
+                        short_desc: ''
+                    reason_required: false
+                    cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '5000'
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '4000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: settlement_details
+                        list:
+                          - descriptor:
+                              code: counterparty
+                            value: BAP
+                          - descriptor:
+                              code: mode
+                            value: UPI
+                          - descriptor:
+                              code: beneficiary_name
+                            value: xxxxx
+                          - descriptor:
+                              code: bank_account_no
+                            value: xxxxx
+                          - descriptor:
+                              code: ifsc_code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: upi_address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+                      - descriptor:
+                          code: Packaging
+                        value: Barrels
+                  - descriptor:
+                      code: bpp_terms
+                    list:
+                      - descriptor:
+                          code: max_liability
+                        value: '2'
+                      - descriptor:
+                          code: max_liability_cap
+                        value: '10000'
+                      - descriptor:
+                          code: mandatory_arbitration
+                        value: 'false'
+                      - descriptor:
+                          code: court_jurisdiction
+                        value: Bengaluru
+                      - descriptor:
+                          code: delay_interest
+                        value: '1000'
+                      - descriptor:
+                          code: static_terms
+                        value: >-
+                          https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                  - descriptor:
+                      code: bap_terms
+                    list:
+                      - descriptor:
+                          code: accept_bpp_terms
+                        value: 'Y'
+                created_at: '2023-10-17T21:12:00.000Z'
+                updated_at: '2023-10-17T21:12:00.720Z'
+      - summary: Buyer update PO
+        api: update
+        description: Buyer update the PO
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: update
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254863'
+              timestamp: '2023-10-17T21:13:00.000Z'
+              ttl: PT30S
+            message:
+              update_target: fulfillment
+              order:
+                id: O2
+                status: Accepted
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - O1
+                    descriptor:
+                      code: P2H2P
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Pending
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        instructions:
+                          code: '2'
+                          short_desc: value of PCC
+                          long_desc: QR code will be attached to package
+                          additional_desc:
+                            content_type: text/html
+                            url: https://shipping/label/image.htm
+                        authorization:
+                          type: QR
+                          token: XYZ2
+                          valid_from: ''
+                          valid_to: ''
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        authorization:
+                          type: QR
+                          token: XYZ2
+                          valid_from: ''
+                          valid_to: ''
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                    tags:
+                      - descriptor:
+                          code: DELIVERY_TERMS
+                        list:
+                          - descriptor:
+                              code: ready_to_ship
+                            value: 'yes'
+                          - descriptor:
+                              code: awb_no
+                            value: '1209878992826353'
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+                      - descriptor:
+                          code: Packaging
+                        value: Barrels
+                updated_at: '2023-10-17T21:13:00.000Z'
+      - summary: Seller Accepts PO
+        api: on_update
+        description: >-
+          Seller app sends an on_update call to the buyer app relaying the PO
+          acceptance.
+        reference: if any
+        example:
+          summary: Return the fulfillment types
+          description: Return the fulfillment types
+          value:
+            context:
+              domain: ONDC:LGP
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_update
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254863'
+              timestamp: '2023-10-17T21:13:00.720Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: In-progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I1
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - O1
+                    descriptor:
+                      code: P2H2P
+                    time:
+                      label: TAT
+                      duration: PT7D
+                      timestamp: '2023-10-17'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4000.0'
+                  breakup:
+                    - item:
+                        id: I1
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '2000.0'
+                    - item:
+                        id: I1
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I1
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                  ttl: PT15M
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Pending
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: Shipping label
+                          long_desc: ''
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                          images:
+                            - link/to/shipping/label
+                        time:
+                          range:
+                            start: '2023-10-17T21:12:00.720Z'
+                            end: '2023-10-20T21:12:00.720Z'
+                          timestamp: '2023-10-17T21:13:00.720Z'
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                        time:
+                          range:
+                            start: '2023-10-21T21:12:00.720Z'
+                            end: '2023-10-24T21:12:00.720Z'
+                    tags:
+                      - descriptor:
+                          code: DELIVERY_TERMS
+                        list:
+                          - descriptor:
+                              code: ready_to_ship
+                            value: 'yes'
+                          - descriptor:
+                              code: awb_no
+                            value: '1209878992826353'
+                          - descriptor:
+                              code: rto_action
+                            value: 'no'
+                          - descriptor:
+                              code: INCOTERMS
+                            value: CIF
+                          - descriptor:
+                              code: NAMED_PLACE_OF_DELIVERY
+                            value: UN:SIN
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '4000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: settlement_details
+                        list:
+                          - descriptor:
+                              code: counterparty
+                            value: BAP
+                          - descriptor:
+                              code: mode
+                            value: UPI
+                          - descriptor:
+                              code: beneficiary_name
+                            value: xxxxx
+                          - descriptor:
+                              code: bank_account_no
+                            value: xxxxx
+                          - descriptor:
+                              code: ifsc_code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: upi_address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Range
+                        value: '-18'
+                      - descriptor:
+                          code: Packaging
+                        value: Barrels
+                  - descriptor:
+                      code: Package_Dimensions_Diff
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '1.5'
+                      - descriptor:
+                          code: Breadth
+                        value: '1.5'
+                      - descriptor:
+                          code: Height
+                        value: '1.5'
+                  - descriptor:
+                      code: Diff_Proof
+                    list:
+                      - descriptor:
+                          code: type
+                        value: image
+                      - descriptor:
+                          code: url
+                        value: https://xxxxx/xx.png
+                updated_at: '2023-02-06T22:00:30.000Z'
 x-examples:
   B2B:
     summary: B2B Use Case Specification
