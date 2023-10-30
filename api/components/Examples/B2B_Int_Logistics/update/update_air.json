@@ -40,7 +40,7 @@
                         "1"
                     ],
                     "category_ids": [
-                        "C1",
+                        "C2",
                         "A1"
                     ],
                     "descriptor": {
@@ -64,7 +64,7 @@
                             "parent_stop_id": "",
                             "type": "start",
                             "instructions": {
-                                "code": "2",
+                                "code": "AWB_No",
                                 "short_desc": "value of PCC",
                                 "long_desc": "QR code will be attached to package",
                                 "additional_desc": {
@@ -102,18 +102,18 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "DELIVERY_TERMS"
+                                "code": "Delivery_Terms"
                             },
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "ready_to_ship"
+                                        "code": "Ready_To_Ship"
                                     },
                                     "value": "yes"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "awb_no"
+                                        "code": "AWB_No"
                                     },
                                     "value": "1209878992826353"
                                 }

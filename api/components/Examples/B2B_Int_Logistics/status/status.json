@@ -3,11 +3,11 @@
       "domain": "ONDC:LGS",
       "location": {
         "city": {
-          "code": "std:080"
-        },
-        "country": {
-          "code": "IND"
-        }
+          "code": "UN:SIN"
+      },
+      "country": {
+          "code": "SGP"
+      }
       },
       "action": "status",
       "version": "2.0.0",

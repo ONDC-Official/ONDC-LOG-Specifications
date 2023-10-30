@@ -36,7 +36,7 @@
                 {
                     "id": "I3",
                     "category_ids": [
-                        "C1",
+                        "C2",
                         "A1"
                     ],
                     "fulfillment_ids": ["1"],
@@ -133,6 +133,7 @@
                                 "email": "abcd.efgh@gmail.com"
                             },
                             "instructions": {
+                                "code": "AWB_No",
                                 "short_desc": "Shipping label",
                                 "long_desc": "",
                                 "additional_desc": {
@@ -193,24 +194,24 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "DELIVERY_TERMS"
+                                "code": "Delivery_Terms"
                             },
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "ready_to_ship"
+                                        "code": "Ready_To_Ship"
                                     },
                                     "value": "yes"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "awb_no"
+                                        "code": "AWB_No"
                                     },
                                     "value": "1209878992826353"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "rto_action"
+                                        "code": "RTO_Action"
                                     },
                                     "value": "no"
                                 }
@@ -245,42 +246,42 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "settlement_details"
+                                "code": "Settlement_Details"
                             },
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "counterparty"
+                                        "code": "Counterparty"
                                     },
                                     "value": "BAP"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "mode"
+                                        "code": "Mode"
                                     },
                                     "value": "UPI"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "beneficiary_name"
+                                        "code": "Beneficiary_Name"
                                     },
                                     "value": "xxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "bank_account_no"
+                                        "code": "Bank_Account_No"
                                     },
                                     "value": "xxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "ifsc_code"
+                                        "code": "Ifsc_Code"
                                     },
                                     "value": "xxxxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "upi_address"
+                                        "code": "UPI_Address"
                                     },
                                     "value": "xxxxxxx"
                                 }
@@ -305,7 +306,7 @@
                             "descriptor": {
                                 "code": "Value"
                             },
-                            "Value": "5"
+                            "Value": "50"
                         }
                     ]
                 },
@@ -374,12 +375,6 @@
                                 "code": "Package_Count"
                             },
                             "value": "10"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "HSN_Code"
-                            },
-                            "value": "xxxxxxx"
                         }
                     ]
                 },

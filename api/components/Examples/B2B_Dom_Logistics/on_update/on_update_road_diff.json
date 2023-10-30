@@ -9,15 +9,15 @@
                 "code": "IND"
             }
         },
-        "action": "on_status",
+        "action": "on_update",
         "version": "2.0.0",
         "bap_id": "logistics_buyer.com",
         "bap_uri": "https://logistics_buyer.com/ondc",
         "bpp_id": "logistics_seller.com",
         "bpp_uri": "https://logistics_seller.com/ondc",
         "transaction_id": "9fdb667c-76c6-456a-9742-ba9caa5eb765",
-        "message_id": "1755281254863",
-        "timestamp": "2023-10-19T21:00:00.800Z",
+        "message_id": "1755281254862",
+        "timestamp": "2023-10-17T21:13:00.601Z",
         "ttl": "PT30S"
     },
     "message": {
@@ -39,13 +39,14 @@
                         "C1",
                         "R1"
                     ],
+                    "fulfillment_ids": ["1"],
                     "descriptor": {
                         "code": "P2H2P"
                     },
                     "time": {
                         "label": "TAT",
                         "duration": "PT7D",
-                        "timestamp": "2023-10-19"
+                        "timestamp": "2023-10-17"
                     }
                 }
             ],
@@ -104,7 +105,7 @@
                     "type": "Delivery",
                     "state": {
                         "descriptor": {
-                            "code": "Pickup-approved"
+                            "code": "Pending"
                         }
                     },
                     "tracking": false,
@@ -115,22 +116,22 @@
                             "type": "start",
                             "location": {
                                 "gps": "12.4535445,77.9283792",
-                                "area_code": "560041",
-                                "map_url": "",
                                 "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India"
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "name": "India",
+                                    "code": "IND"
+                                },
+                                "area_code": "560041"
                             },
                             "contact": {
                                 "phone": "9886098860",
                                 "email": "abcd.efgh@gmail.com"
-                            },
-                            "authorization": {
-                                "type": "QR",
-                                "token": "XYZ2",
-                                "valid_from": "",
-                                "valid_to": ""
                             },
                             "instructions": {
                                 "code": "AWB_No",
@@ -149,7 +150,7 @@
                                     "start": "2023-10-17T21:12:00.710Z",
                                     "end": "2023-10-20T21:12:00.710Z"
                                 },
-                                "timestamp":"2023-10-19T21:00:00.800Z"
+                                "timestamp":"2023-10-17T21:13:00.601Z"
                             }
                         },
                         {
@@ -158,22 +159,22 @@
                             "type": "end",
                             "location": {
                                 "gps": "12.342769,77.9129423",
-                                "map_url": "",
                                 "address": "My house or building name, street name",
-                                "city": "Bengaluru",
-                                "state": "Karnataka",
-                                "country": "India",
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "name": "India",
+                                    "code": "IND"
+                                },
                                 "area_code": "560043"
                             },
                             "contact": {
                                 "phone": "9886098860",
                                 "email": "abcd.efgh@gmail.com"
-                            },
-                            "authorization": {
-                                "type": "QR",
-                                "token": "XYZ2",
-                                "valid_from": "",
-                                "valid_to": ""
                             },
                             "instructions": {
                                 "short_desc": "",
@@ -207,7 +208,7 @@
                                     "descriptor": {
                                         "code": "AWB_No"
                                     },
-                                    "value": "1209878992826353"
+                                    "value": "1227262193237777"
                                 },
                                 {
                                     "descriptor": {
@@ -427,7 +428,7 @@
                     ]
                 }
             ],
-            "updated_at": "2023-10-19T21:00:00.800Z"
+            "updated_at": "2023-10-17T21:13:00.601Z"
         }
     }
 }

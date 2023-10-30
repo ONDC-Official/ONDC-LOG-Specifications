@@ -40,7 +40,7 @@
                         "1"
                     ],
                     "category_ids": [
-                        "C1",
+                        "C2",
                         "A1"
                     ],
                     "descriptor": {
@@ -64,7 +64,7 @@
                             "parent_stop_id": "",
                             "type": "start",
                             "instructions": {
-                                "code": "2",
+                                "code": "AWB_No",
                                 "short_desc": "value of PCC",
                                 "long_desc": "QR code will be attached to package",
                                 "additional_desc": {
@@ -102,136 +102,22 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "DELIVERY_TERMS"
+                                "code": "Delivery_Terms"
                             },
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "ready_to_ship"
+                                        "code": "Ready_To_Ship"
                                     },
                                     "value": "yes"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "awb_no"
+                                        "code": "AWB_No"
                                     },
                                     "value": "1227262193237777"
                                 }
                             ]
-                        }
-                    ]
-                }
-            ],
-            "tags": [
-                {
-                    "descriptor": {
-                        "code": "Package_Weight"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "Unit"
-                            },
-                            "value": "kilogram"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Value"
-                            },
-                            "Value": "5"
-                        }
-                    ]
-                },
-                {
-                    "descriptor": {
-                        "code": "Package_Dimensions"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "Unit"
-                            },
-                            "value": "centimeter"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Length"
-                            },
-                            "value": "100"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Breadth"
-                            },
-                            "value": "100"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Height"
-                            },
-                            "value": "100"
-                        }
-                    ]
-                },
-                {
-                    "descriptor": {
-                        "code": "Package_Details"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "Category"
-                            },
-                            "value": "Grocery"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Dangerous_Goods"
-                            },
-                            "value": "true"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Stackable"
-                            },
-                            "value": "true"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Shipment_Value"
-                            },
-                            "value": "50000"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Package_Count"
-                            },
-                            "value": "10"
-                        }
-                    ]
-                },
-                {
-                    "descriptor": {
-                        "code": "Cold_Logistics"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "Temp_Control"
-                            },
-                            "value": "true"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Temp_Unit"
-                            },
-                            "value": "Celsius"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Temp_Range"
-                            },
-                            "value": "-18"
                         }
                     ]
                 }

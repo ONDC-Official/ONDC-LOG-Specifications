@@ -22,7 +22,7 @@
     "intent": {
       "category": {
         "descriptor": {
-          "code": "ROAD_CARGO"
+          "code": "Surface_Delivery"
         }
       },
       "provider": {

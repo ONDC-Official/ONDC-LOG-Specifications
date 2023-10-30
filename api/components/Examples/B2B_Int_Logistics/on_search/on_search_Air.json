@@ -28,27 +28,46 @@
         [
           {
             "descriptor": {
-              "code":"bpp_terms"
+              "code":"BPP_Terms"
             },
             "list":
             [
               {
                 "descriptor": {
-                  "code":"static_terms"
+                  "code":"Static_Terms"
                 },
                 "value":""
               },
               {
                 "descriptor": {
-                  "code":"static_terms_new"
+                  "code":"Static_Terms_New"
                 },
                 "value":"https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf"
               },
               {
                 "descriptor": {
-                  "code":"effective_date"
+                  "code":"Effective_Date"
                 },
                 "value":"2023-10-01T00:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "descriptor": {
+              "code": "KYC"
+            },
+            "list": [
+              {
+                "descriptor": {
+                  "code": "url"
+                },
+                "value": "https://lsp.com/xxx/kyc"
+              },
+              {
+                "descriptor": {
+                  "code": "required"
+                },
+                "value": "true"
               }
             ]
           }
@@ -95,7 +114,7 @@
               "id": "A1",
               "parent_category_id": "C1",
               "descriptor": {
-                "code": "AIR_CARGO"
+                "code": "Air_Delivery"
               },
               "time": {
                 "label": "TAT",
@@ -181,9 +200,9 @@
               ],
               "descriptor": {
                 "code": "P2H2P",
-                "name": "Air Cargo",
-                "short_desc": "Air Cargo",
-                "long_desc": "Air Cargo"
+                "name": "Air Delivery",
+                "short_desc": "Air Delivery",
+                "long_desc": "Air Delivery"
               },
               "price": {
                 "currency": "INR",

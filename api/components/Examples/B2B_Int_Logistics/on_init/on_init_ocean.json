@@ -4,10 +4,10 @@
         "location": {
             "city": {
                 "code": "UN:SIN"
-              },
-              "country": {
+            },
+            "country": {
                 "code": "SGP"
-              }
+            }
         },
         "action": "on_init",
         "version": "2.0.0",
@@ -33,8 +33,13 @@
             "items": [
                 {
                     "id": "I1",
-                    "fulfillment_ids": ["1"],
-                    "category_ids": ["C1", "O1"],
+                    "fulfillment_ids": [
+                        "1"
+                    ],
+                    "category_ids": [
+                        "C1",
+                        "O1"
+                    ],
                     "descriptor": {
                         "code": "P2H2P"
                     }
@@ -50,16 +55,16 @@
                             "location": {
                                 "gps": "12.4535445,77.9283792",
                                 "address": "My building #, My street name",
-                                    "city": {
-                                        "name": "Bengaluru"
-                                    },
-                                    "state": {
-                                        "name": "Karnataka"
-                                    },
-                                    "country": {
-                                        "code": "IND"
-                                    },
-                                    "area_code": "560041"
+                                "city": {
+                                    "name": "Bengaluru"
+                                },
+                                "state": {
+                                    "name": "Karnataka"
+                                },
+                                "country": {
+                                    "code": "IND"
+                                },
+                                "area_code": "560041"
                             },
                             "contact": {
                                 "phone": "9886098860",
@@ -74,13 +79,13 @@
                                 "city": {
                                     "name": "Jurong East"
                                 },
-                                "state":{
+                                "state": {
                                     "name": ""
                                 },
                                 "country": {
                                     "code": "SGP"
                                 },
-                                "area_code":"680230"
+                                "area_code": "680230"
                             },
                             "contact": {
                                 "phone": "9886098860",
@@ -90,23 +95,23 @@
                     ],
                     "tags": {
                         "descriptor": {
-                          "code": "DELIVERY_TERMS"
+                            "code": "Delivery_Terms"
                         },
                         "list": [
-                          {
-                            "descriptor": {
-                              "code": "INCOTERMS"
+                            {
+                                "descriptor": {
+                                    "code": "INCOTERMS"
+                                },
+                                "value": "CIF"
                             },
-                            "value": "CIF"
-                          },
-                          {
-                            "descriptor": {
-                              "code": "NAMED_PLACE_OF_DELIVERY"
-                            },
-                            "value": "UN:SIN"
-                          }
+                            {
+                                "descriptor": {
+                                    "code": "NAMED_PLACE_OF_DELIVERY"
+                                },
+                                "value": "UN:SIN"
+                            }
                         ]
-                      }
+                    }
                 }
             ],
             "quote": {
@@ -270,89 +275,99 @@
                     }
                 }
             ],
-            "payments": [{
-                "id": "P1",
-                "collected_by": "BPP",
-                "params": {
-                    "amount": "4000",
-                    "currency": "INR",
-                    "bank_account_number": "xxxxxxxx",
-                    "virtual_payment_address": "xxx@xxxx"
+            "payments": [
+                {
+                    "id": "P1",
+                    "collected_by": "BPP",
+                    "params": {
+                        "amount": "4000",
+                        "currency": "INR",
+                        "bank_account_number": "xxxxxxxx",
+                        "virtual_payment_address": "xxx@xxxx"
+                    },
+                    "type": "PRE-FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": {
+                                "code": "Settlement_Details"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "Counterparty"
+                                    },
+                                    "value": "BAP"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Mode"
+                                    },
+                                    "value": "UPI"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Beneficiary_Name"
+                                    },
+                                    "value": "xxxxx"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Bank_Account_No"
+                                    },
+                                    "value": "xxxxx"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Ifsc_Code"
+                                    },
+                                    "value": "xxxxxxx"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "UPI_Address"
+                                    },
+                                    "value": "xxxxxxx"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "xinput": {
+                "form": {
+                    "url": "https://lsp.com/xxx/kyc",
+                    "mime_type": "text/html",
+                    "submission_id": "xxxx44567789999",
+                    "status": "SUCCESS"
                 },
-                "type": "PRE-FULFILLMENT",
-                "tags": [
-                    {
-                        "descriptor": {
-                            "code": "settlement_details"
-                        },
-                        "list": [
-                            {
-                                "descriptor": {
-                                    "code": "counterparty"
-                                },
-                                "value": "BAP"
-                            },
-                            {
-                                "descriptor": {
-                                    "code": "mode"
-                                },
-                                "value": "UPI"
-                            },
-                            {
-                                "descriptor": {
-                                    "code": "beneficiary_name"
-                                },
-                                "value": "xxxxx"
-                            },
-                            {
-                                "descriptor": {
-                                    "code": "bank_account_no"
-                                },
-                                "value": "xxxxx"
-                            },
-                            {
-                                "descriptor": {
-                                    "code": "ifsc_code"
-                                },
-                                "value": "xxxxxxx"
-                            },
-                            {
-                                "descriptor": {
-                                    "code": "upi_address"
-                                },
-                                "value": "xxxxxxx"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
+                "required": true
+            },
             "tags": [
                 {
-                    "code": "bpp_terms",
+                    "code": "BPP_Terms",
                     "list": [
                         {
-                            "code": "max_liability",
+                            "code": "Max_Liability",
                             "value": "2"
                         },
                         {
-                            "code": "max_liability_cap",
+                            "code": "Max_Liability_Cap",
                             "value": "10000"
                         },
                         {
-                            "code": "mandatory_arbitration",
+                            "code": "Mandatory_Arbitration",
                             "value": "false"
                         },
                         {
-                            "code": "court_jurisdiction",
+                            "code": "Court_Jurisdiction",
                             "value": "Bengaluru"
                         },
                         {
-                            "code": "delay_interest",
+                            "code": "Delay_Interest",
                             "value": "1000"
                         },
                         {
-                            "code": "static_terms",
+                            "code": "Static_Terms",
                             "value": "https://github.com/ONDC-Official/protocol-network-extension/discussions/79"
                         }
                     ]

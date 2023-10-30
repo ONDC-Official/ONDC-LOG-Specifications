@@ -153,8 +153,8 @@ value:
         collected_by: BPP
         "@ondc/org/buyer_app_finder_fee_type": percent
         "@ondc/org/buyer_app_finder_fee_amount": '3'
-        "@ondc/org/settlement_details":
-        - settlement_counterparty: seller-app
+        "@ondc/org/Settlement_Details":
+        - settlement_Counterparty: seller-app
           settlement_phase: sale-amount
           beneficiary_name: xxxxx
           settlement_reference: XXXX

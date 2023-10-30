@@ -22,7 +22,7 @@
     "intent": {
       "category": {
         "descriptor": {
-          "code": "AIR_CARGO"
+          "code": "Air_Delivery"
         }
       },
       "provider": {
@@ -70,7 +70,7 @@
         ],
         "tags": {
           "descriptor": {
-            "code": "DELIVERY_TERMS"
+            "code": "Delivery_Terms"
           },
           "list": [
             {

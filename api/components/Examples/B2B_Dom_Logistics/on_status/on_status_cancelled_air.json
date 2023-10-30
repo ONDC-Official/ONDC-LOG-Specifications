@@ -40,7 +40,7 @@
                 {
                     "id": "I3",
                     "category_ids": [
-                        "C1",
+                        "C2",
                         "A1"
                     ],
                     "fulfillment_ids": ["1"],
@@ -56,7 +56,7 @@
                 {
                     "id": "I4",
                     "category_ids": [
-                        "C1",
+                        "C2",
                         "A1"
                     ],
                     "fulfillment_ids": ["2"],
@@ -204,24 +204,24 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "fulfillment_terms"
+                                "code": "Delivery_Terms"
                             },
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "ready_to_ship"
+                                        "code": "Ready_To_Ship"
                                     },
                                     "value": "yes"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "awb_no"
+                                        "code": "AWB_No"
                                     },
                                     "value": "1209878992826353"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "rto_action"
+                                        "code": "RTO_Action"
                                     },
                                     "value": "no"
                                 }
@@ -281,13 +281,13 @@
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "awb_no"
+                                        "code": "AWB_No"
                                     },
                                     "value": "1209878992826353"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "rto_action"
+                                        "code": "RTO_Action"
                                     },
                                     "value": "yes"
                                 }
@@ -319,42 +319,42 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "settlement_details"
+                                "code": "Settlement_Details"
                             },
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "counterparty"
+                                        "code": "Counterparty"
                                     },
                                     "value": "BAP"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "mode"
+                                        "code": "Mode"
                                     },
                                     "value": "UPI"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "beneficiary_name"
+                                        "code": "Beneficiary_Name"
                                     },
                                     "value": "xxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "bank_account_no"
+                                        "code": "Bank_Account_No"
                                     },
                                     "value": "xxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "ifsc_code"
+                                        "code": "Ifsc_Code"
                                     },
                                     "value": "xxxxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "upi_address"
+                                        "code": "UPI_Address"
                                     },
                                     "value": "xxxxxxx"
                                 }
@@ -366,26 +366,20 @@
             "tags": [
                 {
                     "descriptor": {
-                        "code": "Quantity"
+                        "code": "Package_Weight"
                     },
                     "list": [
                         {
                             "descriptor": {
-                                "code": "count"
-                            },
-                            "value": "1000"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "MEASURE_UNIT"
+                                "code": "Unit"
                             },
                             "value": "kilogram"
                         },
                         {
                             "descriptor": {
-                                "code": "MEASURE_VALUE"
+                                "code": "Value"
                             },
-                            "value": "1000"
+                            "Value": "5"
                         }
                     ]
                 },
@@ -404,19 +398,19 @@
                             "descriptor": {
                                 "code": "Length"
                             },
-                            "value": "1"
+                            "value": "100"
                         },
                         {
                             "descriptor": {
                                 "code": "Breadth"
                             },
-                            "value": "1"
+                            "value": "100"
                         },
                         {
                             "descriptor": {
                                 "code": "Height"
                             },
-                            "value": "1"
+                            "value": "100"
                         }
                     ]
                 },
@@ -433,49 +427,31 @@
                         },
                         {
                             "descriptor": {
-                                "code": "UNIT_PRICE"
-                            },
-                            "value": "100"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "ITEM_PRICE"
-                            },
-                            "value": "100000"
-                        },
-                        {
-                            "descriptor": {
                                 "code": "Dangerous_Goods"
                             },
                             "value": "true"
-                        }
-                    ]
-                },
-                {
-                    "descriptor": {
-                        "code": "Quantity_Diff"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "count"
-                            },
-                            "value": "1000"
                         },
                         {
                             "descriptor": {
-                                "code": "MEASURE_UNIT"
+                                "code": "Stackable"
                             },
-                            "value": "kilogram"
+                            "value": "true"
                         },
                         {
                             "descriptor": {
-                                "code": "MEASURE_VALUE"
+                                "code": "Shipment_Value"
                             },
-                            "value": "1200"
+                            "value": "50000"
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Package_Count"
+                            },
+                            "value": "10"
                         }
                     ]
                 },
+
                 {
                     "descriptor": {
                         "code": "Package_Dimensions_Diff"

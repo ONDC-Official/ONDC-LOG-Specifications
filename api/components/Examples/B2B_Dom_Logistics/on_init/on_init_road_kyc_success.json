@@ -257,7 +257,7 @@
                     "url": "https://lsp.com/xxx/kyc",
                     "mime_type": "text/html",
                     "submission_id": "xxxx44567789999",
-                    "status": "FAIL"
+                    "status": "SUCCESS"
                 },
                 "required": true
             },
@@ -293,9 +293,5 @@
                 }
             ]
         }
-    },
-    "error": {
-        "code": "",
-        "message": ""
     }
 }

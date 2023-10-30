@@ -20,7 +20,7 @@ value:
     intent:
       category:
         descriptor:
-          code: AIR_CARGO
+          code: Air_Delivery
       provider:
         time:
           days: 1,2,3,4,5,6,7

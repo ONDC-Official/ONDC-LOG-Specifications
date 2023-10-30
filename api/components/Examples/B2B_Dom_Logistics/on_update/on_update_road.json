@@ -53,7 +53,7 @@
             "quote": {
                 "price": {
                     "currency": "INR",
-                    "value": "4056.0"
+                    "value": "4000.0"
                 },
                 "breakup": [
                     {
@@ -74,26 +74,6 @@
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
-                        }
-                    },
-                    {
-                        "item": {
-                            "id": "I1"
-                        },
-                        "title": "delivery_diff",
-                        "price": {
-                            "currency": "INR",
-                            "value": "50.0"
-                        }
-                    },
-                    {
-                        "item": {
-                            "id": "I1"
-                        },
-                        "title": "tax_diff",
-                        "price": {
-                            "currency": "INR",
-                            "value": "6.0"
                         }
                     }
                 ],
@@ -134,6 +114,7 @@
                                 "email": "abcd.efgh@gmail.com"
                             },
                             "instructions": {
+                                "code": "AWB_No",
                                 "short_desc": "Shipping label",
                                 "long_desc": "",
                                 "additional_desc": {
@@ -194,20 +175,26 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "DELIVERY_TERMS"
+                                "code": "Delivery_Terms"
                             },
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "ready_to_ship"
+                                        "code": "Ready_To_Ship"
                                     },
                                     "value": "yes"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": ""
+                                        "code": "AWB_No"
                                     },
                                     "value": "1227262193237777"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "RTO_Action"
+                                    },
+                                    "value": "no"
                                 }
                             ]
                         }
@@ -237,166 +224,46 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "settlement_details"
+                                "code": "Settlement_Details"
                             },
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "counterparty"
+                                        "code": "Counterparty"
                                     },
                                     "value": "BAP"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "mode"
+                                        "code": "Mode"
                                     },
                                     "value": "UPI"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "beneficiary_name"
+                                        "code": "Beneficiary_Name"
                                     },
                                     "value": "xxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "bank_account_no"
+                                        "code": "Bank_Account_No"
                                     },
                                     "value": "xxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "ifsc_code"
+                                        "code": "Ifsc_Code"
                                     },
                                     "value": "xxxxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "upi_address"
+                                        "code": "UPI_Address"
                                     },
                                     "value": "xxxxxxx"
                                 }
                             ]
-                        }
-                    ]
-                }
-            ],
-            "tags": [
-                {
-                    "descriptor": {
-                        "code": "Package_Weight"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "Unit"
-                            },
-                            "value": "kilogram"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Value"
-                            },
-                            "Value": "5"
-                        }
-                    ]
-                },
-                {
-                    "descriptor": {
-                        "code": "Package_Dimensions"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "Unit"
-                            },
-                            "value": "centimeter"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Length"
-                            },
-                            "value": "100"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Breadth"
-                            },
-                            "value": "100"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Height"
-                            },
-                            "value": "100"
-                        }
-                    ]
-                },
-                {
-                    "descriptor": {
-                        "code": "Package_Details"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "Category"
-                            },
-                            "value": "Grocery"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Dangerous_Goods"
-                            },
-                            "value": "true"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Stackable"
-                            },
-                            "value": "true"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Shipment_Value"
-                            },
-                            "value": "50000"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Package_Count"
-                            },
-                            "value": "10"
-                        }
-                    ]
-                },
-                {
-                    "descriptor": {
-                        "code": "Cold_Logistics"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "Temp_Control"
-                            },
-                            "value": "true"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Temp_Unit"
-                            },
-                            "value": "Celsius"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Temp_Range"
-                            },
-                            "value": "-18"
-                        },
-                        {
-                            "descriptor": {
-                                "code": "Packaging"
-                            },
-                            "value": "Barrels"
                         }
                     ]
                 }

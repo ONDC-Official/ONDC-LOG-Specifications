@@ -9,7 +9,7 @@
                 "code": "IND"
             }
         },
-        "action": "confirm",
+        "action": "on_init",
         "version": "2.0.0",
         "bap_id": "logistics_buyer.com",
         "bap_uri": "https://logistics_buyer.com/ondc",
@@ -22,8 +22,6 @@
     },
     "message": {
         "order": {
-            "id": "O2",
-            "status": "Created",
             "provider": {
                 "id": "P1",
                 "locations": [
@@ -35,31 +33,16 @@
             "items": [
                 {
                     "id": "I3",
-                    "fulfillment_ids": [
-                        "1"
-                    ],
-                    "category_ids": [
-                        "C2",
-                        "A1"
-                    ],
-                    "descriptor": {
-                        "code": "P2H2P"
-                    }
+                    "fulfillment_ids": ["1"],
+                    "category_ids": ["C2", "A1"]
                 }
             ],
             "fulfillments": [
                 {
                     "id": "1",
-                    "type": "DELIVERY",
-                    "agent": {
-                        "person": {
-                            "name": "Ramu"
-                        }
-                    },
+                    "type": "Delivery",
                     "stops": [
                         {
-                            "id": "L1",
-                            "parent_stop_id": "",
                             "type": "start",
                             "location": {
                                 "gps": "12.4535445,77.9283792",
@@ -71,7 +54,6 @@
                                     "name": "Karnataka"
                                 },
                                 "country": {
-                                    "name": "India",
                                     "code": "IND"
                                 },
                                 "area_code": "560041"
@@ -82,8 +64,6 @@
                             }
                         },
                         {
-                            "id": "L2",
-                            "parent_stop_id": "L1",
                             "type": "end",
                             "location": {
                                 "gps": "12.342769,77.9129423",
@@ -95,7 +75,6 @@
                                     "name": "Karnataka"
                                 },
                                 "country": {
-                                    "name": "India",
                                     "code": "IND"
                                 },
                                 "area_code": "560043"
@@ -103,14 +82,6 @@
                             "contact": {
                                 "phone": "9886098860",
                                 "email": "abcd.efgh@gmail.com"
-                            },
-                            "instructions": {
-                                "short_desc": "",
-                                "long_desc": "drop package at security gate",
-                                "additional_desc": {
-                                    "content_type": "text/html",
-                                    "url": "URL for instructions"
-                                }
                             }
                         }
                     ]
@@ -145,18 +116,84 @@
                 ],
                 "ttl": "PT15M"
             },
-            "billing": {
-                "name": "ONDC sellerapp",
-                "address": "My house or building name",
-                "city": "Bengaluru",
-                "state": "Karnataka",
-                "tax_id": "XXXXXXXXXXXXXXX",
-                "phone": "9886098860",
-                "email": "abcd.efgh@gmail.com",
-                "time": {
-                    "timestamp": "2023-10-17T21:11:00.000Z"
+            "cancellation_terms": [
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Pending",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "0.0"
+                    }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Out-for-pickup",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "500.00"
+                    }
+                  }
+                },
+        
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "In-transit",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "700.00"
+                    }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "At-destination-hub",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "1000.00"
+                    }
+                  }
+                },
+                {
+                  "fulfillment_state": {
+                    "descriptor": {
+                      "code": "Out-for-delivery",
+                      "short_desc": ""
+                    }
+                  },
+                  "reason_required": false,
+                  "cancellation_fee": {
+                    "amount": {
+                      "currency": "INR",
+                      "value": "4000.00"
+                    }
+                  }
                 }
-            },
+              ],
             "payments": [
                 {
                     "id": "P1",
@@ -167,7 +204,7 @@
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"
                     },
-                    "type": "PRE-FULFILMENT",
+                    "type": "PRE-FULFILLMENT",
                     "tags": [
                         {
                             "descriptor": {
@@ -215,184 +252,46 @@
                     ]
                 }
             ],
+            "xinput": {
+                "form": {
+                    "url": "https://lsp.com/xxx/kyc",
+                    "mime_type": "text/html",
+                    "submission_id": "xxxx44567789999",
+                    "status": "SUCCESS"
+                },
+                "required": true
+            },
             "tags": [
                 {
-                    "descriptor": {
-                      "code": "Package_Weight"
-                    },
-                    "list": [
-                      {
-                        "descriptor": {
-                          "code": "Unit"
-                        },
-                        "value": "kilogram"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Value"
-                        },
-                        "Value": "5"
-                      }
-                    ]
-                  },
-                  {
-                    "descriptor": {
-                      "code": "Package_Dimensions"
-                    },
-                    "list": [
-                      {
-                        "descriptor": {
-                          "code": "Unit"
-                        },
-                        "value": "centimeter"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Length"
-                        },
-                        "value": "100"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Breadth"
-                        },
-                        "value": "100"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Height"
-                        },
-                        "value": "100"
-                      }
-                    ]
-                  },
-                  {
-                    "descriptor": {
-                      "code": "Package_Details"
-                    },
-                    "list": [
-                      {
-                        "descriptor": {
-                          "code": "CATEGORY"
-                        },
-                        "value": "Grocery"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "dangerous_goods"
-                        },
-                        "value": "true"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "stackable"
-                        },
-                        "value": "true"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Shipment_Value"
-                        },
-                        "value": "50000"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Package_Count"
-                        },
-                        "value": "10"
-                      }
-                    ]
-                  },
-                  {
-                    "descriptor": {
-                      "code": "Cold_Logistics"
-                    },
-                    "list": [
-                      {
-                        "descriptor": {
-                          "code": "Temp_Control"
-                        },
-                        "value": "true"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Temp_Unit"
-                        },
-                        "value": "Celcius"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Temp_Min"
-                        },
-                        "value": "0"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Temp_Max"
-                        },
-                        "value": "4"
-                      }
-                    ]
-                  },
-                {
-                    "descriptor": {
-                        "code": "BPP_Terms"
-                    },
+                    "code": "BPP_Terms",
                     "list": [
                         {
-                            "descriptor": {
-                                "code": "Max_Liability"
-                            },
+                            "code": "Max_Liability",
                             "value": "2"
                         },
                         {
-                            "descriptor": {
-                                "code": "Max_Liability_Cap"
-                            },
+                            "code": "Max_Liability_Cap",
                             "value": "10000"
                         },
                         {
-                            "descriptor": {
-                                "code": "Mandatory_Arbitration"
-                            },
+                            "code": "Mandatory_Arbitration",
                             "value": "false"
                         },
                         {
-                            "descriptor": {
-                                "code": "Court_Jurisdiction"
-                            },
+                            "code": "Court_Jurisdiction",
                             "value": "Bengaluru"
                         },
                         {
-                            "descriptor": {
-                                "code": "Delay_Interest"
-                            },
+                            "code": "Delay_Interest",
                             "value": "1000"
                         },
                         {
-                            "descriptor": {
-                                "code": "Static_Terms"
-                            },
+                            "code": "Static_Terms",
                             "value": "https://github.com/ONDC-Official/protocol-network-extension/discussions/79"
                         }
                     ]
-                },
-                {
-                    "descriptor": {
-                        "code": "BAP_Terms"
-                    },
-                    "list": [
-                        {
-                            "descriptor": {
-                                "code": "Accept_BPP_Terms"
-                            },
-                            "value": "Y"
-                        }
-                    ]
                 }
-            ],
-            "created_at": "2023-02-06T22:00:00.000Z",
-            "updated_at": "2023-02-06T22:00:00.000Z"
+            ]
         }
     }
 }

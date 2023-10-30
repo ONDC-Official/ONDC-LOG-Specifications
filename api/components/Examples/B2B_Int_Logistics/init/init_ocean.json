@@ -90,7 +90,7 @@
                     ],
                     "tags": {
                         "descriptor": {
-                          "code": "DELIVERY_TERMS"
+                          "code": "Delivery_Terms"
                         },
                         "list": [
                           {
@@ -127,42 +127,42 @@
                 "tags": [
                     {
                         "descriptor": {
-                            "code": "settlement_details"
+                            "code": "Settlement_Details"
                         },
                         "list": [
                             {
                                 "descriptor": {
-                                    "code": "counterparty"
+                                    "code": "Counterparty"
                                 },
                                 "value": "BAP"
                             },
                             {
                                 "descriptor": {
-                                    "code": "mode"
+                                    "code": "Mode"
                                 },
                                 "value": "UPI"
                             },
                             {
                                 "descriptor": {
-                                    "code": "beneficiary_name"
+                                    "code": "Beneficiary_Name"
                                 },
                                 "value": "xxxxx"
                             },
                             {
                                 "descriptor": {
-                                    "code": "bank_account_no"
+                                    "code": "Bank_Account_No"
                                 },
                                 "value": "xxxxx"
                             },
                             {
                                 "descriptor": {
-                                    "code": "ifsc_code"
+                                    "code": "Ifsc_Code"
                                 },
                                 "value": "xxxxxxx"
                             },
                             {
                                 "descriptor": {
-                                    "code": "upi_address"
+                                    "code": "UPI_Address"
                                 },
                                 "value": "xxxxxxx"
                             }
@@ -173,7 +173,9 @@
             "xinput": {
                 "form": {
                     "url": "https://lsp.com/xxx/kyc",
-                    "mime_type": "text/html"
+                    "mime_type": "text/html",
+                    "submission_id": "xxxx44567789999",
+                    "status": "SUCCESS"
                 },
                 "required": true
             }

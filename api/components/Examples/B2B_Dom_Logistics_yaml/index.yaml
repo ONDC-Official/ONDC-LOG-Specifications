@@ -1,7 +1,7 @@
 search:
   examples:
-    - $ref: ./search/search_Road_Cargo.yaml
-    - $ref: ./search/search_Air_Cargo.yaml
+    - $ref: ./search/search_Surface_Delivery.yaml
+    - $ref: ./search/search_Air_Delivery.yaml
     # - $ref: ./search/search_by_category.yaml
     # - $ref: ./search/search_by_fulfillment_end_loc.yaml
 # select:

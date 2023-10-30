@@ -109,7 +109,7 @@
                     ],
                     "tags": {
                         "descriptor": {
-                          "code": "DELIVERY_TERMS"
+                          "code": "Delivery_Terms"
                         },
                         "list": [
                           {
@@ -223,42 +223,42 @@
                     "tags": [
                         {
                             "descriptor": {
-                                "code": "settlement_details"
+                                "code": "Settlement_Details"
                             },
                             "list": [
                                 {
                                     "descriptor": {
-                                        "code": "counterparty"
+                                        "code": "Counterparty"
                                     },
                                     "value": "BAP"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "mode"
+                                        "code": "Mode"
                                     },
                                     "value": "UPI"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "beneficiary_name"
+                                        "code": "Beneficiary_Name"
                                     },
                                     "value": "xxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "bank_account_no"
+                                        "code": "Bank_Account_No"
                                     },
                                     "value": "xxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "ifsc_code"
+                                        "code": "Ifsc_Code"
                                     },
                                     "value": "xxxxxxx"
                                 },
                                 {
                                     "descriptor": {
-                                        "code": "upi_address"
+                                        "code": "UPI_Address"
                                     },
                                     "value": "xxxxxxx"
                                 }
@@ -394,42 +394,42 @@
                   },
                 {
                     "descriptor": {
-                        "code": "bpp_terms"
+                        "code": "BPP_Terms"
                     },
                     "list": [
                         {
                             "descriptor": {
-                                "code": "max_liability"
+                                "code": "Max_Liability"
                             },
                             "value": "2"
                         },
                         {
                             "descriptor": {
-                                "code": "max_liability_cap"
+                                "code": "Max_Liability_Cap"
                             },
                             "value": "10000"
                         },
                         {
                             "descriptor": {
-                                "code": "mandatory_arbitration"
+                                "code": "Mandatory_Arbitration"
                             },
                             "value": "false"
                         },
                         {
                             "descriptor": {
-                                "code": "court_jurisdiction"
+                                "code": "Court_Jurisdiction"
                             },
                             "value": "Bengaluru"
                         },
                         {
                             "descriptor": {
-                                "code": "delay_interest"
+                                "code": "Delay_Interest"
                             },
                             "value": "1000"
                         },
                         {
                             "descriptor": {
-                                "code": "static_terms"
+                                "code": "Static_Terms"
                             },
                             "value": "https://github.com/ONDC-Official/protocol-network-extension/discussions/79"
                         }
@@ -437,12 +437,12 @@
                 },
                 {
                     "descriptor": {
-                        "code": "bap_terms"
+                        "code": "BAP_Terms"
                     },
                     "list": [
                         {
                             "descriptor": {
-                                "code": "accept_bpp_terms"
+                                "code": "Accept_BPP_Terms"
                             },
                             "value": "Y"
                         }

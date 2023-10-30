@@ -28,27 +28,46 @@
         [
           {
             "descriptor": {
-              "code":"bpp_terms"
+              "code":"BPP_Terms"
             },
             "list":
             [
               {
                 "descriptor": {
-                  "code":"static_terms"
+                  "code":"Static_Terms"
                 },
                 "value":""
               },
               {
                 "descriptor": {
-                  "code":"static_terms_new"
+                  "code":"Static_Terms_New"
                 },
                 "value":"https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf"
               },
               {
                 "descriptor": {
-                  "code":"effective_date"
+                  "code":"Effective_Date"
                 },
                 "value":"2023-10-01T00:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "descriptor": {
+              "code": "KYC"
+            },
+            "list": [
+              {
+                "descriptor": {
+                  "code": "url"
+                },
+                "value": "https://lsp.com/xxx/kyc"
+              },
+              {
+                "descriptor": {
+                  "code": "required"
+                },
+                "value": "true"
               }
             ]
           }
@@ -76,14 +95,14 @@
             {
               "id": "C1",
               "descriptor": {
-                "code": "EXPRESS_DELIVERY"
+                "code": "Standard_Delivery"
               }
             },
             {
               "id": "R1",
               "parent_category_id": "C1",
               "descriptor": {
-                "code": "ROAD_CARGO"
+                "code": "Surface_Delivery"
               },
               "time": {
                 "label": "TAT",
@@ -92,10 +111,16 @@
               }
             },
             {
-              "id": "A1",
-              "parent_category_id": "C1",
+              "id": "C2",
               "descriptor": {
-                "code": "AIR_CARGO"
+                "code": "Express_Delivery"
+              }
+            },
+            {
+              "id": "A1",
+              "parent_category_id": "C2",
+              "descriptor": {
+                "code": "Air_Delivery"
               },
               "time": {
                 "label": "TAT",
@@ -129,9 +154,9 @@
               ],
               "descriptor": {
                 "code": "P2H2P",
-                "name": "Road Cargo",
-                "short_desc": "Road Cargo",
-                "long_desc": "Road Cargo"
+                "name": "Surface Delivery",
+                "short_desc": "Surface Delivery",
+                "long_desc": "Surface Delivery"
               },
               "price": {
                 "currency": "INR",
@@ -173,7 +198,7 @@
               "id": "I3",
               "parent_item_id": "",
               "category_ids": [
-                "C1",
+                "C2",
                 "A1"
               ],
               "fulfillment_ids": [
@@ -181,9 +206,9 @@
               ],
               "descriptor": {
                 "code": "P2H2P",
-                "name": "Air Cargo",
-                "short_desc": "Air Cargo",
-                "long_desc": "Air Cargo"
+                "name": "Air Delivery",
+                "short_desc": "Air Delivery",
+                "long_desc": "Air Delivery"
               },
               "price": {
                 "currency": "INR",
@@ -199,7 +224,7 @@
               "id": "I4",
               "parent_item_id": "I3",
               "category_ids": [
-                "C1",
+                "C2",
                 "A1"
               ],
               "fulfillment_ids": [

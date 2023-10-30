@@ -22,7 +22,7 @@
     "intent": {
       "category": {
         "descriptor": {
-          "code": "AIR_CARGO"
+          "code": "Air_Delivery"
         }
       },
       "provider": {
@@ -93,7 +93,7 @@
               "descriptor": {
                 "code": "Value"
               },
-              "Value": "5"
+              "Value": "50"
             }
           ]
         },
@@ -184,9 +184,15 @@
             },
             {
               "descriptor": {
-                "code": "Temp_Range"
+                "code": "Temp_Min"
               },
-              "value": "-18"
+              "value": "0"
+            },
+            {
+              "descriptor": {
+                "code": "Temp_Max"
+              },
+              "value": "4"
             }
           ]
         }

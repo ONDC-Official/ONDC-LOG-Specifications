@@ -152,7 +152,7 @@ value:
                     code: ready_to_ship
                   value: 'yes'
                 - descriptor:
-                    code: awb_no
+                    code: AWB_No
                   value: '1209878992826353'
                 - descriptor:
                     code: rto_action
@@ -184,10 +184,10 @@ value:
           type: PRE-FULFILLMENT
           tags:
             - descriptor:
-                code: settlement_details
+                code: Settlement_Details
               list:
                 - descriptor:
-                    code: counterparty
+                    code: Counterparty
                   value: BAP
                 - descriptor:
                     code: mode
