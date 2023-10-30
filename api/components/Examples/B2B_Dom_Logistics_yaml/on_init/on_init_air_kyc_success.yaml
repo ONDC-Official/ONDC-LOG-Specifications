@@ -160,7 +160,7 @@ message:
         url: https://lsp.com/xxx/kyc
         mime_type: text/html
         submission_id: xxxx44567789999
-        status: FAIL
+        status: SUCCESS
       required: true
     tags:
       - code: BPP_Terms
@@ -178,6 +178,3 @@ message:
           - code: Static_Terms
             value: >-
               https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-error:
-  code: ''
-  message: ''

@@ -2,9 +2,9 @@ context:
   domain: ONDC:LGP
   location:
     city:
-      code: std:080
+      code: UN:SIN
     country:
-      code: IND
+      code: SGP
   action: on_init
   version: 2.0.0
   bap_id: logistics_buyer.com
@@ -26,7 +26,7 @@ message:
         fulfillment_ids:
           - '1'
         category_ids:
-          - C2
+          - C1
           - A1
     fulfillments:
       - id: '1'
@@ -35,7 +35,7 @@ message:
           - type: start
             location:
               gps: 12.4535445,77.9283792
-              address: My house or building name, street name
+              address: 'My building #, My street name'
               city:
                 name: Bengaluru
               state:
@@ -48,18 +48,28 @@ message:
               email: abcd.efgh@gmail.com
           - type: end
             location:
-              gps: 12.342769,77.9129423
-              address: My house or building name, street name
+              gps: 1.3806217468119772, 103.74636438437074
+              address: 'My House #, My buildin'
               city:
-                name: Bengaluru
+                name: Jurong East
               state:
-                name: Karnataka
+                name: ''
               country:
-                code: IND
-              area_code: '560043'
+                code: SGP
+              area_code: '680230'
             contact:
               phone: '9886098860'
               email: abcd.efgh@gmail.com
+        tags:
+          descriptor:
+            code: Delivery_Terms
+          list:
+            - descriptor:
+                code: INCOTERMS
+              value: CIF
+            - descriptor:
+                code: NAMED_PLACE_OF_DELIVERY
+              value: UN:SIN
     quote:
       price:
         currency: INR
@@ -67,10 +77,34 @@ message:
       breakup:
         - item:
             id: I3
-          title: delivery
+          title: Origin
           price:
             currency: INR
-            value: '5480.0'
+            value: '500.0'
+        - item:
+            id: I3
+          title: Freight
+          price:
+            currency: INR
+            value: '500.0'
+        - item:
+            id: I3
+          title: Destination
+          price:
+            currency: INR
+            value: '500.0'
+        - item:
+            id: I3
+          title: Custom_Clearance_Service_Origin
+          price:
+            currency: INR
+            value: '500.0'
+        - item:
+            id: I3
+          title: Custom_Clearance_Service_Destination
+          price:
+            currency: INR
+            value: '500.0'
         - item:
             id: I3
           title: tax
@@ -90,40 +124,58 @@ message:
             value: '0.0'
       - fulfillment_state:
           descriptor:
-            code: Out-for-pickup
+            code: Pickup-approved
             short_desc: ''
         reason_required: false
         cancellation_fee:
           amount:
             currency: INR
-            value: '500.00'
+            value: '0.0'
       - fulfillment_state:
           descriptor:
-            code: In-transit
+            code: At-domestic-hub
             short_desc: ''
         reason_required: false
         cancellation_fee:
           amount:
             currency: INR
-            value: '700.00'
+            value: '500'
       - fulfillment_state:
           descriptor:
-            code: At-destination-hub
+            code: Custom-cleared-domestic
             short_desc: ''
         reason_required: false
         cancellation_fee:
           amount:
             currency: INR
-            value: '1000.00'
+            value: '700'
       - fulfillment_state:
           descriptor:
-            code: Out-for-delivery
+            code: Shipped
             short_desc: ''
         reason_required: false
         cancellation_fee:
           amount:
             currency: INR
-            value: '4000.00'
+            value: '1000'
+      - fulfillment_state:
+          descriptor:
+            code: Shipped
+            short_desc: ''
+        reason_required: false
+        cancellation_fee:
+          amount:
+            currency: INR
+            value: '1000'
+      - fulfillment_state:
+          descriptor:
+            code: Reached-destination-country
+            short_desc: ''
+        reason_required: false
+        cancellation_fee:
+          amount:
+            currency: INR
+            value: '5000'
     payments:
       - id: P1
         collected_by: BPP
@@ -178,6 +230,3 @@ message:
           - code: Static_Terms
             value: >-
               https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-error:
-  code: ''
-  message: ''

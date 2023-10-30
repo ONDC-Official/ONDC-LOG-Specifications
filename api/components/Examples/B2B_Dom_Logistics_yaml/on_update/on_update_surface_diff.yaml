@@ -5,24 +5,20 @@ context:
       code: std:080
     country:
       code: IND
-  action: on_status
+  action: on_update
   version: 2.0.0
   bap_id: logistics_buyer.com
   bap_uri: https://logistics_buyer.com/ondc
   bpp_id: logistics_seller.com
   bpp_uri: https://logistics_seller.com/ondc
   transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-  message_id: '1755281254863'
-  timestamp: '2023-10-19T21:00:00.800Z'
+  message_id: '1755281254862'
+  timestamp: '2023-10-17T21:13:00.601Z'
   ttl: PT30S
 message:
   order:
     id: O2
-    status: Cancelled
-    cancellation:
-      cancelled_by: buyerNP.com
-      reason:
-        id: '004'
+    status: In-progress
     provider:
       id: P1
       locations:
@@ -39,23 +35,11 @@ message:
         time:
           label: TAT
           duration: PT7D
-          timestamp: '2023-10-19'
-      - id: I2
-        category_ids:
-          - C1
-          - R1
-        fulfillment_ids:
-          - '2'
-        descriptor:
-          code: P2H2P
-        time:
-          label: TAT
-          duration: PT7D
-          timestamp: '2023-10-19'
+          timestamp: '2023-10-17'
     quote:
       price:
         currency: INR
-        value: '6000.0'
+        value: '4056.0'
       breakup:
         - item:
             id: I1
@@ -70,11 +54,17 @@ message:
             currency: INR
             value: '500.0'
         - item:
-            id: I2
-          title: rto
+            id: I1
+          title: delivery_diff
           price:
             currency: INR
-            value: '2000.0'
+            value: '50.0'
+        - item:
+            id: I1
+          title: tax_diff
+          price:
+            currency: INR
+            value: '6.0'
       ttl: PT15M
     fulfillments:
       - id: '1'
@@ -89,21 +79,20 @@ message:
             type: start
             location:
               gps: 12.4535445,77.9283792
-              area_code: '560041'
-              map_url: ''
               address: My house or building name, street name
-              city: Bengaluru
-              state: Karnataka
-              country: India
+              city:
+                name: Bengaluru
+              state:
+                name: Karnataka
+              country:
+                name: India
+                code: IND
+              area_code: '560041'
             contact:
               phone: '9886098860'
               email: abcd.efgh@gmail.com
-            authorization:
-              type: QR
-              token: XYZ2
-              valid_from: ''
-              valid_to: ''
             instructions:
+              code: AWB_No
               short_desc: Shipping label
               long_desc: ''
               additional_desc:
@@ -115,26 +104,24 @@ message:
               range:
                 start: '2023-10-17T21:12:00.710Z'
                 end: '2023-10-20T21:12:00.710Z'
-              timestamp: '2023-06-07T00:00:00.000Z'
+              timestamp: '2023-10-17T21:13:00.601Z'
           - id: L2
             parent_stop_id: L1
             type: end
             location:
               gps: 12.342769,77.9129423
-              map_url: ''
               address: My house or building name, street name
-              city: Bengaluru
-              state: Karnataka
-              country: India
+              city:
+                name: Bengaluru
+              state:
+                name: Karnataka
+              country:
+                name: India
+                code: IND
               area_code: '560043'
             contact:
               phone: '9886098860'
               email: abcd.efgh@gmail.com
-            authorization:
-              type: QR
-              token: XYZ2
-              valid_from: ''
-              valid_to: ''
             instructions:
               short_desc: ''
               long_desc: drop package at security gate
@@ -154,51 +141,10 @@ message:
                 value: 'yes'
               - descriptor:
                   code: AWB_No
-                value: '1209878992826353'
+                value: '1227262193237777'
               - descriptor:
                   code: RTO_Action
                 value: 'no'
-      - id: '1'
-        type: RTO
-        state:
-          descriptor:
-            code: RTO-Initiated
-        tracking: false
-        stops:
-          - id: L1
-            parent_stop_id: ''
-            type: start
-            location:
-              gps: 12.342769,77.9129423
-              map_url: ''
-              address: My house or building name, street name
-              city: Bengaluru
-              state: Karnataka
-              country: India
-              area_code: '560043'
-            contact:
-              phone: '9886098860'
-              email: abcd.efgh@gmail.com
-            time:
-              range:
-                start: '2023-02-06T22:30:00.000Z'
-                end: '2023-02-06T22:45:00.000Z'
-              timestamp: '2023-06-07T00:00:00.000Z'
-        agent:
-          person:
-            name: xxxxx
-          contact:
-            phone: '9999999999'
-        tags:
-          - descriptor:
-              code: Delivery_Terms
-            list:
-              - descriptor:
-                  code: AWB_No
-                value: '1209878992826353'
-              - descriptor:
-                  code: RTO_Action
-                value: 'yes'
     billing:
       name: ONDC sellerapp
       address: My house or building name
@@ -211,11 +157,11 @@ message:
       - id: P1
         collected_by: BPP
         params:
-          amount: '6000'
+          amount: '4000'
           currency: INR
           bank_account_number: xxxxxxxx
           virtual_payment_address: xxx@xxxx
-        type: POST-FULFILMENT
+        type: PRE-FULFILLMENT
         tags:
           - descriptor:
               code: Settlement_Details
@@ -305,4 +251,4 @@ message:
           - descriptor:
               code: url
             value: https://xxxxx/xx.png
-    updated_at: '2023-10-19T21:00:00.800Z'
+    updated_at: '2023-10-17T21:13:00.601Z'

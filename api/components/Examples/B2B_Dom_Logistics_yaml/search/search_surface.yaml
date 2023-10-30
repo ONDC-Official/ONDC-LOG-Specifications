@@ -11,13 +11,13 @@ context:
   bap_uri: https://logistics_buyer.com/ondc
   transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
   message_id: '1755281254860'
-  timestamp: '2023-10-17T21:00:00.000Z'
+  timestamp: '2023-10-17T21:10:00.000Z'
   ttl: PT30S
 message:
   intent:
     category:
       descriptor:
-        code: STANDARD_DELIVERY
+        code: Surface_Delivery
     provider:
       time:
         days: 1,2,3,4,5,6,7

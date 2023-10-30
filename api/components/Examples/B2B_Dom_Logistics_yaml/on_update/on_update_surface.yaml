@@ -5,65 +5,61 @@ context:
       code: std:080
     country:
       code: IND
-  action: on_cancel
+  action: on_update
   version: 2.0.0
   bap_id: logistics_buyer.com
   bap_uri: https://logistics_buyer.com/ondc
   bpp_id: logistics_seller.com
   bpp_uri: https://logistics_seller.com/ondc
   transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-  message_id: '1755281254860'
-  timestamp: '2023-10-23T21:00:00.000Z'
+  message_id: '1755281254862'
+  timestamp: '2023-10-17T21:13:00.601Z'
   ttl: PT30S
 message:
   order:
     id: O2
-    status: Cancelled
-    cancellation:
-      cancelled_by: logistics_buyer.com
-      reason:
-        id: '004'
+    status: In-progress
     provider:
       id: P1
       locations:
         - id: L1
     items:
-      - id: I3
+      - id: I1
         category_ids:
           - C1
-          - A1
-        descriptor:
-          code: P2H2P
+          - R1
         fulfillment_ids:
           - '1'
+        descriptor:
+          code: P2H2P
         time:
           label: TAT
-          duration: PT45M
-          timestamp: '2023-10-23'
+          duration: PT7D
+          timestamp: '2023-10-17'
     quote:
       price:
         currency: INR
-        value: '0.00'
+        value: '4000.0'
       breakup:
         - item:
-            id: I3
+            id: I1
           title: delivery
           price:
             currency: INR
-            value: '0.00'
+            value: '3500.0'
         - item:
-            id: I3
+            id: I1
           title: tax
           price:
             currency: INR
-            value: '0.00'
+            value: '500.0'
       ttl: PT15M
     fulfillments:
       - id: '1'
         type: Delivery
         state:
           descriptor:
-            code: Cancelled
+            code: Pending
         tracking: false
         stops:
           - id: L1
@@ -71,21 +67,20 @@ message:
             type: start
             location:
               gps: 12.4535445,77.9283792
-              area_code: '560041'
-              map_url: ''
               address: My house or building name, street name
-              city: Bengaluru
-              state: Karnataka
-              country: India
+              city:
+                name: Bengaluru
+              state:
+                name: Karnataka
+              country:
+                name: India
+                code: IND
+              area_code: '560041'
             contact:
               phone: '9886098860'
               email: abcd.efgh@gmail.com
-            authorization:
-              type: QR
-              token: XYZ2
-              valid_from: ''
-              valid_to: ''
             instructions:
+              code: AWB_No
               short_desc: Shipping label
               long_desc: ''
               additional_desc:
@@ -95,27 +90,26 @@ message:
                 - link/to/shipping/label
             time:
               range:
-                start: '2023-02-06T22:30:00.000Z'
-                end: '2023-02-06T22:45:00.000Z'
+                start: '2023-10-17T21:12:00.710Z'
+                end: '2023-10-20T21:12:00.710Z'
+              timestamp: '2023-10-17T21:13:00.601Z'
           - id: L2
             parent_stop_id: L1
             type: end
             location:
               gps: 12.342769,77.9129423
-              map_url: ''
               address: My house or building name, street name
-              city: Bengaluru
-              state: Karnataka
-              country: India
+              city:
+                name: Bengaluru
+              state:
+                name: Karnataka
+              country:
+                name: India
+                code: IND
               area_code: '560043'
             contact:
               phone: '9886098860'
               email: abcd.efgh@gmail.com
-            authorization:
-              type: QR
-              token: XYZ2
-              valid_from: ''
-              valid_to: ''
             instructions:
               short_desc: ''
               long_desc: drop package at security gate
@@ -124,18 +118,18 @@ message:
                 url: URL for instructions
             time:
               range:
-                start: '2023-02-14T22:30:00.000Z'
-                end: '2023-02-14T22:45:00.000Z'
+                start: '2023-10-21T21:12:00.710Z'
+                end: '2023-10-24T21:12:00.710Z'
         tags:
           - descriptor:
-              code: fulfillment_terms
+              code: Delivery_Terms
             list:
               - descriptor:
                   code: Ready_To_Ship
                 value: 'yes'
               - descriptor:
                   code: AWB_No
-                value: '1209878992826353'
+                value: '1227262193237777'
               - descriptor:
                   code: RTO_Action
                 value: 'no'
@@ -151,7 +145,7 @@ message:
       - id: P1
         collected_by: BPP
         params:
-          amount: '6000'
+          amount: '4000'
           currency: INR
           bank_account_number: xxxxxxxx
           virtual_payment_address: xxx@xxxx
@@ -178,62 +172,4 @@ message:
               - descriptor:
                   code: UPI_Address
                 value: xxxxxxx
-    tags:
-      - descriptor:
-          code: Quantity
-        list:
-          - descriptor:
-              code: count
-            value: '1000'
-          - descriptor:
-              code: MEASURE_UNIT
-            value: kilogram
-          - descriptor:
-              code: MEASURE_VALUE
-            value: '1000'
-      - descriptor:
-          code: Package_Dimensions
-        list:
-          - descriptor:
-              code: Unit
-            value: centimeter
-          - descriptor:
-              code: Length
-            value: '1'
-          - descriptor:
-              code: Breadth
-            value: '1'
-          - descriptor:
-              code: Height
-            value: '1'
-      - descriptor:
-          code: Package_Details
-        list:
-          - descriptor:
-              code: Category
-            value: Grocery
-          - descriptor:
-              code: UNIT_PRICE
-            value: '100'
-          - descriptor:
-              code: ITEM_PRICE
-            value: '100000'
-          - descriptor:
-              code: Dangerous_Goods
-            value: 'true'
-      - descriptor:
-          code: Package_Dimensions_Diff
-        list:
-          - descriptor:
-              code: Unit
-            value: centimeter
-          - descriptor:
-              code: Length
-            value: '1.5'
-          - descriptor:
-              code: Breadth
-            value: '1.5'
-          - descriptor:
-              code: Height
-            value: '1.5'
-    updated_at: '2023-02-06T22:00:30.000Z'
+    updated_at: '2023-10-17T21:13:00.601Z'
