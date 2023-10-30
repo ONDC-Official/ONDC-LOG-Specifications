@@ -7,13 +7,13 @@ steps:
     description: Search intent sent by the buyer based on the category
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_Air_Delivery.yaml"
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_air.yaml.yaml"
   - summary: Returns item/ catalog
     api: on_search
     description: Catalog provided by the Seller App 
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_search/on_search.yaml"
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_search/on_search_air.yaml"
   # - summary: Select the item
   #   api: select
   #   description: Buyer selects an item 
@@ -55,13 +55,13 @@ steps:
     description: Buyer update the PO
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/update/update.yaml"
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/update/update_air.yaml"
   - summary: Seller Accepts PO
     api: on_update
     description: Seller app sends an on_update call to the buyer app relaying the PO acceptance.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_update/on_update.yaml"   
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_update/on_update_air.yaml"   
   - summary: Request for order status update
     api: status
     description: Buyer requests for the order status update
@@ -73,4 +73,4 @@ steps:
     description: Seller app sends an on_status call to the buyer app informing about the current status of the order.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_status/on_status.yaml"                     
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_status/on_status_air.yaml"                     

@@ -5,22 +5,22 @@ context:
       code: std:080
     country:
       code: IND
-  action: on_status
+  action: on_cancel
   version: 2.0.0
   bap_id: logistics_buyer.com
   bap_uri: https://logistics_buyer.com/ondc
   bpp_id: logistics_seller.com
   bpp_uri: https://logistics_seller.com/ondc
   transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-  message_id: '1755281254863'
-  timestamp: '2023-10-19T21:00:00.800Z'
+  message_id: '1755281254864'
+  timestamp: '2023-10-17T22:00:00.811Z'
   ttl: PT30S
 message:
   order:
     id: O2
     status: Cancelled
     cancellation:
-      cancelled_by: buyerNP.com
+      cancelled_by: logistics_buyer.com
       reason:
         id: '004'
     provider:
@@ -32,56 +32,38 @@ message:
         category_ids:
           - C1
           - R1
+        descriptor:
+          code: P2H2P
         fulfillment_ids:
           - '1'
-        descriptor:
-          code: P2H2P
         time:
           label: TAT
           duration: PT7D
-          timestamp: '2023-10-19'
-      - id: I2
-        category_ids:
-          - C1
-          - R1
-        fulfillment_ids:
-          - '2'
-        descriptor:
-          code: P2H2P
-        time:
-          label: TAT
-          duration: PT7D
-          timestamp: '2023-10-19'
+          timestamp: '2023-10-17'
     quote:
       price:
         currency: INR
-        value: '6000.0'
+        value: '0.00'
       breakup:
         - item:
             id: I1
           title: delivery
           price:
             currency: INR
-            value: '3500.0'
+            value: '0.00'
         - item:
             id: I1
           title: tax
           price:
             currency: INR
-            value: '500.0'
-        - item:
-            id: I2
-          title: rto
-          price:
-            currency: INR
-            value: '2000.0'
+            value: '0.00'
       ttl: PT15M
     fulfillments:
       - id: '1'
         type: Delivery
         state:
           descriptor:
-            code: Pending
+            code: Cancelled
         tracking: false
         stops:
           - id: L1
@@ -115,7 +97,6 @@ message:
               range:
                 start: '2023-10-17T21:12:00.710Z'
                 end: '2023-10-20T21:12:00.710Z'
-              timestamp: '2023-06-07T00:00:00.000Z'
           - id: L2
             parent_stop_id: L1
             type: end
@@ -147,7 +128,7 @@ message:
                 end: '2023-10-24T21:12:00.710Z'
         tags:
           - descriptor:
-              code: Delivery_Terms
+              code: fulfillment_terms
             list:
               - descriptor:
                   code: Ready_To_Ship
@@ -158,47 +139,6 @@ message:
               - descriptor:
                   code: RTO_Action
                 value: 'no'
-      - id: '1'
-        type: RTO
-        state:
-          descriptor:
-            code: RTO-Initiated
-        tracking: false
-        stops:
-          - id: L1
-            parent_stop_id: ''
-            type: start
-            location:
-              gps: 12.342769,77.9129423
-              map_url: ''
-              address: My house or building name, street name
-              city: Bengaluru
-              state: Karnataka
-              country: India
-              area_code: '560043'
-            contact:
-              phone: '9886098860'
-              email: abcd.efgh@gmail.com
-            time:
-              range:
-                start: '2023-02-06T22:30:00.000Z'
-                end: '2023-02-06T22:45:00.000Z'
-              timestamp: '2023-06-07T00:00:00.000Z'
-        agent:
-          person:
-            name: xxxxx
-          contact:
-            phone: '9999999999'
-        tags:
-          - descriptor:
-              code: Delivery_Terms
-            list:
-              - descriptor:
-                  code: AWB_No
-                value: '1209878992826353'
-              - descriptor:
-                  code: RTO_Action
-                value: 'yes'
     billing:
       name: ONDC sellerapp
       address: My house or building name
@@ -211,11 +151,11 @@ message:
       - id: P1
         collected_by: BPP
         params:
-          amount: '6000'
+          amount: '4000'
           currency: INR
           bank_account_number: xxxxxxxx
           virtual_payment_address: xxx@xxxx
-        type: POST-FULFILMENT
+        type: PRE-FULFILLMENT
         tags:
           - descriptor:
               code: Settlement_Details
@@ -240,14 +180,17 @@ message:
                 value: xxxxxxx
     tags:
       - descriptor:
-          code: Package_Weight
+          code: Quantity
         list:
           - descriptor:
-              code: Unit
+              code: count
+            value: '1000'
+          - descriptor:
+              code: MEASURE_UNIT
             value: kilogram
           - descriptor:
-              code: Value
-            Value: '5'
+              code: MEASURE_VALUE
+            value: '1000'
       - descriptor:
           code: Package_Dimensions
         list:
@@ -256,13 +199,13 @@ message:
             value: centimeter
           - descriptor:
               code: Length
-            value: '100'
+            value: '1'
           - descriptor:
               code: Breadth
-            value: '100'
+            value: '1'
           - descriptor:
               code: Height
-            value: '100'
+            value: '1'
       - descriptor:
           code: Package_Details
         list:
@@ -270,17 +213,14 @@ message:
               code: Category
             value: Grocery
           - descriptor:
+              code: UNIT_PRICE
+            value: '100'
+          - descriptor:
+              code: ITEM_PRICE
+            value: '100000'
+          - descriptor:
               code: Dangerous_Goods
             value: 'true'
-          - descriptor:
-              code: Stackable
-            value: 'true'
-          - descriptor:
-              code: Shipment_Value
-            value: '50000'
-          - descriptor:
-              code: Package_Count
-            value: '10'
       - descriptor:
           code: Package_Dimensions_Diff
         list:
@@ -296,13 +236,4 @@ message:
           - descriptor:
               code: Height
             value: '1.5'
-      - descriptor:
-          code: Diff_Proof
-        list:
-          - descriptor:
-              code: type
-            value: image
-          - descriptor:
-              code: url
-            value: https://xxxxx/xx.png
-    updated_at: '2023-10-19T21:00:00.800Z'
+    updated_at: '2023-10-17T22:00:00.811Z'

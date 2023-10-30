@@ -2,9 +2,9 @@ context:
   domain: ONDC:LGS
   location:
     city:
-      code: std:080
+      code: UN:SIN
     country:
-      code: IND
+      code: SGP
   action: search
   version: 2.0.0
   bap_id: logistics_buyer.com
@@ -17,7 +17,7 @@ message:
   intent:
     category:
       descriptor:
-        code: STANDARD_DELIVERY
+        code: OCEAN_CARGO
     provider:
       time:
         days: 1,2,3,4,5,6,7
@@ -39,14 +39,24 @@ message:
             area_code: '560041'
           time:
             range:
-              start: '2023-02-03T10:00:00.000Z'
-              end: '2023-02-03T10:30:00.000Z'
+              start: '2023-10-23T10:00:00.000Z'
+              end: '2023-10-25T10:30:00.000Z'
         - id: L2
           parent_stop_id: L1
           type: end
           location:
-            gps: 12.342769,77.9129423
-            area_code: '636806'
+            gps: 1.3806217468119772, 103.74636438437074
+            area_code: '680230'
+      tags:
+        descriptor:
+          code: Delivery_Terms
+        list:
+          - descriptor:
+              code: INCOTERMS
+            value: CIF
+          - descriptor:
+              code: NAMED_PLACE_OF_DELIVERY
+            value: UN:SGSIN
     payment:
       collected_by: BPP
       type: ON-FULFILLMENT
@@ -96,6 +106,9 @@ message:
           - descriptor:
               code: Package_Count
             value: '10'
+          - descriptor:
+              code: HSN_Code
+            value: xxxxxxx
       - descriptor:
           code: Cold_Logistics
         list:
