@@ -1,8 +1,8 @@
 search:
   examples:
-    - $ref: ./search/search_by_item.yaml
-    - $ref: ./search/search_by_category.yaml
-    - $ref: ./search/search_by_fulfillment_end_loc.yaml
+    - $ref: ./search/search_Air_Delivery.yaml
+    - $ref: ./search/search_by_parent_category.yaml
+    - $ref: ./search/search_Ocean_Delivery.yaml
 select:
   examples:
     - $ref: ./select/select_domestic.yaml
