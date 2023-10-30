@@ -1,11 +1,11 @@
 examples:
-  $ref: "./examples/B2B.yaml"
+  $ref: "./examples/B2B_Logistics.yaml"
 enum:
   $ref: "./enums/index.yaml"
 tags:
   $ref: "./tags/TagGroup.yaml"
-dictionary:
-  $ref: "./dictionary/index.yaml"
+# dictionary:
+#   $ref: "./dictionary/index.yaml"
 flows:
   $ref: "./flows/index.yaml"
 attributes:

@@ -5,4 +5,4 @@ B2B:
     specifications to perform e-commerce operations like search, select, confirm and track.At provider platform would use these specifications expose
     there specific invetory in form of on_search, on_select etc.
   example_set:
-    $ref: "./B2B/index.yaml"
+    $ref: "./B2B_Dom_Logistics_yaml/index.yaml"
