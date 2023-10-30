@@ -14,18 +14,6 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B_Int_Logistics_yaml/on_search/on_search_Air.yaml"
-  # - summary: Select the item
-  #   api: select
-  #   description: Buyer selects an item 
-  #   reference: if any
-  #   example:
-  #     $ref: "../../Examples/B2B_Int_Logistics_yaml/select/select_domestic.yaml"
-  # - summary: Returns item breakup
-  #   api: on_select
-  #   description: Seller app provides the quote for the selected items
-  #   reference: if any
-  #   example:
-  #     $ref: "../../Examples/B2B_Int_Logistics_yaml/on_select/on_select.yaml"
   - summary: Requests for Quotation
     api: init
     description: Buyer requests for quotation for the selected item with all the customizations and the quantity of items required
@@ -55,10 +43,10 @@ steps:
     description: Buyer update the PO
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Int_Logistics_yaml/update/update.yaml"
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/update/update_air.yaml"
   - summary: Seller Accepts PO
     api: on_update
     description: Seller app sends an on_update call to the buyer app relaying the PO acceptance.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_update/on_update.yaml"   
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_update/on_update_air.yaml"   

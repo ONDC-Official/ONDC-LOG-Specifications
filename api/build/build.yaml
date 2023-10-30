@@ -3320,7 +3320,7 @@ x-flows:
               intent:
                 category:
                   descriptor:
-                    code: ROAD_CARGO
+                    code: Surface_Delivery
                 provider:
                   time:
                     days: 1,2,3,4,5,6,7
@@ -3442,17 +3442,17 @@ x-flows:
                   name: LSP Aggregator Inc
                   tags:
                     - descriptor:
-                        code: bpp_terms
+                        code: BPP_Terms
                       list:
                         - descriptor:
-                            code: static_terms
+                            code: Static_Terms
                           value: ''
                         - descriptor:
-                            code: static_terms_new
+                            code: Static_Terms_New
                           value: >-
                             https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
                         - descriptor:
-                            code: effective_date
+                            code: Effective_Date
                           value: '2023-10-01T00:00:00.000Z'
                 fulfillments:
                   - id: '1'
@@ -3472,7 +3472,7 @@ x-flows:
                       - id: R1
                         parent_category_id: C1
                         descriptor:
-                          code: ROAD_CARGO
+                          code: Surface_Delivery
                         time:
                           label: TAT
                           duration: P7D
@@ -3480,7 +3480,7 @@ x-flows:
                       - id: A1
                         parent_category_id: C1
                         descriptor:
-                          code: AIR_CARGO
+                          code: Air_Delivery
                         time:
                           label: TAT
                           duration: P4D
@@ -3541,9 +3541,9 @@ x-flows:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: Air Cargo
-                          short_desc: Air Cargo
-                          long_desc: Air Cargo
+                          name: Air Delivery
+                          short_desc: Air Delivery
+                          long_desc: Air Delivery
                         price:
                           currency: INR
                           value: '6000.0'
@@ -3659,10 +3659,10 @@ x-flows:
                   type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
-                        code: settlement_details
+                        code: Settlement_Details
                       list:
                         - descriptor:
-                            code: counterparty
+                            code: Counterparty
                           value: BAP
                         - descriptor:
                             code: mode
@@ -3824,10 +3824,10 @@ x-flows:
                       type: PRE-FULFILMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -3845,7 +3845,7 @@ x-flows:
                               code: upi_address
                             value: xxxxxxx
                 tags:
-                  - code: bpp_terms
+                  - code: BPP_Terms
                     list:
                       - code: max_liability
                         value: '2'
@@ -3857,7 +3857,7 @@ x-flows:
                         value: Bengaluru
                       - code: delay_interest
                         value: '1000'
-                      - code: static_terms
+                      - code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
       - summary: Buyer raises PO
@@ -3988,10 +3988,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -4067,7 +4067,7 @@ x-flows:
                           code: Packaging
                         value: Barrels
                   - descriptor:
-                      code: bpp_terms
+                      code: BPP_Terms
                     list:
                       - descriptor:
                           code: max_liability
@@ -4085,14 +4085,14 @@ x-flows:
                           code: delay_interest
                         value: '1000'
                       - descriptor:
-                          code: static_terms
+                          code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                   - descriptor:
                       code: bap_terms
                     list:
                       - descriptor:
-                          code: accept_bpp_terms
+                          code: accept_BPP_Terms
                         value: 'Y'
                 created_at: '2023-10-17T21:12:00.000Z'
                 updated_at: '2023-10-17T21:12:00.000Z'
@@ -4289,10 +4289,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -4678,10 +4678,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -4959,10 +4959,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -5092,7 +5092,7 @@ x-flows:
               intent:
                 category:
                   descriptor:
-                    code: AIR_CARGO
+                    code: Air_Delivery
                 provider:
                   time:
                     days: 1,2,3,4,5,6,7
@@ -5214,17 +5214,17 @@ x-flows:
                   name: LSP Aggregator Inc
                   tags:
                     - descriptor:
-                        code: bpp_terms
+                        code: BPP_Terms
                       list:
                         - descriptor:
-                            code: static_terms
+                            code: Static_Terms
                           value: ''
                         - descriptor:
-                            code: static_terms_new
+                            code: Static_Terms_New
                           value: >-
                             https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
                         - descriptor:
-                            code: effective_date
+                            code: Effective_Date
                           value: '2023-10-01T00:00:00.000Z'
                 fulfillments:
                   - id: '1'
@@ -5244,7 +5244,7 @@ x-flows:
                       - id: R1
                         parent_category_id: C1
                         descriptor:
-                          code: ROAD_CARGO
+                          code: Surface_Delivery
                         time:
                           label: TAT
                           duration: P7D
@@ -5252,7 +5252,7 @@ x-flows:
                       - id: A1
                         parent_category_id: C1
                         descriptor:
-                          code: AIR_CARGO
+                          code: Air_Delivery
                         time:
                           label: TAT
                           duration: P4D
@@ -5313,9 +5313,9 @@ x-flows:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: Air Cargo
-                          short_desc: Air Cargo
-                          long_desc: Air Cargo
+                          name: Air Delivery
+                          short_desc: Air Delivery
+                          long_desc: Air Delivery
                         price:
                           currency: INR
                           value: '6000.0'
@@ -5431,10 +5431,10 @@ x-flows:
                   type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
-                        code: settlement_details
+                        code: Settlement_Details
                       list:
                         - descriptor:
-                            code: counterparty
+                            code: Counterparty
                           value: BAP
                         - descriptor:
                             code: mode
@@ -5596,10 +5596,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -5617,7 +5617,7 @@ x-flows:
                               code: upi_address
                             value: xxxxxxx
                 tags:
-                  - code: bpp_terms
+                  - code: BPP_Terms
                     list:
                       - code: max_liability
                         value: '2'
@@ -5629,7 +5629,7 @@ x-flows:
                         value: Bengaluru
                       - code: delay_interest
                         value: '1000'
-                      - code: static_terms
+                      - code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
       - summary: Buyer raises PO
@@ -5762,10 +5762,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -5841,7 +5841,7 @@ x-flows:
                           code: Packaging
                         value: Barrels
                   - descriptor:
-                      code: bpp_terms
+                      code: BPP_Terms
                     list:
                       - descriptor:
                           code: max_liability
@@ -5859,14 +5859,14 @@ x-flows:
                           code: delay_interest
                         value: '1000'
                       - descriptor:
-                          code: static_terms
+                          code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                   - descriptor:
                       code: bap_terms
                     list:
                       - descriptor:
-                          code: accept_bpp_terms
+                          code: accept_BPP_Terms
                         value: 'Y'
                 created_at: '2023-02-06T22:00:00.000Z'
                 updated_at: '2023-02-06T22:00:00.000Z'
@@ -6061,10 +6061,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -6137,7 +6137,7 @@ x-flows:
                           code: Temp_Range
                         value: '-18'
                   - descriptor:
-                      code: bpp_terms
+                      code: BPP_Terms
                     list:
                       - descriptor:
                           code: max_liability
@@ -6155,14 +6155,14 @@ x-flows:
                           code: delay_interest
                         value: '1000'
                       - descriptor:
-                          code: static_terms
+                          code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                   - descriptor:
                       code: bap_terms
                     list:
                       - descriptor:
-                          code: accept_bpp_terms
+                          code: accept_BPP_Terms
                         value: 'Y'
                 created_at: '2023-02-06T22:00:00.000Z'
                 updated_at: '2023-02-06T22:00:30.000Z'
@@ -6488,10 +6488,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -6771,10 +6771,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -6904,7 +6904,7 @@ x-flows:
               intent:
                 category:
                   descriptor:
-                    code: AIR_CARGO
+                    code: Air_Delivery
                 provider:
                   time:
                     days: 1,2,3,4,5,6,7
@@ -7039,17 +7039,17 @@ x-flows:
                   name: LSP Aggregator Inc
                   tags:
                     - descriptor:
-                        code: bpp_terms
+                        code: BPP_Terms
                       list:
                         - descriptor:
-                            code: static_terms
+                            code: Static_Terms
                           value: ''
                         - descriptor:
-                            code: static_terms_new
+                            code: Static_Terms_New
                           value: >-
                             https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
                         - descriptor:
-                            code: effective_date
+                            code: Effective_Date
                           value: '2023-10-01T00:00:00.000Z'
                 fulfillments:
                   - id: '1'
@@ -7077,7 +7077,7 @@ x-flows:
                       - id: A1
                         parent_category_id: C1
                         descriptor:
-                          code: AIR_CARGO
+                          code: Air_Delivery
                         time:
                           label: TAT
                           duration: P4D
@@ -7138,9 +7138,9 @@ x-flows:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: Air Cargo
-                          short_desc: Air Cargo
-                          long_desc: Air Cargo
+                          name: Air Delivery
+                          short_desc: Air Delivery
+                          long_desc: Air Delivery
                         price:
                           currency: INR
                           value: '6000.0'
@@ -7266,10 +7266,10 @@ x-flows:
                   type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
-                        code: settlement_details
+                        code: Settlement_Details
                       list:
                         - descriptor:
-                            code: counterparty
+                            code: Counterparty
                           value: BAP
                         - descriptor:
                             code: mode
@@ -7488,10 +7488,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: SETTLEMENT_DETAILS
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -7509,7 +7509,7 @@ x-flows:
                               code: upi_address
                             value: xxxxxxx
                 tags:
-                  - code: bpp_terms
+                  - code: BPP_Terms
                     list:
                       - code: max_liability
                         value: '2'
@@ -7521,7 +7521,7 @@ x-flows:
                         value: Bengaluru
                       - code: delay_interest
                         value: '1000'
-                      - code: static_terms
+                      - code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
       - summary: Buyer raises PO
@@ -7683,10 +7683,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: SETTLEMENT_DETAILS
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -7762,7 +7762,7 @@ x-flows:
                           code: Temp_Range
                         value: '-18'
                   - descriptor:
-                      code: bpp_terms
+                      code: BPP_Terms
                     list:
                       - descriptor:
                           code: max_liability
@@ -7780,14 +7780,14 @@ x-flows:
                           code: delay_interest
                         value: '1000'
                       - descriptor:
-                          code: static_terms
+                          code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                   - descriptor:
                       code: bap_terms
                     list:
                       - descriptor:
-                          code: accept_bpp_terms
+                          code: accept_BPP_Terms
                         value: 'Y'
                 created_at: '2023-02-06T22:00:00.000Z'
                 updated_at: '2023-02-06T22:00:00.000Z'
@@ -8039,10 +8039,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -8118,7 +8118,7 @@ x-flows:
                           code: Temp_Range
                         value: '-18'
                   - descriptor:
-                      code: bpp_terms
+                      code: BPP_Terms
                     list:
                       - descriptor:
                           code: max_liability
@@ -8136,14 +8136,14 @@ x-flows:
                           code: delay_interest
                         value: '1000'
                       - descriptor:
-                          code: static_terms
+                          code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                   - descriptor:
                       code: bap_terms
                     list:
                       - descriptor:
-                          code: accept_bpp_terms
+                          code: accept_BPP_Terms
                         value: 'Y'
                 created_at: '2023-02-06T22:00:00.000Z'
                 updated_at: '2023-02-06T22:00:30.000Z'
@@ -8489,10 +8489,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -8760,17 +8760,17 @@ x-flows:
                   name: LSP Aggregator Inc
                   tags:
                     - descriptor:
-                        code: bpp_terms
+                        code: BPP_Terms
                       list:
                         - descriptor:
-                            code: static_terms
+                            code: Static_Terms
                           value: ''
                         - descriptor:
-                            code: static_terms_new
+                            code: Static_Terms_New
                           value: >-
                             https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
                         - descriptor:
-                            code: effective_date
+                            code: Effective_Date
                           value: '2023-10-01T00:00:00.000Z'
                 fulfillments:
                   - id: '1'
@@ -8798,7 +8798,7 @@ x-flows:
                       - id: A1
                         parent_category_id: C1
                         descriptor:
-                          code: AIR_CARGO
+                          code: Air_Delivery
                         time:
                           label: TAT
                           duration: P4D
@@ -8859,9 +8859,9 @@ x-flows:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: Air Cargo
-                          short_desc: Air Cargo
-                          long_desc: Air Cargo
+                          name: Air Delivery
+                          short_desc: Air Delivery
+                          long_desc: Air Delivery
                         price:
                           currency: INR
                           value: '6000.0'
@@ -8987,10 +8987,10 @@ x-flows:
                   type: PRE-FULFILLMENT
                   tags:
                     - descriptor:
-                        code: settlement_details
+                        code: Settlement_Details
                       list:
                         - descriptor:
-                            code: counterparty
+                            code: Counterparty
                           value: BAP
                         - descriptor:
                             code: mode
@@ -9202,10 +9202,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -9223,7 +9223,7 @@ x-flows:
                               code: upi_address
                             value: xxxxxxx
                 tags:
-                  - code: bpp_terms
+                  - code: BPP_Terms
                     list:
                       - code: max_liability
                         value: '2'
@@ -9235,7 +9235,7 @@ x-flows:
                         value: Bengaluru
                       - code: delay_interest
                         value: '1000'
-                      - code: static_terms
+                      - code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
       - summary: Buyer raises PO
@@ -9397,10 +9397,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -9479,7 +9479,7 @@ x-flows:
                           code: Packaging
                         value: Barrels
                   - descriptor:
-                      code: bpp_terms
+                      code: BPP_Terms
                     list:
                       - descriptor:
                           code: max_liability
@@ -9497,14 +9497,14 @@ x-flows:
                           code: delay_interest
                         value: '1000'
                       - descriptor:
-                          code: static_terms
+                          code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                   - descriptor:
                       code: bap_terms
                     list:
                       - descriptor:
-                          code: accept_bpp_terms
+                          code: accept_BPP_Terms
                         value: 'Y'
                 created_at: '2023-10-17T21:12:00.000Z'
                 updated_at: '2023-10-17T21:12:00.000Z'
@@ -9756,10 +9756,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -9838,7 +9838,7 @@ x-flows:
                           code: Packaging
                         value: Barrels
                   - descriptor:
-                      code: bpp_terms
+                      code: BPP_Terms
                     list:
                       - descriptor:
                           code: max_liability
@@ -9856,14 +9856,14 @@ x-flows:
                           code: delay_interest
                         value: '1000'
                       - descriptor:
-                          code: static_terms
+                          code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                   - descriptor:
                       code: bap_terms
                     list:
                       - descriptor:
-                          code: accept_bpp_terms
+                          code: accept_BPP_Terms
                         value: 'Y'
                 created_at: '2023-10-17T21:12:00.000Z'
                 updated_at: '2023-10-17T21:12:00.720Z'
@@ -10212,10 +10212,10 @@ x-flows:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -10353,7 +10353,7 @@ x-examples:
                 intent:
                   category:
                     descriptor:
-                      code: ROAD_CARGO
+                      code: Surface_Delivery
                   provider:
                     time:
                       days: 1,2,3,4,5,6,7
@@ -10466,7 +10466,7 @@ x-examples:
                 intent:
                   category:
                     descriptor:
-                      code: AIR_CARGO
+                      code: Air_Delivery
                   provider:
                     time:
                       days: 1,2,3,4,5,6,7
@@ -10641,10 +10641,10 @@ x-examples:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -10743,10 +10743,10 @@ x-examples:
                     type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
-                          code: settlement_details
+                          code: Settlement_Details
                         list:
                           - descriptor:
-                              code: counterparty
+                              code: Counterparty
                             value: BAP
                           - descriptor:
                               code: mode
@@ -10886,10 +10886,10 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
@@ -10965,7 +10965,7 @@ x-examples:
                             code: Packaging
                           value: Barrels
                     - descriptor:
-                        code: bpp_terms
+                        code: BPP_Terms
                       list:
                         - descriptor:
                             code: max_liability
@@ -10983,14 +10983,14 @@ x-examples:
                             code: delay_interest
                           value: '1000'
                         - descriptor:
-                            code: static_terms
+                            code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                     - descriptor:
                         code: bap_terms
                       list:
                         - descriptor:
-                            code: accept_bpp_terms
+                            code: accept_BPP_Terms
                           value: 'Y'
                   created_at: '2023-10-17T21:12:00.000Z'
                   updated_at: '2023-10-17T21:12:00.000Z'
@@ -11117,10 +11117,10 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
@@ -11196,7 +11196,7 @@ x-examples:
                             code: Packaging
                           value: Barrels
                     - descriptor:
-                        code: bpp_terms
+                        code: BPP_Terms
                       list:
                         - descriptor:
                             code: max_liability
@@ -11214,14 +11214,14 @@ x-examples:
                             code: delay_interest
                           value: '1000'
                         - descriptor:
-                            code: static_terms
+                            code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                     - descriptor:
                         code: bap_terms
                       list:
                         - descriptor:
-                            code: accept_bpp_terms
+                            code: accept_BPP_Terms
                           value: 'Y'
                   created_at: '2023-02-06T22:00:00.000Z'
                   updated_at: '2023-02-06T22:00:00.000Z'
@@ -11562,17 +11562,17 @@ x-examples:
                     name: LSP Aggregator Inc
                     tags:
                       - descriptor:
-                          code: bpp_terms
+                          code: BPP_Terms
                         list:
                           - descriptor:
-                              code: static_terms
+                              code: Static_Terms
                             value: ''
                           - descriptor:
-                              code: static_terms_new
+                              code: Static_Terms_New
                             value: >-
                               https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
                           - descriptor:
-                              code: effective_date
+                              code: Effective_Date
                             value: '2023-10-01T00:00:00.000Z'
                   fulfillments:
                     - id: '1'
@@ -11592,7 +11592,7 @@ x-examples:
                         - id: R1
                           parent_category_id: C1
                           descriptor:
-                            code: ROAD_CARGO
+                            code: Surface_Delivery
                           time:
                             label: TAT
                             duration: P7D
@@ -11600,7 +11600,7 @@ x-examples:
                         - id: A1
                           parent_category_id: C1
                           descriptor:
-                            code: AIR_CARGO
+                            code: Air_Delivery
                           time:
                             label: TAT
                             duration: P4D
@@ -11661,9 +11661,9 @@ x-examples:
                             - '1'
                           descriptor:
                             code: P2H2P
-                            name: Air Cargo
-                            short_desc: Air Cargo
-                            long_desc: Air Cargo
+                            name: Air Delivery
+                            short_desc: Air Delivery
+                            long_desc: Air Delivery
                           price:
                             currency: INR
                             value: '6000.0'
@@ -11716,17 +11716,17 @@ x-examples:
                     name: LSP Aggregator Inc
                     tags:
                       - descriptor:
-                          code: bpp_terms
+                          code: BPP_Terms
                         list:
                           - descriptor:
-                              code: static_terms
+                              code: Static_Terms
                             value: ''
                           - descriptor:
-                              code: static_terms_new
+                              code: Static_Terms_New
                             value: >-
                               https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
                           - descriptor:
-                              code: effective_date
+                              code: Effective_Date
                             value: '2023-10-01T00:00:00.000Z'
                   fulfillments:
                     - id: '1'
@@ -11746,7 +11746,7 @@ x-examples:
                         - id: R1
                           parent_category_id: C1
                           descriptor:
-                            code: ROAD_CARGO
+                            code: Surface_Delivery
                           time:
                             label: TAT
                             duration: P7D
@@ -11754,7 +11754,7 @@ x-examples:
                         - id: A1
                           parent_category_id: C1
                           descriptor:
-                            code: AIR_CARGO
+                            code: Air_Delivery
                           time:
                             label: TAT
                             duration: P4D
@@ -11815,9 +11815,9 @@ x-examples:
                             - '1'
                           descriptor:
                             code: P2H2P
-                            name: Air Cargo
-                            short_desc: Air Cargo
-                            long_desc: Air Cargo
+                            name: Air Delivery
+                            short_desc: Air Delivery
+                            long_desc: Air Delivery
                           price:
                             currency: INR
                             value: '6000.0'
@@ -11986,10 +11986,10 @@ x-examples:
                         type: PRE-FULFILMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
@@ -12007,7 +12007,7 @@ x-examples:
                                 code: upi_address
                               value: xxxxxxx
                   tags:
-                    - code: bpp_terms
+                    - code: BPP_Terms
                       list:
                         - code: max_liability
                           value: '2'
@@ -12019,7 +12019,7 @@ x-examples:
                           value: Bengaluru
                         - code: delay_interest
                           value: '1000'
-                        - code: static_terms
+                        - code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
           - summary: Return the fulfillment types
@@ -12162,10 +12162,10 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
@@ -12183,7 +12183,7 @@ x-examples:
                                 code: upi_address
                               value: xxxxxxx
                   tags:
-                    - code: bpp_terms
+                    - code: BPP_Terms
                       list:
                         - code: max_liability
                           value: '2'
@@ -12195,7 +12195,7 @@ x-examples:
                           value: Bengaluru
                         - code: delay_interest
                           value: '1000'
-                        - code: static_terms
+                        - code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
       on_confirm:
@@ -12386,10 +12386,10 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
@@ -12638,10 +12638,10 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
@@ -12714,7 +12714,7 @@ x-examples:
                             code: Temp_Range
                           value: '-18'
                     - descriptor:
-                        code: bpp_terms
+                        code: BPP_Terms
                       list:
                         - descriptor:
                             code: max_liability
@@ -12732,14 +12732,14 @@ x-examples:
                             code: delay_interest
                           value: '1000'
                         - descriptor:
-                            code: static_terms
+                            code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
                     - descriptor:
                         code: bap_terms
                       list:
                         - descriptor:
-                            code: accept_bpp_terms
+                            code: accept_BPP_Terms
                           value: 'Y'
                   created_at: '2023-02-06T22:00:00.000Z'
                   updated_at: '2023-02-06T22:00:30.000Z'
@@ -12915,10 +12915,10 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
@@ -13183,10 +13183,10 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
@@ -13450,10 +13450,10 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
@@ -13698,10 +13698,10 @@ x-examples:
                       type: PRE-FULFILLMENT
                       tags:
                         - descriptor:
-                            code: settlement_details
+                            code: Settlement_Details
                           list:
                             - descriptor:
-                                code: counterparty
+                                code: Counterparty
                               value: BAP
                             - descriptor:
                                 code: mode
