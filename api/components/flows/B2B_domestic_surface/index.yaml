@@ -7,7 +7,7 @@ steps:
     description: Search intent sent by the buyer based on the category
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_surface.yaml.yaml"
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_surface.yaml"
   - summary: Returns item/ catalog
     api: on_search
     description: Catalog provided by the Seller App 

@@ -43,10 +43,10 @@ steps:
     description: Buyer update the PO
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Int_Logistics_yaml/update/update.yaml"
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/update/update_air.yaml"
   - summary: Seller Accepts PO
     api: on_update
     description: Seller app sends an on_update call to the buyer app relaying the PO acceptance.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_update/on_update.yaml"   
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_update/on_update_air.yaml"   
