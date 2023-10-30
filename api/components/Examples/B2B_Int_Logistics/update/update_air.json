@@ -234,11 +234,17 @@
                             "value": "Celsius"
                         },
                         {
-                            "descriptor": {
-                                "code": "Temp_Range"
-                            },
-                            "value": "-18"
-                        }
+                        "descriptor": {
+                          "code": "Temp_Min"
+                        },
+                        "value": "0"
+                      },
+                      {
+                        "descriptor": {
+                          "code": "Temp_Max"
+                        },
+                        "value": "4"
+                      }
                     ]
                 }
             ],

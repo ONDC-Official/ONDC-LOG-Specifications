@@ -1,24 +1,31 @@
-const fs = require('fs');
-const path = require('path');
-const yaml = require('js-yaml');
+const fs = require("fs");
+const path = require("path");
+const yaml = require("js-yaml");
+const { log } = require("console");
 
 // Define the root directory where your JSON files are located
-const rootDirectory = path.join(__dirname, '../Examples/B2B_Dom_Logistics_yaml');
+const rootDirectory = path.join(
+  __dirname,
+  "../Examples/B2B_Dom_Logistics_yaml"
+);
 
 // Function to convert a JSON file to YAML
 function convertJsonToYaml(jsonFilePath, yamlFilePath) {
   try {
     // Read the JSON file
-    const jsonContent = fs.readFileSync(jsonFilePath, 'utf8');
+    const jsonContent = fs.readFileSync(jsonFilePath, "utf8");
 
     // Parse the JSON content to a JavaScript object
     const jsonObject = JSON.parse(jsonContent);
 
+       // Create an object with a "value" attribute
+       const yamlObject = { value: jsonObject };
+
     // Convert the JavaScript object to YAML
-    const yamlContent = yaml.dump(jsonObject);
+    const yamlContent = yaml.dump(yamlObject);
 
     // Write the YAML content to a file
-    fs.writeFileSync(yamlFilePath, yamlContent, 'utf8');
+    fs.writeFileSync(yamlFilePath, yamlContent, "utf8");
     fs.unlinkSync(jsonFilePath);
 
     console.log(`Converted ${jsonFilePath} to ${yamlFilePath}`);
@@ -37,9 +44,12 @@ function processDirectory(directoryPath) {
     if (fs.statSync(filePath).isDirectory()) {
       // If it's a directory, process it recursively
       processDirectory(filePath);
-    } else if (path.extname(file).toLowerCase() === '.json') {
+    } else if (path.extname(file).toLowerCase() === ".json") {
       // If it's a JSON file, convert it to YAML
-      const yamlFilePath = path.join(directoryPath, path.basename(file, '.json') + '.yaml');
+      const yamlFilePath = path.join(
+        directoryPath,
+        path.basename(file, ".json") + ".yaml"
+      );
       convertJsonToYaml(filePath, yamlFilePath);
     }
   }

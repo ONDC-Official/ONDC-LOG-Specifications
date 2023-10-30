@@ -119,7 +119,7 @@
                     "type": "Delivery",
                     "state": {
                         "descriptor": {
-                            "code": "Pending"
+                            "code": "Out-for-delivery"
                         }
                     },
                     "tracking": false,

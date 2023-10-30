@@ -27,6 +27,13 @@ on_init:
     - $ref: ./on_init/on_init_air.yaml
     - $ref: ./on_init/on_init_air_kyc_failed.yaml
     - $ref: ./on_init/on_init_ocean.yaml
+on_status:
+  examples:
+    - $ref: ./on_status/on_status_air.yaml
+    - $ref: ./on_status/on_status_cancelled.yaml
+    - $ref: ./on_status/on_status_order_pickedup.yaml
+    - $ref: ./on_status/on_status_custom.yaml
+    - $ref: ./on_status/on_status_order_delivered.yaml
 on_confirm:
   examples:
     - $ref: ./on_confirm/on_confirm_air.yaml
