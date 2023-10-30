@@ -173,7 +173,9 @@
             "xinput": {
                 "form": {
                     "url": "https://lsp.com/xxx/kyc",
-                    "mime_type": "text/html"
+                    "mime_type": "text/html",
+                    "submission_id": "xxxx44567789999",
+                    "status": "SUCCESS"
                 },
                 "required": true
             }
