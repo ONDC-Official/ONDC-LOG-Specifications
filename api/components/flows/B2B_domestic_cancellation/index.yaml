@@ -73,5 +73,4 @@ steps:
     description: Seller app sends updates through unsolicited on_status calls
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_status/on_status_cancelled_air.yaml"   
-                
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_status/on_status_cancelled_air.yaml"

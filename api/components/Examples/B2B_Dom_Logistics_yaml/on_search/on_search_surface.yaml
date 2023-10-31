@@ -1,5 +1,5 @@
-summary: on_search_surface
-description: 
+summary: LSP sends catalog
+description: Logistics service provider sends the catalog based on search + Sends the KYC Link.
 value:
   context:
     domain: ONDC:DLG

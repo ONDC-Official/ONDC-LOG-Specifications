@@ -1,5 +1,5 @@
-summary: on_update_air_diff
-description: 
+summary: LSP updates the weight and measurement differential charges.
+description: LSP updates the weight and measurement differential charges.
 value:
   context:
     domain: ONDC:LGP

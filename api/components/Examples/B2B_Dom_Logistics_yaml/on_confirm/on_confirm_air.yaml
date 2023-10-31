@@ -1,5 +1,5 @@
-summary: on_confirm_air
-description: 
+summary: Logistics Provider accepts the order.
+description: Logistics Provider accepts the order.
 value:
   context:
     domain: ONDC:LGP

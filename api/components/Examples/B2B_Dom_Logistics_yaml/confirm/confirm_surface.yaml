@@ -1,5 +1,5 @@
-summary: confirm_surface
-description: 
+summary: Logistics buyer confirms the order.
+description: Logistics buyer confirms the order.
 value:
   context:
     domain: ONDC:LGP
