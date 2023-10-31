@@ -1,5 +1,5 @@
-summary: on_cancel
-description:
+summary: Unsolicited on_cancel
+description: Unsolicited on_cancel from Logistics provider 
 value:
   context:
     domain: ONDC:LGP

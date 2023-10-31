@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Beckn Protocol Core
   description: Beckn Core Transaction API specification
-  version: 1.1.0
+  version: 2.0.0
 security:
   - SubscriberAuth: []
 paths:
@@ -3411,13 +3411,17 @@ x-flows:
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
-      - summary: Returns item/ catalog
+      - summary: LSP sends catalog
         api: on_search
-        description: Catalog provided by the Seller App
+        description: >-
+          Logistics service provider sends the catalog based on search + Sends
+          the KYC Link.
         reference: if any
         example:
-          summary: on_search_surface
-          description: null
+          summary: LSP sends catalog
+          description: >-
+            Logistics service provider sends the catalog based on search + Sends
+            the KYC Link.
           value:
             context:
               domain: ONDC:DLG
@@ -3582,15 +3586,17 @@ x-flows:
                           label: TAT
                           duration: P4D
                           timestamp: '2023-10-25T21:00:00.000Z'
-      - summary: Requests for Quotation
+      - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
-          Buyer requests for quotation for the selected item with all the
-          customizations and the quantity of items required
+          Logistics Buyer fills the KYC form and sends the submission Id while
+          initializing the order.
         reference: if any
         example:
-          summary: init_surface
-          description: null
+          summary: Logistics Buyer initializes the order.
+          description: >-
+            Logistics Buyer fills the KYC form and sends the submission Id while
+            initializing the order.
           value:
             context:
               domain: ONDC:DLG
@@ -3697,13 +3703,15 @@ x-flows:
                     mime_type: text/html
                     submission_id: xxxx44567789999
                   required: true
-      - summary: Responds to Quotation
+      - summary: Response to order initialization - KYC Successful
         api: on_init
-        description: Seller provides the final quotation and breakup with logistics charges
+        description: >-
+          Logistics Provider updates the KYC as successful and sends the breakup
+          of the quote.
         reference: if any
         example:
-          summary: on_init_surface
-          description: null
+          summary: Response to order initialization - KYC Failed
+          description: Logistics Provider updates the KYC as Failed with the error message.
           value:
             context:
               domain: ONDC:LGP
@@ -3888,15 +3896,13 @@ x-flows:
             error:
               code: ''
               message: ''
-      - summary: Buyer raises PO
+      - summary: Logistics buyer confirms the order.
         api: confirm
-        description: >-
-          Buyer receives the quotation and once agreed to go ahead with the
-          quotation received, creates a PO and sends the PO
+        description: Logistics buyer confirms the order.
         reference: if any
         example:
-          summary: confirm_surface
-          description: null
+          summary: Logistics buyer confirms the order.
+          description: Logistics buyer confirms the order.
           value:
             context:
               domain: ONDC:LGP
@@ -4124,15 +4130,13 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-10-17T21:12:00.000Z'
                 updated_at: '2023-10-17T21:12:00.000Z'
-      - summary: Seller Accepts PO
+      - summary: Logistics Provider accepts the order.
         api: on_confirm
-        description: >-
-          Seller app sends an on_confirm call to the buyer app relaying the PO
-          acceptance.
+        description: Logistics Provider accepts the order.
         reference: if any
         example:
-          summary: on_confirm_surface
-          description: null
+          summary: Logistics Provider accepts the order.
+          description: Logistics Provider accepts the order.
           value:
             context:
               domain: ONDC:LGP
@@ -4185,7 +4189,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -4423,12 +4426,12 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-02-06T22:00:00.000Z'
                 updated_at: '2023-02-06T22:00:30.000Z'
-      - summary: Buyer update PO
+      - summary: Logistics Buyer updates RTS
         api: update
-        description: Buyer update the PO
+        description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
         example:
-          summary: update_surface
+          summary: Logistics Buyer updates RTS
           description: null
           value:
             context:
@@ -4514,14 +4517,12 @@ x-flows:
                               code: AWB_No
                             value: '1227262193237777'
                 updated_at: '2023-10-17T21:13:00.000Z'
-      - summary: Seller Accepts PO
+      - summary: LSP updates the weight and measurement differential charges.
         api: on_update
-        description: >-
-          Seller app sends an on_update call to the buyer app relaying the PO
-          acceptance.
+        description: LSP updates the weight and measurement differential charges.
         reference: if any
         example:
-          summary: on_update_surface
+          summary: Solicited response to update - package measurement updated
           description: null
           value:
             context:
@@ -4579,7 +4580,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -4704,7 +4704,7 @@ x-flows:
         description: Buyer requests for the order status update
         reference: if any
         example: &ref_4
-          summary: status
+          summary: Logistics Buyer requests for status update
           description: null
           value:
             context:
@@ -4733,8 +4733,10 @@ x-flows:
           the current status of the order.
         reference: if any
         example:
-          summary: on_status_surface
-          description: null
+          summary: Status updates
+          description: >-
+            Logistics provider updates the status of fulfillment as Order Picked
+            up.
           value:
             context:
               domain: ONDC:LGP
@@ -4801,7 +4803,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '6.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -4877,14 +4878,8 @@ x-flows:
                           code: Delivery_Terms
                         list:
                           - descriptor:
-                              code: Ready_To_Ship
-                            value: 'yes'
-                          - descriptor:
                               code: AWB_No
                             value: '1209878992826353'
-                          - descriptor:
-                              code: RTO_Action
-                            value: 'no'
                 billing:
                   name: ONDC sellerapp
                   address: My house or building name
@@ -4998,16 +4993,13 @@ x-flows:
       where a buyer would like to order bulk items
     reference: if any
     steps:
-      - summary: Search based on the category
+      - summary: Search Logistics - Air Delivery
         api: search
-        description: Search intent sent by the buyer based on the category
+        description: Search for parent category - Express Delivery or Air Delivery.
         reference: if any
         example: &ref_5
           summary: Search Logistics - Air Delivery
-          description: >-
-            Search for parent category - Express Delivery or Air Delivery. Here
-            the Logistics buyer provides the start and end location as part of
-            fulfillments.stops.
+          description: Search for parent category - Express Delivery or Air Delivery.
           value:
             context:
               domain: ONDC:LGS
@@ -5122,13 +5114,17 @@ x-flows:
                       - descriptor:
                           code: Temp_Max
                         value: '4'
-      - summary: Returns item/ catalog
+      - summary: LSP sends catalog
         api: on_search
-        description: Catalog provided by the Seller App
+        description: >-
+          Logistics service provider sends the catalog based on search + Sends
+          the KYC Link.
         reference: if any
         example: &ref_6
-          summary: on_search_air
-          description: null
+          summary: LSP sends catalog
+          description: >-
+            Logistics service provider sends the catalog based on search + Sends
+            the KYC Link.
           value:
             context:
               domain: ONDC:DLG
@@ -5293,15 +5289,17 @@ x-flows:
                           label: TAT
                           duration: P4D
                           timestamp: '2023-10-25T21:00:00.000Z'
-      - summary: Requests for Quotation
+      - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
-          Buyer requests for quotation for the selected item with all the
-          customizations and the quantity of items required
+          Logistics Buyer fills the KYC form and sends the submission Id while
+          initializing the order.
         reference: if any
         example: &ref_7
-          summary: init_air
-          description: null
+          summary: Logistics Buyer initializes the order.
+          description: >-
+            Logistics Buyer fills the KYC form and sends the submission Id while
+            initializing the order.
           value:
             context:
               domain: ONDC:DLG
@@ -5409,13 +5407,15 @@ x-flows:
                     submission_id: xxxx44567789999
                     status: SUCCESS
                   required: true
-      - summary: Responds to Quotation
+      - summary: Response to order initialization - KYC Successful
         api: on_init
-        description: Seller provides the final quotation and breakup with logistics charges
+        description: >-
+          Logistics Provider updates the KYC as successful and sends the breakup
+          of the quote.
         reference: if any
         example: &ref_8
-          summary: on_init_air
-          description: null
+          summary: Response to order initialization - KYC Failed
+          description: Logistics Provider updates the KYC as Failed with the error message.
           value:
             context:
               domain: ONDC:LGP
@@ -5600,15 +5600,13 @@ x-flows:
             error:
               code: ''
               message: ''
-      - summary: Buyer raises PO
+      - summary: Logistics buyer confirms the order.
         api: confirm
-        description: >-
-          Buyer receives the quotation and once agreed to go ahead with the
-          quotation received, creates a PO and sends the PO
+        description: Logistics buyer confirms the order.
         reference: if any
         example: &ref_9
-          summary: confirm_air
-          description: null
+          summary: Logistics buyer confirms the order.
+          description: Logistics buyer confirms the order.
           value:
             context:
               domain: ONDC:LGP
@@ -5838,15 +5836,13 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-02-06T22:00:00.000Z'
                 updated_at: '2023-02-06T22:00:00.000Z'
-      - summary: Seller Accepts PO
+      - summary: Logistics Provider accepts the order.
         api: on_confirm
-        description: >-
-          Seller app sends an on_confirm call to the buyer app relaying the PO
-          acceptance.
+        description: Logistics Provider accepts the order.
         reference: if any
         example: &ref_10
-          summary: on_confirm_air
-          description: null
+          summary: Logistics Provider accepts the order.
+          description: Logistics Provider accepts the order.
           value:
             context:
               domain: ONDC:LGP
@@ -5899,7 +5895,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -6137,12 +6132,12 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-02-06T22:00:00.000Z'
                 updated_at: '2023-02-06T22:00:30.000Z'
-      - summary: Buyer update PO
+      - summary: Logistics Buyer updates RTS
         api: update
-        description: Buyer update the PO
+        description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
         example: &ref_11
-          summary: update_air
+          summary: Logistics Buyer updates RTS
           description: null
           value:
             context:
@@ -6228,14 +6223,12 @@ x-flows:
                               code: AWB_No
                             value: '1227262193237777'
                 updated_at: '2023-02-06T22:00:30.000Z'
-      - summary: Seller Accepts PO
+      - summary: LSP updates the weight and measurement differential charges.
         api: on_update
-        description: >-
-          Seller app sends an on_update call to the buyer app relaying the PO
-          acceptance.
+        description: LSP updates the weight and measurement differential charges.
         reference: if any
         example: &ref_12
-          summary: on_update_air
+          summary: Solicited response to update - package measurement updated
           description: null
           value:
             context:
@@ -6293,7 +6286,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -6414,20 +6406,22 @@ x-flows:
                               code: UPI_Address
                             value: xxxxxxx
                 updated_at: '2023-02-06T22:00:30.000Z'
-      - summary: Request for order status update
+      - summary: Logistics Buyer requests for status update
         api: status
-        description: Buyer requests for the order status update
+        description: Logistics Buyer requests for order status update
         reference: if any
         example: *ref_4
       - summary: Responds to order status update
         api: on_status
         description: >-
-          Seller app sends an on_status call to the buyer app informing about
-          the current status of the order.
+          Logistics provider updates the status of fulfillment as Order Picked
+          up.
         reference: if any
         example: &ref_13
-          summary: on_status_air
-          description: null
+          summary: Status updates
+          description: >-
+            Logistics provider updates the status of fulfillment as Order Picked
+            up.
           value:
             context:
               domain: ONDC:LGP
@@ -6494,7 +6488,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '6.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -6570,14 +6563,8 @@ x-flows:
                           code: Delivery_Terms
                         list:
                           - descriptor:
-                              code: Ready_To_Ship
-                            value: 'yes'
-                          - descriptor:
                               code: AWB_No
                             value: '1209878992826353'
-                          - descriptor:
-                              code: RTO_Action
-                            value: 'no'
                 billing:
                   name: ONDC sellerapp
                   address: My house or building name
@@ -6691,52 +6678,50 @@ x-flows:
       where logistics seller cancels the order
     reference: if any
     steps:
-      - summary: Search based on the category
+      - summary: Search Logistics - Air Delivery
         api: search
-        description: Search intent sent by the buyer based on the category
+        description: Search for parent category - Express Delivery or Air Delivery.
         reference: if any
         example: *ref_5
-      - summary: Returns item/ catalog
+      - summary: LSP sends catalog
         api: on_search
-        description: Catalog provided by the Seller App
+        description: >-
+          Logistics service provider sends the catalog based on search + Sends
+          the KYC Link.
         reference: if any
         example: *ref_6
-      - summary: Requests for Quotation
+      - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
-          Buyer requests for quotation for the selected item with all the
-          customizations and the quantity of items required
+          Logistics Buyer fills the KYC form and sends the submission Id while
+          initializing the order.
         reference: if any
         example: *ref_7
-      - summary: Responds to Quotation
+      - summary: Response to order initialization - KYC Successful
         api: on_init
-        description: Seller provides the final quotation and breakup with logistics charges
+        description: >-
+          Logistics Provider updates the KYC as successful and sends the breakup
+          of the quote.
         reference: if any
         example: *ref_8
-      - summary: Buyer raises PO
+      - summary: Logistics buyer confirms the order.
         api: confirm
-        description: >-
-          Buyer receives the quotation and once agreed to go ahead with the
-          quotation received, creates a PO and sends the PO
+        description: Logistics buyer confirms the order.
         reference: if any
         example: *ref_9
-      - summary: Seller Accepts PO
+      - summary: Logistics Provider accepts the order.
         api: on_confirm
-        description: >-
-          Seller app sends an on_confirm call to the buyer app relaying the PO
-          acceptance.
+        description: Logistics Provider accepts the order.
         reference: if any
         example: *ref_10
-      - summary: Buyer update PO
+      - summary: Logistics Buyer updates RTS
         api: update
-        description: Buyer update the PO
+        description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
         example: *ref_11
-      - summary: Seller Accepts PO
+      - summary: LSP updates the weight and measurement differential charges.
         api: on_update
-        description: >-
-          Seller app sends an on_update call to the buyer app relaying the PO
-          acceptance.
+        description: LSP updates the weight and measurement differential charges.
         reference: if any
         example: *ref_12
       - summary: Request for order status update
@@ -6756,8 +6741,10 @@ x-flows:
         description: Seller app cancels the order by sending unsolicited on_cancel call
         reference: if any
         example:
-          summary: on_cancel
-          description: null
+          summary: Unsolicited on_cancel to Initiate RTO
+          description: >-
+            Unsolicited on_cancel from Logistics provider when Customer does not
+            accept the delivery and initiates RTO.
           value:
             context:
               domain: ONDC:LGP
@@ -6807,18 +6794,29 @@ x-flows:
                     value: '0.00'
                   breakup:
                     - item:
-                        id: I3
+                        id: I1
                       title: delivery
                       price:
                         currency: INR
                         value: '0.00'
                     - item:
-                        id: I3
+                        id: I1
                       title: tax
                       price:
                         currency: INR
                         value: '0.00'
-                  ttl: PT15M
+                    - item:
+                        id: I2
+                      title: rto
+                      price:
+                        currency: INR
+                        value: '0.00'
+                    - item:
+                        id: I2
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '0.00'
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -6889,17 +6887,31 @@ x-flows:
                             end: '2023-02-14T22:45:00.000Z'
                     tags:
                       - descriptor:
-                          code: fulfillment_terms
+                          code: Delivery_Terms
                         list:
-                          - descriptor:
-                              code: Ready_To_Ship
-                            value: 'yes'
                           - descriptor:
                               code: AWB_No
                             value: '1209878992826353'
-                          - descriptor:
-                              code: RTO_Action
-                            value: 'no'
+                      - code: RTO_Event
+                        list:
+                          - code: Retry_Count
+                            value: '3'
+                          - code: RTO_Id
+                            value: '2'
+                          - code: Cancellation_Reason_Id
+                            value: '013'
+                          - code: Sub_Reason_Id
+                            value: '004'
+                          - code: Cancelled_By
+                            value: lsp.com
+                  - id: '2'
+                    type: RTO
+                    state:
+                      descriptor:
+                        code: RTO-Initiated
+                    start:
+                      time:
+                        timestamp: '2023-06-07T14:00:00.000Z'
                 billing:
                   name: ONDC sellerapp
                   address: My house or building name
@@ -7005,8 +7017,8 @@ x-flows:
         description: Seller app sends updates through unsolicited on_status calls
         reference: if any
         example:
-          summary: on_status_cancelled
-          description: null
+          summary: Status updates
+          description: Logistics provider updates the status of fulfillment of RTO.
           value:
             context:
               domain: ONDC:LGP
@@ -7083,13 +7095,18 @@ x-flows:
                       price:
                         currency: INR
                         value: '3000.0'
-                  ttl: PT15M
+                    - item:
+                        id: I4
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '200.0'
                 fulfillments:
                   - id: '1'
                     type: Delivery
                     state:
                       descriptor:
-                        code: Out-for-delivery
+                        code: Cancelled
                     tracking: false
                     stops:
                       - id: L1
@@ -7158,35 +7175,26 @@ x-flows:
                           code: Delivery_Terms
                         list:
                           - descriptor:
-                              code: Ready_To_Ship
-                            value: 'yes'
-                          - descriptor:
                               code: AWB_No
                             value: '1209878992826353'
-                          - descriptor:
-                              code: RTO_Action
-                            value: 'no'
-                  - id: '1'
+                  - id: '2'
                     type: RTO
                     state:
                       descriptor:
-                        code: RTO-Initiated
+                        code: RTO-Delivered
                     tracking: false
                     stops:
                       - id: L1
                         parent_stop_id: ''
                         type: start
-                        location:
-                          gps: 12.342769,77.9129423
-                          map_url: ''
-                          address: My house or building name, street name
-                          city: Bengaluru
-                          state: Karnataka
-                          country: India
-                          area_code: '560043'
-                        contact:
-                          phone: '9886098860'
-                          email: abcd.efgh@gmail.com
+                        time:
+                          range:
+                            start: '2023-02-06T22:30:00.000Z'
+                            end: '2023-02-06T22:45:00.000Z'
+                          timestamp: '2023-06-07T00:00:00.000Z'
+                      - id: L2
+                        parent_stop_id: ''
+                        type: end
                         time:
                           range:
                             start: '2023-02-06T22:30:00.000Z'
@@ -7197,16 +7205,6 @@ x-flows:
                         name: xxxxx
                       contact:
                         phone: '9999999999'
-                    tags:
-                      - descriptor:
-                          code: fulfillment_terms
-                        list:
-                          - descriptor:
-                              code: AWB_No
-                            value: '1209878992826353'
-                          - descriptor:
-                              code: RTO_Action
-                            value: 'yes'
                 billing:
                   name: ONDC sellerapp
                   address: My house or building name
@@ -7325,8 +7323,8 @@ x-flows:
         description: Search intent sent by the buyer based on the category
         reference: if any
         example: &ref_14
-          summary: search_air_delivery
-          description: null
+          summary: Search Logistics - Air Delivery
+          description: Search for parent category - Express Delivery or Air Delivery.
           value:
             context:
               domain: ONDC:LGS
@@ -7451,13 +7449,17 @@ x-flows:
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
-      - summary: Returns item/ catalog
+      - summary: LSP sends catalog
         api: on_search
-        description: Catalog provided by the Seller App
+        description: >-
+          Logistics service provider sends the catalog based on search + Sends
+          the KYC Link.
         reference: if any
         example: &ref_15
-          summary: on_search_air
-          description: null
+          summary: LSP sends catalog
+          description: >-
+            Logistics service provider sends the catalog based on search + Sends
+            the KYC Link.
           value:
             context:
               domain: ONDC:DLG
@@ -7619,15 +7621,17 @@ x-flows:
                           label: TAT
                           duration: P4D
                           timestamp: '2023-10-25T21:00:00.000Z'
-      - summary: Requests for Quotation
+      - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
-          Buyer requests for quotation for the selected item with all the
-          customizations and the quantity of items required
+          Logistics Buyer fills the KYC form and sends the submission Id while
+          initializing the order.
         reference: if any
         example: &ref_16
-          summary: init_ocean
-          description: null
+          summary: Logistics Buyer initializes the order.
+          description: >-
+            Logistics Buyer fills the KYC form and sends the submission Id while
+            initializing the order.
           value:
             context:
               domain: ONDC:DLG
@@ -7745,13 +7749,15 @@ x-flows:
                     submission_id: xxxx44567789999
                     status: SUCCESS
                   required: true
-      - summary: Responds to Quotation
+      - summary: Response to order initialization - KYC Successful
         api: on_init
-        description: Seller provides the final quotation and breakup with logistics charges
+        description: >-
+          Logistics Provider updates the KYC as successful and sends the breakup
+          of the quote.
         reference: if any
         example: &ref_17
-          summary: on_init_air
-          description: null
+          summary: Response to order initialization - KYC Failed
+          description: Logistics Provider updates the KYC as Failed with the error message.
           value:
             context:
               domain: ONDC:LGP
@@ -7985,15 +7991,13 @@ x-flows:
                       - code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-      - summary: Buyer raises PO
+      - summary: Logistics buyer confirms the order.
         api: confirm
-        description: >-
-          Buyer receives the quotation and once agreed to go ahead with the
-          quotation received, creates a PO and sends the PO
+        description: Logistics buyer confirms the order.
         reference: if any
         example: &ref_18
-          summary: confirm_air
-          description: null
+          summary: Logistics buyer confirms the order
+          description: Logistics buyer confirms the order
           value:
             context:
               domain: ONDC:LGP
@@ -8122,7 +8126,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 billing:
                   name: ONDC sellerapp
                   address: My house or building name
@@ -8255,15 +8258,13 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-02-06T22:00:00.000Z'
                 updated_at: '2023-02-06T22:00:00.000Z'
-      - summary: Seller Accepts PO
+      - summary: Logistics Provider accepts the order.
         api: on_confirm
-        description: >-
-          Seller app sends an on_confirm call to the buyer app relaying the PO
-          acceptance.
+        description: Logistics Provider accepts the order.
         reference: if any
         example: &ref_19
-          summary: on_confirm_ocean
-          description: null
+          summary: Logistics Provider accepts the order.
+          description: Logistics Provider accepts the order.
           value:
             context:
               domain: ONDC:LGP
@@ -8340,7 +8341,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -8614,12 +8614,12 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-02-06T22:00:00.000Z'
                 updated_at: '2023-02-06T22:00:30.000Z'
-      - summary: Buyer update PO
+      - summary: Logistics Buyer updates RTS
         api: update
-        description: Buyer update the PO
+        description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
         example: &ref_20
-          summary: update_air
+          summary: Logistics Buyer updates RTS
           description: null
           value:
             context:
@@ -8766,14 +8766,12 @@ x-flows:
                           code: Temp_Max
                         value: '4'
                 updated_at: '2023-02-06T22:00:00.000Z'
-      - summary: Seller Accepts PO
+      - summary: LSP updates the weight and measurement differential charges.
         api: on_update
-        description: >-
-          Seller app sends an on_update call to the buyer app relaying the PO
-          acceptance.
+        description: LSP updates the weight and measurement differential charges.
         reference: if any
         example: &ref_21
-          summary: on_update_air
+          summary: Solicited response to update - package measurement updated
           description: null
           value:
             context:
@@ -8855,7 +8853,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -9077,7 +9074,7 @@ x-flows:
         description: Search intent sent by the buyer based on the category
         reference: if any
         example:
-          summary: search_ocean_delivery
+          summary: Search Logistics - Ocean Delivery
           description: null
           value:
             context:
@@ -9203,13 +9200,17 @@ x-flows:
                       - descriptor:
                           code: Temp_Range
                         value: '-18'
-      - summary: Returns item/ catalog
+      - summary: LSP sends catalog
         api: on_search
-        description: Catalog provided by the Seller App
+        description: >-
+          Logistics service provider sends the catalog based on search + Sends
+          the KYC Link.
         reference: if any
         example:
-          summary: on_search_ocean
-          description: null
+          summary: LSP sends catalog
+          description: >-
+            Logistics service provider sends the catalog based on search + Sends
+            the KYC Link.
           value:
             context:
               domain: ONDC:DLG
@@ -9371,15 +9372,17 @@ x-flows:
                           label: TAT
                           duration: P4D
                           timestamp: '2023-10-25T21:00:00.000Z'
-      - summary: Requests for Quotation
+      - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
-          Buyer requests for quotation for the selected item with all the
-          customizations and the quantity of items required
+          Logistics Buyer fills the KYC form and sends the submission Id while
+          initializing the order.
         reference: if any
         example:
-          summary: init_ocean
-          description: null
+          summary: Logistics Buyer initializes the order.
+          description: >-
+            Logistics Buyer fills the KYC form and sends the submission Id while
+            initializing the order.
           value:
             context:
               domain: ONDC:DLG
@@ -9497,13 +9500,17 @@ x-flows:
                     submission_id: xxxx44567789999
                     status: SUCCESS
                   required: true
-      - summary: Responds to Quotation
+      - summary: Response to order initialization - KYC Successful
         api: on_init
-        description: Seller provides the final quotation and breakup with logistics charges
+        description: >-
+          Logistics Provider updates the KYC as successful and sends the breakup
+          of the quote.
         reference: if any
         example:
-          summary: on_init_ocean
-          description: null
+          summary: Response to order initialization - KYC Successful
+          description: >-
+            Logistics Provider updates the KYC as successful and sends the
+            breakup of the quote.
           value:
             context:
               domain: ONDC:LGP
@@ -9730,15 +9737,13 @@ x-flows:
                       - code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-      - summary: Buyer raises PO
+      - summary: Logistics buyer confirms the order.
         api: confirm
-        description: >-
-          Buyer receives the quotation and once agreed to go ahead with the
-          quotation received, creates a PO and sends the PO
+        description: Logistics buyer confirms the order.
         reference: if any
         example:
-          summary: confirm_ocean
-          description: null
+          summary: Logistics buyer confirms the order
+          description: Logistics buyer confirms the order
           value:
             context:
               domain: ONDC:LGP
@@ -9867,7 +9872,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 billing:
                   name: ONDC sellerapp
                   address: My house or building name
@@ -10003,15 +10007,13 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-10-17T21:12:00.000Z'
                 updated_at: '2023-10-17T21:12:00.000Z'
-      - summary: Seller Accepts PO
+      - summary: Logistics Provider accepts the order.
         api: on_confirm
-        description: >-
-          Seller app sends an on_confirm call to the buyer app relaying the PO
-          acceptance.
+        description: Logistics Provider accepts the order.
         reference: if any
         example:
-          summary: on_confirm_ocean
-          description: null
+          summary: Logistics Provider accepts the order.
+          description: Logistics Provider accepts the order.
           value:
             context:
               domain: ONDC:LGP
@@ -10088,7 +10090,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -10365,12 +10366,12 @@ x-flows:
                         value: 'Y'
                 created_at: '2023-10-17T21:12:00.000Z'
                 updated_at: '2023-10-17T21:12:00.720Z'
-      - summary: Buyer update PO
+      - summary: Logistics Buyer updates RTS
         api: update
-        description: Buyer update the PO
+        description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
         example:
-          summary: update_ocean
+          summary: Logistics Buyer updates RTS
           description: null
           value:
             context:
@@ -10520,14 +10521,12 @@ x-flows:
                           code: Packaging
                         value: Barrels
                 updated_at: '2023-10-17T21:13:00.000Z'
-      - summary: Seller Accepts PO
+      - summary: LSP updates the weight and measurement differential charges.
         api: on_update
-        description: >-
-          Seller app sends an on_update call to the buyer app relaying the PO
-          acceptance.
+        description: LSP updates the weight and measurement differential charges.
         reference: if any
         example:
-          summary: on_status_ocean
+          summary: Solicited response to update - package measurement updated
           description: null
           value:
             context:
@@ -10609,7 +10608,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -10834,47 +10832,45 @@ x-flows:
         description: Search intent sent by the buyer based on the category
         reference: if any
         example: *ref_14
-      - summary: Returns item/ catalog
+      - summary: LSP sends catalog
         api: on_search
-        description: Catalog provided by the Seller App
+        description: >-
+          Logistics service provider sends the catalog based on search + Sends
+          the KYC Link.
         reference: if any
         example: *ref_15
-      - summary: Requests for Quotation
+      - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
-          Buyer requests for quotation for the selected item with all the
-          customizations and the quantity of items required
+          Logistics Buyer fills the KYC form and sends the submission Id while
+          initializing the order.
         reference: if any
         example: *ref_16
-      - summary: Responds to Quotation
+      - summary: Response to order initialization - KYC Successful
         api: on_init
-        description: Seller provides the final quotation and breakup with logistics charges
+        description: >-
+          Logistics Provider updates the KYC as successful and sends the breakup
+          of the quote.
         reference: if any
         example: *ref_17
-      - summary: Buyer raises PO
+      - summary: Logistics buyer confirms the order.
         api: confirm
-        description: >-
-          Buyer receives the quotation and once agreed to go ahead with the
-          quotation received, creates a PO and sends the PO
+        description: Logistics buyer confirms the order.
         reference: if any
         example: *ref_18
-      - summary: Seller Accepts PO
+      - summary: Logistics Provider accepts the order.
         api: on_confirm
-        description: >-
-          Seller app sends an on_confirm call to the buyer app relaying the PO
-          acceptance.
+        description: Logistics Provider accepts the order.
         reference: if any
         example: *ref_19
-      - summary: Buyer update PO
+      - summary: Logistics Buyer updates RTS
         api: update
-        description: Buyer update the PO
+        description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
         example: *ref_20
-      - summary: Seller Accepts PO
+      - summary: LSP updates the weight and measurement differential charges.
         api: on_update
-        description: >-
-          Seller app sends an on_update call to the buyer app relaying the PO
-          acceptance.
+        description: LSP updates the weight and measurement differential charges.
         reference: if any
         example: *ref_21
       - summary: Request for order status update
@@ -10882,7 +10878,7 @@ x-flows:
         description: Buyer requests for the order status update
         reference: if any
         example:
-          summary: status
+          summary: Logistics Buyer requests for status update
           description: null
           value:
             context:
@@ -10911,8 +10907,10 @@ x-flows:
           the current status of the order.
         reference: if any
         example:
-          summary: on_status_air
-          description: null
+          summary: Status updates
+          description: >-
+            Logistics provider updates the status of fulfillment as Order Picked
+            up.
           value:
             context:
               domain: ONDC:LGP
@@ -10993,7 +10991,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -11208,8 +11205,8 @@ x-flows:
         description: Seller app cancels the order by sending unsolicited on_cancel call
         reference: if any
         example:
-          summary: on_cancel
-          description: null
+          summary: Unsolicited on_cancel
+          description: Unsolicited on_cancel from Logistics provider
           value:
             context:
               domain: ONDC:LGP
@@ -11294,7 +11291,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '500.0'
-                  ttl: PT15M
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -11518,10 +11514,7 @@ x-examples:
       search:
         examples:
           - summary: Search Logistics - Air Delivery
-            description: >-
-              Search for parent category - Express Delivery or Air Delivery.
-              Here the Logistics buyer provides the start and end location as
-              part of fulfillments.stops.
+            description: Search for parent category - Express Delivery or Air Delivery.
             value:
               context:
                 domain: ONDC:LGS
@@ -11980,8 +11973,10 @@ x-examples:
                           value: '-18'
       init:
         examples:
-          - summary: init_air
-            description: null
+          - summary: Logistics Buyer initializes the order.
+            description: >-
+              Logistics Buyer fills the KYC form and sends the submission Id
+              while initializing the order.
             value:
               context:
                 domain: ONDC:DLG
@@ -12089,8 +12084,10 @@ x-examples:
                       submission_id: xxxx44567789999
                       status: SUCCESS
                     required: true
-          - summary: init_surface
-            description: null
+          - summary: Logistics Buyer initializes the order.
+            description: >-
+              Logistics Buyer fills the KYC form and sends the submission Id
+              while initializing the order.
             value:
               context:
                 domain: ONDC:DLG
@@ -12199,8 +12196,8 @@ x-examples:
                     required: true
       confirm:
         examples:
-          - summary: confirm_air
-            description: null
+          - summary: Logistics buyer confirms the order.
+            description: Logistics buyer confirms the order.
             value:
               context:
                 domain: ONDC:LGP
@@ -12430,8 +12427,8 @@ x-examples:
                           value: 'Y'
                   created_at: '2023-02-06T22:00:00.000Z'
                   updated_at: '2023-02-06T22:00:00.000Z'
-          - summary: confirm_surface
-            description: null
+          - summary: Logistics buyer confirms the order.
+            description: Logistics buyer confirms the order.
             value:
               context:
                 domain: ONDC:LGP
@@ -12661,7 +12658,7 @@ x-examples:
                   updated_at: '2023-10-17T21:12:00.000Z'
       update:
         examples:
-          - summary: update_air_diff
+          - summary: Logistics Buyer updates the package measurement
             description: null
             value:
               context:
@@ -12790,7 +12787,7 @@ x-examples:
                             code: Package_Count
                           value: '10'
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: update_air
+          - summary: Logistics Buyer updates RTS
             description: null
             value:
               context:
@@ -12876,7 +12873,7 @@ x-examples:
                                 code: AWB_No
                               value: '1227262193237777'
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: update_surface
+          - summary: Logistics Buyer updates RTS
             description: null
             value:
               context:
@@ -12964,7 +12961,7 @@ x-examples:
                   updated_at: '2023-10-17T21:13:00.000Z'
       status:
         examples:
-          - summary: status
+          - summary: Logistics Buyer requests for status update
             description: null
             value:
               context:
@@ -12986,10 +12983,37 @@ x-examples:
                 ttl: PT30S
               message:
                 order_id: '02'
+      cancel:
+        examples:
+          - summary: Logistics Buyer initiates cancellation.
+            description: Logistics Buyer initiates cancellation of the order.
+            value:
+              context:
+                domain: ONDC:LGS
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: cancel
+                version: 2.0.0
+                bap_id: logistics_buyer.com
+                bap_uri: https://logistics_buyer.com/ondc
+                bpp_id: logistics_seller.com
+                bpp_uri: https://logistics_seller.com/ondc
+                transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+                message_id: '1755281254864'
+                timestamp: '2023-10-17T22:00:00.000Z'
+                ttl: PT30S
+              message:
+                order_id: '02'
+                cancellation_reason_id: '004'
       on_search:
         examples:
-          - summary: on_search_air
-            description: null
+          - summary: LSP sends catalog
+            description: >-
+              Logistics service provider sends the catalog based on search +
+              Sends the KYC Link.
             value:
               context:
                 domain: ONDC:DLG
@@ -13154,8 +13178,10 @@ x-examples:
                             label: TAT
                             duration: P4D
                             timestamp: '2023-10-25T21:00:00.000Z'
-          - summary: on_search_surface
-            description: null
+          - summary: LSP sends catalog
+            description: >-
+              Logistics service provider sends the catalog based on search +
+              Sends the KYC Link.
             value:
               context:
                 domain: ONDC:DLG
@@ -13322,8 +13348,10 @@ x-examples:
                             timestamp: '2023-10-25T21:00:00.000Z'
       on_init:
         examples:
-          - summary: on_init_air_kyc_success
-            description: null
+          - summary: Response to order initialization - KYC Successful
+            description: >-
+              Logistics Provider updates the KYC as successful and sends the
+              breakup of the quote.
             value:
               context:
                 domain: ONDC:LGP
@@ -13505,8 +13533,10 @@ x-examples:
                         - code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-          - summary: on_init_air
-            description: null
+          - summary: Response to order initialization - KYC Failed
+            description: >-
+              Logistics Provider updates the KYC as Failed with the error
+              message.
             value:
               context:
                 domain: ONDC:LGP
@@ -13691,8 +13721,10 @@ x-examples:
               error:
                 code: ''
                 message: ''
-          - summary: on_init_surface_kyc_success
-            description: null
+          - summary: Response to order initialization - KYC Successful
+            description: >-
+              Logistics Provider updates the KYC as successful and sends the
+              breakup of the quote.
             value:
               context:
                 domain: ONDC:LGP
@@ -13874,8 +13906,10 @@ x-examples:
                         - code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-          - summary: on_init_surface
-            description: null
+          - summary: Response to order initialization - KYC Failed
+            description: >-
+              Logistics Provider updates the KYC as Failed with the error
+              message.
             value:
               context:
                 domain: ONDC:LGP
@@ -14062,8 +14096,8 @@ x-examples:
                 message: ''
       on_confirm:
         examples:
-          - summary: on_confirm_air
-            description: null
+          - summary: Logistics Provider accepts the order.
+            description: Logistics Provider accepts the order.
             value:
               context:
                 domain: ONDC:LGP
@@ -14116,7 +14150,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -14354,8 +14387,8 @@ x-examples:
                           value: 'Y'
                   created_at: '2023-02-06T22:00:00.000Z'
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_confirm_surface
-            description: null
+          - summary: Logistics Provider accepts the order.
+            description: Logistics Provider accepts the order.
             value:
               context:
                 domain: ONDC:LGP
@@ -14408,7 +14441,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -14648,8 +14680,10 @@ x-examples:
                   updated_at: '2023-02-06T22:00:30.000Z'
       on_status:
         examples:
-          - summary: on_status_air
-            description: null
+          - summary: Status updates
+            description: >-
+              Logistics provider updates the status of fulfillment as Order
+              Picked up.
             value:
               context:
                 domain: ONDC:LGP
@@ -14716,7 +14750,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '6.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -14792,14 +14825,8 @@ x-examples:
                             code: Delivery_Terms
                           list:
                             - descriptor:
-                                code: Ready_To_Ship
-                              value: 'yes'
-                            - descriptor:
                                 code: AWB_No
                               value: '1209878992826353'
-                            - descriptor:
-                                code: RTO_Action
-                              value: 'no'
                   billing:
                     name: ONDC sellerapp
                     address: My house or building name
@@ -14907,8 +14934,8 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_status_cancelled
-            description: null
+          - summary: Status updates
+            description: Logistics provider updates the status of fulfillment of RTO.
             value:
               context:
                 domain: ONDC:LGP
@@ -14985,13 +15012,18 @@ x-examples:
                         price:
                           currency: INR
                           value: '3000.0'
-                    ttl: PT15M
+                      - item:
+                          id: I4
+                        title: tax
+                        price:
+                          currency: INR
+                          value: '200.0'
                   fulfillments:
                     - id: '1'
                       type: Delivery
                       state:
                         descriptor:
-                          code: Out-for-delivery
+                          code: Cancelled
                       tracking: false
                       stops:
                         - id: L1
@@ -15060,35 +15092,26 @@ x-examples:
                             code: Delivery_Terms
                           list:
                             - descriptor:
-                                code: Ready_To_Ship
-                              value: 'yes'
-                            - descriptor:
                                 code: AWB_No
                               value: '1209878992826353'
-                            - descriptor:
-                                code: RTO_Action
-                              value: 'no'
-                    - id: '1'
+                    - id: '2'
                       type: RTO
                       state:
                         descriptor:
-                          code: RTO-Initiated
+                          code: RTO-Delivered
                       tracking: false
                       stops:
                         - id: L1
                           parent_stop_id: ''
                           type: start
-                          location:
-                            gps: 12.342769,77.9129423
-                            map_url: ''
-                            address: My house or building name, street name
-                            city: Bengaluru
-                            state: Karnataka
-                            country: India
-                            area_code: '560043'
-                          contact:
-                            phone: '9886098860'
-                            email: abcd.efgh@gmail.com
+                          time:
+                            range:
+                              start: '2023-02-06T22:30:00.000Z'
+                              end: '2023-02-06T22:45:00.000Z'
+                            timestamp: '2023-06-07T00:00:00.000Z'
+                        - id: L2
+                          parent_stop_id: ''
+                          type: end
                           time:
                             range:
                               start: '2023-02-06T22:30:00.000Z'
@@ -15099,16 +15122,6 @@ x-examples:
                           name: xxxxx
                         contact:
                           phone: '9999999999'
-                      tags:
-                        - descriptor:
-                            code: fulfillment_terms
-                          list:
-                            - descriptor:
-                                code: AWB_No
-                              value: '1209878992826353'
-                            - descriptor:
-                                code: RTO_Action
-                              value: 'yes'
                   billing:
                     name: ONDC sellerapp
                     address: My house or building name
@@ -15216,8 +15229,8 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_status_cancelled_surface
-            description: null
+          - summary: Status updates
+            description: Logistics provider updates the status of fulfillment of RTO.
             value:
               context:
                 domain: ONDC:LGP
@@ -15302,7 +15315,7 @@ x-examples:
                       type: Delivery
                       state:
                         descriptor:
-                          code: Out-for-delivery
+                          code: Cancelled
                       tracking: false
                       stops:
                         - id: L1
@@ -15371,35 +15384,26 @@ x-examples:
                             code: Delivery_Terms
                           list:
                             - descriptor:
-                                code: Ready_To_Ship
-                              value: 'yes'
-                            - descriptor:
                                 code: AWB_No
                               value: '1209878992826353'
-                            - descriptor:
-                                code: RTO_Action
-                              value: 'no'
-                    - id: '1'
+                    - id: '2'
                       type: RTO
                       state:
                         descriptor:
-                          code: RTO-Initiated
+                          code: RTO-Delivered
                       tracking: false
                       stops:
                         - id: L1
                           parent_stop_id: ''
                           type: start
-                          location:
-                            gps: 12.342769,77.9129423
-                            map_url: ''
-                            address: My house or building name, street name
-                            city: Bengaluru
-                            state: Karnataka
-                            country: India
-                            area_code: '560043'
-                          contact:
-                            phone: '9886098860'
-                            email: abcd.efgh@gmail.com
+                          time:
+                            range:
+                              start: '2023-02-06T22:30:00.000Z'
+                              end: '2023-02-06T22:45:00.000Z'
+                            timestamp: '2023-06-07T00:00:00.000Z'
+                        - id: L2
+                          parent_stop_id: ''
+                          type: end
                           time:
                             range:
                               start: '2023-02-06T22:30:00.000Z'
@@ -15410,16 +15414,6 @@ x-examples:
                           name: xxxxx
                         contact:
                           phone: '9999999999'
-                      tags:
-                        - descriptor:
-                            code: Delivery_Terms
-                          list:
-                            - descriptor:
-                                code: AWB_No
-                              value: '1209878992826353'
-                            - descriptor:
-                                code: RTO_Action
-                              value: 'yes'
                   billing:
                     name: ONDC sellerapp
                     address: My house or building name
@@ -15527,8 +15521,10 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-10-19T21:00:00.800Z'
-          - summary: on_status_surface
-            description: null
+          - summary: Status updates
+            description: >-
+              Logistics provider updates the status of fulfillment as Order
+              Picked up.
             value:
               context:
                 domain: ONDC:LGP
@@ -15595,7 +15591,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '6.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -15671,14 +15666,8 @@ x-examples:
                             code: Delivery_Terms
                           list:
                             - descriptor:
-                                code: Ready_To_Ship
-                              value: 'yes'
-                            - descriptor:
                                 code: AWB_No
                               value: '1209878992826353'
-                            - descriptor:
-                                code: RTO_Action
-                              value: 'no'
                   billing:
                     name: ONDC sellerapp
                     address: My house or building name
@@ -15788,8 +15777,8 @@ x-examples:
                   updated_at: '2023-10-19T21:00:00.800Z'
       on_update:
         examples:
-          - summary: on_update_air_diff
-            description: null
+          - summary: LSP updates the weight and measurement differential charges.
+            description: LSP updates the weight and measurement differential charges.
             value:
               context:
                 domain: ONDC:LGP
@@ -15858,7 +15847,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '6.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -16061,7 +16049,7 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_update_air
+          - summary: Solicited response to update - package measurement updated
             description: null
             value:
               context:
@@ -16119,7 +16107,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -16240,8 +16227,8 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_update_surface_diff
-            description: null
+          - summary: Unsoliciated call to update differential charges.
+            description: LSP updates the weight and measurement differential charges.
             value:
               context:
                 domain: ONDC:LGP
@@ -16310,7 +16297,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '6.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -16497,7 +16483,7 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-10-17T21:13:00.601Z'
-          - summary: on_update_surface
+          - summary: Solicited response to update - package measurement updated
             description: null
             value:
               context:
@@ -16555,7 +16541,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -16675,6 +16660,546 @@ x-examples:
                                 code: UPI_Address
                               value: xxxxxxx
                   updated_at: '2023-10-17T21:13:00.601Z'
+      on_cancel:
+        examples:
+          - summary: Unsolicited on_cancel to Initiate RTO
+            description: >-
+              Unsolicited on_cancel from Logistics provider when Customer does
+              not accept the delivery and initiates RTO.
+            value:
+              context:
+                domain: ONDC:LGP
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_cancel
+                version: 2.0.0
+                bap_id: logistics_buyer.com
+                bap_uri: https://logistics_buyer.com/ondc
+                bpp_id: logistics_seller.com
+                bpp_uri: https://logistics_seller.com/ondc
+                transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+                message_id: '1755281254864'
+                timestamp: '2023-10-17T22:00:00.811Z'
+                ttl: PT30S
+              message:
+                order:
+                  id: O2
+                  status: Cancelled
+                  cancellation:
+                    cancelled_by: logistics_buyer.com
+                    reason:
+                      id: '004'
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - id: I1
+                      category_ids:
+                        - C1
+                        - R1
+                      descriptor:
+                        code: P2H2P
+                      fulfillment_ids:
+                        - '1'
+                      time:
+                        label: TAT
+                        duration: PT7D
+                        timestamp: '2023-10-17'
+                  quote:
+                    price:
+                      currency: INR
+                      value: '0.00'
+                    breakup:
+                      - item:
+                          id: I1
+                        title: delivery
+                        price:
+                          currency: INR
+                          value: '0.00'
+                      - item:
+                          id: I1
+                        title: tax
+                        price:
+                          currency: INR
+                          value: '0.00'
+                      - item:
+                          id: I2
+                        title: rto
+                        price:
+                          currency: INR
+                          value: '0.00'
+                      - item:
+                          id: I2
+                        title: tax
+                        price:
+                          currency: INR
+                          value: '0.00'
+                  fulfillments:
+                    - id: '1'
+                      type: Delivery
+                      state:
+                        descriptor:
+                          code: Cancelled
+                      tracking: false
+                      stops:
+                        - id: L1
+                          parent_stop_id: ''
+                          type: start
+                          location:
+                            gps: 12.4535445,77.9283792
+                            area_code: '560041'
+                            map_url: ''
+                            address: My house or building name, street name
+                            city: Bengaluru
+                            state: Karnataka
+                            country: India
+                          contact:
+                            phone: '9886098860'
+                            email: abcd.efgh@gmail.com
+                          authorization:
+                            type: QR
+                            token: XYZ2
+                            valid_from: ''
+                            valid_to: ''
+                          instructions:
+                            short_desc: Shipping label
+                            long_desc: ''
+                            additional_desc:
+                              content_type: text/html
+                              url: URL for instructions
+                            images:
+                              - link/to/shipping/label
+                          time:
+                            range:
+                              start: '2023-10-17T21:12:00.710Z'
+                              end: '2023-10-20T21:12:00.710Z'
+                        - id: L2
+                          parent_stop_id: L1
+                          type: end
+                          location:
+                            gps: 12.342769,77.9129423
+                            map_url: ''
+                            address: My house or building name, street name
+                            city: Bengaluru
+                            state: Karnataka
+                            country: India
+                            area_code: '560043'
+                          contact:
+                            phone: '9886098860'
+                            email: abcd.efgh@gmail.com
+                          authorization:
+                            type: QR
+                            token: XYZ2
+                            valid_from: ''
+                            valid_to: ''
+                          instructions:
+                            short_desc: ''
+                            long_desc: drop package at security gate
+                            additional_desc:
+                              content_type: text/html
+                              url: URL for instructions
+                          time:
+                            range:
+                              start: '2023-10-21T21:12:00.710Z'
+                              end: '2023-10-24T21:12:00.710Z'
+                      tags:
+                        - descriptor:
+                            code: Delivery_Terms
+                          list:
+                            - descriptor:
+                                code: AWB_No
+                              value: '1209878992826353'
+                        - code: RTO_Event
+                          list:
+                            - code: Retry_Count
+                              value: '3'
+                            - code: RTO_Id
+                              value: '2'
+                            - code: Cancellation_Reason_Id
+                              value: '013'
+                            - code: Sub_Reason_Id
+                              value: '004'
+                            - code: Cancelled_By
+                              value: lsp.com
+                    - id: '2'
+                      type: RTO
+                      state:
+                        descriptor:
+                          code: RTO-Initiated
+                      start:
+                        time:
+                          timestamp: '2023-06-07T14:00:00.000Z'
+                  billing:
+                    name: ONDC sellerapp
+                    address: My house or building name
+                    city: Bengaluru
+                    state: Karnataka
+                    tax_id: XXXXXXXXXXXXXXX
+                    phone: '9886098860'
+                    email: abcd.efgh@gmail.com
+                  payment:
+                    - id: P1
+                      collected_by: BPP
+                      params:
+                        amount: '4000'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BAP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                  tags:
+                    - descriptor:
+                        code: Quantity
+                      list:
+                        - descriptor:
+                            code: count
+                          value: '1000'
+                        - descriptor:
+                            code: MEASURE_UNIT
+                          value: kilogram
+                        - descriptor:
+                            code: MEASURE_VALUE
+                          value: '1000'
+                    - descriptor:
+                        code: Package_Dimensions
+                      list:
+                        - descriptor:
+                            code: Unit
+                          value: centimeter
+                        - descriptor:
+                            code: Length
+                          value: '1'
+                        - descriptor:
+                            code: Breadth
+                          value: '1'
+                        - descriptor:
+                            code: Height
+                          value: '1'
+                    - descriptor:
+                        code: Package_Details
+                      list:
+                        - descriptor:
+                            code: Category
+                          value: Grocery
+                        - descriptor:
+                            code: UNIT_PRICE
+                          value: '100'
+                        - descriptor:
+                            code: ITEM_PRICE
+                          value: '100000'
+                        - descriptor:
+                            code: Dangerous_Goods
+                          value: 'true'
+                    - descriptor:
+                        code: Package_Dimensions_Diff
+                      list:
+                        - descriptor:
+                            code: Unit
+                          value: centimeter
+                        - descriptor:
+                            code: Length
+                          value: '1.5'
+                        - descriptor:
+                            code: Breadth
+                          value: '1.5'
+                        - descriptor:
+                            code: Height
+                          value: '1.5'
+                  updated_at: '2023-10-17T22:00:00.811Z'
+          - summary: Unsolicited on_cancel to Initiate RTO
+            description: >-
+              Unsolicited on_cancel from Logistics provider when Customer does
+              not accept the delivery and initiates RTO.
+            value:
+              context:
+                domain: ONDC:LGP
+                location:
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
+                action: on_cancel
+                version: 2.0.0
+                bap_id: logistics_buyer.com
+                bap_uri: https://logistics_buyer.com/ondc
+                bpp_id: logistics_seller.com
+                bpp_uri: https://logistics_seller.com/ondc
+                transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+                message_id: '1755281254860'
+                timestamp: '2023-10-23T21:00:00.000Z'
+                ttl: PT30S
+              message:
+                order:
+                  id: O2
+                  status: Cancelled
+                  cancellation:
+                    cancelled_by: logistics_buyer.com
+                    reason:
+                      id: '004'
+                  provider:
+                    id: P1
+                    locations:
+                      - id: L1
+                  items:
+                    - id: I3
+                      category_ids:
+                        - C1
+                        - A1
+                      descriptor:
+                        code: P2H2P
+                      fulfillment_ids:
+                        - '1'
+                      time:
+                        label: TAT
+                        duration: PT45M
+                        timestamp: '2023-10-23'
+                  quote:
+                    price:
+                      currency: INR
+                      value: '0.00'
+                    breakup:
+                      - item:
+                          id: I1
+                        title: delivery
+                        price:
+                          currency: INR
+                          value: '0.00'
+                      - item:
+                          id: I1
+                        title: tax
+                        price:
+                          currency: INR
+                          value: '0.00'
+                      - item:
+                          id: I2
+                        title: rto
+                        price:
+                          currency: INR
+                          value: '0.00'
+                      - item:
+                          id: I2
+                        title: tax
+                        price:
+                          currency: INR
+                          value: '0.00'
+                  fulfillments:
+                    - id: '1'
+                      type: Delivery
+                      state:
+                        descriptor:
+                          code: Cancelled
+                      tracking: false
+                      stops:
+                        - id: L1
+                          parent_stop_id: ''
+                          type: start
+                          location:
+                            gps: 12.4535445,77.9283792
+                            area_code: '560041'
+                            map_url: ''
+                            address: My house or building name, street name
+                            city: Bengaluru
+                            state: Karnataka
+                            country: India
+                          contact:
+                            phone: '9886098860'
+                            email: abcd.efgh@gmail.com
+                          authorization:
+                            type: QR
+                            token: XYZ2
+                            valid_from: ''
+                            valid_to: ''
+                          instructions:
+                            short_desc: Shipping label
+                            long_desc: ''
+                            additional_desc:
+                              content_type: text/html
+                              url: URL for instructions
+                            images:
+                              - link/to/shipping/label
+                          time:
+                            range:
+                              start: '2023-02-06T22:30:00.000Z'
+                              end: '2023-02-06T22:45:00.000Z'
+                        - id: L2
+                          parent_stop_id: L1
+                          type: end
+                          location:
+                            gps: 12.342769,77.9129423
+                            map_url: ''
+                            address: My house or building name, street name
+                            city: Bengaluru
+                            state: Karnataka
+                            country: India
+                            area_code: '560043'
+                          contact:
+                            phone: '9886098860'
+                            email: abcd.efgh@gmail.com
+                          authorization:
+                            type: QR
+                            token: XYZ2
+                            valid_from: ''
+                            valid_to: ''
+                          instructions:
+                            short_desc: ''
+                            long_desc: drop package at security gate
+                            additional_desc:
+                              content_type: text/html
+                              url: URL for instructions
+                          time:
+                            range:
+                              start: '2023-02-14T22:30:00.000Z'
+                              end: '2023-02-14T22:45:00.000Z'
+                      tags:
+                        - descriptor:
+                            code: Delivery_Terms
+                          list:
+                            - descriptor:
+                                code: AWB_No
+                              value: '1209878992826353'
+                        - code: RTO_Event
+                          list:
+                            - code: Retry_Count
+                              value: '3'
+                            - code: RTO_Id
+                              value: '2'
+                            - code: Cancellation_Reason_Id
+                              value: '013'
+                            - code: Sub_Reason_Id
+                              value: '004'
+                            - code: Cancelled_By
+                              value: lsp.com
+                    - id: '2'
+                      type: RTO
+                      state:
+                        descriptor:
+                          code: RTO-Initiated
+                      start:
+                        time:
+                          timestamp: '2023-06-07T14:00:00.000Z'
+                  billing:
+                    name: ONDC sellerapp
+                    address: My house or building name
+                    city: Bengaluru
+                    state: Karnataka
+                    tax_id: XXXXXXXXXXXXXXX
+                    phone: '9886098860'
+                    email: abcd.efgh@gmail.com
+                  payment:
+                    - id: P1
+                      collected_by: BPP
+                      params:
+                        amount: '6000'
+                        currency: INR
+                        bank_account_number: xxxxxxxx
+                        virtual_payment_address: xxx@xxxx
+                      type: PRE-FULFILLMENT
+                      tags:
+                        - descriptor:
+                            code: Settlement_Details
+                          list:
+                            - descriptor:
+                                code: Counterparty
+                              value: BAP
+                            - descriptor:
+                                code: Mode
+                              value: UPI
+                            - descriptor:
+                                code: Beneficiary_Name
+                              value: xxxxx
+                            - descriptor:
+                                code: Bank_Account_No
+                              value: xxxxx
+                            - descriptor:
+                                code: Ifsc_Code
+                              value: xxxxxxx
+                            - descriptor:
+                                code: UPI_Address
+                              value: xxxxxxx
+                  tags:
+                    - descriptor:
+                        code: Quantity
+                      list:
+                        - descriptor:
+                            code: count
+                          value: '1000'
+                        - descriptor:
+                            code: MEASURE_UNIT
+                          value: kilogram
+                        - descriptor:
+                            code: MEASURE_VALUE
+                          value: '1000'
+                    - descriptor:
+                        code: Package_Dimensions
+                      list:
+                        - descriptor:
+                            code: Unit
+                          value: centimeter
+                        - descriptor:
+                            code: Length
+                          value: '1'
+                        - descriptor:
+                            code: Breadth
+                          value: '1'
+                        - descriptor:
+                            code: Height
+                          value: '1'
+                    - descriptor:
+                        code: Package_Details
+                      list:
+                        - descriptor:
+                            code: Category
+                          value: Grocery
+                        - descriptor:
+                            code: UNIT_PRICE
+                          value: '100'
+                        - descriptor:
+                            code: ITEM_PRICE
+                          value: '100000'
+                        - descriptor:
+                            code: Dangerous_Goods
+                          value: 'true'
+                    - descriptor:
+                        code: Package_Dimensions_Diff
+                      list:
+                        - descriptor:
+                            code: Unit
+                          value: centimeter
+                        - descriptor:
+                            code: Length
+                          value: '1.5'
+                        - descriptor:
+                            code: Breadth
+                          value: '1.5'
+                        - descriptor:
+                            code: Height
+                          value: '1.5'
+                  updated_at: '2023-02-06T22:00:30.000Z'
   B2B Logistics - International:
     summary: B2B Logistics - International Use Case Specification
     description: >-
@@ -16687,8 +17212,8 @@ x-examples:
     example_set:
       search:
         examples:
-          - summary: search_air_delivery
-            description: null
+          - summary: Search Logistics - Air Delivery
+            description: Search for parent category - Express Delivery or Air Delivery.
             value:
               context:
                 domain: ONDC:LGS
@@ -16813,7 +17338,7 @@ x-examples:
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
-          - summary: search_parent_category
+          - summary: Search by parent category - Express Delivery
             description: null
             value:
               context:
@@ -16939,7 +17464,7 @@ x-examples:
                         - descriptor:
                             code: Temp_Range
                           value: '-18'
-          - summary: search_ocean_delivery
+          - summary: Search Logistics - Ocean Delivery
             description: null
             value:
               context:
@@ -17067,8 +17592,10 @@ x-examples:
                           value: '-18'
       init:
         examples:
-          - summary: init_ocean
-            description: null
+          - summary: Logistics Buyer initializes the order.
+            description: >-
+              Logistics Buyer fills the KYC form and sends the submission Id
+              while initializing the order.
             value:
               context:
                 domain: ONDC:DLG
@@ -17186,8 +17713,10 @@ x-examples:
                       submission_id: xxxx44567789999
                       status: SUCCESS
                     required: true
-          - summary: init_ocean
-            description: null
+          - summary: Logistics Buyer initializes the order.
+            description: >-
+              Logistics Buyer fills the KYC form and sends the submission Id
+              while initializing the order.
             value:
               context:
                 domain: ONDC:DLG
@@ -17307,8 +17836,8 @@ x-examples:
                     required: true
       confirm:
         examples:
-          - summary: confirm_air
-            description: null
+          - summary: Logistics buyer confirms the order
+            description: Logistics buyer confirms the order
             value:
               context:
                 domain: ONDC:LGP
@@ -17437,7 +17966,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   billing:
                     name: ONDC sellerapp
                     address: My house or building name
@@ -17570,8 +18098,8 @@ x-examples:
                           value: 'Y'
                   created_at: '2023-02-06T22:00:00.000Z'
                   updated_at: '2023-02-06T22:00:00.000Z'
-          - summary: confirm_ocean
-            description: null
+          - summary: Logistics buyer confirms the order
+            description: Logistics buyer confirms the order
             value:
               context:
                 domain: ONDC:LGP
@@ -17700,7 +18228,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   billing:
                     name: ONDC sellerapp
                     address: My house or building name
@@ -17838,7 +18365,7 @@ x-examples:
                   updated_at: '2023-10-17T21:12:00.000Z'
       update:
         examples:
-          - summary: update_air
+          - summary: Logistics Buyer updates RTS
             description: null
             value:
               context:
@@ -17985,7 +18512,7 @@ x-examples:
                             code: Temp_Max
                           value: '4'
                   updated_at: '2023-02-06T22:00:00.000Z'
-          - summary: update_ocean
+          - summary: Logistics Buyer updates RTS
             description: null
             value:
               context:
@@ -18137,7 +18664,7 @@ x-examples:
                   updated_at: '2023-10-17T21:13:00.000Z'
       status:
         examples:
-          - summary: status
+          - summary: Logistics Buyer requests for status update
             description: null
             value:
               context:
@@ -18161,8 +18688,10 @@ x-examples:
                 order_id: '02'
       on_search:
         examples:
-          - summary: on_search_air
-            description: null
+          - summary: LSP sends catalog
+            description: >-
+              Logistics service provider sends the catalog based on search +
+              Sends the KYC Link.
             value:
               context:
                 domain: ONDC:DLG
@@ -18324,8 +18853,10 @@ x-examples:
                             label: TAT
                             duration: P4D
                             timestamp: '2023-10-25T21:00:00.000Z'
-          - summary: on_search_ocean
-            description: null
+          - summary: LSP sends catalog
+            description: >-
+              Logistics service provider sends the catalog based on search +
+              Sends the KYC Link.
             value:
               context:
                 domain: ONDC:DLG
@@ -18489,8 +19020,10 @@ x-examples:
                             timestamp: '2023-10-25T21:00:00.000Z'
       on_init:
         examples:
-          - summary: on_init_air
-            description: null
+          - summary: Response to order initialization - KYC Failed
+            description: >-
+              Logistics Provider updates the KYC as Failed with the error
+              message.
             value:
               context:
                 domain: ONDC:LGP
@@ -18724,8 +19257,10 @@ x-examples:
                         - code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-          - summary: on_init_air_kyc_failed
-            description: null
+          - summary: Response to order initialization - KYC Failed
+            description: >-
+              Logistics Provider updates the KYC as Failed with the error
+              message.
             value:
               context:
                 domain: ONDC:LGP
@@ -18959,8 +19494,10 @@ x-examples:
                         - code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-          - summary: on_init_ocean
-            description: null
+          - summary: Response to order initialization - KYC Successful
+            description: >-
+              Logistics Provider updates the KYC as successful and sends the
+              breakup of the quote.
             value:
               context:
                 domain: ONDC:LGP
@@ -19189,8 +19726,10 @@ x-examples:
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
       on_status:
         examples:
-          - summary: on_status_air
-            description: null
+          - summary: Status updates
+            description: >-
+              Logistics provider updates the status of fulfillment as Order
+              Picked up.
             value:
               context:
                 domain: ONDC:LGP
@@ -19271,7 +19810,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -19481,8 +20019,8 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_status_cancelled
-            description: null
+          - summary: Status updates
+            description: Logistics provider updates the status of fulfillment
             value:
               context:
                 domain: ONDC:LGP
@@ -19563,7 +20101,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -19773,8 +20310,8 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_status_order_pickedup
-            description: null
+          - summary: Status updates
+            description: Logistics provider updates the status of fulfillment
             value:
               context:
                 domain: ONDC:LGP
@@ -19855,7 +20392,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -20066,8 +20602,8 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_status_custom
-            description: null
+          - summary: Status updates
+            description: Logistics provider updates the status of fulfillment
             value:
               context:
                 domain: ONDC:LGP
@@ -20148,7 +20684,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -20359,8 +20894,8 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_status_order_delivered
-            description: null
+          - summary: Status updates
+            description: Logistics provider updates the status of fulfillment
             value:
               context:
                 domain: ONDC:LGP
@@ -20441,7 +20976,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -20655,8 +21189,8 @@ x-examples:
                   updated_at: '2023-02-06T22:00:30.000Z'
       on_confirm:
         examples:
-          - summary: on_confirm_ocean
-            description: null
+          - summary: Logistics Provider accepts the order.
+            description: Logistics Provider accepts the order.
             value:
               context:
                 domain: ONDC:LGP
@@ -20733,7 +21267,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -21007,8 +21540,8 @@ x-examples:
                           value: 'Y'
                   created_at: '2023-02-06T22:00:00.000Z'
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_confirm_ocean
-            description: null
+          - summary: Logistics Provider accepts the order.
+            description: Logistics Provider accepts the order.
             value:
               context:
                 domain: ONDC:LGP
@@ -21085,7 +21618,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -21364,7 +21896,7 @@ x-examples:
                   updated_at: '2023-10-17T21:12:00.720Z'
       on_update:
         examples:
-          - summary: on_update_air
+          - summary: Solicited response to update - package measurement updated
             description: null
             value:
               context:
@@ -21446,7 +21978,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -21657,7 +22188,7 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: on_status_ocean
+          - summary: Solicited response to update - package measurement updated
             description: null
             value:
               context:
@@ -21739,7 +22270,6 @@ x-examples:
                         price:
                           currency: INR
                           value: '500.0'
-                    ttl: PT15M
                   fulfillments:
                     - id: '1'
                       type: Delivery

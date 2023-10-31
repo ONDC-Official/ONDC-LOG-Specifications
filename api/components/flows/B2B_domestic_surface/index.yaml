@@ -8,45 +8,45 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_surface.yaml"
-  - summary: Returns item/ catalog
+  - summary: LSP sends catalog
     api: on_search
-    description: Catalog provided by the Seller App 
+    description: Logistics service provider sends the catalog based on search + Sends the KYC Link. 
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_search/on_search_surface.yaml"
-  - summary: Requests for Quotation
+  - summary: Logistics Buyer initializes the order.
     api: init
-    description: Buyer requests for quotation for the selected item with all the customizations and the quantity of items required
+    description: Logistics Buyer fills the KYC form and sends the submission Id while initializing the order.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/init/init_surface.yaml"
-  - summary: Responds to Quotation
+  - summary: Response to order initialization - KYC Successful
     api: on_init
-    description: Seller provides the final quotation and breakup with logistics charges
+    description: Logistics Provider updates the KYC as successful and sends the breakup of the quote.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_init/on_init_surface.yaml"
-  - summary: Buyer raises PO
+  - summary: Logistics buyer confirms the order.
     api: confirm
-    description: Buyer receives the quotation and once agreed to go ahead with the quotation received, creates a PO and sends the PO
+    description: Logistics buyer confirms the order.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/confirm/confirm_surface.yaml"
-  - summary: Seller Accepts PO
+  - summary: Logistics Provider accepts the order.
     api: on_confirm
-    description: Seller app sends an on_confirm call to the buyer app relaying the PO acceptance.
+    description: Logistics Provider accepts the order.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_confirm/on_confirm_surface.yaml"
-  - summary: Buyer update PO
+  - summary: Logistics Buyer updates RTS
     api: update
-    description: Buyer update the PO
+    description: Logistics Buyer updates RTS - Ready to Ship
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/update/update_surface.yaml"
-  - summary: Seller Accepts PO
+  - summary: LSP updates the weight and measurement differential charges.
     api: on_update
-    description: Seller app sends an on_update call to the buyer app relaying the PO acceptance.
+    description: LSP updates the weight and measurement differential charges.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_update/on_update_surface.yaml"          
