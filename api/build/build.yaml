@@ -6672,7 +6672,7 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-02-06T22:00:30.000Z'
-  - summary: B2B Domestic Cancellation
+  - summary: B2B Domestic Cancellation - RTO
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where logistics seller cancels the order
@@ -10823,7 +10823,7 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-02-06T22:00:30.000Z'
-  - summary: B2B International Cancellation
+  - summary: B2B International Cancellation - Logistics Buyer Cancels
     description: >-
       The following is an illustrative flow to perform a transaction of a nature
       where a buyer would like to order bulk items
@@ -11202,9 +11202,37 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-02-06T22:00:30.000Z'
-      - summary: Merchant cancels the order
+      - summary: Logistics Buyer cancels the order
+        api: cancel
+        description: Logistics Buyer cancels the order
+        reference: if any
+        example:
+          summary: Logistics Buyer initiates cancellation.
+          description: Logistics Buyer initiates cancellation of the order.
+          value:
+            context:
+              domain: ONDC:LGS
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: cancel
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254864'
+              timestamp: '2023-10-17T22:00:00.000Z'
+              ttl: PT30S
+            message:
+              order_id: '02'
+              cancellation_reason_id: '004'
+      - summary: Logistics Provider acknowledges.
         api: on_cancel
-        description: Seller app cancels the order by sending unsolicited on_cancel call
+        description: Logistics Provider acknowledges
         reference: if any
         example:
           summary: Unsolicited on_cancel

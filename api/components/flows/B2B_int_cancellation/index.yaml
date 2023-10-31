@@ -1,4 +1,4 @@
-summary: B2B International Cancellation
+summary: B2B International Cancellation - Logistics Buyer Cancels
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
 reference: if any
 steps:
@@ -61,10 +61,16 @@ steps:
     description: Seller app sends an on_status call to the buyer app informing about the current status of the order.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_status/on_status_air.yaml"       
-  - summary: Merchant cancels the order
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_status/on_status_air.yaml"  
+  - summary: Logistics Buyer cancels the order
+    api: cancel
+    description: Logistics Buyer cancels the order
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/cancel/cancel.yaml"     
+  - summary: Logistics Provider acknowledges.
     api: on_cancel
-    description: Seller app cancels the order by sending unsolicited on_cancel call
+    description: Logistics Provider acknowledges
     reference: if any
     example:
       $ref: "../../Examples/B2B_Int_Logistics_yaml/on_cancel/on_cancel.yaml"   
