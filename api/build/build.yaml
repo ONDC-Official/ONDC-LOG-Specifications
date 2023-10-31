@@ -7023,8 +7023,10 @@ x-flows:
             context:
               domain: ONDC:LGP
               location:
-                city: std:080
-                country: IND
+                city:
+                  code: std:080
+                country:
+                  code: IND
               action: on_status
               version: 2.0.0
               bap_id: logistics_buyer.com
@@ -14940,8 +14942,10 @@ x-examples:
               context:
                 domain: ONDC:LGP
                 location:
-                  city: std:080
-                  country: IND
+                  city:
+                    code: std:080
+                  country:
+                    code: IND
                 action: on_status
                 version: 2.0.0
                 bap_id: logistics_buyer.com
