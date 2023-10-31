@@ -113,8 +113,7 @@
               "value": "500.0"
             }
           }
-        ],
-        "ttl": "PT15M"
+        ]
       },
       "fulfillments": [
         {
@@ -213,22 +212,11 @@
               "list": [
                 {
                   "descriptor": {
-                    "code": "Ready_To_Ship"
-                  },
-                  "value": "yes"
-                },
-                {
-                  "descriptor": {
                     "code": "AWB_No"
                   },
                   "value": "1209878992826353"
                 },
-                {
-                  "descriptor": {
-                    "code": "RTO_Action"
-                  },
-                  "value": "no"
-                },
+
                 {
                   "descriptor": {
                     "code": "INCOTERMS"

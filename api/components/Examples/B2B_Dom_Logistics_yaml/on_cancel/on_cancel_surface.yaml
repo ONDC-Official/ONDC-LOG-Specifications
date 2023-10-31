@@ -60,7 +60,18 @@ value:
             price:
               currency: INR
               value: '0.00'
-        ttl: PT15M
+          - item:
+              id: I2
+            title: rto
+            price:
+              currency: INR
+              value: '0.00'
+          - item:
+              id: I2
+            title: tax
+            price:
+              currency: INR
+              value: '0.00'
       fulfillments:
         - id: '1'
           type: Delivery
@@ -131,17 +142,31 @@ value:
                   end: '2023-10-24T21:12:00.710Z'
           tags:
             - descriptor:
-                code: fulfillment_terms
+                code: Fulfillment_Terms
               list:
-                - descriptor:
-                    code: Ready_To_Ship
-                  value: 'yes'
                 - descriptor:
                     code: AWB_No
                   value: '1209878992826353'
-                - descriptor:
-                    code: RTO_Action
-                  value: 'no'
+            - code: RTO_Event
+              list:
+                - code: Retry_Count
+                  value: '3'
+                - code: RTO_Id
+                  value: '2'
+                - code: Cancellation_Reason_Id
+                  value: '013'
+                - code: Sub_Reason_Id
+                  value: '004'
+                - code: Cancelled_By
+                  value: lsp.com
+        - id: '2'
+          type: RTO
+          state:
+            descriptor:
+              code: RTO-Initiated
+          start:
+            time:
+              timestamp: '2023-06-07T14:00:00.000Z'
       billing:
         name: ONDC sellerapp
         address: My house or building name
