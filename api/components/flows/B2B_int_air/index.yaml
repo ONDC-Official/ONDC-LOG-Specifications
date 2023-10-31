@@ -2,7 +2,7 @@ summary: B2B International Air
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
 reference: if any
 steps:
-  - summary: Search based on the category
+  - summary: Search Logistics - Air Delivery
     api: search
     description: Search intent sent by the buyer based on the category
     reference: if any

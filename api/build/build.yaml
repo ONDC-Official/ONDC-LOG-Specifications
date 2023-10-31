@@ -3293,7 +3293,7 @@ x-flows:
       where a buyer would like to order bulk items
     reference: if any
     steps:
-      - summary: Search based on the category
+      - summary: Search Logistics - Surface Delivery
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
@@ -7320,7 +7320,7 @@ x-flows:
       where a buyer would like to order bulk items
     reference: if any
     steps:
-      - summary: Search based on the category
+      - summary: Search Logistics - Air Delivery
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
@@ -9071,7 +9071,7 @@ x-flows:
       where a buyer would like to order bulk items
     reference: if any
     steps:
-      - summary: Search based on the category
+      - summary: Search Logistics - Ocean Delivery
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
@@ -10829,7 +10829,7 @@ x-flows:
       where a buyer would like to order bulk items
     reference: if any
     steps:
-      - summary: Search based on the category
+      - summary: Search Logistics - Air Delivery
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
