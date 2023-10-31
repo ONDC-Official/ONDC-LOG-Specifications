@@ -104,7 +104,7 @@
                     "type": "Delivery",
                     "state": {
                         "descriptor": {
-                            "code": "Pickup-approved"
+                            "code": "Order-picked-up"
                         }
                     },
                     "tracking": false,

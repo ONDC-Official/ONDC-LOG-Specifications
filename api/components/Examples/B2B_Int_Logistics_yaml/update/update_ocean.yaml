@@ -1,144 +1,150 @@
-context:
-  domain: ONDC:LGP
-  location:
-    city:
-      code: UN:SIN
-    country:
-      code: SGP
-  action: update
-  version: 2.0.0
-  bap_id: logistics_buyer.com
-  bap_uri: https://logistics_buyer.com/ondc
-  bpp_id: logistics_seller.com
-  bpp_uri: https://logistics_seller.com/ondc
-  transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-  message_id: '1755281254863'
-  timestamp: '2023-10-17T21:13:00.000Z'
-  ttl: PT30S
-message:
-  update_target: fulfillment
-  order:
-    id: O2
-    status: Accepted
-    provider:
-      id: P1
-      locations:
-        - id: L1
-    items:
-      - id: I1
-        fulfillment_ids:
-          - '1'
-        category_ids:
-          - C1
-          - O1
-        descriptor:
-          code: P2H2P
-    fulfillments:
-      - id: '1'
-        type: Delivery
-        state:
-          descriptor:
-            code: Pending
-        tracking: false
-        stops:
+summary: update_ocean
+description: 
+value:
+  context:
+    domain: ONDC:LGP
+    location:
+      city:
+        code: UN:SIN
+      country:
+        code: SGP
+    action: update
+    version: 2.0.0
+    bap_id: logistics_buyer.com
+    bap_uri: https://logistics_buyer.com/ondc
+    bpp_id: logistics_seller.com
+    bpp_uri: https://logistics_seller.com/ondc
+    transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+    message_id: '1755281254863'
+    timestamp: '2023-10-17T21:13:00.000Z'
+    ttl: PT30S
+  message:
+    update_target: fulfillment
+    order:
+      id: O2
+      status: Accepted
+      provider:
+        id: P1
+        locations:
           - id: L1
-            parent_stop_id: ''
-            type: start
-            instructions:
-              code: AWB_No
-              short_desc: value of PCC
-              long_desc: QR code will be attached to package
-              additional_desc:
-                content_type: text/html
-                url: https://shipping/label/image.htm
-            authorization:
-              type: QR
-              token: XYZ2
-              valid_from: ''
-              valid_to: ''
-          - id: L2
-            parent_stop_id: L1
-            type: end
-            authorization:
-              type: QR
-              token: XYZ2
-              valid_from: ''
-              valid_to: ''
-            instructions:
-              short_desc: ''
-              long_desc: drop package at security gate
-              additional_desc:
-                content_type: text/html
-                url: URL for instructions
-        tags:
-          - descriptor:
-              code: Delivery_Terms
-            list:
-              - descriptor:
-                  code: Ready_To_Ship
-                value: 'yes'
-              - descriptor:
-                  code: AWB_No
-                value: '1209878992826353'
-    tags:
-      - descriptor:
-          code: Package_Weight
-        list:
-          - descriptor:
-              code: Unit
-            value: kilogram
-          - descriptor:
-              code: Value
-            Value: '5'
-      - descriptor:
-          code: Package_Dimensions
-        list:
-          - descriptor:
-              code: Unit
-            value: centimeter
-          - descriptor:
-              code: Length
-            value: '100'
-          - descriptor:
-              code: Breadth
-            value: '100'
-          - descriptor:
-              code: Height
-            value: '100'
-      - descriptor:
-          code: Package_Details
-        list:
-          - descriptor:
-              code: Category
-            value: Grocery
-          - descriptor:
-              code: Dangerous_Goods
-            value: 'true'
-          - descriptor:
-              code: Stackable
-            value: 'true'
-          - descriptor:
-              code: Shipment_Value
-            value: '50000'
-          - descriptor:
-              code: Package_Count
-            value: '10'
-          - descriptor:
-              code: HSN_Code
-            value: xxxxxxx
-      - descriptor:
-          code: Cold_Logistics
-        list:
-          - descriptor:
-              code: Temp_Control
-            value: 'true'
-          - descriptor:
-              code: Temp_Unit
-            value: Celsius
-          - descriptor:
-              code: Temp_Range
-            value: '-18'
-          - descriptor:
-              code: Packaging
-            value: Barrels
-    updated_at: '2023-10-17T21:13:00.000Z'
+      items:
+        - id: I1
+          fulfillment_ids:
+            - '1'
+          category_ids:
+            - C1
+            - O1
+          descriptor:
+            code: P2H2P
+      fulfillments:
+        - id: '1'
+          type: Delivery
+          state:
+            descriptor:
+              code: Pending
+          tracking: false
+          stops:
+            - id: L1
+              parent_stop_id: ''
+              type: start
+              instructions:
+                code: AWB_No
+                short_desc: value of PCC
+                long_desc: QR code will be attached to package
+                additional_desc:
+                  content_type: text/html
+                  url: https://shipping/label/image.htm
+              authorization:
+                type: QR
+                token: XYZ2
+                valid_from: ''
+                valid_to: ''
+            - id: L2
+              parent_stop_id: L1
+              type: end
+              authorization:
+                type: QR
+                token: XYZ2
+                valid_from: ''
+                valid_to: ''
+              instructions:
+                short_desc: ''
+                long_desc: drop package at security gate
+                additional_desc:
+                  content_type: text/html
+                  url: URL for instructions
+          tags:
+            - descriptor:
+                code: Delivery_Terms
+              list:
+                - descriptor:
+                    code: Ready_To_Ship
+                  value: 'yes'
+                - descriptor:
+                    code: AWB_No
+                  value: '1209878992826353'
+      tags:
+        - descriptor:
+            code: Package_Weight
+          list:
+            - descriptor:
+                code: Unit
+              value: kilogram
+            - descriptor:
+                code: Value
+              Value: '5'
+        - descriptor:
+            code: Package_Dimensions
+          list:
+            - descriptor:
+                code: Unit
+              value: centimeter
+            - descriptor:
+                code: Length
+              value: '100'
+            - descriptor:
+                code: Breadth
+              value: '100'
+            - descriptor:
+                code: Height
+              value: '100'
+        - descriptor:
+            code: Package_Details
+          list:
+            - descriptor:
+                code: Category
+              value: Grocery
+            - descriptor:
+                code: Dangerous_Goods
+              value: 'true'
+            - descriptor:
+                code: Stackable
+              value: 'true'
+            - descriptor:
+                code: Shipment_Value
+              value: '50000'
+            - descriptor:
+                code: Package_Count
+              value: '10'
+            - descriptor:
+                code: HSN_Code
+              value: xxxxxxx
+        - descriptor:
+            code: Cold_Logistics
+          list:
+            - descriptor:
+                code: Temp_Control
+              value: 'true'
+            - descriptor:
+                code: Temp_Unit
+              value: Celsius
+            - descriptor:
+                code: Temp_Min
+              value: '0'
+            - descriptor:
+                code: Temp_Max
+              value: '4'
+            - descriptor:
+                code: Packaging
+              value: Barrels
+      updated_at: '2023-10-17T21:13:00.000Z'

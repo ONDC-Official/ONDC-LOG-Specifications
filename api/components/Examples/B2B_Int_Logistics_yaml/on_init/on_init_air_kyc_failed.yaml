@@ -1,232 +1,235 @@
-context:
-  domain: ONDC:LGP
-  location:
-    city:
-      code: UN:SIN
-    country:
-      code: SGP
-  action: on_init
-  version: 2.0.0
-  bap_id: logistics_buyer.com
-  bap_uri: https://logistics_buyer.com/ondc
-  bpp_id: logistics_seller.com
-  bpp_uri: https://logistics_seller.com/ondc
-  transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-  message_id: '1755281254860'
-  timestamp: '2023-02-06T21:00:00.000Z'
-  ttl: PT30S
-message:
-  order:
-    provider:
-      id: P1
-      locations:
-        - id: L1
-    items:
-      - id: I3
-        fulfillment_ids:
-          - '1'
-        category_ids:
-          - C1
-          - A1
-    fulfillments:
-      - id: '1'
-        type: Delivery
-        stops:
-          - type: start
-            location:
-              gps: 12.4535445,77.9283792
-              address: 'My building #, My street name'
-              city:
-                name: Bengaluru
-              state:
-                name: Karnataka
-              country:
-                code: IND
-              area_code: '560041'
-            contact:
-              phone: '9886098860'
-              email: abcd.efgh@gmail.com
-          - type: end
-            location:
-              gps: 1.3806217468119772, 103.74636438437074
-              address: 'My House #, My buildin'
-              city:
-                name: Jurong East
-              state:
-                name: ''
-              country:
-                code: SGP
-              area_code: '680230'
-            contact:
-              phone: '9886098860'
-              email: abcd.efgh@gmail.com
-        tags:
-          descriptor:
-            code: Delivery_Terms
-          list:
-            - descriptor:
-                code: INCOTERMS
-              value: CIF
-            - descriptor:
-                code: NAMED_PLACE_OF_DELIVERY
-              value: UN:SIN
-    quote:
-      price:
-        currency: INR
-        value: '6000.0'
-      breakup:
-        - item:
-            id: I3
-          title: Origin
-          price:
-            currency: INR
-            value: '500.0'
-        - item:
-            id: I3
-          title: Freight
-          price:
-            currency: INR
-            value: '500.0'
-        - item:
-            id: I3
-          title: Destination
-          price:
-            currency: INR
-            value: '500.0'
-        - item:
-            id: I3
-          title: Custom_Clearance_Service_Origin
-          price:
-            currency: INR
-            value: '500.0'
-        - item:
-            id: I3
-          title: Custom_Clearance_Service_Destination
-          price:
-            currency: INR
-            value: '500.0'
-        - item:
-            id: I3
-          title: tax
-          price:
-            currency: INR
-            value: '500.0'
-      ttl: PT15M
-    cancellation_terms:
-      - fulfillment_state:
-          descriptor:
-            code: Pending
-            short_desc: ''
-        reason_required: false
-        cancellation_fee:
-          amount:
-            currency: INR
-            value: '0.0'
-      - fulfillment_state:
-          descriptor:
-            code: Pickup-approved
-            short_desc: ''
-        reason_required: false
-        cancellation_fee:
-          amount:
-            currency: INR
-            value: '0.0'
-      - fulfillment_state:
-          descriptor:
-            code: At-domestic-hub
-            short_desc: ''
-        reason_required: false
-        cancellation_fee:
-          amount:
-            currency: INR
-            value: '500'
-      - fulfillment_state:
-          descriptor:
-            code: Custom-cleared-domestic
-            short_desc: ''
-        reason_required: false
-        cancellation_fee:
-          amount:
-            currency: INR
-            value: '700'
-      - fulfillment_state:
-          descriptor:
-            code: Shipped
-            short_desc: ''
-        reason_required: false
-        cancellation_fee:
-          amount:
-            currency: INR
-            value: '1000'
-      - fulfillment_state:
-          descriptor:
-            code: Shipped
-            short_desc: ''
-        reason_required: false
-        cancellation_fee:
-          amount:
-            currency: INR
-            value: '1000'
-      - fulfillment_state:
-          descriptor:
-            code: Reached-destination-country
-            short_desc: ''
-        reason_required: false
-        cancellation_fee:
-          amount:
-            currency: INR
-            value: '5000'
-    payments:
-      - id: P1
-        collected_by: BPP
-        params:
-          amount: '6000'
-          currency: INR
-          bank_account_number: xxxxxxxx
-          virtual_payment_address: xxx@xxxx
-        type: PRE-FULFILLMENT
-        tags:
-          - descriptor:
-              code: Settlement_Details
+summary: on_init_air_kyc_failed
+description: 
+value:
+  context:
+    domain: ONDC:LGP
+    location:
+      city:
+        code: UN:SIN
+      country:
+        code: SGP
+    action: on_init
+    version: 2.0.0
+    bap_id: logistics_buyer.com
+    bap_uri: https://logistics_buyer.com/ondc
+    bpp_id: logistics_seller.com
+    bpp_uri: https://logistics_seller.com/ondc
+    transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+    message_id: '1755281254860'
+    timestamp: '2023-02-06T21:00:00.000Z'
+    ttl: PT30S
+  message:
+    order:
+      provider:
+        id: P1
+        locations:
+          - id: L1
+      items:
+        - id: I3
+          fulfillment_ids:
+            - '1'
+          category_ids:
+            - C1
+            - A1
+      fulfillments:
+        - id: '1'
+          type: Delivery
+          stops:
+            - type: start
+              location:
+                gps: 12.4535445,77.9283792
+                address: 'My building #, My street name'
+                city:
+                  name: Bengaluru
+                state:
+                  name: Karnataka
+                country:
+                  code: IND
+                area_code: '560041'
+              contact:
+                phone: '9886098860'
+                email: abcd.efgh@gmail.com
+            - type: end
+              location:
+                gps: 1.3806217468119772, 103.74636438437074
+                address: 'My House #, My buildin'
+                city:
+                  name: Jurong East
+                state:
+                  name: ''
+                country:
+                  code: SGP
+                area_code: '680230'
+              contact:
+                phone: '9886098860'
+                email: abcd.efgh@gmail.com
+          tags:
+            descriptor:
+              code: Delivery_Terms
             list:
               - descriptor:
-                  code: Counterparty
-                value: BAP
+                  code: INCOTERMS
+                value: CIF
               - descriptor:
-                  code: Mode
-                value: UPI
-              - descriptor:
-                  code: Beneficiary_Name
-                value: xxxxx
-              - descriptor:
-                  code: Bank_Account_No
-                value: xxxxx
-              - descriptor:
-                  code: Ifsc_Code
-                value: xxxxxxx
-              - descriptor:
-                  code: UPI_Address
-                value: xxxxxxx
-    xinput:
-      form:
-        url: https://lsp.com/xxx/kyc
-        mime_type: text/html
-        submission_id: xxxx44567789999
-        status: FAIL
-      required: true
-    tags:
-      - code: BPP_Terms
-        list:
-          - code: Max_Liability
-            value: '2'
-          - code: Max_Liability_Cap
-            value: '10000'
-          - code: Mandatory_Arbitration
-            value: 'false'
-          - code: Court_Jurisdiction
-            value: Bengaluru
-          - code: Delay_Interest
-            value: '1000'
-          - code: Static_Terms
-            value: >-
-              https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+                  code: NAMED_PLACE_OF_DELIVERY
+                value: UN:SIN
+      quote:
+        price:
+          currency: INR
+          value: '6000.0'
+        breakup:
+          - item:
+              id: I3
+            title: Origin
+            price:
+              currency: INR
+              value: '500.0'
+          - item:
+              id: I3
+            title: Freight
+            price:
+              currency: INR
+              value: '500.0'
+          - item:
+              id: I3
+            title: Destination
+            price:
+              currency: INR
+              value: '500.0'
+          - item:
+              id: I3
+            title: Custom_Clearance_Service_Origin
+            price:
+              currency: INR
+              value: '500.0'
+          - item:
+              id: I3
+            title: Custom_Clearance_Service_Destination
+            price:
+              currency: INR
+              value: '500.0'
+          - item:
+              id: I3
+            title: tax
+            price:
+              currency: INR
+              value: '500.0'
+        ttl: PT15M
+      cancellation_terms:
+        - fulfillment_state:
+            descriptor:
+              code: Pending
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '0.0'
+        - fulfillment_state:
+            descriptor:
+              code: Pickup-approved
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '0.0'
+        - fulfillment_state:
+            descriptor:
+              code: At-domestic-hub
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '500'
+        - fulfillment_state:
+            descriptor:
+              code: Custom-cleared-domestic
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '700'
+        - fulfillment_state:
+            descriptor:
+              code: Shipped
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '1000'
+        - fulfillment_state:
+            descriptor:
+              code: Shipped
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '1000'
+        - fulfillment_state:
+            descriptor:
+              code: Reached-destination-country
+              short_desc: ''
+          reason_required: false
+          cancellation_fee:
+            amount:
+              currency: INR
+              value: '5000'
+      payments:
+        - id: P1
+          collected_by: BPP
+          params:
+            amount: '6000'
+            currency: INR
+            bank_account_number: xxxxxxxx
+            virtual_payment_address: xxx@xxxx
+          type: PRE-FULFILLMENT
+          tags:
+            - descriptor:
+                code: Settlement_Details
+              list:
+                - descriptor:
+                    code: Counterparty
+                  value: BAP
+                - descriptor:
+                    code: Mode
+                  value: UPI
+                - descriptor:
+                    code: Beneficiary_Name
+                  value: xxxxx
+                - descriptor:
+                    code: Bank_Account_No
+                  value: xxxxx
+                - descriptor:
+                    code: Ifsc_Code
+                  value: xxxxxxx
+                - descriptor:
+                    code: UPI_Address
+                  value: xxxxxxx
+      xinput:
+        form:
+          url: https://lsp.com/xxx/kyc
+          mime_type: text/html
+          submission_id: xxxx44567789999
+          status: FAIL
+        required: true
+      tags:
+        - code: BPP_Terms
+          list:
+            - code: Max_Liability
+              value: '2'
+            - code: Max_Liability_Cap
+              value: '10000'
+            - code: Mandatory_Arbitration
+              value: 'false'
+            - code: Court_Jurisdiction
+              value: Bengaluru
+            - code: Delay_Interest
+              value: '1000'
+            - code: Static_Terms
+              value: >-
+                https://github.com/ONDC-Official/protocol-network-extension/discussions/79
