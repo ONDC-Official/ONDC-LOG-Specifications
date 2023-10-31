@@ -2,63 +2,63 @@ summary: B2B Domestic Air
 description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
 reference: if any
 steps:
-  - summary: Search based on the category
+  - summary: Search Logistics - Air Delivery
     api: search
-    description: Search intent sent by the buyer based on the category
+    description: Search for parent category - Express Delivery or Air Delivery.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_air.yaml"
-  - summary: Returns item/ catalog
+  - summary: LSP sends catalog
     api: on_search
-    description: Catalog provided by the Seller App 
+    description: Logistics service provider sends the catalog based on search + Sends the KYC Link.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_search/on_search_air.yaml"
-  - summary: Requests for Quotation
+  - summary: Logistics Buyer initializes the order.
     api: init
-    description: Buyer requests for quotation for the selected item with all the customizations and the quantity of items required
+    description: Logistics Buyer fills the KYC form and sends the submission Id while initializing the order.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/init/init_air.yaml"
-  - summary: Responds to Quotation
+  - summary: Response to order initialization - KYC Successful
     api: on_init
-    description: Seller provides the final quotation and breakup with logistics charges
+    description: Logistics Provider updates the KYC as successful and sends the breakup of the quote.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_init/on_init_air.yaml"
-  - summary: Buyer raises PO
+  - summary: Logistics buyer confirms the order.
     api: confirm
-    description: Buyer receives the quotation and once agreed to go ahead with the quotation received, creates a PO and sends the PO
+    description: Logistics buyer confirms the order.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/confirm/confirm_air.yaml"
-  - summary: Seller Accepts PO
+  - summary: Logistics Provider accepts the order.
     api: on_confirm
-    description: Seller app sends an on_confirm call to the buyer app relaying the PO acceptance.
+    description: Logistics Provider accepts the order.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_confirm/on_confirm_air.yaml"
-  - summary: Buyer update PO
+  - summary: Logistics Buyer updates RTS
     api: update
-    description: Buyer update the PO
+    description: Logistics Buyer updates RTS - Ready to Ship
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/update/update_air.yaml"
-  - summary: Seller Accepts PO
+  - summary: LSP updates the weight and measurement differential charges.
     api: on_update
-    description: Seller app sends an on_update call to the buyer app relaying the PO acceptance.
+    description: LSP updates the weight and measurement differential charges.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_update/on_update_air.yaml"   
-  - summary: Request for order status update
+  - summary: Logistics Buyer requests for status update
     api: status
-    description: Buyer requests for the order status update
+    description: Logistics Buyer requests for order status update
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/status/status.yaml"
   - summary: Responds to order status update
     api: on_status
-    description: Seller app sends an on_status call to the buyer app informing about the current status of the order.
+    description: Logistics provider updates the status of fulfillment as Order Picked up.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_status/on_status_air.yaml"                     

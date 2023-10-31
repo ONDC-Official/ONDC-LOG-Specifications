@@ -1,5 +1,5 @@
-summary: on_status_cancelled_surface
-description:
+summary: Status updates
+description: Logistics provider updates the status of fulfillment of RTO.
 value:
   context:
     domain: ONDC:LGP
@@ -84,7 +84,7 @@ value:
           type: Delivery
           state:
             descriptor:
-              code: Out-for-delivery
+              code: Cancelled
           tracking: false
           stops:
             - id: L1

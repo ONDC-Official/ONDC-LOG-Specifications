@@ -1,5 +1,5 @@
-summary: Unsoliciated on_cancel from Logistics provider when Customer does not accept the delivery and initiates RTO.
-description: 
+summary: Unsoliciated on_cancel to Initiate RTO
+description: Unsoliciated on_cancel from Logistics provider when Customer does not accept the delivery and initiates RTO.
 value:
   context:
     domain: ONDC:LGP

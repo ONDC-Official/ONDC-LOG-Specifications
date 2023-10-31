@@ -1,5 +1,5 @@
 summary: Logistics buyer confirms the order.
-description: 
+description: Logistics buyer confirms the order.
 value:
   context:
     domain: ONDC:LGP

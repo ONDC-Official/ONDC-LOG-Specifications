@@ -1,5 +1,5 @@
-summary: on_status_surface
-description:
+summary: Status updates
+description: Logistics provider updates the status of fulfillment as Order Picked up.
 value:
   context:
     domain: ONDC:LGP

@@ -1,5 +1,5 @@
-summary: Logistics Buyer initiates cancellation of the order.
-description: 
+summary: Logistics Buyer initiates cancellation.
+description: Logistics Buyer initiates cancellation of the order.
 value:
   context:
     domain: ONDC:LGS

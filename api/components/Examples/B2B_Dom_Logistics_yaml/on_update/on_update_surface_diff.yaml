@@ -1,5 +1,5 @@
-summary: on_update_surface_diff
-description: 
+summary: Unsoliciated call to update differential charges.
+description: LSP updates the weight and measurement differential charges.
 value:
   context:
     domain: ONDC:LGP

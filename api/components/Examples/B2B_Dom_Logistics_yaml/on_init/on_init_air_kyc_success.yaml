@@ -1,5 +1,5 @@
-summary: Logistics Provider updates the KYC as successful and sends the breakup of the quote.
-description: 
+summary: Response to order initialization - KYC Successful
+description: Logistics Provider updates the KYC as successful and sends the breakup of the quote.
 value:
   context:
     domain: ONDC:LGP

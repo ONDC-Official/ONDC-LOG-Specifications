@@ -1,5 +1,5 @@
 summary: Logistics Provider accepts the order.
-description: 
+description: Logistics Provider accepts the order.
 value:
   context:
     domain: ONDC:LGP
