@@ -68,7 +68,7 @@ value:
             price:
               currency: INR
               value: '6.0'
-        ttl: PT15M
+
       fulfillments:
         - id: '1'
           type: Delivery

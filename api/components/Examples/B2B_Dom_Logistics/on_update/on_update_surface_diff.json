@@ -96,8 +96,7 @@
                             "value": "6.0"
                         }
                     }
-                ],
-                "ttl": "PT15M"
+                ]
             },
             "fulfillments": [
                 {

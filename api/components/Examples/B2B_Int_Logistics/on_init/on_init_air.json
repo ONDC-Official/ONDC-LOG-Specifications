@@ -177,9 +177,7 @@
                             "value": "500.0"
                         }
                     }
-                ],
-                "ttl": "PT15M"
-            },
+                ] },
             "cancellation_terms": [
                 {
                     "fulfillment_state": {

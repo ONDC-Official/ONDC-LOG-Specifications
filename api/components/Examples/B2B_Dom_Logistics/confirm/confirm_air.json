@@ -142,9 +142,7 @@
                             "value": "500.0"
                         }
                     }
-                ],
-                "ttl": "PT15M"
-            },
+                ] },
             "billing": {
                 "name": "ONDC sellerapp",
                 "address": "My house or building name",
