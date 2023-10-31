@@ -1,4 +1,4 @@
-summary: on_init_air_kyc_success
+summary: Logistics Provider updates the KYC as successful and sends the breakup of the quote.
 description: 
 value:
   context:

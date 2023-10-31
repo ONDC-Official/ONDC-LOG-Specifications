@@ -1,4 +1,4 @@
-summary: init_surface
+summary: Logistics Buyer fills the KYC form and sends the submission Id while initializing the order.
 description: 
 value:
   context:

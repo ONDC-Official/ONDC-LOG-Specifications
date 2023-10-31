@@ -142,7 +142,7 @@ value:
                   end: '2023-02-14T22:45:00.000Z'
           tags:
             - descriptor:
-                code: Fulfillment_Terms
+                code: Delivery_Terms
               list:
                 - descriptor:
                     code: AWB_No

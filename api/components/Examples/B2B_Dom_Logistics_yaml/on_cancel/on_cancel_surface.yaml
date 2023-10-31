@@ -1,4 +1,4 @@
-summary: on_cancel_surface
+summary: Unsoliciated on_cancel from Logistics provider when Customer does not accept the delivery and initiates RTO.
 description: 
 value:
   context:
@@ -142,7 +142,7 @@ value:
                   end: '2023-10-24T21:12:00.710Z'
           tags:
             - descriptor:
-                code: Fulfillment_Terms
+                code: Delivery_Terms
               list:
                 - descriptor:
                     code: AWB_No

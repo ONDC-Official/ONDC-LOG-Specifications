@@ -1,5 +1,6 @@
-summary: search_air
-description: 
+summary: Search Logistics - Air Delivery
+description: Search for parent category - Express Delivery or Air Delivery.
+            
 value:
   context:
     domain: ONDC:LGS
