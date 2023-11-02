@@ -2741,10 +2741,16 @@ x-flows:
                         area_code: '636806'
                 payment:
                   collected_by: BPP
-                  type: ON-FULFILLMENT
-                  params:
-                    amount: '20000'
-                    currency: INR
+                  tags:
+                    - descriptor:
+                        code: Collection_Details
+                      list:
+                        - descriptor:
+                            code: Amount
+                          value: '20000'
+                        - descriptor:
+                            code: Type
+                          value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -3066,7 +3072,7 @@ x-flows:
                     timestamp: '2023-10-17T21:11:00.000Z'
                 payment:
                   collected_by: BPP
-                  type: PRE-FULFILLMENT
+                  type: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Settlement_Details
@@ -3089,6 +3095,15 @@ x-flows:
                         - descriptor:
                             code: UPI_Address
                           value: xxxxxxx
+                    - descriptor:
+                        code: Collection_Details
+                      list:
+                        - descriptor:
+                            code: Amount
+                          value: '20000'
+                        - descriptor:
+                            code: Type
+                          value: ON-FULFILLMENT
                 xinput:
                   form:
                     url: https://lsp.com/xxx/kyc
@@ -3239,7 +3254,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -3262,6 +3277,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 xinput:
                   form:
                     url: https://lsp.com/xxx/kyc
@@ -3411,7 +3435,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -3434,6 +3458,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -3707,7 +3740,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -3730,6 +3763,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -4067,7 +4109,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -4090,6 +4132,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 updated_at: '2023-10-17T21:13:00.601Z'
       - summary: Request for order status update
         api: status
@@ -4288,7 +4339,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -4311,6 +4362,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -4444,10 +4504,16 @@ x-flows:
                         area_code: '636806'
                 payment:
                   collected_by: BPP
-                  type: ON-FULFILLMENT
-                  params:
-                    amount: '20000'
-                    currency: INR
+                  tags:
+                    - descriptor:
+                        code: Collection_Details
+                      list:
+                        - descriptor:
+                            code: Amount
+                          value: '20000'
+                        - descriptor:
+                            code: Type
+                          value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -4769,7 +4835,7 @@ x-flows:
                     timestamp: '2023-10-17T21:11:00.000Z'
                 payment:
                   collected_by: BPP
-                  type: PRE-FULFILLMENT
+                  type: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Settlement_Details
@@ -4792,6 +4858,15 @@ x-flows:
                         - descriptor:
                             code: UPI_Address
                           value: xxxxxxx
+                    - descriptor:
+                        code: Collection_Details
+                      list:
+                        - descriptor:
+                            code: Amount
+                          value: '20000'
+                        - descriptor:
+                            code: Type
+                          value: ON-FULFILLMENT
                 xinput:
                   form:
                     url: https://lsp.com/xxx/kyc
@@ -4943,7 +5018,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -4966,6 +5041,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 xinput:
                   form:
                     url: https://lsp.com/xxx/kyc
@@ -5117,7 +5201,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILMENT
+                    type: ON-FULFILMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -5140,6 +5224,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -5413,7 +5506,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -5436,6 +5529,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -5774,7 +5876,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -5797,6 +5899,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 updated_at: '2023-02-06T22:00:30.000Z'
       - summary: Logistics Buyer requests for status update
         api: status
@@ -5973,7 +6084,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -5996,6 +6107,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -6320,7 +6440,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -6343,6 +6463,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Quantity
@@ -6615,7 +6744,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: POST-FULFILMENT
+                    type: ON-FULFILMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -6638,6 +6767,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -6781,10 +6919,16 @@ x-flows:
                         value: UN:SIN
                 payment:
                   collected_by: BPP
-                  type: ON-FULFILLMENT
-                  params:
-                    amount: '20000'
-                    currency: INR
+                  tags:
+                    - descriptor:
+                        code: Collection_Details
+                      list:
+                        - descriptor:
+                            code: Amount
+                          value: '20000'
+                        - descriptor:
+                            code: Type
+                          value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -7139,6 +7283,15 @@ x-flows:
                         - descriptor:
                             code: UPI_Address
                           value: xxxxxxx
+                    - descriptor:
+                        code: Collection_Details
+                      list:
+                        - descriptor:
+                            code: Amount
+                          value: '20000'
+                        - descriptor:
+                            code: Type
+                          value: ON-FULFILLMENT
                 xinput:
                   form:
                     url: https://lsp.com/xxx/kyc
@@ -7342,7 +7495,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -8353,7 +8506,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -8376,6 +8529,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -8651,7 +8813,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -8674,6 +8836,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -8948,7 +9119,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -8971,6 +9142,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -9245,7 +9425,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -9268,6 +9448,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -9570,7 +9759,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -9593,6 +9782,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -9754,10 +9952,16 @@ x-flows:
                         value: UN:SGSIN
                 payment:
                   collected_by: BPP
-                  type: ON-FULFILLMENT
-                  params:
-                    amount: '20000'
-                    currency: INR
+                  tags:
+                    - descriptor:
+                        code: Collection_Details
+                      list:
+                        - descriptor:
+                            code: Amount
+                          value: '20000'
+                        - descriptor:
+                            code: Type
+                          value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -10112,6 +10316,15 @@ x-flows:
                         - descriptor:
                             code: UPI_Address
                           value: xxxxxxx
+                    - descriptor:
+                        code: Collection_Details
+                      list:
+                        - descriptor:
+                            code: Amount
+                          value: '20000'
+                        - descriptor:
+                            code: Type
+                          value: ON-FULFILLMENT
                 xinput:
                   form:
                     url: https://lsp.com/xxx/kyc
@@ -10310,7 +10523,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -10333,6 +10546,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 xinput:
                   form:
                     url: https://lsp.com/xxx/kyc
@@ -11328,7 +11550,7 @@ x-flows:
                       currency: INR
                       bank_account_number: xxxxxxxx
                       virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -11351,6 +11573,15 @@ x-flows:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                 tags:
                   - descriptor:
                       code: Package_Weight
@@ -11923,10 +12154,16 @@ x-examples:
                           area_code: '636806'
                   payment:
                     collected_by: BPP
-                    type: ON-FULFILLMENT
-                    params:
-                      amount: '20000'
-                      currency: INR
+                    tags:
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -12039,10 +12276,16 @@ x-examples:
                           area_code: '636806'
                   payment:
                     collected_by: BPP
-                    type: ON-FULFILLMENT
-                    params:
-                      amount: '20000'
-                      currency: INR
+                    tags:
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -12155,10 +12398,16 @@ x-examples:
                           area_code: '636806'
                   payment:
                     collected_by: BPP
-                    type: ON-FULFILLMENT
-                    params:
-                      amount: '20000'
-                      currency: INR
+                    tags:
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -12271,10 +12520,16 @@ x-examples:
                           area_code: '636806'
                   payment:
                     collected_by: BPP
-                    type: ON-FULFILLMENT
-                    params:
-                      amount: '20000'
-                      currency: INR
+                    tags:
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -12416,7 +12671,7 @@ x-examples:
                       timestamp: '2023-10-17T21:11:00.000Z'
                   payment:
                     collected_by: BPP
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -12439,6 +12694,15 @@ x-examples:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -12527,7 +12791,7 @@ x-examples:
                       timestamp: '2023-10-17T21:11:00.000Z'
                   payment:
                     collected_by: BPP
-                    type: PRE-FULFILLMENT
+                    type: ON-FULFILLMENT
                     tags:
                       - descriptor:
                           code: Settlement_Details
@@ -12550,6 +12814,15 @@ x-examples:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -12678,7 +12951,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILMENT
+                      type: ON-FULFILMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -12701,6 +12974,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -12907,7 +13189,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -12930,6 +13212,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -13849,7 +14140,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -13872,6 +14163,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -14034,7 +14334,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -14057,6 +14357,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -14222,7 +14531,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -14245,6 +14554,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -14407,7 +14725,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -14430,6 +14748,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -14638,7 +14965,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -14661,6 +14988,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -14929,7 +15265,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -14952,6 +15288,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -15205,7 +15550,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -15228,6 +15573,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -15502,7 +15856,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: POST-FULFILMENT
+                      type: ON-FULFILMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -15525,6 +15879,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -15794,7 +16157,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: POST-FULFILMENT
+                      type: ON-FULFILMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -15817,6 +16180,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -16048,7 +16420,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -16071,6 +16443,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -16307,7 +16688,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -16330,6 +16711,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -16567,7 +16957,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -16590,6 +16980,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   updated_at: '2023-02-06T22:00:30.000Z'
           - summary: Unsoliciated call to update differential charges.
             description: LSP updates the weight and measurement differential charges.
@@ -16756,7 +17155,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -16779,6 +17178,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -17000,7 +17408,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -17023,6 +17431,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   updated_at: '2023-10-17T21:13:00.601Z'
       on_cancel:
         examples:
@@ -17213,7 +17630,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -17236,6 +17653,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Quantity
@@ -17482,7 +17908,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -17505,6 +17931,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Quantity
@@ -17639,10 +18074,16 @@ x-examples:
                           value: UN:SIN
                   payment:
                     collected_by: BPP
-                    type: ON-FULFILLMENT
-                    params:
-                      amount: '20000'
-                      currency: INR
+                    tags:
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -17768,10 +18209,16 @@ x-examples:
                           value: UN:SGSIN
                   payment:
                     collected_by: BPP
-                    type: ON-FULFILLMENT
-                    params:
-                      amount: '20000'
-                      currency: INR
+                    tags:
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -17897,10 +18344,16 @@ x-examples:
                           value: UN:SGSIN
                   payment:
                     collected_by: BPP
-                    type: ON-FULFILLMENT
-                    params:
-                      amount: '20000'
-                      currency: INR
+                    tags:
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -18078,6 +18531,15 @@ x-examples:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -18199,6 +18661,15 @@ x-examples:
                           - descriptor:
                               code: UPI_Address
                             value: xxxxxxx
+                      - descriptor:
+                          code: Collection_Details
+                        list:
+                          - descriptor:
+                              code: Amount
+                            value: '20000'
+                          - descriptor:
+                              code: Type
+                            value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -19583,7 +20054,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -19820,7 +20291,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -19843,6 +20314,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -20050,7 +20530,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -20073,6 +20553,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   xinput:
                     form:
                       url: https://lsp.com/xxx/kyc
@@ -20282,7 +20771,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -20305,6 +20794,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -20573,7 +21071,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -20596,6 +21094,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -20865,7 +21372,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -20888,6 +21395,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -21157,7 +21673,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -21180,6 +21696,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -21450,7 +21975,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -21473,6 +21998,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -22451,7 +22985,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -22474,6 +23008,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
@@ -22743,7 +23286,7 @@ x-examples:
                         currency: INR
                         bank_account_number: xxxxxxxx
                         virtual_payment_address: xxx@xxxx
-                      type: PRE-FULFILLMENT
+                      type: ON-FULFILLMENT
                       tags:
                         - descriptor:
                             code: Settlement_Details
@@ -22766,6 +23309,15 @@ x-examples:
                             - descriptor:
                                 code: UPI_Address
                               value: xxxxxxx
+                        - descriptor:
+                            code: Collection_Details
+                          list:
+                            - descriptor:
+                                code: Amount
+                              value: '20000'
+                            - descriptor:
+                                code: Type
+                              value: ON-FULFILLMENT
                   tags:
                     - descriptor:
                         code: Package_Weight
