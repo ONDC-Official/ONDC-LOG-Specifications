@@ -2,7 +2,7 @@ summary: Status updates
 description: Logistics provider updates the status of fulfillment as Order Picked up.
 value:
   context:
-    domain: ONDC:LGP
+    domain: ONDC:LOG11
     location:
       city:
         code: UN:SIN

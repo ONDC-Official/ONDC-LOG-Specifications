@@ -2,7 +2,7 @@ summary: Response to order initialization - KYC Failed
 description: Logistics Provider updates the KYC as Failed with the error message.
 value:
   context:
-    domain: ONDC:LGP
+    domain: ONDC:LOG10
     location:
       city:
         code: std:080

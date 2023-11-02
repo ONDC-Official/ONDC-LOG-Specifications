@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:LGS",
+    "domain": "ONDC:LOG11",
     "location": {
       "city": {
         "code": "UN:SIN"
@@ -209,9 +209,15 @@
             },
             {
               "descriptor": {
-                "code": "Temp_Range"
+                "code": "Temp_Min"
               },
-              "value": "-18"
+              "value": "0"
+            },
+            {
+              "descriptor": {
+                "code": "Temp_Max"
+              },
+              "value": "4"
             }
           ]
         }

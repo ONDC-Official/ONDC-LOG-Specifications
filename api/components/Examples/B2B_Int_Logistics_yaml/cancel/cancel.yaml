@@ -2,7 +2,7 @@ summary: Logistics Buyer initiates cancellation.
 description: Logistics Buyer initiates cancellation of the order.
 value:
   context:
-    domain: ONDC:LGS
+    domain: ONDC:LOG11
     location:
       city:
         code: UN:SIN

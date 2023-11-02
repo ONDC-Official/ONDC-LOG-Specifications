@@ -1,5 +1,5 @@
 summary: B2B Domestic Air
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
+description: The below flow shows the journey of Logistics buyer buying logistics services.
 reference: if any
 steps:
   - summary: Search Logistics - Air Delivery
@@ -56,9 +56,9 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/status/status.yaml"
-  - summary: Responds to order status update
+  - summary: Responds to order status update - Order Picked up
     api: on_status
     description: Logistics provider updates the status of fulfillment as Order Picked up.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_status/on_status_air.yaml"                     
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_status/on_status_air.yaml"

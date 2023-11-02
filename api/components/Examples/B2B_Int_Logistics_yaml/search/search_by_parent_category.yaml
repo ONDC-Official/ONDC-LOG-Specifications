@@ -2,7 +2,7 @@ summary: Search by parent category - Express Delivery
 description: 
 value:
   context:
-    domain: ONDC:LGS
+    domain: ONDC:LOG11
     location:
       city:
         code: UN:SIN
@@ -122,5 +122,8 @@ value:
                 code: Temp_Unit
               value: Celsius
             - descriptor:
-                code: Temp_Range
-              value: '-18'
+                code: Temp_Min
+              value: '0'
+            - descriptor:
+                code: Temp_Max
+              value: '4'

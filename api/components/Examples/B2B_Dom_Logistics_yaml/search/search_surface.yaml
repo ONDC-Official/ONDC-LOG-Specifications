@@ -2,7 +2,7 @@ summary: Search Logistics - Surface Delivery
 description: 
 value:
   context:
-    domain: ONDC:LGS
+    domain: ONDC:LOG10
     location:
       city:
         code: std:080
@@ -109,5 +109,8 @@ value:
                 code: Temp_Unit
               value: Celsius
             - descriptor:
-                code: Temp_Range
-              value: '-18'
+                code: Temp_Min
+              value: '0'
+            - descriptor:
+                code: Temp_Max
+              value: '4'

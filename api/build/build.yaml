@@ -2576,721 +2576,110 @@ components:
           type: boolean
 x-enum:
   search:
-    context: &ref_1
+    context: &ref_0
       context:
         domain:
-          - code: ONDC:RET10
-            description: Grocery
+          - code: ONDC:LOG10
+            description: Domestic Logistics
             reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET11
-            description: F&B
+          - code: ONDC:LOG11
+            description: International Logistics
             reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET12
-            description: Fashion
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET13
-            description: BPC
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET14
-            description: Electronics
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET15
-            description: Appliances
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET16
-            description: Home & Decor
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET17
-            description: Toys & Games
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET18
-            description: Health & Wellness
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: ONDC:RET19
-            description: Pharma
-            reference: <PR/Issue/Discussion Links md format text>
-    message:
-      intent:
-        fulfillment: &ref_0
-          fulfillments:
-            type:
-              - code: Delivery
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Self-Pickup
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
   on_search:
-    message:
-      catalog:
-        providers:
-          items:
-            category_ids:
-              category_ids:
-                - code: RET10-1000
-                  description: Diapers & Wipes
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1001
-                  description: Baby Food & Formula
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1002
-                  description: Baby Bath & Hygiene
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1003
-                  description: Bread & Buns
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1004
-                  description: Bakery Snacks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1005
-                  description: Cakes & Pastries
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1006
-                  description: Dairy Products
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1007
-                  description: Ice Creams & Desserts
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1008
-                  description: Plant Based Alternatives
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1009
-                  description: Oral Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100A
-                  description: Fragrances & Deodorants
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100B
-                  description: Hair Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100C
-                  description: Hair Tools & Accessories
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100D
-                  description: Bath & Hand Wash
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100E
-                  description: Bathing Accessories
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-100F
-                  description: Bath Additives
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1010
-                  description: Feminine Hygiene
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1011
-                  description: Intimate Wash & Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1012
-                  description: Men's Grooming
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1013
-                  description: Health & Medicine
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1014
-                  description: Skin Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1015
-                  description: Cosmetics
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1016
-                  description: Carbonated Drinks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1017
-                  description: Water
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1018
-                  description: Juices
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1019
-                  description: Liquid Drink Concentrates
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101A
-                  description: Powdered Drink Concentrates
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101B
-                  description: Sports & Energy Drinks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101C
-                  description: Health Drinks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101D
-                  description: Cocktail Mixes
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101E
-                  description: Coffee
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-101F
-                  description: Tea
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1020
-                  description: Detergents & Dishwash
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1021
-                  description: Disinfectant & Cleaners
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1022
-                  description: Garbage & Disposable bags
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1023
-                  description: Cleaning Tools
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1024
-                  description: Car & Shoe Care
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1025
-                  description: Pest Control & Repellents
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1026
-                  description: Tissue Paper & Napkins
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1027
-                  description: Bins & Bathroom Ware
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1028
-                  description: Pooja Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1029
-                  description: Air Fresheners
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102A
-                  description: Eggs
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102B
-                  description: Animal Meat
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102C
-                  description: Plant Based Meat
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102D
-                  description: Fish
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102E
-                  description: Plant Based Fish
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-102F
-                  description: Ready To Cook
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1030
-                  description: Flour & Grains
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1031
-                  description: Rice
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1032
-                  description: Dals & Pulses
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1033
-                  description: Vegetables
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1034
-                  description: Fruits
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1035
-                  description: Sprouts
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1036
-                  description: Oils & Vinegar
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1037
-                  description: Dairy & Cheese
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1038
-                  description: Dry Fruits & Nuts
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1039
-                  description: Pasta, Soup,Noodles & Vermicilli
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103A
-                  description: Cereals & Breakfast
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103B
-                  description: Sauces, Spreads & Dips
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103C
-                  description: Cooking & Baking Needs
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103D
-                  description: Tinned & Processed Food
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103E
-                  description: Utensils & Cookware
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-103F
-                  description: Kitchen Tools & Accessories
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1040
-                  description: Spices & Masala
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1041
-                  description: Salt & Sugar
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1042
-                  description: Oils
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1043
-                  description: Ghee
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1044
-                  description: Frozen Snacks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1045
-                  description: Biscuits & Cookies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1046
-                  description: Snacks & Namkeen
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1047
-                  description: Chocolates & Candies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1048
-                  description: Pickles & Chutney
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1049
-                  description: Indian Sweets
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104A
-                  description: Ready To Cook & Eat
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104B
-                  description: Cooking Essentials
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104C
-                  description: Others
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104D
-                  description: Art & Craft Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104E
-                  description: Bags & Backpacks
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-104F
-                  description: Calculators
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1050
-                  description: Colors & Paints
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1051
-                  description: Lab Equipment
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1052
-                  description: Painting Accessories
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1053
-                  description: Pens & Markers
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1054
-                  description: Posters, Gifts & Greeting Cards
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1055
-                  description: School Bags & Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1056
-                  description: Other Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1057
-                  description: Bird Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1058
-                  description: Cat Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-1059
-                  description: Dog Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105A
-                  description: Fish Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105B
-                  description: Pet Grooming Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105C
-                  description: Other Supplies
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105D
-                  description: Pet Biometric Monitors
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105E
-                  description: Pet Training Aids
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: RET10-105F
-                  description: Other Equipment
-                  reference: <PR/Issue/Discussion Links md format text>
-        fulfillments: *ref_0
-        offers:
-          descriptor:
-            code:
-              - code: Disc_Pct
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Disc_Amt
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: BuyXGetY
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Freebie
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
+    context: *ref_0
   select:
-    context: *ref_1
-    message:
-      order: &ref_2
-        status: ./orderstatus.yaml
-        fulfillments: *ref_0
+    context: *ref_0
   on_select:
-    context: *ref_1
-    message:
-      order: *ref_2
+    context: *ref_0
   init:
-    context: *ref_1
-    message:
-      order: *ref_2
+    context: *ref_0
   on_init:
-    context: *ref_1
-    message:
-      order: *ref_2
+    context: *ref_0
   confirm:
-    context: *ref_1
-    message:
-      order: *ref_2
+    context: *ref_0
   on_confirm:
-    context: *ref_1
-    message:
-      order: *ref_2
+    context: *ref_0
   status:
-    context: *ref_1
+    context: *ref_0
   on_status:
-    context: *ref_1
-    message:
-      order: *ref_2
+    context: *ref_0
   cancel:
-    context: *ref_1
+    context: *ref_0
   on_cancel:
-    context: *ref_1
-    message:
-      order: *ref_2
+    context: *ref_0
   track:
-    context: *ref_1
+    context: *ref_0
   on_track:
-    context: *ref_1
+    context: *ref_0
 x-tags:
   intent:
     tags:
-      - code: BAP_TERMS
-        description: Description about the tags
+      - code: Package_Weight
+        description: Define package dead weight here
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          - code: FINDER_FEE_AMOUNT
-            description: Description about the tags
+          - code: Unit
+            description: Define unit of package weight
             reference: <PR/Issue/Discussion Links md format text>
-          - code: FINDER_FEE_TYPE
-            description: Description about the tags
+          - code: Value
+            description: Define value of package weight
             reference: <PR/Issue/Discussion Links md format text>
-      - code: BUYER_ID
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list: &ref_3
-          - code: BUYER_ID_CODE
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: BUYER_ID_NO
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-  providers:
-    tags:
-      - code: SERVICEABILITY
-        description: Description about the tags
+      - code: Package_Dimensions
+        description: Define package LBH dimensions here
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          - code: LOCATION
-            description: Description about the tags
+          - code: Unit
+            description: Define unit of package dimensions
             reference: <PR/Issue/Discussion Links md format text>
-          - code: CATEGORY
-            description: Description about the tags
+          - code: Length
+            description: Define length of package dimensions
             reference: <PR/Issue/Discussion Links md format text>
-          - code: TYPE
-            description: Description about the tags
+          - code: Breadth
+            description: Define breadth of package dimensions
             reference: <PR/Issue/Discussion Links md format text>
-            value:
-              - code: 10
-                description: Hyperlocal
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: 11
-                description: Intercity
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: 12
-                description: Pan-India
-                reference: <PR/Issue/Discussion Links md format text>
-          - code: VAL
-            description: Description about the tags
+          - code: Height
+            description: Define height of package dimensions
             reference: <PR/Issue/Discussion Links md format text>
-          - code: UNIT
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-            value:
-              - code: km
-                description: If type is 10 - Hyperlocal
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: pincode
-                description: If type is 11 - Intercity
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: country
-                description: If type is 12 - Pan-India
-                reference: <PR/Issue/Discussion Links md format text>
-      - code: SELLER_TERMS
-        description: Description about the tags
+      - code: Package_Details
+        description: Define further details of package
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          - code: GST_CREDIT_INVOICE
-            description: Description about the tags
+          - code: Category
+            description: Define category of package
             reference: <PR/Issue/Discussion Links md format text>
-            value:
-              - code: 'Y'
-                description: GST credit invoice available
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: 'N'
-                description: GST credit invoice not available
-                reference: <PR/Issue/Discussion Links md format text>
-      - code: SELLER_ID
-        description: Description about the tags
+          - code: Dangerous_Goods
+            description: State true if dangerous goods
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: Stackable
+            description: State true if goods are stackable
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: Shipment_Value
+            description: Define shipment value of package
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: Package_Count
+            description: Define count of packages
+            reference: <PR/Issue/Discussion Links md format text>
+      - code: Cold_Logistics
+        description: Define terms if cold logistics is required
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          - code: SELLER_ID_CODE
-            description: Description about the tags
+          - code: Temp_Control
+            description: State true if require cold logistics
             reference: <PR/Issue/Discussion Links md format text>
-          - code: SELLER_ID_NO
-            description: Description about the tags
+          - code: Temp_Unit
+            description: Define unit of temperature
             reference: <PR/Issue/Discussion Links md format text>
-  catalog:
-    items:
-      tags:
-        - code: VARIANT
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: VARIANT_GROUP_ID
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: VARIANT_ATTR
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: IMAGE
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: TYPE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: URL
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: ATTRIBUTE
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: BRAND
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: COLOUR
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SIZE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: GENDER
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: PATTERN
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: MATERIAL
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: OCCASION
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SEASON
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: TREND
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: FEATURES
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: MATERIAL_FINISH
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SIZE_CHART
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CONCERN
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: INGREDIENT
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CONSCIOUS
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: PREFERENCE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: FORMULATION
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SKIN_TYPE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: STYLE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: MODEL
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SCREEN_SIZE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: MEMORY
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CPU
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CPU_MFR
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: STORAGE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: OS
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: INCLUDES
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: FORM_FACTOR
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: COMPATIBLE_DEVICES
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: CONNECTIVITY
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: TYPE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: SPECIAL_FEATURE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: DISPLAY
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: REFRESH
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: G2
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: TIME_TO_SHIP
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: TAX_RATE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: G3
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: BRAND
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: PACK_SIZE
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: NUM_PRICE_SLABS
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-        - code: PRICE_SLAB
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list: null
-  order:
-    items:
-      tags:
-        - code: BUYER_TERMS
-          description: Description about the tags
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: ITEM_REQ
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-            - code: PACKAGING_REQ
-              description: Description about the tags
-              reference: <PR/Issue/Discussion Links md format text>
-    tags:
-      - code: BUYER_ID
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list: *ref_3
-      - code: COMM_CHANNEL
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: CHAT_URL
-            description: Description about the tags
+          - code: Temp_Min
+            description: Define min value of temperature
             reference: <PR/Issue/Discussion Links md format text>
-  fulfillments:
-    tags:
-      - code: ITEM_DETAILS
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: ITEM_ID
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: COUNT
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: MEASURE_UNIT
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: MEASURE_VALUE
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: DELIVERY_TERMS
-        description: Description about the tags
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: INCOTERMS
-            description: Description about the tags
-            reference: <PR/Issue/Discussion Links md format text>
-            value:
-              - code: CIF
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: EXW
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: FOB
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: DAP
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: DDP
-                description: about the enum
-                reference: <PR/Issue/Discussion Links md format text>
-          - code: NAMED_PLACE_OF_DELIVERY
-            description: Place of delivery based on the incoterm used.
+          - code: Temp_Max
+            description: Define max value of temperature
             reference: <PR/Issue/Discussion Links md format text>
 x-flows:
   - summary: B2B Domestic surface
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items
+      The below flow shows the journey of Logistics buyer buying logistics
+      services for Road/Surface Cargo.
     reference: if any
     steps:
       - summary: Search Logistics - Surface Delivery
@@ -3302,7 +2691,7 @@ x-flows:
           description: null
           value:
             context:
-              domain: ONDC:LGS
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -3409,8 +2798,11 @@ x-flows:
                           code: Temp_Unit
                         value: Celsius
                       - descriptor:
-                          code: Temp_Range
-                        value: '-18'
+                          code: Temp_Min
+                        value: '0'
+                      - descriptor:
+                          code: Temp_Max
+                        value: '4'
       - summary: LSP sends catalog
         api: on_search
         description: >-
@@ -3424,7 +2816,7 @@ x-flows:
             the KYC Link.
           value:
             context:
-              domain: ONDC:DLG
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -3599,7 +2991,7 @@ x-flows:
             initializing the order.
           value:
             context:
-              domain: ONDC:DLG
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -3714,7 +3106,7 @@ x-flows:
           description: Logistics Provider updates the KYC as Failed with the error message.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -3905,7 +3297,7 @@ x-flows:
           description: Logistics buyer confirms the order.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -4139,7 +3531,7 @@ x-flows:
           description: Logistics Provider accepts the order.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -4435,7 +3827,7 @@ x-flows:
           description: null
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -4526,7 +3918,7 @@ x-flows:
           description: null
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -4703,12 +4095,12 @@ x-flows:
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: &ref_4
+        example: &ref_1
           summary: Logistics Buyer requests for status update
           description: null
           value:
             context:
-              domain: ONDC:LGS
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -4726,7 +4118,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: '02'
-      - summary: Responds to order status update
+      - summary: Responds to order status update - Order Picked up
         api: on_status
         description: >-
           Seller app sends an on_status call to the buyer app informing about
@@ -4739,7 +4131,7 @@ x-flows:
             up.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -4989,20 +4381,20 @@ x-flows:
                 updated_at: '2023-10-19T21:00:00.800Z'
   - summary: B2B Domestic Air
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items
+      The below flow shows the journey of Logistics buyer buying logistics
+      services.
     reference: if any
     steps:
       - summary: Search Logistics - Air Delivery
         api: search
         description: Search for parent category - Express Delivery or Air Delivery.
         reference: if any
-        example: &ref_5
+        example: &ref_2
           summary: Search Logistics - Air Delivery
           description: Search for parent category - Express Delivery or Air Delivery.
           value:
             context:
-              domain: ONDC:LGS
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -5120,14 +4512,14 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: &ref_6
+        example: &ref_3
           summary: LSP sends catalog
           description: >-
             Logistics service provider sends the catalog based on search + Sends
             the KYC Link.
           value:
             context:
-              domain: ONDC:DLG
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -5295,14 +4687,14 @@ x-flows:
           Logistics Buyer fills the KYC form and sends the submission Id while
           initializing the order.
         reference: if any
-        example: &ref_7
+        example: &ref_4
           summary: Logistics Buyer initializes the order.
           description: >-
             Logistics Buyer fills the KYC form and sends the submission Id while
             initializing the order.
           value:
             context:
-              domain: ONDC:DLG
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -5413,12 +4805,12 @@ x-flows:
           Logistics Provider updates the KYC as successful and sends the breakup
           of the quote.
         reference: if any
-        example: &ref_8
+        example: &ref_5
           summary: Response to order initialization - KYC Failed
           description: Logistics Provider updates the KYC as Failed with the error message.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -5604,12 +4996,12 @@ x-flows:
         api: confirm
         description: Logistics buyer confirms the order.
         reference: if any
-        example: &ref_9
+        example: &ref_6
           summary: Logistics buyer confirms the order.
           description: Logistics buyer confirms the order.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -5840,12 +5232,12 @@ x-flows:
         api: on_confirm
         description: Logistics Provider accepts the order.
         reference: if any
-        example: &ref_10
+        example: &ref_7
           summary: Logistics Provider accepts the order.
           description: Logistics Provider accepts the order.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -6136,12 +5528,12 @@ x-flows:
         api: update
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
-        example: &ref_11
+        example: &ref_8
           summary: Logistics Buyer updates RTS
           description: null
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -6227,12 +5619,12 @@ x-flows:
         api: on_update
         description: LSP updates the weight and measurement differential charges.
         reference: if any
-        example: &ref_12
+        example: &ref_9
           summary: Solicited response to update - package measurement updated
           description: null
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -6410,21 +5802,21 @@ x-flows:
         api: status
         description: Logistics Buyer requests for order status update
         reference: if any
-        example: *ref_4
-      - summary: Responds to order status update
+        example: *ref_1
+      - summary: Responds to order status update - Order Picked up
         api: on_status
         description: >-
           Logistics provider updates the status of fulfillment as Order Picked
           up.
         reference: if any
-        example: &ref_13
+        example: &ref_10
           summary: Status updates
           description: >-
             Logistics provider updates the status of fulfillment as Order Picked
             up.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -6674,68 +6066,68 @@ x-flows:
                 updated_at: '2023-02-06T22:00:30.000Z'
   - summary: B2B Domestic Cancellation - RTO
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where logistics seller cancels the order
+      The below flow shows the journey of Logistics buyer buying logistics
+      services and Buyer cancelling the order.
     reference: if any
     steps:
       - summary: Search Logistics - Air Delivery
         api: search
         description: Search for parent category - Express Delivery or Air Delivery.
         reference: if any
-        example: *ref_5
+        example: *ref_2
       - summary: LSP sends catalog
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: *ref_6
+        example: *ref_3
       - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
           Logistics Buyer fills the KYC form and sends the submission Id while
           initializing the order.
         reference: if any
-        example: *ref_7
+        example: *ref_4
       - summary: Response to order initialization - KYC Successful
         api: on_init
         description: >-
           Logistics Provider updates the KYC as successful and sends the breakup
           of the quote.
         reference: if any
-        example: *ref_8
+        example: *ref_5
       - summary: Logistics buyer confirms the order.
         api: confirm
         description: Logistics buyer confirms the order.
         reference: if any
-        example: *ref_9
+        example: *ref_6
       - summary: Logistics Provider accepts the order.
         api: on_confirm
         description: Logistics Provider accepts the order.
         reference: if any
-        example: *ref_10
+        example: *ref_7
       - summary: Logistics Buyer updates RTS
         api: update
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
-        example: *ref_11
+        example: *ref_8
       - summary: LSP updates the weight and measurement differential charges.
         api: on_update
         description: LSP updates the weight and measurement differential charges.
         reference: if any
-        example: *ref_12
+        example: *ref_9
       - summary: Request for order status update
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: *ref_4
-      - summary: Responds to order status update
+        example: *ref_1
+      - summary: Responds to order status update - Order Picked up
         api: on_status
         description: >-
           Seller app sends an on_status call to the buyer app informing about
           the current status of the order.
         reference: if any
-        example: *ref_13
+        example: *ref_10
       - summary: Buyer is not available so LSP cancels the order and triggers RTO
         api: on_cancel
         description: Seller app cancels the order by sending unsolicited on_cancel call
@@ -6747,7 +6139,7 @@ x-flows:
             accept the delivery and initiates RTO.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -7021,7 +6413,7 @@ x-flows:
           description: Logistics provider updates the status of fulfillment of RTO.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG10
               location:
                 city:
                   code: std:080
@@ -7316,20 +6708,20 @@ x-flows:
                 updated_at: '2023-02-06T22:00:30.000Z'
   - summary: B2B International Air
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items
+      The below flow shows the journey of Logistics buyer buying International
+      logistics services for Air Cargo.
     reference: if any
     steps:
       - summary: Search Logistics - Air Delivery
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: &ref_14
+        example: &ref_16
           summary: Search Logistics - Air Delivery
           description: Search for parent category - Express Delivery or Air Delivery.
           value:
             context:
-              domain: ONDC:LGS
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -7449,22 +6841,25 @@ x-flows:
                           code: Temp_Unit
                         value: Celsius
                       - descriptor:
-                          code: Temp_Range
-                        value: '-18'
+                          code: Temp_Min
+                        value: '0'
+                      - descriptor:
+                          code: Temp_Max
+                        value: '4'
       - summary: LSP sends catalog
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: &ref_15
+        example: &ref_17
           summary: LSP sends catalog
           description: >-
             Logistics service provider sends the catalog based on search + Sends
             the KYC Link.
           value:
             context:
-              domain: ONDC:DLG
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -7629,14 +7024,14 @@ x-flows:
           Logistics Buyer fills the KYC form and sends the submission Id while
           initializing the order.
         reference: if any
-        example: &ref_16
+        example: &ref_18
           summary: Logistics Buyer initializes the order.
           description: >-
             Logistics Buyer fills the KYC form and sends the submission Id while
             initializing the order.
           value:
             context:
-              domain: ONDC:DLG
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -7757,12 +7152,12 @@ x-flows:
           Logistics Provider updates the KYC as successful and sends the breakup
           of the quote.
         reference: if any
-        example: &ref_17
+        example: &ref_19
           summary: Response to order initialization - KYC Failed
           description: Logistics Provider updates the KYC as Failed with the error message.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -7997,12 +7392,12 @@ x-flows:
         api: confirm
         description: Logistics buyer confirms the order.
         reference: if any
-        example: &ref_18
+        example: &ref_20
           summary: Logistics buyer confirms the order
           description: Logistics buyer confirms the order
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -8264,12 +7659,12 @@ x-flows:
         api: on_confirm
         description: Logistics Provider accepts the order.
         reference: if any
-        example: &ref_19
+        example: &ref_21
           summary: Logistics Provider accepts the order.
           description: Logistics Provider accepts the order.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -8620,12 +8015,12 @@ x-flows:
         api: update
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
-        example: &ref_20
+        example: &ref_22
           summary: Logistics Buyer updates RTS
           description: null
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -8770,14 +8165,16 @@ x-flows:
                 updated_at: '2023-02-06T22:00:00.000Z'
       - summary: LSP updates the weight and measurement differential charges.
         api: on_update
-        description: LSP updates the weight and measurement differential charges.
+        description: >-
+          LSP updates the weight and measurement differential charges. - If
+          Applicable
         reference: if any
-        example: &ref_21
+        example: &ref_23
           summary: Solicited response to update - package measurement updated
           description: null
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -9065,10 +8462,1227 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-02-06T22:00:30.000Z'
+      - summary: LSP sends status updates - Pickup Approved
+        api: on_status
+        description: LSP sends status updates
+        reference: if any
+        example: &ref_11
+          summary: Status updates
+          description: >-
+            Logistics provider updates the status of fulfillment as Order Picked
+            up.
+          value:
+            context:
+              domain: ONDC:LOG11
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_status
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-02-06T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: In-progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - A1
+                    descriptor:
+                      code: P2H2P
+                    time:
+                      label: TAT
+                      duration: PT45M
+                      timestamp: '2023-10-23'
+                quote:
+                  price:
+                    currency: INR
+                    value: '6000.0'
+                  breakup:
+                    - item:
+                        id: I3
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Pickup-approved
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          code: AWB_No
+                          short_desc: Shipping label
+                          long_desc: ''
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                          images:
+                            - link/to/shipping/label
+                        time:
+                          range:
+                            start: '2023-02-06T22:30:00.000Z'
+                            end: '2023-02-06T22:45:00.000Z'
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                        time:
+                          range:
+                            start: '2023-02-14T22:30:00.000Z'
+                            end: '2023-02-14T22:45:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: Delivery_Terms
+                        list:
+                          - descriptor:
+                              code: Ready_To_Ship
+                            value: 'yes'
+                          - descriptor:
+                              code: AWB_No
+                            value: '1209878992826353'
+                          - descriptor:
+                              code: RTO_Action
+                            value: 'no'
+                          - descriptor:
+                              code: INCOTERMS
+                            value: CIF
+                          - descriptor:
+                              code: NAMED_PLACE_OF_DELIVERY
+                            value: UN:SIN
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '6000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Min
+                        value: '0'
+                      - descriptor:
+                          code: Temp_Max
+                        value: '4'
+                  - descriptor:
+                      code: Package_Dimensions_Diff
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '1.5'
+                      - descriptor:
+                          code: Breadth
+                        value: '1.5'
+                      - descriptor:
+                          code: Height
+                        value: '1.5'
+                  - descriptor:
+                      code: Diff_Proof
+                    list:
+                      - descriptor:
+                          code: type
+                        value: image
+                      - descriptor:
+                          code: url
+                        value: https://xxxxx/xx.png
+                updated_at: '2023-02-06T22:00:30.000Z'
+      - summary: LSP sends status updates - Order Picked up
+        api: on_status
+        description: LSP sends status updates
+        reference: if any
+        example: &ref_12
+          summary: Status updates
+          description: Logistics provider updates the status of fulfillment
+          value:
+            context:
+              domain: ONDC:LOG11
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_status
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-02-06T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: In-progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - A1
+                    descriptor:
+                      code: P2H2P
+                    time:
+                      label: TAT
+                      duration: PT45M
+                      timestamp: '2023-10-23'
+                quote:
+                  price:
+                    currency: INR
+                    value: '6000.0'
+                  breakup:
+                    - item:
+                        id: I3
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Order-picked-up
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          code: AWB_No
+                          short_desc: Shipping label
+                          long_desc: ''
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                          images:
+                            - link/to/shipping/label
+                        time:
+                          range:
+                            start: '2023-02-06T22:30:00.000Z'
+                            end: '2023-02-06T22:45:00.000Z'
+                          timestamp: '2023-06-07T00:00:00.000Z'
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                        time:
+                          range:
+                            start: '2023-02-14T22:30:00.000Z'
+                            end: '2023-02-14T22:45:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: Delivery_Terms
+                        list:
+                          - descriptor:
+                              code: Ready_To_Ship
+                            value: 'yes'
+                          - descriptor:
+                              code: AWB_No
+                            value: '1209878992826353'
+                          - descriptor:
+                              code: RTO_Action
+                            value: 'no'
+                          - descriptor:
+                              code: INCOTERMS
+                            value: CIF
+                          - descriptor:
+                              code: NAMED_PLACE_OF_DELIVERY
+                            value: UN:SIN
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '6000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Min
+                        value: '0'
+                      - descriptor:
+                          code: Temp_Max
+                        value: '4'
+                  - descriptor:
+                      code: Package_Dimensions_Diff
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '1.5'
+                      - descriptor:
+                          code: Breadth
+                        value: '1.5'
+                      - descriptor:
+                          code: Height
+                        value: '1.5'
+                  - descriptor:
+                      code: Diff_Proof
+                    list:
+                      - descriptor:
+                          code: type
+                        value: image
+                      - descriptor:
+                          code: url
+                        value: https://xxxxx/xx.png
+                updated_at: '2023-02-06T22:00:30.000Z'
+      - summary: LSP sends status updates - Custom Cleared
+        api: on_status
+        description: LSP sends status updates
+        reference: if any
+        example: &ref_13
+          summary: Status updates
+          description: Logistics provider updates the status of fulfillment
+          value:
+            context:
+              domain: ONDC:LOG11
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_status
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-02-06T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: In-progress
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - A1
+                    descriptor:
+                      code: P2H2P
+                    time:
+                      label: TAT
+                      duration: PT45M
+                      timestamp: '2023-10-23'
+                quote:
+                  price:
+                    currency: INR
+                    value: '6000.0'
+                  breakup:
+                    - item:
+                        id: I3
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Custom-cleared-domestic
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          code: AWB_No
+                          short_desc: Shipping label
+                          long_desc: ''
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                          images:
+                            - link/to/shipping/label
+                        time:
+                          range:
+                            start: '2023-02-06T22:30:00.000Z'
+                            end: '2023-02-06T22:45:00.000Z'
+                          timestamp: '2023-06-07T00:00:00.000Z'
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                        time:
+                          range:
+                            start: '2023-02-14T22:30:00.000Z'
+                            end: '2023-02-14T22:45:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: Delivery_Terms
+                        list:
+                          - descriptor:
+                              code: Ready_To_Ship
+                            value: 'yes'
+                          - descriptor:
+                              code: AWB_No
+                            value: '1209878992826353'
+                          - descriptor:
+                              code: RTO_Action
+                            value: 'no'
+                          - descriptor:
+                              code: INCOTERMS
+                            value: CIF
+                          - descriptor:
+                              code: NAMED_PLACE_OF_DELIVERY
+                            value: UN:SIN
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '6000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Min
+                        value: '0'
+                      - descriptor:
+                          code: Temp_Max
+                        value: '4'
+                  - descriptor:
+                      code: Package_Dimensions_Diff
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '1.5'
+                      - descriptor:
+                          code: Breadth
+                        value: '1.5'
+                      - descriptor:
+                          code: Height
+                        value: '1.5'
+                  - descriptor:
+                      code: Diff_Proof
+                    list:
+                      - descriptor:
+                          code: type
+                        value: image
+                      - descriptor:
+                          code: url
+                        value: https://xxxxx/xx.png
+                updated_at: '2023-02-06T22:00:30.000Z'
+      - summary: Logistics buyer requests for status update
+        api: status
+        description: Logistics buyer requests for status update
+        reference: if any
+        example: &ref_14
+          summary: Logistics Buyer requests for status update
+          description: null
+          value:
+            context:
+              domain: ONDC:LOG11
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: status
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254863'
+              timestamp: '2023-10-17T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              order_id: '02'
+      - summary: LSP sends status updates - Order Delivered
+        api: on_status
+        description: LSP sends status updates
+        reference: if any
+        example: &ref_15
+          summary: Status updates
+          description: Logistics provider updates the status of fulfillment
+          value:
+            context:
+              domain: ONDC:LOG11
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: on_status
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              bpp_id: logistics_seller.com
+              bpp_uri: https://logistics_seller.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-02-06T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O2
+                status: Completed
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                items:
+                  - id: I3
+                    fulfillment_ids:
+                      - '1'
+                    category_ids:
+                      - C1
+                      - A1
+                    descriptor:
+                      code: P2H2P
+                    time:
+                      label: TAT
+                      duration: PT45M
+                      timestamp: '2023-10-23'
+                quote:
+                  price:
+                    currency: INR
+                    value: '6000.0'
+                  breakup:
+                    - item:
+                        id: I3
+                      title: Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Freight
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Origin
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: Clearance_Service_Destination
+                      price:
+                        currency: INR
+                        value: '500.0'
+                    - item:
+                        id: I3
+                      title: tax
+                      price:
+                        currency: INR
+                        value: '500.0'
+                fulfillments:
+                  - id: '1'
+                    type: Delivery
+                    state:
+                      descriptor:
+                        code: Order-delivered
+                    tracking: false
+                    stops:
+                      - id: L1
+                        parent_stop_id: ''
+                        type: start
+                        location:
+                          gps: 12.4535445,77.9283792
+                          address: 'My building #, My street name'
+                          city:
+                            name: Bengaluru
+                          state:
+                            name: Karnataka
+                          country:
+                            code: IND
+                          area_code: '560041'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          code: AWB_No
+                          short_desc: Shipping label
+                          long_desc: ''
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                          images:
+                            - link/to/shipping/label
+                        time:
+                          range:
+                            start: '2023-02-06T22:30:00.000Z'
+                            end: '2023-02-06T22:45:00.000Z'
+                          timestamp: '2023-06-07T00:00:00.000Z'
+                      - id: L2
+                        parent_stop_id: L1
+                        type: end
+                        location:
+                          gps: 1.3806217468119772, 103.74636438437074
+                          address: 'My House #, My buildin'
+                          city:
+                            name: Jurong East
+                          state:
+                            name: ''
+                          country:
+                            code: SGP
+                          area_code: '680230'
+                        contact:
+                          phone: '9886098860'
+                          email: abcd.efgh@gmail.com
+                        instructions:
+                          short_desc: ''
+                          long_desc: drop package at security gate
+                          additional_desc:
+                            content_type: text/html
+                            url: URL for instructions
+                        time:
+                          range:
+                            start: '2023-02-14T22:30:00.000Z'
+                            end: '2023-02-14T22:45:00.000Z'
+                          timestamp: '2023-06-14T00:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: Delivery_Terms
+                        list:
+                          - descriptor:
+                              code: Ready_To_Ship
+                            value: 'yes'
+                          - descriptor:
+                              code: AWB_No
+                            value: '1209878992826353'
+                          - descriptor:
+                              code: RTO_Action
+                            value: 'no'
+                          - descriptor:
+                              code: INCOTERMS
+                            value: CIF
+                          - descriptor:
+                              code: NAMED_PLACE_OF_DELIVERY
+                            value: UN:SIN
+                billing:
+                  name: ONDC sellerapp
+                  address: My house or building name
+                  city: Jurong East
+                  state: Jurong East
+                  tax_id: XXXXXXXXXXXXXXX
+                  phone: '9886098860'
+                  email: abcd.efgh@gmail.com
+                  time:
+                    timestamp: '2023-10-17T21:11:00.000Z'
+                payments:
+                  - id: P1
+                    collected_by: BPP
+                    params:
+                      amount: '6000'
+                      currency: INR
+                      bank_account_number: xxxxxxxx
+                      virtual_payment_address: xxx@xxxx
+                    type: PRE-FULFILLMENT
+                    tags:
+                      - descriptor:
+                          code: Settlement_Details
+                        list:
+                          - descriptor:
+                              code: Counterparty
+                            value: BAP
+                          - descriptor:
+                              code: Mode
+                            value: UPI
+                          - descriptor:
+                              code: Beneficiary_Name
+                            value: xxxxx
+                          - descriptor:
+                              code: Bank_Account_No
+                            value: xxxxx
+                          - descriptor:
+                              code: Ifsc_Code
+                            value: xxxxxxx
+                          - descriptor:
+                              code: UPI_Address
+                            value: xxxxxxx
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Min
+                        value: '0'
+                      - descriptor:
+                          code: Temp_Max
+                        value: '4'
+                  - descriptor:
+                      code: Package_Dimensions_Diff
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '1.5'
+                      - descriptor:
+                          code: Breadth
+                        value: '1.5'
+                      - descriptor:
+                          code: Height
+                        value: '1.5'
+                  - descriptor:
+                      code: Diff_Proof
+                    list:
+                      - descriptor:
+                          code: type
+                        value: image
+                      - descriptor:
+                          code: url
+                        value: https://xxxxx/xx.png
+                updated_at: '2023-02-06T22:00:30.000Z'
   - summary: B2B International Ocean
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items
+      The below flow shows the journey of Logistics buyer buying logistics
+      services for Ocean Cargo.
     reference: if any
     steps:
       - summary: Search Logistics - Ocean Delivery
@@ -9080,7 +9694,7 @@ x-flows:
           description: null
           value:
             context:
-              domain: ONDC:LGS
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -9200,8 +9814,11 @@ x-flows:
                           code: Temp_Unit
                         value: Celsius
                       - descriptor:
-                          code: Temp_Range
-                        value: '-18'
+                          code: Temp_Min
+                        value: '0'
+                      - descriptor:
+                          code: Temp_Max
+                        value: '4'
       - summary: LSP sends catalog
         api: on_search
         description: >-
@@ -9215,7 +9832,7 @@ x-flows:
             the KYC Link.
           value:
             context:
-              domain: ONDC:DLG
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -9387,7 +10004,7 @@ x-flows:
             initializing the order.
           value:
             context:
-              domain: ONDC:DLG
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -9515,7 +10132,7 @@ x-flows:
             breakup of the quote.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -9748,7 +10365,7 @@ x-flows:
           description: Logistics buyer confirms the order
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -10018,7 +10635,7 @@ x-flows:
           description: Logistics Provider accepts the order.
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -10377,7 +10994,7 @@ x-flows:
           description: null
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -10532,7 +11149,7 @@ x-flows:
           description: null
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -10823,385 +11440,95 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-02-06T22:00:30.000Z'
+      - summary: LSP sends status updates - Pickup Approved
+        api: on_status
+        description: LSP sends status updates
+        reference: if any
+        example: *ref_11
+      - summary: LSP sends status updates - Order Picked up
+        api: on_status
+        description: LSP sends status updates
+        reference: if any
+        example: *ref_12
+      - summary: LSP sends status updates - Domestic Custom Cleared
+        api: on_status
+        description: LSP sends status updates
+        reference: if any
+        example: *ref_13
+      - summary: Logistics buyer requests for status update
+        api: status
+        description: Logistics buyer requests for status update
+        reference: if any
+        example: *ref_14
+      - summary: LSP sends status updates - Order Delivered
+        api: on_status
+        description: LSP sends status updates
+        reference: if any
+        example: *ref_15
   - summary: B2B International Cancellation - Logistics Buyer Cancels
     description: >-
-      The following is an illustrative flow to perform a transaction of a nature
-      where a buyer would like to order bulk items
+      The below flow shows the journey of Logistics buyer buying international
+      logistics services and buyer cancelling the order.
     reference: if any
     steps:
       - summary: Search Logistics - Air Delivery
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_14
+        example: *ref_16
       - summary: LSP sends catalog
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: *ref_15
+        example: *ref_17
       - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
           Logistics Buyer fills the KYC form and sends the submission Id while
           initializing the order.
         reference: if any
-        example: *ref_16
+        example: *ref_18
       - summary: Response to order initialization - KYC Successful
         api: on_init
         description: >-
           Logistics Provider updates the KYC as successful and sends the breakup
           of the quote.
         reference: if any
-        example: *ref_17
+        example: *ref_19
       - summary: Logistics buyer confirms the order.
         api: confirm
         description: Logistics buyer confirms the order.
         reference: if any
-        example: *ref_18
+        example: *ref_20
       - summary: Logistics Provider accepts the order.
         api: on_confirm
         description: Logistics Provider accepts the order.
         reference: if any
-        example: *ref_19
+        example: *ref_21
       - summary: Logistics Buyer updates RTS
         api: update
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
-        example: *ref_20
+        example: *ref_22
       - summary: LSP updates the weight and measurement differential charges.
         api: on_update
         description: LSP updates the weight and measurement differential charges.
         reference: if any
-        example: *ref_21
+        example: *ref_23
       - summary: Request for order status update
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example:
-          summary: Logistics Buyer requests for status update
-          description: null
-          value:
-            context:
-              domain: ONDC:LGS
-              location:
-                city:
-                  code: UN:SIN
-                country:
-                  code: SGP
-              action: status
-              version: 2.0.0
-              bap_id: logistics_buyer.com
-              bap_uri: https://logistics_buyer.com/ondc
-              bpp_id: logistics_seller.com
-              bpp_uri: https://logistics_seller.com/ondc
-              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-              message_id: '1755281254863'
-              timestamp: '2023-10-17T21:00:00.000Z'
-              ttl: PT30S
-            message:
-              order_id: '02'
-      - summary: Responds to order status update
+        example: *ref_14
+      - summary: Responds to order status update - Pickup Approved
         api: on_status
         description: >-
           Seller app sends an on_status call to the buyer app informing about
           the current status of the order.
         reference: if any
-        example:
-          summary: Status updates
-          description: >-
-            Logistics provider updates the status of fulfillment as Order Picked
-            up.
-          value:
-            context:
-              domain: ONDC:LGP
-              location:
-                city:
-                  code: UN:SIN
-                country:
-                  code: SGP
-              action: on_status
-              version: 2.0.0
-              bap_id: logistics_buyer.com
-              bap_uri: https://logistics_buyer.com/ondc
-              bpp_id: logistics_seller.com
-              bpp_uri: https://logistics_seller.com/ondc
-              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-              message_id: '1755281254860'
-              timestamp: '2023-02-06T21:00:00.000Z'
-              ttl: PT30S
-            message:
-              order:
-                id: O2
-                status: In-progress
-                provider:
-                  id: P1
-                  locations:
-                    - id: L1
-                items:
-                  - id: I3
-                    fulfillment_ids:
-                      - '1'
-                    category_ids:
-                      - C1
-                      - A1
-                    descriptor:
-                      code: P2H2P
-                    time:
-                      label: TAT
-                      duration: PT45M
-                      timestamp: '2023-10-23'
-                quote:
-                  price:
-                    currency: INR
-                    value: '6000.0'
-                  breakup:
-                    - item:
-                        id: I3
-                      title: Origin
-                      price:
-                        currency: INR
-                        value: '500.0'
-                    - item:
-                        id: I3
-                      title: Freight
-                      price:
-                        currency: INR
-                        value: '500.0'
-                    - item:
-                        id: I3
-                      title: Destination
-                      price:
-                        currency: INR
-                        value: '500.0'
-                    - item:
-                        id: I3
-                      title: Clearance_Service_Origin
-                      price:
-                        currency: INR
-                        value: '500.0'
-                    - item:
-                        id: I3
-                      title: Clearance_Service_Destination
-                      price:
-                        currency: INR
-                        value: '500.0'
-                    - item:
-                        id: I3
-                      title: tax
-                      price:
-                        currency: INR
-                        value: '500.0'
-                fulfillments:
-                  - id: '1'
-                    type: Delivery
-                    state:
-                      descriptor:
-                        code: Pickup-approved
-                    tracking: false
-                    stops:
-                      - id: L1
-                        parent_stop_id: ''
-                        type: start
-                        location:
-                          gps: 12.4535445,77.9283792
-                          address: 'My building #, My street name'
-                          city:
-                            name: Bengaluru
-                          state:
-                            name: Karnataka
-                          country:
-                            code: IND
-                          area_code: '560041'
-                        contact:
-                          phone: '9886098860'
-                          email: abcd.efgh@gmail.com
-                        instructions:
-                          code: AWB_No
-                          short_desc: Shipping label
-                          long_desc: ''
-                          additional_desc:
-                            content_type: text/html
-                            url: URL for instructions
-                          images:
-                            - link/to/shipping/label
-                        time:
-                          range:
-                            start: '2023-02-06T22:30:00.000Z'
-                            end: '2023-02-06T22:45:00.000Z'
-                      - id: L2
-                        parent_stop_id: L1
-                        type: end
-                        location:
-                          gps: 1.3806217468119772, 103.74636438437074
-                          address: 'My House #, My buildin'
-                          city:
-                            name: Jurong East
-                          state:
-                            name: ''
-                          country:
-                            code: SGP
-                          area_code: '680230'
-                        contact:
-                          phone: '9886098860'
-                          email: abcd.efgh@gmail.com
-                        instructions:
-                          short_desc: ''
-                          long_desc: drop package at security gate
-                          additional_desc:
-                            content_type: text/html
-                            url: URL for instructions
-                        time:
-                          range:
-                            start: '2023-02-14T22:30:00.000Z'
-                            end: '2023-02-14T22:45:00.000Z'
-                    tags:
-                      - descriptor:
-                          code: Delivery_Terms
-                        list:
-                          - descriptor:
-                              code: Ready_To_Ship
-                            value: 'yes'
-                          - descriptor:
-                              code: AWB_No
-                            value: '1209878992826353'
-                          - descriptor:
-                              code: RTO_Action
-                            value: 'no'
-                          - descriptor:
-                              code: INCOTERMS
-                            value: CIF
-                          - descriptor:
-                              code: NAMED_PLACE_OF_DELIVERY
-                            value: UN:SIN
-                billing:
-                  name: ONDC sellerapp
-                  address: My house or building name
-                  city: Jurong East
-                  state: Jurong East
-                  tax_id: XXXXXXXXXXXXXXX
-                  phone: '9886098860'
-                  email: abcd.efgh@gmail.com
-                  time:
-                    timestamp: '2023-10-17T21:11:00.000Z'
-                payments:
-                  - id: P1
-                    collected_by: BPP
-                    params:
-                      amount: '6000'
-                      currency: INR
-                      bank_account_number: xxxxxxxx
-                      virtual_payment_address: xxx@xxxx
-                    type: PRE-FULFILLMENT
-                    tags:
-                      - descriptor:
-                          code: Settlement_Details
-                        list:
-                          - descriptor:
-                              code: Counterparty
-                            value: BAP
-                          - descriptor:
-                              code: Mode
-                            value: UPI
-                          - descriptor:
-                              code: Beneficiary_Name
-                            value: xxxxx
-                          - descriptor:
-                              code: Bank_Account_No
-                            value: xxxxx
-                          - descriptor:
-                              code: Ifsc_Code
-                            value: xxxxxxx
-                          - descriptor:
-                              code: UPI_Address
-                            value: xxxxxxx
-                tags:
-                  - descriptor:
-                      code: Package_Weight
-                    list:
-                      - descriptor:
-                          code: Unit
-                        value: kilogram
-                      - descriptor:
-                          code: Value
-                        Value: '5'
-                  - descriptor:
-                      code: Package_Dimensions
-                    list:
-                      - descriptor:
-                          code: Unit
-                        value: centimeter
-                      - descriptor:
-                          code: Length
-                        value: '100'
-                      - descriptor:
-                          code: Breadth
-                        value: '100'
-                      - descriptor:
-                          code: Height
-                        value: '100'
-                  - descriptor:
-                      code: Package_Details
-                    list:
-                      - descriptor:
-                          code: Category
-                        value: Grocery
-                      - descriptor:
-                          code: Dangerous_Goods
-                        value: 'true'
-                      - descriptor:
-                          code: Stackable
-                        value: 'true'
-                      - descriptor:
-                          code: Shipment_Value
-                        value: '50000'
-                      - descriptor:
-                          code: Package_Count
-                        value: '10'
-                      - descriptor:
-                          code: HSN_Code
-                        value: xxxxxxx
-                  - descriptor:
-                      code: Cold_Logistics
-                    list:
-                      - descriptor:
-                          code: Temp_Control
-                        value: 'true'
-                      - descriptor:
-                          code: Temp_Unit
-                        value: Celsius
-                      - descriptor:
-                          code: Temp_Min
-                        value: '0'
-                      - descriptor:
-                          code: Temp_Max
-                        value: '4'
-                  - descriptor:
-                      code: Package_Dimensions_Diff
-                    list:
-                      - descriptor:
-                          code: Unit
-                        value: centimeter
-                      - descriptor:
-                          code: Length
-                        value: '1.5'
-                      - descriptor:
-                          code: Breadth
-                        value: '1.5'
-                      - descriptor:
-                          code: Height
-                        value: '1.5'
-                  - descriptor:
-                      code: Diff_Proof
-                    list:
-                      - descriptor:
-                          code: type
-                        value: image
-                      - descriptor:
-                          code: url
-                        value: https://xxxxx/xx.png
-                updated_at: '2023-02-06T22:00:30.000Z'
+        example: *ref_11
       - summary: Logistics Buyer cancels the order
         api: cancel
         description: Logistics Buyer cancels the order
@@ -11211,7 +11538,7 @@ x-flows:
           description: Logistics Buyer initiates cancellation of the order.
           value:
             context:
-              domain: ONDC:LGS
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -11239,7 +11566,7 @@ x-flows:
           description: Unsolicited on_cancel from Logistics provider
           value:
             context:
-              domain: ONDC:LGP
+              domain: ONDC:LOG11
               location:
                 city:
                   code: UN:SIN
@@ -11534,12 +11861,11 @@ x-examples:
   B2B Logistics - Domestic:
     summary: B2B Logistics - Domestic Use Case Specification
     description: >-
-      Logistics , use case on the network of different entities coming together
-      to offer products or services to buyers on one end and manage sellers on
-      the other end. Consumer Platform use these  specifications to perform
-      e-commerce operations like search, select, confirm and track.At provider
-      platform would use these specifications expose there specific invetory in
-      form of on_search, on_select etc.
+      This elaborates the model implementations for procuring logistics over the
+      network in order to fulfil the shipment from sellers warehouse to end
+      customer location.  The procurement majorly happens in four phases of
+      order processing flow, i.e. Discovery available logistics provider based
+      on serviceability, quotation, e-KYC, order fulfilment and order tracking.
     example_set:
       search:
         examples:
@@ -11547,7 +11873,7 @@ x-examples:
             description: Search for parent category - Express Delivery or Air Delivery.
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -11663,7 +11989,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -11779,7 +12105,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -11886,13 +12212,16 @@ x-examples:
                             code: Temp_Unit
                           value: Celsius
                         - descriptor:
-                            code: Temp_Range
-                          value: '-18'
+                            code: Temp_Min
+                          value: '0'
+                        - descriptor:
+                            code: Temp_Max
+                          value: '4'
           - summary: Search Logistics - Surface Delivery
             description: null
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -11999,8 +12328,11 @@ x-examples:
                             code: Temp_Unit
                           value: Celsius
                         - descriptor:
-                            code: Temp_Range
-                          value: '-18'
+                            code: Temp_Min
+                          value: '0'
+                        - descriptor:
+                            code: Temp_Max
+                          value: '4'
       init:
         examples:
           - summary: Logistics Buyer initializes the order.
@@ -12009,7 +12341,7 @@ x-examples:
               while initializing the order.
             value:
               context:
-                domain: ONDC:DLG
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -12120,7 +12452,7 @@ x-examples:
               while initializing the order.
             value:
               context:
-                domain: ONDC:DLG
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -12230,7 +12562,7 @@ x-examples:
             description: Logistics buyer confirms the order.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -12461,7 +12793,7 @@ x-examples:
             description: Logistics buyer confirms the order.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -12692,7 +13024,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -12821,7 +13153,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -12907,7 +13239,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -12995,7 +13327,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -13019,7 +13351,7 @@ x-examples:
             description: Logistics Buyer initiates cancellation of the order.
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -13046,7 +13378,7 @@ x-examples:
               Sends the KYC Link.
             value:
               context:
-                domain: ONDC:DLG
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -13214,7 +13546,7 @@ x-examples:
               Sends the KYC Link.
             value:
               context:
-                domain: ONDC:DLG
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -13384,7 +13716,7 @@ x-examples:
               breakup of the quote.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -13569,7 +13901,7 @@ x-examples:
               message.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -13757,7 +14089,7 @@ x-examples:
               breakup of the quote.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -13942,7 +14274,7 @@ x-examples:
               message.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -14130,7 +14462,7 @@ x-examples:
             description: Logistics Provider accepts the order.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -14421,7 +14753,7 @@ x-examples:
             description: Logistics Provider accepts the order.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -14716,7 +15048,7 @@ x-examples:
               Picked up.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -14968,7 +15300,7 @@ x-examples:
             description: Logistics provider updates the status of fulfillment of RTO.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -15265,7 +15597,7 @@ x-examples:
             description: Logistics provider updates the status of fulfillment of RTO.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -15559,7 +15891,7 @@ x-examples:
               Picked up.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -15813,7 +16145,7 @@ x-examples:
             description: LSP updates the weight and measurement differential charges.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -16085,7 +16417,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -16263,7 +16595,7 @@ x-examples:
             description: LSP updates the weight and measurement differential charges.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -16519,7 +16851,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -16700,7 +17032,7 @@ x-examples:
               not accept the delivery and initiates RTO.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -16969,7 +17301,7 @@ x-examples:
               not accept the delivery and initiates RTO.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG10
                 location:
                   city:
                     code: std:080
@@ -17235,12 +17567,11 @@ x-examples:
   B2B Logistics - International:
     summary: B2B Logistics - International Use Case Specification
     description: >-
-      Logistics , use case on the network of different entities coming together
-      to offer products or services to buyers on one end and manage sellers on
-      the other end. Consumer Platform use these  specifications to perform
-      e-commerce operations like search, select, confirm and track.At provider
-      platform would use these specifications expose there specific invetory in
-      form of on_search, on_select etc.
+      This elaborates the model implementations for procuring logistics over the
+      network in order to fulfil the shipment from sellers warehouse to end
+      customer location.  The procurement majorly happens in four phases of
+      order processing flow, i.e. Discovery available logistics provider based
+      on serviceability, quotation, e-KYC, order fulfilment and order tracking.
     example_set:
       search:
         examples:
@@ -17248,7 +17579,7 @@ x-examples:
             description: Search for parent category - Express Delivery or Air Delivery.
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -17368,13 +17699,16 @@ x-examples:
                             code: Temp_Unit
                           value: Celsius
                         - descriptor:
-                            code: Temp_Range
-                          value: '-18'
+                            code: Temp_Min
+                          value: '0'
+                        - descriptor:
+                            code: Temp_Max
+                          value: '4'
           - summary: Search by parent category - Express Delivery
             description: null
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -17494,13 +17828,16 @@ x-examples:
                             code: Temp_Unit
                           value: Celsius
                         - descriptor:
-                            code: Temp_Range
-                          value: '-18'
+                            code: Temp_Min
+                          value: '0'
+                        - descriptor:
+                            code: Temp_Max
+                          value: '4'
           - summary: Search Logistics - Ocean Delivery
             description: null
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -17620,8 +17957,11 @@ x-examples:
                             code: Temp_Unit
                           value: Celsius
                         - descriptor:
-                            code: Temp_Range
-                          value: '-18'
+                            code: Temp_Min
+                          value: '0'
+                        - descriptor:
+                            code: Temp_Max
+                          value: '4'
       init:
         examples:
           - summary: Logistics Buyer initializes the order.
@@ -17630,7 +17970,7 @@ x-examples:
               while initializing the order.
             value:
               context:
-                domain: ONDC:DLG
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -17751,7 +18091,7 @@ x-examples:
               while initializing the order.
             value:
               context:
-                domain: ONDC:DLG
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -17872,7 +18212,7 @@ x-examples:
             description: Logistics buyer confirms the order
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -18134,7 +18474,7 @@ x-examples:
             description: Logistics buyer confirms the order
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -18401,7 +18741,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -18548,7 +18888,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -18700,7 +19040,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGS
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -18726,7 +19066,7 @@ x-examples:
               Sends the KYC Link.
             value:
               context:
-                domain: ONDC:DLG
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -18891,7 +19231,7 @@ x-examples:
               Sends the KYC Link.
             value:
               context:
-                domain: ONDC:DLG
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -19058,7 +19398,7 @@ x-examples:
               message.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -19295,7 +19635,7 @@ x-examples:
               message.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -19532,7 +19872,7 @@ x-examples:
               breakup of the quote.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -19764,7 +20104,7 @@ x-examples:
               Picked up.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -20055,7 +20395,7 @@ x-examples:
             description: Logistics provider updates the status of fulfillment
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -20346,7 +20686,7 @@ x-examples:
             description: Logistics provider updates the status of fulfillment
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -20638,7 +20978,7 @@ x-examples:
             description: Logistics provider updates the status of fulfillment
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -20930,7 +21270,7 @@ x-examples:
             description: Logistics provider updates the status of fulfillment
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -21225,7 +21565,7 @@ x-examples:
             description: Logistics Provider accepts the order.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -21576,7 +21916,7 @@ x-examples:
             description: Logistics Provider accepts the order.
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -21932,7 +22272,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -22224,7 +22564,7 @@ x-examples:
             description: null
             value:
               context:
-                domain: ONDC:LGP
+                domain: ONDC:LOG11
                 location:
                   city:
                     code: UN:SIN
@@ -22516,274 +22856,4 @@ x-examples:
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
 x-attributes:
-  B2B:
-    attribute_set:
-      search:
-        message:
-          intent:
-            fulfillment:
-              location:
-                area_code:
-                  required: optional
-                  reference: if any
-                  usage: 560001
-                  description: Area code
-                gps:
-                  required: mandatory
-                  reference: if any
-                  usage: 12.974002,77.613458
-                  description: Gps
-              type:
-                required: optional
-                reference: if any
-                usage: Delivery
-                description: Type of fulfillment
-            item:
-              category:
-                required: optional
-                reference: if any
-                usage: Foodgrains
-                description: Category of item
-            tags:
-              buyer_id:
-                required: mandatory
-                reference: if any
-                usage: xxxxxxxxxxxxxxx
-                description: Category of item
-      on_search:
-        message:
-          catalog:
-            descriptor: &ref_22
-              name:
-                required: mandatory
-                description: Physical description of name value for something.
-                reference: if any
-                usage: ABC store
-              short_desc:
-                required: optional
-                description: Short description of value for something.
-                reference: if any
-                usage: Online eCommerce Store
-              long_desc:
-                required: optional
-                description: Long description of value for something.
-                reference: if any
-                usage: Online eCommerce Store
-              images:
-                url:
-                  required: mandatory
-                  description: Physical description of the item
-                  reference: if any
-                  usage: https://abc.com/images/1-shop-img
-            providers:
-              id: &ref_23
-                required: mandatory
-                description: Unique human readable ID.
-                reference: if any
-                usage: P1
-              descriptor: *ref_22
-              additional_desc:
-                required: optional
-                description: Additional description
-                reference: if any
-                usage: chat link
-              creds: &ref_24
-                id:
-                  required: optional
-                  description: Human readable id
-                  reference: if any
-                  usage: ESG-12345678
-                type:
-                  required: optional
-                  description: Type of creds
-                  reference: if any
-                  usage: License
-                desc:
-                  required: optional
-                  description: Description of creds
-                  reference: if any
-                  usage: Export License No. ESG-12345678
-                url:
-                  required: optional
-                  description: Physical description
-                  reference: if any
-                  usage: https://abcd.cdn.com/images/license-img
-              offers:
-                required: optional
-                description: Offers info
-                reference: if any
-                usage: chat link
-            items:
-              tags:
-                veg_nonveg:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: veg
-                image:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: veg
-                price_slab:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: 175
-      select:
-        message:
-          order:
-            provider:
-              id: *ref_23
-            payments:
-              type:
-                required: optional
-                description: type of the payment
-                reference: if any
-                usage: ON-FULFILLMENT
-      on_select:
-        message:
-          order:
-            provider:
-              id: *ref_23
-            items:
-              id: *ref_23
-      init:
-        message:
-          order:
-            provider:
-              id: *ref_23
-              ttl:
-                required: optional
-                description: ttl
-                reference: if any
-                usage: P1D
-            items:
-              id: *ref_23
-              add-ons:
-                id:
-                  required: optional
-                  description: Id of add-ons
-                  reference: if any
-                  usage: 78787723
-              tags:
-                BUYER_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: free text on Item Customization
-            fulfillments:
-              customer:
-                person:
-                  creds: *ref_24
-              tags:
-                DELIVERY_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: CIF
-            billing: &ref_25
-              phone:
-                required: mandatory
-                description: Describes the phone information of an entity
-                reference: if any
-                usage: 9886098860
-              email:
-                required: optional
-                description: Email address of the contact
-                reference: if any
-                usage: nobody@nomail.com
-              name:
-                required: mandatory
-                description: Describes a person name as any individual
-                reference: if any
-                usage: ONDC buyer
-              tax_id:
-                required: mandatory
-                description: Describes tax id
-                reference: if any
-                usage: XXXXXXXXXXXXXXX
-      on_init:
-        message:
-          order:
-            provider:
-              id: *ref_23
-            items:
-              id: *ref_23
-              add-ons:
-                id:
-                  required: optional
-                  description: Id of add-ons
-                  reference: if any
-                  usage: 78787723
-              tags:
-                BUYER_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: free text on Item Customization
-                DELIVERY_TERMS:
-                  required: optional
-                  description: Tags info
-                  reference: if any
-                  usage: CIF
-            billing: *ref_25
-      confirm:
-        message:
-          order:
-            provider:
-              id: *ref_23
-            items:
-              id: *ref_23
-            billing: *ref_25
-            fulfillments: &ref_26
-              id:
-                required: mandatory
-                description: Unique human readable ID
-                reference: if any
-                usage: F1
-              time:
-                required: optional
-                description: Describes the phone information of an entity
-                reference: if any
-                usage: +91-9897867564
-              contact:
-                phone:
-                  required: mandatory
-                  description: Describes the phone information of an entity
-                  reference: if any
-                  usage: 919876543210
-                email:
-                  required: mandatory
-                  description: Email address of the contact
-                  reference: if any
-                  usage: alpha.manufacturing@gmail.com
-              instructions:
-                required: optional
-                description: The URL of the file
-                reference: if any
-                usage: >-
-                  https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bfd54f
-      on_confirm:
-        message:
-          order:
-            provider:
-              id: *ref_23
-            items:
-              id: *ref_23
-            billing: *ref_25
-            fulfillments: *ref_26
-      update:
-        message:
-          order:
-            provider:
-              id: *ref_23
-            items:
-              id: *ref_23
-      on_update:
-        message:
-          order:
-            provider:
-              id: *ref_23
-            items:
-              id: *ref_23
+  B2B Logistics - Domestic: {}
