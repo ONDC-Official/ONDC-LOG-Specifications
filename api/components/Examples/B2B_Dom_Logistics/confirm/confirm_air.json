@@ -142,7 +142,8 @@
                             "value": "500.0"
                         }
                     }
-                ] },
+                ]
+            },
             "billing": {
                 "name": "ONDC sellerapp",
                 "address": "My house or building name",
@@ -165,7 +166,7 @@
                         "bank_account_number": "xxxxxxxx",
                         "virtual_payment_address": "xxx@xxxx"
                     },
-                    "type": "PRE-FULFILMENT",
+                    "type": "ON-FULFILMENT",
                     "tags": [
                         {
                             "descriptor": {
@@ -209,6 +210,25 @@
                                     "value": "xxxxxxx"
                                 }
                             ]
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Collection_Details"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "Amount"
+                                    },
+                                    "value": "20000"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Type"
+                                    },
+                                    "value": "ON-FULFILLMENT"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -216,122 +236,122 @@
             "tags": [
                 {
                     "descriptor": {
-                      "code": "Package_Weight"
+                        "code": "Package_Weight"
                     },
                     "list": [
-                      {
-                        "descriptor": {
-                          "code": "Unit"
+                        {
+                            "descriptor": {
+                                "code": "Unit"
+                            },
+                            "value": "kilogram"
                         },
-                        "value": "kilogram"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Value"
-                        },
-                        "Value": "5"
-                      }
+                        {
+                            "descriptor": {
+                                "code": "Value"
+                            },
+                            "Value": "5"
+                        }
                     ]
-                  },
-                  {
+                },
+                {
                     "descriptor": {
-                      "code": "Package_Dimensions"
+                        "code": "Package_Dimensions"
                     },
                     "list": [
-                      {
-                        "descriptor": {
-                          "code": "Unit"
+                        {
+                            "descriptor": {
+                                "code": "Unit"
+                            },
+                            "value": "centimeter"
                         },
-                        "value": "centimeter"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Length"
+                        {
+                            "descriptor": {
+                                "code": "Length"
+                            },
+                            "value": "100"
                         },
-                        "value": "100"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Breadth"
+                        {
+                            "descriptor": {
+                                "code": "Breadth"
+                            },
+                            "value": "100"
                         },
-                        "value": "100"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Height"
-                        },
-                        "value": "100"
-                      }
+                        {
+                            "descriptor": {
+                                "code": "Height"
+                            },
+                            "value": "100"
+                        }
                     ]
-                  },
-                  {
+                },
+                {
                     "descriptor": {
-                      "code": "Package_Details"
+                        "code": "Package_Details"
                     },
                     "list": [
-                      {
-                        "descriptor": {
-                          "code": "CATEGORY"
+                        {
+                            "descriptor": {
+                                "code": "CATEGORY"
+                            },
+                            "value": "Grocery"
                         },
-                        "value": "Grocery"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "dangerous_goods"
+                        {
+                            "descriptor": {
+                                "code": "dangerous_goods"
+                            },
+                            "value": "true"
                         },
-                        "value": "true"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "stackable"
+                        {
+                            "descriptor": {
+                                "code": "stackable"
+                            },
+                            "value": "true"
                         },
-                        "value": "true"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Shipment_Value"
+                        {
+                            "descriptor": {
+                                "code": "Shipment_Value"
+                            },
+                            "value": "50000"
                         },
-                        "value": "50000"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Package_Count"
-                        },
-                        "value": "10"
-                      }
+                        {
+                            "descriptor": {
+                                "code": "Package_Count"
+                            },
+                            "value": "10"
+                        }
                     ]
-                  },
-                  {
+                },
+                {
                     "descriptor": {
-                      "code": "Cold_Logistics"
+                        "code": "Cold_Logistics"
                     },
                     "list": [
-                      {
-                        "descriptor": {
-                          "code": "Temp_Control"
+                        {
+                            "descriptor": {
+                                "code": "Temp_Control"
+                            },
+                            "value": "true"
                         },
-                        "value": "true"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Temp_Unit"
+                        {
+                            "descriptor": {
+                                "code": "Temp_Unit"
+                            },
+                            "value": "Celsius"
                         },
-                        "value": "Celsius"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Temp_Min"
+                        {
+                            "descriptor": {
+                                "code": "Temp_Min"
+                            },
+                            "value": "0"
                         },
-                        "value": "0"
-                      },
-                      {
-                        "descriptor": {
-                          "code": "Temp_Max"
-                        },
-                        "value": "4"
-                      }
+                        {
+                            "descriptor": {
+                                "code": "Temp_Max"
+                            },
+                            "value": "4"
+                        }
                     ]
-                  },
+                },
                 {
                     "descriptor": {
                         "code": "BPP_Terms"

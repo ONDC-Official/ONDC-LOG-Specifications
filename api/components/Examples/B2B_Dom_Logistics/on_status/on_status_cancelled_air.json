@@ -41,8 +41,13 @@
       "items": [
         {
           "id": "I3",
-          "category_ids": ["C2", "A1"],
-          "fulfillment_ids": ["1"],
+          "category_ids": [
+            "C2",
+            "A1"
+          ],
+          "fulfillment_ids": [
+            "1"
+          ],
           "descriptor": {
             "code": "P2H2P"
           },
@@ -54,8 +59,13 @@
         },
         {
           "id": "I4",
-          "category_ids": ["C2", "A1"],
-          "fulfillment_ids": ["2"],
+          "category_ids": [
+            "C2",
+            "A1"
+          ],
+          "fulfillment_ids": [
+            "2"
+          ],
           "descriptor": {
             "code": "P2H2P"
           },
@@ -155,7 +165,9 @@
                   "content_type": "text/html",
                   "url": "URL for instructions"
                 },
-                "images": ["link/to/shipping/label"]
+                "images": [
+                  "link/to/shipping/label"
+                ]
               },
               "time": {
                 "range": {
@@ -284,7 +296,7 @@
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "type": "POST-FULFILMENT",
+          "type": "ON-FULFILMENT",
           "tags": [
             {
               "descriptor": {
@@ -326,6 +338,25 @@
                     "code": "UPI_Address"
                   },
                   "value": "xxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "Collection_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Amount"
+                  },
+                  "value": "20000"
+                },
+                {
+                  "descriptor": {
+                    "code": "Type"
+                  },
+                  "value": "ON-FULFILLMENT"
                 }
               ]
             }
@@ -420,7 +451,6 @@
             }
           ]
         },
-
         {
           "descriptor": {
             "code": "Package_Dimensions_Diff"

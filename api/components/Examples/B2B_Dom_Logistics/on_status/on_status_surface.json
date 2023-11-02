@@ -221,7 +221,7 @@
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "type": "PRE-FULFILLMENT",
+          "type": "ON-FULFILLMENT",
           "tags": [
             {
               "descriptor": {

@@ -62,10 +62,16 @@ value:
               value: UN:SIN
       payment:
         collected_by: BPP
-        type: ON-FULFILLMENT
-        params:
-          amount: '20000'
-          currency: INR
+        tags:
+        - descriptor:
+            code: Collection_Details
+          list:
+          - descriptor:
+              code: Amount
+            value: '20000'
+          - descriptor:
+              code: Type
+            value: ON-FULFILLMENT
       tags:
         - descriptor:
             code: Package_Weight

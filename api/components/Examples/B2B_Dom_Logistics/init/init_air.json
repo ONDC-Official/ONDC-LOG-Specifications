@@ -33,8 +33,13 @@
             "items": [
                 {
                     "id": "I3",
-                    "category_ids": ["C2","A1"],
-                    "fulfillment_ids": ["1"],
+                    "category_ids": [
+                        "C2",
+                        "A1"
+                    ],
+                    "fulfillment_ids": [
+                        "1"
+                    ],
                     "descriptor": {
                         "code": "P2H2P"
                     }
@@ -45,7 +50,7 @@
                     "id": "1",
                     "type": "Delivery",
                     "stops": [
-                        {   
+                        {
                             "type": "start",
                             "location": {
                                 "gps": "12.4535445,77.9283792",
@@ -104,7 +109,7 @@
             },
             "payment": {
                 "collected_by": "BPP",
-                "type": "PRE-FULFILLMENT",
+                "type": "ON-FULFILLMENT",
                 "tags": [
                     {
                         "descriptor": {
@@ -146,6 +151,25 @@
                                     "code": "UPI_Address"
                                 },
                                 "value": "xxxxxxx"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "code": "Collection_Details"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "code": "Amount"
+                                },
+                                "value": "20000"
+                            },
+                            {
+                                "descriptor": {
+                                    "code": "Type"
+                                },
+                                "value": "ON-FULFILLMENT"
                             }
                         ]
                     }

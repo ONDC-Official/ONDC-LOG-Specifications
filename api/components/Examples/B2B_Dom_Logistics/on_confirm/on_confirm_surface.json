@@ -35,8 +35,13 @@
       "items": [
         {
           "id": "I3",
-          "category_ids": ["C1", "R1"],
-          "fulfillment_ids": ["1"],
+          "category_ids": [
+            "C1",
+            "R1"
+          ],
+          "fulfillment_ids": [
+            "1"
+          ],
           "descriptor": {
             "code": "P2H2P"
           }
@@ -191,7 +196,6 @@
             }
           }
         },
-
         {
           "fulfillment_state": {
             "descriptor": {
@@ -260,7 +264,7 @@
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "type": "PRE-FULFILLMENT",
+          "type": "ON-FULFILLMENT",
           "tags": [
             {
               "descriptor": {
@@ -302,6 +306,25 @@
                     "code": "UPI_Address"
                   },
                   "value": "xxxxxxx"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "Collection_Details"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "Amount"
+                  },
+                  "value": "20000"
+                },
+                {
+                  "descriptor": {
+                    "code": "Type"
+                  },
+                  "value": "ON-FULFILLMENT"
                 }
               ]
             }

@@ -274,7 +274,7 @@
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "type": "POST-FULFILMENT",
+          "type": "ON-FULFILMENT",
           "tags": [
             {
               "descriptor": {
