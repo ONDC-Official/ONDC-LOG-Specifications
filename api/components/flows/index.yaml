@@ -1,7 +1,0 @@
-- $ref: "./B2B_domestic_surface/index.yaml"
-- $ref: "./B2B_domestic_air/index.yaml"
-- $ref: "./B2B_domestic_cancellation/index.yaml"
-- $ref: "./B2B_int_air/index.yaml"
-- $ref: "./B2B_int_ocean/index.yaml"
-- $ref: "./B2B_int_cancellation/index.yaml"
-

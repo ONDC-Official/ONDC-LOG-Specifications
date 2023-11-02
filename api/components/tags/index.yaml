@@ -1,4 +1,0 @@
-search:
-  message:
-    intent:
-      $ref: "./tag-group.yaml#/intent"
