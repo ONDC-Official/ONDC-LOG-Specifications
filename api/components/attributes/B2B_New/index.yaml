@@ -1,0 +1,15 @@
+search:
+  parent: true
+  $ref: "./search/search.yaml"
+
+on_search:
+  parent: true
+  $ref: "./on_search/on_search.yaml"
+
+init:
+  parent: true
+  $ref: "./init/init.yaml"  
+  
+confirm:
+  parent: true
+  $ref: "./confirm/confirm.yaml"   

@@ -1,0 +1,16 @@
+message:
+  parent: true
+  order:
+    parent: true
+    fulfillments:
+      parent: true
+      "@ondc/org/awb_no":
+        description: AWB number can be provided by logistics buyer NP (in /confirm or /update) or LSP (in /on_confirm or /on_update) and is mandatory only if item.descriptor.code = "P2H2P". Can be 11-16 digits;
+        required: optional
+        usage: "-"
+        reference: if any
+      stops.instructions:
+        description:  type of PCC - enum - "1" - buyer contact no (for self-pickup), "2" - merchant order no, "3" - other pickup confirmation code, "4" - OTP;
+        required: optional
+        usage: "-"
+        reference: if any
