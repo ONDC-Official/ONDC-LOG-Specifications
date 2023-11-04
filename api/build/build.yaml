@@ -2676,7 +2676,7 @@ x-tags:
             description: Define max value of temperature
             reference: <PR/Issue/Discussion Links md format text>
 x-flows:
-  - summary: B2B Domestic surface
+  - summary: B2B Domestic Logistics - Surface Delivery
     description: >-
       The below flow shows the journey of Logistics buyer buying logistics
       services for Road/Surface Cargo.
@@ -4439,7 +4439,7 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-10-19T21:00:00.800Z'
-  - summary: B2B Domestic Air
+  - summary: B2B Domestic Logistics - Air Delivery
     description: >-
       The below flow shows the journey of Logistics buyer buying logistics
       services.
@@ -6184,7 +6184,7 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-02-06T22:00:30.000Z'
-  - summary: B2B Domestic Cancellation - RTO
+  - summary: B2B Domestic Logistics Cancellation - RTO
     description: >-
       The below flow shows the journey of Logistics buyer buying logistics
       services and Buyer cancelling the order.
@@ -6844,7 +6844,7 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-02-06T22:00:30.000Z'
-  - summary: B2B International Air
+  - summary: B2B International Logistics - Air Delivery
     description: >-
       The below flow shows the journey of Logistics buyer buying International
       logistics services for Air Cargo.
@@ -9877,7 +9877,7 @@ x-flows:
                           code: url
                         value: https://xxxxx/xx.png
                 updated_at: '2023-02-06T22:00:30.000Z'
-  - summary: B2B International Ocean
+  - summary: B2B International Logistics - Ocean Delivery
     description: >-
       The below flow shows the journey of Logistics buyer buying logistics
       services for Ocean Cargo.
@@ -11696,7 +11696,7 @@ x-flows:
         description: LSP sends status updates
         reference: if any
         example: *ref_15
-  - summary: B2B International Cancellation - Logistics Buyer Cancels
+  - summary: B2B International Logistics Cancellation - Buyer Cancels
     description: >-
       The below flow shows the journey of Logistics buyer buying international
       logistics services and buyer cancelling the order.
