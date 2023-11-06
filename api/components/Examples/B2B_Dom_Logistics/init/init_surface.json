@@ -1,6 +1,6 @@
 {
     "context": {
-        "domain": "ONDC:DLG",
+        "domain": "ONDC:LOG10",
         "location": {
             "city": {
                 "code": "std:080"
@@ -104,7 +104,7 @@
             },
             "payment": {
                 "collected_by": "BPP",
-                "type": "PRE-FULFILLMENT",
+                "type": "ON-FULFILLMENT",
                 "tags": [
                     {
                         "descriptor": {
@@ -146,6 +146,25 @@
                                     "code": "UPI_Address"
                                 },
                                 "value": "xxxxxxx"
+                            }
+                        ]
+                    },
+                    {
+                        "descriptor": {
+                            "code": "Collection_Details"
+                        },
+                        "list": [
+                            {
+                                "descriptor": {
+                                    "code": "Amount"
+                                },
+                                "value": "20000"
+                            },
+                            {
+                                "descriptor": {
+                                    "code": "Type"
+                                },
+                                "value": "ON-FULFILLMENT"
                             }
                         ]
                     }

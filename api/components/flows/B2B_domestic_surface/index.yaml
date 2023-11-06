@@ -1,5 +1,5 @@
-summary: B2B Domestic surface
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
+summary: B2B Domestic Logistics - Surface Delivery
+description: The below flow shows the journey of Logistics buyer buying logistics services for Road/Surface Cargo.
 reference: if any
 steps:
   - summary: Search Logistics - Surface Delivery
@@ -56,9 +56,9 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/status/status.yaml"
-  - summary: Responds to order status update
+  - summary: Responds to order status update - Order Picked up
     api: on_status
     description: Seller app sends an on_status call to the buyer app informing about the current status of the order.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_status/on_status_surface.yaml"              
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_status/on_status_surface.yaml"

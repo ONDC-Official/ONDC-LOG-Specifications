@@ -2,7 +2,7 @@ summary: Logistics Buyer requests for status update
 description: 
 value:
   context:
-    domain: ONDC:LGS
+    domain: ONDC:LOG11
     location:
       city:
         code: UN:SIN

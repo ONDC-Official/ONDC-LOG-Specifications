@@ -1,5 +1,5 @@
-summary: B2B Domestic Cancellation - RTO
-description: The following is an illustrative flow to perform a transaction of a nature where logistics seller cancels the order
+summary: B2B Domestic Logistics Cancellation - RTO
+description: The below flow shows the journey of Logistics buyer buying logistics services and Buyer cancelling the order.
 reference: if any
 steps:
   - summary: Search Logistics - Air Delivery
@@ -56,7 +56,7 @@ steps:
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/status/status.yaml"
-  - summary: Responds to order status update
+  - summary: Responds to order status update - Order Picked up
     api: on_status
     description: Seller app sends an on_status call to the buyer app informing about the current status of the order.
     reference: if any

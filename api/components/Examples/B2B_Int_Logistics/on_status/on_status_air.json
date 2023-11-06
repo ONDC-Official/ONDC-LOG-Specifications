@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:LGP",
+    "domain": "ONDC:LOG11",
     "location": {
       "city": {
         "code": "UN:SIN"
@@ -255,7 +255,7 @@
             "bank_account_number": "xxxxxxxx",
             "virtual_payment_address": "xxx@xxxx"
           },
-          "type": "PRE-FULFILLMENT",
+          "type": "ON-FULFILLMENT",
           "tags": [
             {
               "descriptor": {
@@ -299,6 +299,25 @@
                   "value": "xxxxxxx"
                 }
               ]
+            },
+            {
+                "descriptor": {
+                    "code": "Collection_Details"
+                },
+                "list": [
+                    {
+                        "descriptor": {
+                            "code": "Amount"
+                        },
+                        "value": "20000"
+                    },
+                    {
+                        "descriptor": {
+                            "code": "Type"
+                        },
+                        "value": "ON-FULFILLMENT"
+                    }
+                ]
             }
           ]
         }

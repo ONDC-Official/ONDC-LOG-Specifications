@@ -2,7 +2,7 @@ summary: Logistics Buyer initializes the order.
 description: Logistics Buyer fills the KYC form and sends the submission Id while initializing the order.
 value:
   context:
-    domain: ONDC:DLG
+    domain: ONDC:LOG11
     location:
       city:
         code: UN:SIN
@@ -110,6 +110,15 @@ value:
               - descriptor:
                   code: UPI_Address
                 value: xxxxxxx
+          - descriptor:
+              code: Collection_Details
+            list:
+            - descriptor:
+                code: Amount
+              value: '20000'
+            - descriptor:
+                code: Type
+              value: ON-FULFILLMENT
       xinput:
         form:
           url: https://lsp.com/xxx/kyc

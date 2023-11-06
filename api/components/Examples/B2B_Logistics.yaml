@@ -1,16 +1,14 @@
 B2B Logistics - Domestic:
   summary: B2B Logistics - Domestic Use Case Specification
   description: >-
-    Logistics , use case on the network of different entities coming together to offer products or services to buyers on one end and manage sellers on the other end. Consumer Platform use these 
-    specifications to perform e-commerce operations like search, select, confirm and track.At provider platform would use these specifications expose
-    there specific invetory in form of on_search, on_select etc.
+    This elaborates the model implementations for procuring logistics over the network in order to fulfil the shipment from sellers warehouse to end customer location. 
+    The procurement majorly happens in four phases of order processing flow, i.e. Discovery available logistics provider based on serviceability, quotation, e-KYC, order fulfilment and order tracking.
   example_set:
     $ref: "./B2B_Dom_Logistics_yaml/index.yaml"
 B2B Logistics - International:
   summary: B2B Logistics - International Use Case Specification
   description: >-
-    Logistics , use case on the network of different entities coming together to offer products or services to buyers on one end and manage sellers on the other end. Consumer Platform use these 
-    specifications to perform e-commerce operations like search, select, confirm and track.At provider platform would use these specifications expose
-    there specific invetory in form of on_search, on_select etc.
+    This elaborates the model implementations for procuring logistics over the network in order to fulfil the shipment from sellers warehouse to end customer location. 
+    The procurement majorly happens in four phases of order processing flow, i.e. Discovery available logistics provider based on serviceability, quotation, e-KYC, order fulfilment and order tracking.
   example_set:
     $ref: "./B2B_Int_Logistics_yaml/index.yaml"

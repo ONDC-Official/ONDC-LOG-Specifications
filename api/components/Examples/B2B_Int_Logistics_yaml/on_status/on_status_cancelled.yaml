@@ -2,7 +2,7 @@ summary: Status updates
 description: Logistics provider updates the status of fulfillment
 value:
   context:
-    domain: ONDC:LGP
+    domain: ONDC:LOG11
     location:
       city:
         code: UN:SIN
@@ -181,7 +181,7 @@ value:
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
-          type: PRE-FULFILLMENT
+          type: ON-FULFILLMENT
           tags:
             - descriptor:
                 code: Settlement_Details
@@ -204,6 +204,15 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
+            - descriptor:
+                code: Collection_Details
+              list:
+              - descriptor:
+                  code: Amount
+                value: '20000'
+              - descriptor:
+                  code: Type
+                value: ON-FULFILLMENT
       tags:
         - descriptor:
             code: Package_Weight

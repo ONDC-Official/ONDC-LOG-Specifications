@@ -1,6 +1,6 @@
 {
     "context": {
-        "domain": "ONDC:LGP",
+        "domain": "ONDC:LOG11",
         "location": {
             "city": {
                 "code": "UN:SIN"
@@ -325,6 +325,25 @@
                                         "code": "UPI_Address"
                                     },
                                     "value": "xxxxxxx"
+                                }
+                            ]
+                        },
+                        {
+                            "descriptor": {
+                                "code": "Collection_Details"
+                            },
+                            "list": [
+                                {
+                                    "descriptor": {
+                                        "code": "Amount"
+                                    },
+                                    "value": "20000"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Type"
+                                    },
+                                    "value": "ON-FULFILLMENT"
                                 }
                             ]
                         }

@@ -2,7 +2,7 @@ summary: Response to order initialization - KYC Failed
 description: Logistics Provider updates the KYC as Failed with the error message.
 value:
   context:
-    domain: ONDC:LGP
+    domain: ONDC:LOG11
     location:
       city:
         code: UN:SIN
@@ -187,7 +187,7 @@ value:
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
-          type: PRE-FULFILLMENT
+          type: ON-FULFILLMENT
           tags:
             - descriptor:
                 code: Settlement_Details

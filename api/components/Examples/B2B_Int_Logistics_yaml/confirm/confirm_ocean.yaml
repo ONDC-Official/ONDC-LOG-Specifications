@@ -2,7 +2,7 @@ summary: Logistics buyer confirms the order
 description: Logistics buyer confirms the order
 value:
   context:
-    domain: ONDC:LGP
+    domain: ONDC:LOG11
     location:
       city:
         code: UN:SIN

@@ -1,6 +1,6 @@
 {
   "context": {
-    "domain": "ONDC:LGS",
+    "domain": "ONDC:LOG11",
     "location": {
       "city": {
         "code": "UN:SIN"
@@ -90,11 +90,27 @@
       },
       "payment": {
         "collected_by": "BPP",
-        "type": "ON-FULFILLMENT",
-        "params": {
-          "amount": "20000",
-          "currency": "INR"
-        }
+        "tags": [
+          {
+            "descriptor": {
+              "code": "Collection_Details"
+            },
+            "list": [
+              {
+                "descriptor": {
+                  "code": "Amount"
+                },
+                "value": "20000"
+              },
+              {
+                "descriptor": {
+                  "code": "Type"
+                },
+                "value": "ON-FULFILLMENT"
+              }
+            ]
+          }
+        ]
       },
       "tags": [
         {
@@ -209,9 +225,15 @@
             },
             {
               "descriptor": {
-                "code": "Temp_Range"
+                "code": "Temp_Min"
               },
-              "value": "-18"
+              "value": "0"
+            },
+            {
+              "descriptor": {
+                "code": "Temp_Max"
+              },
+              "value": "4"
             }
           ]
         }

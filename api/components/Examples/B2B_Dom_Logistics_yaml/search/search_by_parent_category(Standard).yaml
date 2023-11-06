@@ -2,7 +2,7 @@ summary: Search by Parent Category - Standard Delivery
 description: 
 value:
   context:
-    domain: ONDC:LGS
+    domain: ONDC:LOG10
     location:
       city:
         code: std:080
@@ -52,10 +52,16 @@ value:
               area_code: '636806'
       payment:
         collected_by: BPP
-        type: ON-FULFILLMENT
-        params:
-          amount: '20000'
-          currency: INR
+        tags:
+        - descriptor:
+            code: Collection_Details
+          list:
+          - descriptor:
+              code: Amount
+            value: '20000'
+          - descriptor:
+              code: Type
+            value: ON-FULFILLMENT
       tags:
         - descriptor:
             code: Package_Weight
@@ -109,5 +115,8 @@ value:
                 code: Temp_Unit
               value: Celsius
             - descriptor:
-                code: Temp_Range
-              value: '-18'
+                code: Temp_Min
+              value: '0'
+            - descriptor:
+                code: Temp_Max
+              value: '4'

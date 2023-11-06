@@ -2,7 +2,7 @@ summary: Logistics buyer confirms the order.
 description: Logistics buyer confirms the order.
 value:
   context:
-    domain: ONDC:LGP
+    domain: ONDC:LOG10
     location:
       city:
         code: std:080
@@ -118,7 +118,7 @@ value:
             currency: INR
             bank_account_number: xxxxxxxx
             virtual_payment_address: xxx@xxxx
-          type: PRE-FULFILMENT
+          type: ON-FULFILMENT
           tags:
             - descriptor:
                 code: Settlement_Details
@@ -141,6 +141,15 @@ value:
                 - descriptor:
                     code: UPI_Address
                   value: xxxxxxx
+            - descriptor:
+                code: Collection_Details
+              list:
+              - descriptor:
+                  code: Amount
+                value: '20000'
+              - descriptor:
+                  code: Type
+                value: ON-FULFILLMENT
       tags:
         - descriptor:
             code: Package_Weight

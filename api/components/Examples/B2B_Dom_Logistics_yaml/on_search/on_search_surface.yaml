@@ -2,7 +2,7 @@ summary: LSP sends catalog
 description: Logistics service provider sends the catalog based on search + Sends the KYC Link.
 value:
   context:
-    domain: ONDC:DLG
+    domain: ONDC:LOG10
     location:
       city:
         code: std:080

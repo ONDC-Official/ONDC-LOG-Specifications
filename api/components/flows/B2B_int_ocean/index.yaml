@@ -1,5 +1,5 @@
-summary: B2B International Ocean
-description: The following is an illustrative flow to perform a transaction of a nature where a buyer would like to order bulk items
+summary: B2B International Logistics - Ocean Delivery
+description: The below flow shows the journey of Logistics buyer buying logistics services for Ocean Cargo.
 reference: if any
 steps:
   - summary: Search Logistics - Ocean Delivery
@@ -49,4 +49,34 @@ steps:
     description: LSP updates the weight and measurement differential charges.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_update/on_update_ocean.yaml"   
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_update/on_update_ocean.yaml"
+  - summary: LSP sends status updates - Pickup Approved
+    api: on_status
+    description: LSP sends status updates
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_status/on_status_air.yaml"
+  - summary: LSP sends status updates - Order Picked up
+    api: on_status
+    description: LSP sends status updates
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_status/on_status_order_pickedup.yaml"
+  - summary: LSP sends status updates - Domestic Custom Cleared
+    api: on_status
+    description: LSP sends status updates
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_status/on_status_custom.yaml"
+  - summary: Logistics buyer requests for status update
+    api: status
+    description: Logistics buyer requests for status update
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/status/status.yaml"
+  - summary: LSP sends status updates - Order Delivered
+    api: on_status
+    description: LSP sends status updates
+    reference: if any
+    example:
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/on_status/on_status_order_delivered.yaml"

@@ -2,7 +2,7 @@ summary: Search by parent category - Express Delivery
 description: 
 value:
   context:
-    domain: ONDC:LGS
+    domain: ONDC:LOG11
     location:
       city:
         code: UN:SIN
@@ -62,10 +62,16 @@ value:
               value: UN:SGSIN
       payment:
         collected_by: BPP
-        type: ON-FULFILLMENT
-        params:
-          amount: '20000'
-          currency: INR
+        tags:
+        - descriptor:
+            code: Collection_Details
+          list:
+          - descriptor:
+              code: Amount
+            value: '20000'
+          - descriptor:
+              code: Type
+            value: ON-FULFILLMENT
       tags:
         - descriptor:
             code: Package_Weight
@@ -122,5 +128,8 @@ value:
                 code: Temp_Unit
               value: Celsius
             - descriptor:
-                code: Temp_Range
-              value: '-18'
+                code: Temp_Min
+              value: '0'
+            - descriptor:
+                code: Temp_Max
+              value: '4'

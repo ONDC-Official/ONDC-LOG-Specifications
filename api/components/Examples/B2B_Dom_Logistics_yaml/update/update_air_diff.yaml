@@ -2,7 +2,7 @@ summary: Logistics Buyer updates the package measurement
 description: 
 value:
   context:
-    domain: ONDC:LGP
+    domain: ONDC:LOG10
     location:
       city:
         code: std:080

@@ -1,6 +1,6 @@
 {
     "context": {
-      "domain": "ONDC:DLG",
+      "domain": "ONDC:LOG11",
       "location": {
         "city": {
           "code": "UN:SIN"
