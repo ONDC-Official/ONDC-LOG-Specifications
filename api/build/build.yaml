@@ -23408,4 +23408,280 @@ x-examples:
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
 x-attributes:
-  B2B Logistics - Domestic: {}
+  B2B Logistics - Domestic:
+    attribute_set:
+      search:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: >-
+              updated domain namespace defined here -
+              https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+            required: mandatory
+            usage: ONDC:LGP
+            reference: if any
+          city:
+            description: >-
+              city code for search that identifies the cities where sellers have
+              stores. List of city codes, with pincode mapping, are here -
+              https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+            required: mandatory
+            usage: UN:SIN
+            reference: if any
+          bap_id:
+            description: subscriber id for logistics buyer app
+            required: mandatory
+            usage: logistics_buyer.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://logistics_buyer.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2023-10-17T21:10:00.000Z'
+            reference: if any
+          ttl:
+            description: validity of message
+            required: mandatory
+            usage: PT30S
+            reference: if any
+        message:
+          parent: true
+          intent:
+            parent: true
+            category:
+              parent: true
+              description: Category of the search
+              required: optional
+              usage: '-'
+              reference: if any
+              descriptor:
+                parent: true
+                code:
+                  description: delivery type for the order
+                  required: required
+                  usage: Surface_Delivery
+                  reference: if any
+            provider:
+              parent: true
+              time:
+                parent: true
+                description: store pickup timings
+                required: optional
+                usage: '-'
+                reference: if any
+                days:
+                  description: days of week - 1 - Monday till 7 - Sunday
+                  required: optional
+                  usage: 1,2,3,4,5,6,7
+                  reference: if any
+                schedule:
+                  holidays:
+                    parent: true
+                    description: list of future dated holidays
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                range:
+                  description: >-
+                    define store order pickup timing, for "days" above, here it
+                    means the store order pickup timings are from 1100 to 2100
+                    from Monday to Sunday
+                  required: optional
+                  usage: start:1100,end:2100
+                  reference: if any
+            fulfillment:
+              parent: true
+              description: Category of the search
+              required: optional
+              usage: '-'
+              reference: if any
+              type:
+                description: fulfillment type for the order, enum - "Delivery", "Return"
+                required: required
+                usage: Delivery
+                reference: if any
+            payment:
+              parent: true
+              type:
+                description: >-
+                  defines the payment type, enum - "ON-ORDER", "ON-FULFILLMENT",
+                  "POST-FULFILLMENT";
+                required: optional
+                usage: '3'
+                reference: if any
+              '@ondc/org/collection_amount':
+                description: >-
+                  amount to be collected by the delivery agent, required for
+                  type "ON-FULFILLMENT"
+                required: optional
+                usage: '3'
+                reference: if any
+      on_search:
+        parent: true
+        message:
+          parent: true
+          catalog:
+            parent: true
+            descriptor:
+              parent: true
+              name:
+                description: >-
+                  name of logistics aggregator or logistics provider, as
+                  applicable
+                required: required
+                usage: LSP Aggregator Inc
+                reference: if any
+            providers:
+              parent: true
+              categories:
+                parent: true
+                time:
+                  description: >-
+                    category level TAT for S2D (ship-to-delivery), can be
+                    overridden by item-level TAT whenever there are multiple
+                    options for the same category (e.g. 4D, 7D etc.);
+                  required: required
+                  usage: 7D
+                  reference: if any
+                time.timestamp:
+                  description: >-
+                    refers to date (vis-a-vis Context.timestamp) for which this
+                    TAT is provided
+                  required: required
+                  usage: '2023-10-17'
+                  reference: if any
+              locations:
+                description: >-
+                  mandatory only for cases where shipment has to be dropped off
+                  at LSP location
+                required: optional
+                usage: '-'
+                reference: if any
+              items:
+                parent: true
+                descriptor:
+                  parent: true
+                  code:
+                    description: >-
+                      type of shipment; enum -  "P2P" (point-to-point) and
+                      "P2H2P" (point-to-hub-to-point). P2H2P fulfillments
+                      require different packaging and AWB no. This is required
+                      for merchants to decide on the packaging required for
+                      shipment
+                    required: optional
+                    usage: '-'
+                    reference: if any
+      init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            locations:
+              description: mandatory only if provider.locations was returned in /on_search
+              required: optional
+              usage: '-'
+              reference: if any
+            fulfillments.id:
+              description: fulfillment_id from /on_search corresponding to appropriate type
+              required: required
+              usage: '-'
+              reference: if any
+            billing:
+              description: >-
+                billing details of the marketplace (MSN or ISN retail seller
+                app) for invoicing;
+              required: required
+              usage: '-'
+              reference: if any
+      confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            fulfillments:
+              parent: true
+              '@ondc/org/awb_no':
+                description: >-
+                  AWB number can be provided by logistics buyer NP (in /confirm
+                  or /update) or LSP (in /on_confirm or /on_update) and is
+                  mandatory only if item.descriptor.code = "P2H2P". Can be 11-16
+                  digits;
+                required: optional
+                usage: '-'
+                reference: if any
+              stops.instructions:
+                description: >-
+                  type of PCC - enum - "1" - buyer contact no (for self-pickup),
+                  "2" - merchant order no, "3" - other pickup confirmation code,
+                  "4" - OTP;
+                required: optional
+                usage: '-'
+                reference: if any
+      update:
+        parent: true
+        message:
+          parent: true
+          fulfillments:
+            parent: true
+            stops:
+              parent: true
+              instructions:
+                parent: true
+                description: instructions for delivery
+                required: code and short_desc required if "ready_to_ship" = yes;
+                usage: '-'
+                reference: if any
+                code:
+                  description: The AWB No. of the fulfillment
+                  required: required if ready to ship
+                  usage: '1227262193237777'
+                  reference: if any
+                short_desc:
+                  description: >-
+                    value of PCC - contact no - 10 digits; merchant order no -
+                    max 6 digits; other pickup confirmation code - max 6 digits;
+                    OTP - max 6 digits
+                  required: required if ready to ship
+                  usage: '-'
+                  reference: if any
+      on_update:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              locations:
+                description: locations as listed
+                required: mandatory only if in /confirm
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              stops:
+                parent: true
+                type:
+                  description: Type of the fulfillment; (start or end)
+                  required: mandatory
+                  usage: start
+                  reference: if any
+                instructions:
+                  parent: true
+                  long_desc:
+                    description: description of the instruction
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                  images:
+                    description: provides proof of pickup
+                    required: optional
+                    usage: '-'
+                    reference: if any

@@ -1,0 +1,33 @@
+message:
+  parent: true
+  order:
+    parent: true
+    provider:
+      parent: true
+      locations:
+        description: locations as listed
+        required: mandatory only if in /confirm
+        usage: "-"
+        reference: if any
+    fulfillments:
+      parent: true
+      stops:
+        parent: true
+        type:
+          description: Type of the fulfillment; (start or end)
+          required: mandatory
+          usage: "start"
+          reference: if any
+        instructions:
+          parent: true
+          long_desc:
+            description: description of the instruction
+            required: optional
+            usage: "-"
+            reference: if any
+          images:
+            description: provides proof of pickup
+            required: optional
+            usage: "-"
+            reference: if any
+

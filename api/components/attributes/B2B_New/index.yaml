@@ -13,3 +13,11 @@ init:
 confirm:
   parent: true
   $ref: "./confirm/confirm.yaml"   
+
+update:
+  parent: true
+  $ref: "./update/update.yaml"
+
+on_update:
+  parent: true
+  $ref: "./on_update/on_update.yaml"
