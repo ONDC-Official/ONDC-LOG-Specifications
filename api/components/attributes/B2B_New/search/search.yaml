@@ -3,12 +3,12 @@ context:
   domain:
     description: updated domain namespace defined here - https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
     required: mandatory
-    usage: "ONDC:LGP"
+    usage: "ONDC:LOG10"
     reference: if any
   city:
-    description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=1474472733
+    description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
     required: mandatory
-    usage: UN:SIN
+    usage: std:080
     reference: if any
   bap_id:
     description: subscriber id for logistics buyer app
@@ -85,13 +85,15 @@ message:
         reference: if any
     payment:
       parent: true
-      type:
-        description: defines the payment type, enum - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT";
-        required: optional
-        usage: "3"
-        reference: if any
-      '@ondc/org/collection_amount':
-        description: amount to be collected by the delivery agent, required for type "ON-FULFILLMENT"
-        required: optional
-        usage: "3"
-        reference: if any
+      tags:
+        parent: true
+        list[1]:
+          description: defines the payment type, enum - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT";
+          required: optional
+          usage: "ON-FULFILLMENT"
+          reference: if any
+        list[0]:
+          description: amount to be collected by the delivery agent, required for type "ON-FULFILLMENT"
+          required: optional
+          usage: "300"
+          reference: if any

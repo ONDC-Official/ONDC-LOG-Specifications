@@ -1,0 +1,7 @@
+message:
+  parent: true
+  cancellation_reason_id:
+    description: cancellation reason id, List of cancellation reason codes can be found here https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+    required: required
+    usage: "004"
+    reference: if any
