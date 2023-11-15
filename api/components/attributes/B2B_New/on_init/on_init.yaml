@@ -1,0 +1,49 @@
+message:
+  parent: true
+  order:
+    parent: true
+    quote:
+      parent: true
+      breakup:
+        parent: true
+        breakup:
+          description: logistics provider provides the the breakup of the quote
+          required: required
+          usage: "-"
+          reference: if any
+        title:
+          description: title of the delivery charges enum - delivery, tax, rto, diff
+          required: required
+          usage: "delivery"
+          reference: if any
+    cancellation_terms:
+      parent: true
+      cancellation_terms:
+        description: Cancellation terms will be defined by the LSP for the order in /on_init
+        required: required
+        usage: "-"
+        reference: if any
+      fulfillment_state:
+        parent: true
+        descriptor:
+          parent: true
+          code:
+            description: fulfillment state of the order, enum - Pending, Agent-assigned, Order-picked-up, Out-for-delivery
+            required: required
+            usage: "Pending"
+            reference: if any  
+          short_desc:
+            description: reason code, mandatory if reason_required is "true"
+            required: optional
+            usage: "001"
+            reference: if any
+      refund_eligible:
+        description: whether cancellation in this state is eligible for refund (boolean)
+        required: optional
+        usage: "true"
+        reference: if any    
+      reason_required:
+        description: whether cancellation reason code is required. List of cancellation reason codes is "https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031"
+        required: optional
+        usage: "true"
+        reference: if any    

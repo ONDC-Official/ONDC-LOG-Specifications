@@ -1,0 +1,25 @@
+message:
+  parent: true
+  order:
+    parent: true
+    status:
+      description: status of the order, enum - "Created", "Accepted", "Cancelled"
+      required: required
+      usage: "Created"
+      reference: if any
+    fulfillments:
+      parent: true
+      tracking:
+        description: should be true if live tracking is enabled
+        required: optional
+        usage: "true"
+        reference: if any
+      stops:
+        parent: true
+        time:
+          parent: true
+          range:
+            description:  In response to RTS, LSP provides a pickup time slot
+            required: optional
+            usage: "-"
+            reference: if any
