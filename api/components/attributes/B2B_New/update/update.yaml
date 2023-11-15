@@ -1,0 +1,22 @@
+message:
+  parent: true
+  fulfillments:
+    parent: true
+    stops:
+      parent: true
+      instructions:
+        parent: true
+        description: instructions for delivery
+        required: code and short_desc required if "ready_to_ship" = yes;
+        usage: "-"
+        reference: if any
+        code:
+          description: The AWB No. of the fulfillment
+          required: required if ready to ship
+          usage: "1227262193237777"
+          reference: if any
+        short_desc:
+          description: value of PCC - contact no - 10 digits; merchant order no - max 6 digits; other pickup confirmation code - max 6 digits; OTP - max 6 digits
+          required: required if ready to ship
+          usage: "-"
+          reference: if any

@@ -23601,6 +23601,7 @@ x-attributes:
               required: required
               usage: '-'
               reference: if any
+
       on_init:
         parent: true
         message:
@@ -23688,12 +23689,68 @@ x-attributes:
                 required: optional
                 usage: '-'
                 reference: if any
+      update:
+        parent: true
+        message:
+          parent: true
+          fulfillments:
+            parent: true
+            stops:
+              parent: true
+              instructions:
+                parent: true
+                description: instructions for delivery
+                required: code and short_desc required if "ready_to_ship" = yes;
+                usage: '-'
+                reference: if any
+                code:
+                  description: The AWB No. of the fulfillment
+                  required: required if ready to ship
+                  usage: '1227262193237777'
+                  reference: if any
+                short_desc:
+                  description: >-
+                    value of PCC - contact no - 10 digits; merchant order no -
+                    max 6 digits; other pickup confirmation code - max 6 digits;
+                    OTP - max 6 digits
+                  required: required if ready to ship
+                  usage: '-'
+                  reference: if any
+      on_update:
       on_confirm:
         parent: true
         message:
           parent: true
           order:
             parent: true
+            provider:
+              parent: true
+              locations:
+                description: locations as listed
+                required: mandatory only if in /confirm
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              stops:
+                parent: true
+                type:
+                  description: Type of the fulfillment; (start or end)
+                  required: mandatory
+                  usage: start
+                  reference: if any
+                instructions:
+                  parent: true
+                  long_desc:
+                    description: description of the instruction
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                  images:
+                    description: provides proof of pickup
+                    required: optional
+                    usage: '-'
+                    reference: if any
             status:
               description: status of the order, enum - "Created", "Accepted", "Cancelled"
               required: required

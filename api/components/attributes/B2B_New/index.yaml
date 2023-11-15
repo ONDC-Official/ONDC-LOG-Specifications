@@ -17,7 +17,7 @@ on_init:
 confirm:
   parent: true
   $ref: "./confirm/confirm.yaml"   
-
+  
 on_confirm:
   parent: true
   $ref: "./on_confirm/on_confirm.yaml"
@@ -29,3 +29,11 @@ cancel:
 on_cancel:
   parent: true
   $ref: "./on_cancel/on_cancel.yaml"
+
+update:
+  parent: true
+  $ref: "./update/update.yaml"
+
+on_update:
+  parent: true
+  $ref: "./on_update/on_update.yaml"
