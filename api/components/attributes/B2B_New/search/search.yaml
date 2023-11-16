@@ -1,0 +1,111 @@
+context:
+  parent: true
+  domain:
+    description: domain code, updated domain namespace defined here - https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+    required: mandatory
+    usage: "ONDC:LOG10"
+    reference: if any
+  city.code:
+    description: city code for search where product needs to be delivered. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+    required: mandatory
+    usage: std:080
+    reference: if any
+  country.code:
+    description: country code where product needs to be delivered
+    required: mandatory
+    usage: IND
+    reference: if any  
+  bap_id:
+    description: subscriber id for logistics buyer app
+    required: mandatory
+    usage: logistics_buyer.com
+    reference: if any
+  bap_uri:
+    description: subscriber URI for buyer app
+    required: mandatory
+    usage: https://logistics_buyer.com/ondc
+    reference: if any
+  timestamp:
+    description: RFC3339 compliant timestamp
+    required: mandatory
+    usage: '2023-10-17T21:10:00.000Z'
+    reference: if any
+  ttl:
+    description: validity of message
+    required: mandatory
+    usage: PT30S
+    reference: if any
+message:
+  parent: true
+  intent:
+    parent: true
+    category:
+      parent: true
+      description: Category of the search
+      required: optional
+      usage: "-"
+      reference: if any
+      descriptor:
+        parent: true
+        code:
+          description: delivery type for the order, enums - Surface_Delivery, Air_Delivery, Ocean_Delivery(only applicable for international logistics)
+          required: required
+          usage: "Surface_Delivery"
+          reference: if any
+    provider:
+      parent: true
+      time: 
+        parent: true
+        description: store pickup timings
+        required: optional
+        usage: "-"
+        reference: if any
+        days:
+          description: days of week - 1 - Monday till 7 - Sunday
+          required: optional
+          usage: "1,2,3,4,5,6,7"
+          reference: if any
+        schedule:
+          holidays:
+            parent: true
+            description: list of future dated holidays
+            required: optional
+            usage: "-"
+            reference: if any  
+        range:
+          description: define store order pickup timing, for "days" above, here it means the store order pickup timings are from 1100 to 2100 from Monday to Sunday
+          required: optional
+          usage: "start:1100,end:2100"
+          reference: if any    
+    fulfillment:
+      parent: true
+      description: Category of the search
+      required: optional
+      usage: "-"
+      reference: if any
+      type:
+        description: fulfillment type for the order, enum - "Delivery", "Return"
+        required: required
+        usage: "Delivery"
+        reference: if any
+      stops:
+        parent: true
+        location:
+          description: pickup/drop location gps coordinates, should be atleast 6 digit decimal precision
+          required: required
+          usage: "12.4535445,77.9283792"
+          reference: if any   
+    payment:
+      parent: true
+      tags:
+        parent: true
+        list[1]:
+          description: defines the payment type, enum - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT";
+          required: optional
+          usage: "ON-FULFILLMENT"
+          reference: if any
+        list[0]:
+          description: amount to be collected by the delivery agent, required for type "ON-FULFILLMENT"
+          required: optional
+          usage: "300"
+          reference: if any
