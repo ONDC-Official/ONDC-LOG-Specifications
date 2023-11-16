@@ -17,7 +17,7 @@ message:
           usage: "-"
           reference: if any
         title:
-          description: title of the delivery charges enum - delivery, tax, rto, diff
+          description: title of the delivery charges enum - delivery, tax, rto, diff, for international logistics - enum - Origin, Frieght, Destination, Custom_Clearance_Service_Origin, Custom_Clearance_Service_Destination
           required: required
           usage: "delivery"
           reference: if any

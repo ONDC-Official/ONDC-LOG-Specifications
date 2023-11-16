@@ -19,7 +19,7 @@ message:
         time:
           parent: true
           range:
-            description:  In response to RTS, LSP provides a pickup time slot
+            description:  In response to Ready to ship - yes, LSP provides a pickup time slot
             required: optional
             usage: "-"
             reference: if any
