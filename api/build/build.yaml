@@ -23748,7 +23748,7 @@ x-attributes:
           parent: true
           order:
             parent: true
-            locations:
+            provider.locations:
               description: mandatory only if provider.locations was returned in /on_search
               required: optional
               usage: '-'
@@ -23812,109 +23812,7 @@ x-attributes:
                 title:
                   description: >-
                     title of the delivery charges enum - delivery, tax, rto,
-                    diff
-                  required: required
-                  usage: delivery
-                  reference: if any
-            payments:
-              parent: true
-              params:
-                parent: true
-                amount:
-                  description: amount as per the quote total value
-                  required: required
-                  usage: '6000'
-                  reference: if any
-                currency:
-                  description: currency in which to receive the amount
-                  required: required
-                  usage: INR
-                  reference: if any
-                bank_account_number:
-                  description: Logistics service provider bank account number
-                  required: required
-                  usage: '001404845678'
-                  reference: if any
-                virtual_payment_address:
-                  description: Logistics service provider payment link address
-                  required: required
-                  usage: '-'
-                  reference: if any
-              type:
-                description: >-
-                  stage when fulfillment will be done by logistics seller, enum
-                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
-                required: required
-                usage: ON-FULFILLMENT
-                reference: if any
-              tags:
-                description: Details of counter party for settling the money
-                required: required
-                usage: '-'
-                reference: if any
-            cancellation_terms:
-              parent: true
-              cancellation_terms:
-                description: >-
-                  Cancellation terms will be defined by the LSP for the order in
-                  /on_init
-                required: required
-                usage: '-'
-                reference: if any
-              fulfillment_state:
-                parent: true
-                descriptor:
-                  parent: true
-                  code:
-                    description: >-
-                      fulfillment state of the order, enum - Pending,
-                      Agent-assigned, Order-picked-up, Out-for-delivery
-                    required: required
-                    usage: Pending
-                    reference: if any
-                  short_desc:
-                    description: reason code, mandatory if reason_required is "true"
-                    required: optional
-                    usage: '001'
-                    reference: if any
-              refund_eligible:
-                description: >-
-                  whether cancellation in this state is eligible for refund
-                  (boolean)
-                required: optional
-                usage: 'true'
-                reference: if any
-              reason_required:
-                description: >-
-                  whether cancellation reason code is required. List of
-                  cancellation reason codes is
-                  "https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031"
-                required: optional
-                usage: 'true'
-                reference: if any
-      on_init_international_logistics:
-        parent: true
-        message:
-          parent: true
-          order:
-            parent: true
-            quote:
-              parent: true
-              quote:
-                description: quote to be sent from LSP
-                required: required
-                usage: '-'
-                reference: if any
-              breakup:
-                parent: true
-                breakup:
-                  description: logistics provider provides the the breakup of the quote
-                  required: required
-                  usage: '-'
-                  reference: if any
-                title:
-                  description: >-
-                    title of the delivery charges enum - Origin, Frieght,
+                    diff, for international logistics - enum - Origin, Frieght,
                     Destination, Custom_Clearance_Service_Origin,
                     Custom_Clearance_Service_Destination
                   required: required
@@ -24004,23 +23902,19 @@ x-attributes:
             parent: true
             fulfillments:
               parent: true
-              '@ondc/org/awb_no':
-                description: >-
-                  AWB number can be provided by logistics buyer NP (in /confirm
-                  or /update) or LSP (in /on_confirm or /on_update) and is
-                  mandatory only if item.descriptor.code = "P2H2P". Can be 11-16
-                  digits;
-                required: optional
-                usage: '-'
-                reference: if any
-              stops.instructions:
-                description: >-
-                  type of PCC - enum - "1" - buyer contact no (for self-pickup),
-                  "2" - merchant order no, "3" - other pickup confirmation code,
-                  "4" - OTP;
-                required: optional
-                usage: '-'
-                reference: if any
+              stops:
+                parent: true
+                instructions:
+                  parent: true
+                  code:
+                    description: >-
+                      type of PCC - enum - "AWB_No" - shipping bill (AWB
+                      number), "ACC_No" - If Account exists-Customer code ,
+                      "BKG_No" - Booking reference number provided by LSP at the
+                      time of booking, "GST_No" - GST number
+                    required: optional
+                    usage: AWB_No
+                    reference: if any
       on_confirm:
         parent: true
         message:
@@ -24044,7 +23938,9 @@ x-attributes:
                 time:
                   parent: true
                   range:
-                    description: In response to RTS, LSP provides a pickup time slot
+                    description: >-
+                      In response to Ready to ship - yes, LSP provides a pickup
+                      time slot
                     required: optional
                     usage: '-'
                     reference: if any
