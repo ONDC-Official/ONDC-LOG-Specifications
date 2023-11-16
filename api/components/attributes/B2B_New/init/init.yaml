@@ -2,7 +2,7 @@ message:
   parent: true
   order:
     parent: true
-    locations: 
+    provider.locations: 
       description: mandatory only if provider.locations was returned in /on_search
       required: optional
       usage: "-"

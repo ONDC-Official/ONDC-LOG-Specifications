@@ -13,10 +13,6 @@ init:
 on_init:
   parent: true
   $ref: "./on_init/on_init.yaml"
-
-on_init_international_logistics:
-  parent: true
-  $ref: "./on_init/on_init_int.yaml"
   
 confirm:
   parent: true
