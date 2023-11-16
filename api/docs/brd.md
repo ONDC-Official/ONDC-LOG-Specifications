@@ -110,6 +110,6 @@ B2B International:
 - Booking reference number - provided by LSP at the time of booking. - code: BKG_No
 - GST Number - code: GST_No
 
-(Domestic B2B Logistics Flow)[brd_images/Domestic_B2B_Logistics_Flow.png]
+![Domestic B2B Logistics Flow](brd_images/Domestic_B2B_Logistics_Flow.png)
 
 ## Order Fulfilment
