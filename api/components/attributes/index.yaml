@@ -1,3 +1,3 @@
-B2B Logistics - Domestic: 
+B2B Logistics: 
   attribute_set:
     $ref: './B2B_New/index.yaml' 

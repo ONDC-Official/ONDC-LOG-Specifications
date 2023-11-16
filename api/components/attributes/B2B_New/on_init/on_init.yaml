@@ -4,6 +4,11 @@ message:
     parent: true
     quote:
       parent: true
+      quote:
+        description: quote to be sent from LSP
+        required: required
+        usage: "-"
+        reference: if any
       breakup:
         parent: true
         breakup:
@@ -16,6 +21,40 @@ message:
           required: required
           usage: "delivery"
           reference: if any
+    payments:
+      parent: true
+      params:
+        parent: true
+        amount:
+          description: amount as per the quote total value
+          required: required
+          usage: "6000"
+          reference: if any
+        currency:
+          description: currency in which to receive the amount
+          required: required
+          usage: "INR"
+          reference: if any
+        bank_account_number:
+          description: Logistics service provider bank account number
+          required: required
+          usage: "001404845678"
+          reference: if any
+        virtual_payment_address:
+          description: Logistics service provider payment link address
+          required: required
+          usage: "-"
+          reference: if any
+      type: 
+        description: stage when fulfillment will be done by logistics seller, enum - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+        required: required
+        usage: "ON-FULFILLMENT"
+        reference: if any
+      tags:
+        description: Details of counter party for settling the money
+        required: required
+        usage: "-"
+        reference: if any 
     cancellation_terms:
       parent: true
       cancellation_terms:

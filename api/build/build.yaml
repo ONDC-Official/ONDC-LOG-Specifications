@@ -23408,7 +23408,7 @@ x-examples:
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
 x-attributes:
-  B2B Logistics - Domestic:
+  B2B Logistics:
     attribute_set:
       search:
         parent: true
@@ -23416,18 +23416,23 @@ x-attributes:
           parent: true
           domain:
             description: >-
-              updated domain namespace defined here -
+              domain code, updated domain namespace defined here -
               https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
             required: mandatory
             usage: ONDC:LOG10
             reference: if any
-          city:
+          city.code:
             description: >-
-              city code for search that identifies the cities where sellers have
-              stores. List of city codes, with pincode mapping, are here -
+              city code for search where product needs to be delivered. List of
+              city codes, with pincode mapping, are here -
               https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
             required: mandatory
             usage: std:080
+            reference: if any
+          country.code:
+            description: country code where product needs to be delivered
+            required: mandatory
+            usage: IND
             reference: if any
           bap_id:
             description: subscriber id for logistics buyer app
@@ -23462,7 +23467,10 @@ x-attributes:
               descriptor:
                 parent: true
                 code:
-                  description: delivery type for the order
+                  description: >-
+                    delivery type for the order, enums - Surface_Delivery,
+                    Air_Delivery, Ocean_Delivery(only applicable for
+                    international logistics)
                   required: required
                   usage: Surface_Delivery
                   reference: if any
@@ -23505,6 +23513,15 @@ x-attributes:
                 required: required
                 usage: Delivery
                 reference: if any
+              stops:
+                parent: true
+                location:
+                  description: >-
+                    pickup/drop location gps coordinates, should be atleast 6
+                    digit decimal precision
+                  required: required
+                  usage: 12.4535445,77.9283792
+                  reference: if any
             payment:
               parent: true
               tags:
@@ -23601,7 +23618,30 @@ x-attributes:
               required: required
               usage: '-'
               reference: if any
-
+            x-input:
+              parent: true
+              x-input:
+                description: details of KYC
+                required: optional
+                usage: '-'
+                reference: if any
+              form:
+                parent: true
+                url:
+                  description: KYC url which was sent as part of on_search
+                  required: optional
+                  usage: https://lsp.com/kyc
+                  reference: if any
+                submission_id:
+                  description: submission id, when it is submitted by logistics buyer
+                  required: optional
+                  usage: '234244567789999'
+                  reference: if any
+                status:
+                  description: KYC status, if KYC successfully submitted
+                  required: optional
+                  usage: SUCCESS
+                  reference: if any
       on_init:
         parent: true
         message:
@@ -23610,6 +23650,11 @@ x-attributes:
             parent: true
             quote:
               parent: true
+              quote:
+                description: quote to be sent from LSP
+                required: required
+                usage: '-'
+                reference: if any
               breakup:
                 parent: true
                 breakup:
@@ -23624,6 +23669,146 @@ x-attributes:
                   required: required
                   usage: delivery
                   reference: if any
+            payments:
+              parent: true
+              params:
+                parent: true
+                amount:
+                  description: amount as per the quote total value
+                  required: required
+                  usage: '6000'
+                  reference: if any
+                currency:
+                  description: currency in which to receive the amount
+                  required: required
+                  usage: INR
+                  reference: if any
+                bank_account_number:
+                  description: Logistics service provider bank account number
+                  required: required
+                  usage: '001404845678'
+                  reference: if any
+                virtual_payment_address:
+                  description: Logistics service provider payment link address
+                  required: required
+                  usage: '-'
+                  reference: if any
+              type:
+                description: >-
+                  stage when fulfillment will be done by logistics seller, enum
+                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+                required: required
+                usage: ON-FULFILLMENT
+                reference: if any
+              tags:
+                description: Details of counter party for settling the money
+                required: required
+                usage: '-'
+                reference: if any
+            cancellation_terms:
+              parent: true
+              cancellation_terms:
+                description: >-
+                  Cancellation terms will be defined by the LSP for the order in
+                  /on_init
+                required: required
+                usage: '-'
+                reference: if any
+              fulfillment_state:
+                parent: true
+                descriptor:
+                  parent: true
+                  code:
+                    description: >-
+                      fulfillment state of the order, enum - Pending,
+                      Agent-assigned, Order-picked-up, Out-for-delivery
+                    required: required
+                    usage: Pending
+                    reference: if any
+                  short_desc:
+                    description: reason code, mandatory if reason_required is "true"
+                    required: optional
+                    usage: '001'
+                    reference: if any
+              refund_eligible:
+                description: >-
+                  whether cancellation in this state is eligible for refund
+                  (boolean)
+                required: optional
+                usage: 'true'
+                reference: if any
+              reason_required:
+                description: >-
+                  whether cancellation reason code is required. List of
+                  cancellation reason codes is
+                  "https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031"
+                required: optional
+                usage: 'true'
+                reference: if any
+      on_init_international_logistics:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            quote:
+              parent: true
+              quote:
+                description: quote to be sent from LSP
+                required: required
+                usage: '-'
+                reference: if any
+              breakup:
+                parent: true
+                breakup:
+                  description: logistics provider provides the the breakup of the quote
+                  required: required
+                  usage: '-'
+                  reference: if any
+                title:
+                  description: >-
+                    title of the delivery charges enum - Origin, Frieght,
+                    Destination, Custom_Clearance_Service_Origin,
+                    Custom_Clearance_Service_Destination
+                  required: required
+                  usage: delivery
+                  reference: if any
+            payments:
+              parent: true
+              params:
+                parent: true
+                amount:
+                  description: amount as per the quote total value
+                  required: required
+                  usage: '6000'
+                  reference: if any
+                currency:
+                  description: currency in which to receive the amount
+                  required: required
+                  usage: INR
+                  reference: if any
+                bank_account_number:
+                  description: Logistics service provider bank account number
+                  required: required
+                  usage: '001404845678'
+                  reference: if any
+                virtual_payment_address:
+                  description: Logistics service provider payment link address
+                  required: required
+                  usage: '-'
+                  reference: if any
+              type:
+                description: >-
+                  stage when fulfillment will be done by logistics seller, enum
+                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+                required: required
+                usage: ON-FULFILLMENT
+                reference: if any
+              tags:
+                description: Details of counter party for settling the money
+                required: required
+                usage: '-'
+                reference: if any
             cancellation_terms:
               parent: true
               cancellation_terms:
@@ -23689,68 +23874,12 @@ x-attributes:
                 required: optional
                 usage: '-'
                 reference: if any
-      update:
-        parent: true
-        message:
-          parent: true
-          fulfillments:
-            parent: true
-            stops:
-              parent: true
-              instructions:
-                parent: true
-                description: instructions for delivery
-                required: code and short_desc required if "ready_to_ship" = yes;
-                usage: '-'
-                reference: if any
-                code:
-                  description: The AWB No. of the fulfillment
-                  required: required if ready to ship
-                  usage: '1227262193237777'
-                  reference: if any
-                short_desc:
-                  description: >-
-                    value of PCC - contact no - 10 digits; merchant order no -
-                    max 6 digits; other pickup confirmation code - max 6 digits;
-                    OTP - max 6 digits
-                  required: required if ready to ship
-                  usage: '-'
-                  reference: if any
-      on_update:
       on_confirm:
         parent: true
         message:
           parent: true
           order:
             parent: true
-            provider:
-              parent: true
-              locations:
-                description: locations as listed
-                required: mandatory only if in /confirm
-                usage: '-'
-                reference: if any
-            fulfillments:
-              parent: true
-              stops:
-                parent: true
-                type:
-                  description: Type of the fulfillment; (start or end)
-                  required: mandatory
-                  usage: start
-                  reference: if any
-                instructions:
-                  parent: true
-                  long_desc:
-                    description: description of the instruction
-                    required: optional
-                    usage: '-'
-                    reference: if any
-                  images:
-                    description: provides proof of pickup
-                    required: optional
-                    usage: '-'
-                    reference: if any
             status:
               description: status of the order, enum - "Created", "Accepted", "Cancelled"
               required: required
@@ -23819,3 +23948,114 @@ x-attributes:
               required: required
               usage: '-'
               reference: if any
+      update:
+        parent: true
+        message:
+          parent: true
+          fulfillments:
+            parent: true
+            stops:
+              parent: true
+              instructions:
+                parent: true
+                description: instructions for delivery
+                required: code and short_desc required if "ready_to_ship" = yes;
+                usage: '-'
+                reference: if any
+                code:
+                  description: The AWB No. of the fulfillment
+                  required: required if ready to ship
+                  usage: '1227262193237777'
+                  reference: if any
+                short_desc:
+                  description: >-
+                    value of PCC - contact no - 10 digits; merchant order no -
+                    max 6 digits; other pickup confirmation code - max 6 digits;
+                    OTP - max 6 digits
+                  required: required if ready to ship
+                  usage: '-'
+                  reference: if any
+      on_update:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              locations:
+                description: locations as listed
+                required: mandatory only if in /confirm
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              stops:
+                parent: true
+                type:
+                  description: Type of the fulfillment; (start or end)
+                  required: mandatory
+                  usage: start
+                  reference: if any
+                instructions:
+                  parent: true
+                  long_desc:
+                    description: description of the instruction
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                  images:
+                    description: provides proof of pickup
+                    required: optional
+                    usage: '-'
+                    reference: if any
+      on_status:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            status:
+              description: >-
+                Status of the order; Enum; Values can be
+                "Created","Accepted","In-progress","Completed","Cancelled"
+              required: mandatory
+              usage: if any
+              reference: if any
+            cancellation:
+              description: >-
+                Details the cancellation reason; Reason ID needs to be a valid
+                code from
+                https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1698485244
+              required: mandatory if status if "cancelled"
+              usage: '-'
+              reference: if any
+            provider:
+              parent: true
+              locations:
+                description: Locations for fulfillments
+                required: required if mentioned in /confirm
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              state:
+                parent: true
+                descriptor:
+                  parent: true
+                  code:
+                    description: >-
+                      Denotes the state of the fulfillment; Enum; Values can be
+                      - "Cancelled", "Order-picked-up", "Pickup-approved",
+                      "Custom-cleared-domestic", "Order-delivered";
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+              stops:
+                parent: true
+                time:
+                  parent: true
+                  timestamp:
+                    description: Timestamp; fulfillment state code is "Order-picked-up";
+                    required: required if fulfillment state is "Order-picked-up"
+                    usage: '2023-06-07T00:00:00.000Z'

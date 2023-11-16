@@ -1,15 +1,20 @@
 context:
   parent: true
   domain:
-    description: updated domain namespace defined here - https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+    description: domain code, updated domain namespace defined here - https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
     required: mandatory
     usage: "ONDC:LOG10"
     reference: if any
-  city:
-    description: city code for search that identifies the cities where sellers have stores. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+  city.code:
+    description: city code for search where product needs to be delivered. List of city codes, with pincode mapping, are here - https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
     required: mandatory
     usage: std:080
     reference: if any
+  country.code:
+    description: country code where product needs to be delivered
+    required: mandatory
+    usage: IND
+    reference: if any  
   bap_id:
     description: subscriber id for logistics buyer app
     required: mandatory
@@ -43,7 +48,7 @@ message:
       descriptor:
         parent: true
         code:
-          description: delivery type for the order
+          description: delivery type for the order, enums - Surface_Delivery, Air_Delivery, Ocean_Delivery(only applicable for international logistics)
           required: required
           usage: "Surface_Delivery"
           reference: if any
@@ -83,6 +88,13 @@ message:
         required: required
         usage: "Delivery"
         reference: if any
+      stops:
+        parent: true
+        location:
+          description: pickup/drop location gps coordinates, should be atleast 6 digit decimal precision
+          required: required
+          usage: "12.4535445,77.9283792"
+          reference: if any   
     payment:
       parent: true
       tags:

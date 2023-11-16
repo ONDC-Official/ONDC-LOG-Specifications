@@ -17,3 +17,27 @@ message:
       required: required
       usage: "-"
       reference: if any
+    x-input:
+      parent: true
+      x-input:
+        description: details of KYC
+        required: optional
+        usage: "-"
+        reference: if any
+      form:
+        parent: true
+        url:
+          description: KYC url which was sent as part of on_search
+          required: optional
+          usage: "https://lsp.com/kyc"
+          reference: if any
+        submission_id:
+          description: submission id, when it is submitted by logistics buyer
+          required: optional
+          usage: "234244567789999"
+          reference: if any          
+        status:
+          description: KYC status, if KYC successfully submitted
+          required: optional
+          usage: "SUCCESS"
+          reference: if any    
