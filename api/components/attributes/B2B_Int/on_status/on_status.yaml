@@ -1,0 +1,40 @@
+message:
+  parent: true
+  order:
+    parent: true
+    status:
+      description: Status of the order; Enum; Values can be "Created","Accepted","In-progress","Completed","Cancelled"
+      required: mandatory
+      usage: if any
+      reference: if any
+    cancellation:
+      description: Details the cancellation reason; Reason ID needs to be a valid code from https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1698485244
+      required: mandatory if status if "cancelled"
+      usage: "-"
+      reference: if any
+    provider:
+      parent: true
+      locations:
+        description: Locations for fulfillments
+        required: required if mentioned in /confirm
+        usage: "-"
+        reference: if any
+    fulfillments:
+      parent: true
+      state:
+        parent: true
+        descriptor:
+          parent: true
+          code:
+            description: Denotes the state of the fulfillment; Enum; Values can be - "Cancelled", "Order-picked-up", "Pickup-approved", "Custom-cleared-domestic", "Order-delivered";
+            required: mandatory
+            usage: "-"
+            reference: if any
+      stops:
+        parent: true
+        time:
+          parent: true
+          timestamp:
+            description: Timestamp; fulfillment state code is "Order-picked-up";
+            required: required if fulfillment state is "Order-picked-up"
+            usage: "2023-06-07T00:00:00.000Z"
