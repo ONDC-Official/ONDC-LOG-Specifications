@@ -23758,24 +23758,29 @@ x-attributes:
           parent: true
           domain:
             description: >-
-              domain code, updated domain namespace defined here -
-              https://docs.google.com/document/d/brvcltG_DagZ3kGrZZQk4hG4tze3zvcxmGV4NMTzr8/edit#heading=h.w9zlp87xdha1
+              domain code, enums - ONDC:LOG10 ( Domestic Logistics ), ONDC:LOG11
+              ( International Logistics)
             required: mandatory
             usage: ONDC:LOG10
             reference: if any
-          city.code:
-            description: >-
-              city code for search where product needs to be delivered. List of
-              city codes, with pincode mapping, are here -
-              https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
-            required: mandatory
-            usage: std:080
-            reference: if any
-          country.code:
-            description: country code where product needs to be delivered
-            required: mandatory
-            usage: IND
-            reference: if any
+          city:
+            code:
+              description: >-
+                city code for search where product needs to be delivered. List
+                of city codes for domestic, with pincode mapping, are here -
+                https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534,
+                for international logistics follow UN standard city codes
+              required: mandatory
+              usage: std:080 ( Domestic ), UN:SIN ( International )
+              reference: if any
+          country:
+            code:
+              description: >-
+                ISO standard 3 digit country code where product needs to be
+                delivered
+              required: mandatory
+              usage: IND
+              reference: if any
           bap_id:
             description: subscriber id for logistics buyer app
             required: mandatory
@@ -23802,12 +23807,12 @@ x-attributes:
             parent: true
             category:
               parent: true
-              description: Category of the search
-              required: optional
-              usage: '-'
-              reference: if any
+              category:
+                description: Category of the search
+                required: optional
+                usage: '-'
+                reference: if any
               descriptor:
-                parent: true
                 code:
                   description: >-
                     delivery type for the order, enums - Surface_Delivery,
@@ -23819,7 +23824,6 @@ x-attributes:
             provider:
               parent: true
               time:
-                parent: true
                 description: store pickup timings
                 required: optional
                 usage: '-'
@@ -23831,7 +23835,6 @@ x-attributes:
                   reference: if any
                 schedule:
                   holidays:
-                    parent: true
                     description: list of future dated holidays
                     required: optional
                     usage: '-'
@@ -23846,17 +23849,12 @@ x-attributes:
                   reference: if any
             fulfillment:
               parent: true
-              description: Category of the search
-              required: optional
-              usage: '-'
-              reference: if any
               type:
                 description: fulfillment type for the order, enum - "Delivery", "Return"
                 required: required
                 usage: Delivery
                 reference: if any
               stops:
-                parent: true
                 location:
                   description: >-
                     pickup/drop location gps coordinates, should be atleast 6
@@ -23868,14 +23866,14 @@ x-attributes:
               parent: true
               tags:
                 parent: true
-                list[1]:
+                type:
                   description: >-
                     defines the payment type, enum - "ON-ORDER",
                     "ON-FULFILLMENT", "POST-FULFILLMENT";
                   required: optional
                   usage: ON-FULFILLMENT
                   reference: if any
-                list[0]:
+                amount:
                   description: >-
                     amount to be collected by the delivery agent, required for
                     type "ON-FULFILLMENT"
