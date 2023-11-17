@@ -1,0 +1,57 @@
+fulfillments:
+  type:
+    - code: Delivery
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Return
+      description: about the enum
+      reference: <PR/Issue/Discussion Links md format text>
+  instructions: 
+    code:
+    - code: AWB_No
+      description: shipping bill (AWB number)
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: ACC_No
+      description: If Account exists-Customer code
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: BKG_No
+      description: Booking reference number provided by LSP at the time of booking
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: GST_No
+      description: GST number
+      reference: <PR/Issue/Discussion Links md format text>
+  state:
+    descriptor:
+      code:
+      - code: Pending
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Out-for-pickup
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>  
+      - code: Order-picked-up
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: In-transit
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: At-destination-hub
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Out-for-delivery
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Order-delivered
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: RTO-Initiated
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: RTO-Delivered
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: RTO-Disposed
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+
+
