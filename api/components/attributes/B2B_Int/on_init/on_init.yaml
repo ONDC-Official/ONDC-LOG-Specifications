@@ -1,0 +1,88 @@
+message:
+  parent: true
+  order:
+    parent: true
+    quote:
+      parent: true
+      quote:
+        description: quote to be sent from LSP
+        required: required
+        usage: "-"
+        reference: if any
+      breakup:
+        parent: true
+        breakup:
+          description: logistics provider provides the the breakup of the quote
+          required: required
+          usage: "-"
+          reference: if any
+        title:
+          description: title of the delivery charges enum - delivery, tax, rto, diff, for international logistics - enum - Origin, Frieght, Destination, Custom_Clearance_Service_Origin, Custom_Clearance_Service_Destination
+          required: required
+          usage: "delivery"
+          reference: if any
+    payments:
+      parent: true
+      params:
+        parent: true
+        amount:
+          description: amount as per the quote total value
+          required: required
+          usage: "6000"
+          reference: if any
+        currency:
+          description: currency in which to receive the amount
+          required: required
+          usage: "INR"
+          reference: if any
+        bank_account_number:
+          description: Logistics service provider bank account number
+          required: required
+          usage: "001404845678"
+          reference: if any
+        virtual_payment_address:
+          description: Logistics service provider payment link address
+          required: required
+          usage: "-"
+          reference: if any
+      type: 
+        description: stage when fulfillment will be done by logistics seller, enum - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+        required: required
+        usage: "ON-FULFILLMENT"
+        reference: if any
+      tags:
+        description: Details of counter party for settling the money
+        required: required
+        usage: "-"
+        reference: if any 
+    cancellation_terms:
+      parent: true
+      cancellation_terms:
+        description: Cancellation terms will be defined by the LSP for the order in /on_init
+        required: required
+        usage: "-"
+        reference: if any
+      fulfillment_state:
+        parent: true
+        descriptor:
+          parent: true
+          code:
+            description: fulfillment state of the order, enum - Pending, Agent-assigned, Order-picked-up, Out-for-delivery
+            required: required
+            usage: "Pending"
+            reference: if any  
+          short_desc:
+            description: reason code, mandatory if reason_required is "true"
+            required: optional
+            usage: "001"
+            reference: if any
+      refund_eligible:
+        description: whether cancellation in this state is eligible for refund (boolean)
+        required: optional
+        usage: "true"
+        reference: if any    
+      reason_required:
+        description: whether cancellation reason code is required. List of cancellation reason codes is "https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031"
+        required: optional
+        usage: "true"
+        reference: if any    

@@ -1,3 +1,6 @@
-B2B Logistics: 
+B2B Domestic Logistics: 
   attribute_set:
-    $ref: './B2B_New/index.yaml' 
+    $ref: './B2B_Dom/index.yaml'
+B2B International Logistics: 
+  attribute_set:
+    $ref: './B2B_Int/index.yaml' 
