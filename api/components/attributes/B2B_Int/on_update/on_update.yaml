@@ -11,19 +11,22 @@ message:
         reference: if any
     fulfillments:
       parent: true
+      fulfillments:
+        description: contains the fulfillment details
+        required: required
+        usage: "-"
+        reference: if any  
       stops:
-        parent: true
         type:
           description: Type of the fulfillment; (start or end)
           required: mandatory
           usage: "start"
           reference: if any
         instructions:
-          parent: true
           long_desc:
             description: description of the instruction
             required: optional
-            usage: "-"
+            usage: "drop package at security gate"
             reference: if any
           images:
             description: provides proof of pickup

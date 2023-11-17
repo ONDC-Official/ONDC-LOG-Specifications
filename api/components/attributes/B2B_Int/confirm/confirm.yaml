@@ -4,10 +4,13 @@ message:
     parent: true
     fulfillments:
       parent: true
+      fulfillments:
+        description: contains the fulfillment details
+        required: required
+        usage: "-"
+        reference: if any
       stops:
-        parent: true
         instructions:
-          parent: true
           code:
             description:  type of PCC - enum - "AWB_No" - shipping bill (AWB number), "ACC_No" - If Account exists-Customer code , "BKG_No" - Booking reference number provided by LSP at the time of booking, "GST_No" - GST number
             required: optional

@@ -21,19 +21,20 @@ message:
         reference: if any
     fulfillments:
       parent: true
+      fulfillments:
+        description: contains the fulfillment details
+        required: required
+        usage: "-"
+        reference: if any
       state:
-        parent: true
         descriptor:
-          parent: true
           code:
             description: Denotes the state of the fulfillment; Enum; Values can be - "Cancelled", "Order-picked-up", "Pickup-approved", "Custom-cleared-domestic", "Order-delivered";
             required: mandatory
             usage: "-"
             reference: if any
       stops:
-        parent: true
         time:
-          parent: true
           timestamp:
             description: Timestamp; fulfillment state code is "Order-picked-up";
             required: required if fulfillment state is "Order-picked-up"

@@ -15,9 +15,7 @@ message:
         usage: "true"
         reference: if any
       stops:
-        parent: true
         time:
-          parent: true
           range:
             description:  In response to Ready to ship - yes, LSP provides a pickup time slot
             required: optional

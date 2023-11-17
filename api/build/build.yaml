@@ -2807,216 +2807,322 @@ x-enum:
           breakup: *ref_4
         payments: *ref_5
 x-tags:
-  intent:
-    tags:
-      - code: Package_Weight
-        description: Define package dead weight here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Unit
-            description: Define unit of package weight
+  search:
+    message:
+      intent:
+        fulfillments: &ref_17
+          tags:
+            - code: Delivery_Terms
+              description: Define terms for Delivery here
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: Ready_To_Ship
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: AWB_No
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: RTO_Action
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: INCOTERMS
+                  description: Description of the Tag; Present in International Logistics
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: NAMED_PLACE_OF_DELIVERY
+                  description: >-
+                    If the delivery is on port based on incoterm, the port code
+                    should be sent as per UN standard.
+                  reference: <PR/Issue/Discussion Links md format text>
+        payment:
+          tags:
+            - code: Collection_Details
+              description: Define terms for Collection Details Here
+              reference: <PR/Issue/Discussion Links md format text>
+              list: &ref_9
+                - code: Amount
+                  description: >-
+                    Collection Details mount needed if logistics seller needs to
+                    collect the payment from buyer at the time of delivery.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Type
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+        tags:
+          - code: Package_Weight
+            description: Define package dead weight here
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Value
-            description: Define value of package weight
+            list: &ref_12
+              - code: Unit
+                description: Define unit of package weight
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Value
+                description: Define value of package weight
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: Package_Dimensions
+            description: Define package LBH dimensions here
             reference: <PR/Issue/Discussion Links md format text>
-      - code: Package_Dimensions
-        description: Define package LBH dimensions here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Unit
-            description: Define unit of package dimensions
+            list: &ref_13
+              - code: Unit
+                description: Define unit of package dimensions
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Length
+                description: Define length of package dimensions
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Breadth
+                description: Define breadth of package dimensions
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Height
+                description: Define height of package dimensions
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: Package_Details
+            description: Define further details of package
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Length
-            description: Define length of package dimensions
+            list: &ref_14
+              - code: Category
+                description: Define category of package
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Dangerous_Goods
+                description: >-
+                  State true if dangerous goods; If true, the logistics buyer
+                  would need to share MSDS certificate.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Stackable
+                description: State true if goods are stackable
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Shipment_Value
+                description: Define shipment value of package
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Package_Count
+                description: Define count of packages
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: UNIT_PRICE
+                description: Unit Price
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: ITEM_PRICE
+                description: Item price
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: HSN_Code
+                description: >-
+                  Valid for international logistics. Specify the HSN code of
+                  item.
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: Cold_Logistics
+            description: Define terms if cold logistics is required
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Breadth
-            description: Define breadth of package dimensions
+            list: &ref_18
+              - code: Temp_Control
+                description: State true if require cold logistics
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Temp_Unit
+                description: Define unit of temperature
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Temp_Min
+                description: Define min value of temperature
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Temp_Max
+                description: Define max value of temperature
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Packaging
+                description: Type of Packaging; Present in International Logistics
+                reference: <PR/Issue/Discussion Links md format text>
+  on_search:
+    message:
+      catalog:
+        descriptor:
+          tags:
+            - code: BPP_Terms
+              description: Define BPP terms
+              reference: <PR/Issue/Discussion Links md format text>
+              list: &ref_11
+                - code: Max_Liability
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Max_Liability_Cap
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Mandatory_Arbitration
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Court_Jurisdiction
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Delay_Interest
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Static_Terms
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Static_Terms_New
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Effective_Date
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+  init:
+    message:
+      order:
+        payment: &ref_10
+          tags:
+            - code: Settlement_Details
+              description: Define terms for Settlement Details Here
+              reference: <PR/Issue/Discussion Links md format text>
+              list: &ref_15
+                - code: Counterparty
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Mode
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Beneficiary_Name
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Bank_Account_No
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: Ifsc_Code
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: UPI_Address
+                  description: Description of the Tag
+                  reference: <PR/Issue/Discussion Links md format text>
+            - code: Collection_Details
+              description: Define terms for Collection Details Here
+              reference: <PR/Issue/Discussion Links md format text>
+              list: *ref_9
+  on_init:
+    message:
+      order:
+        payment: *ref_10
+        tags:
+          - code: BPP_Terms
+            description: Define BPP terms
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Height
-            description: Define height of package dimensions
+            list: *ref_11
+  confirm: &ref_16
+    message:
+      order:
+        payment: *ref_10
+        tags:
+          - code: Package_Weight
+            description: Define package dead weight here
             reference: <PR/Issue/Discussion Links md format text>
-      - code: Package_Details
-        description: Define further details of package
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Category
-            description: Define category of package
+            list: *ref_12
+          - code: Package_Dimensions
+            description: Define package LBH dimensions here
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Dangerous_Goods
-            description: State true if dangerous goods
+            list: *ref_13
+          - code: Package_Details
+            description: Define further details of package
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Stackable
-            description: State true if goods are stackable
+            list: *ref_14
+          - code: Cold_Logistics
+            description: Define terms if cold logistics is required
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Shipment_Value
-            description: Define shipment value of package
+            list: *ref_15
+          - code: BPP_Terms
+            description: Define BPP terms
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Package_Count
-            description: Define count of packages
+            list: *ref_11
+          - code: BAP_Terms
+            description: Define terms for BAP
             reference: <PR/Issue/Discussion Links md format text>
-          - code: UNIT_PRICE
-            description: Unit Price
+            list:
+              - code: Accept_BPP_Terms
+                description: Description of the Tag
+                reference: <PR/Issue/Discussion Links md format text>
+  on_confirm: *ref_16
+  update:
+    message:
+      order:
+        fulfillments: *ref_17
+  on_update:
+    message:
+      order:
+        fulfillments: *ref_17
+        payment: *ref_10
+  on_cancel:
+    message:
+      order:
+        fulfillments: *ref_17
+        payment: *ref_10
+        tags:
+          - code: Quantity
+            description: Define Quantity
             reference: <PR/Issue/Discussion Links md format text>
-          - code: ITEM_PRICE
-            description: Item price
+            list:
+              - code: count
+                description: Description of the Tag
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: MEASURE_UNIT
+                description: Description of the Tag
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: MEASURE_VALUE
+                description: Description of the Tag
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: Package_Weight
+            description: Define package dead weight here
             reference: <PR/Issue/Discussion Links md format text>
-          - code: HSN_Code
-            description: HSN Code; International Logistics
+            list: *ref_12
+          - code: Package_Dimensions
+            description: Define package LBH dimensions here
             reference: <PR/Issue/Discussion Links md format text>
-      - code: Package_Dimensions_Diff
-        description: Define terms for Package Dimensions Diff
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Unit
-            description: Define unit of package dimensions
+            list: *ref_13
+          - code: Package_Details
+            description: Define further details of package
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Length
-            description: Define length of package dimensions
+            list: *ref_14
+          - code: Cold_Logistics
+            description: Define terms if cold logistics is required
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Breadth
-            description: Define breadth of package dimensions
+            list: *ref_15
+  on_status:
+    message:
+      order:
+        fulfillments: *ref_17
+        payment: *ref_10
+        tags:
+          - code: Package_Weight
+            description: Define package dead weight here
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Height
-            description: Define height of package dimensions
+            list: *ref_12
+          - code: Package_Dimensions
+            description: Define package LBH dimensions here
             reference: <PR/Issue/Discussion Links md format text>
-      - code: Diff_Proof
-        description: Define terms if Difference Proof is required
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: type
-            description: Description of the Tag
+            list: *ref_13
+          - code: Package_Details
+            description: Define further details of package
             reference: <PR/Issue/Discussion Links md format text>
-          - code: url
-            description: Description of the Tag
+            list: *ref_14
+          - code: Cold_Logistics
+            description: Define terms if cold logistics is required
             reference: <PR/Issue/Discussion Links md format text>
-      - code: Cold_Logistics
-        description: Define terms if cold logistics is required
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Temp_Control
-            description: State true if require cold logistics
+            list: *ref_18
+          - code: Package_Dimensions_Diff
+            description: Dimension change details
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Temp_Unit
-            description: Define unit of temperature
+            list:
+              - code: Unit
+                description: Define unit of package dimensions
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Length
+                description: Define length of package dimensions
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Breadth
+                description: Define breadth of package dimensions
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Height
+                description: Define height of package dimensions
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: Diff_Proof
+            description: Proof of dimension change
             reference: <PR/Issue/Discussion Links md format text>
-          - code: Temp_Min
-            description: Define min value of temperature
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Temp_Max
-            description: Define max value of temperature
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Packaging
-            description: Type of Packaging; Present in International Logistics
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Settlement_Details
-        description: Define terms for Settlement Details Here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Counterparty
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Mode
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Beneficiary_Name
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Bank_Account_No
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Ifsc_Code
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: UPI_Address
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Collection_Details
-        description: Define terms for Collection Details Here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Amount
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Type
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: BPP_Terms
-        description: Define BPP terms
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Max_Liability
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Max_Liability_Cap
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Mandatory_Arbitration
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Court_Jurisdiction
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Delay_Interest
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Static_Terms
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Static_Terms_New
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Effective_Date
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: BAP_Terms
-        description: Define terms for BAP
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Accept_BPP_Terms
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Delivery_Terms
-        description: Define terms for Delivery here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Ready_To_Ship
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: AWB_No
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: RTO_Action
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: INCOTERMS
-            description: Description of the Tag; Present in International Logistics
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: NAMED_PLACE_OF_DELIVERY
-            description: Description of the Tag; Present in International Logistics
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Quantity
-        description: Define Quantity Tags here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: count
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: MEASURE_UNIT
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: MEASURE_VALUE
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: KYC
-        description: Define KYC Terms
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: url
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: required
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: type
+                description: Description of the Tag
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: url
+                description: Description of the Tag
+                reference: <PR/Issue/Discussion Links md format text>
 x-flows:
   - summary: B2B Domestic Logistics - Surface Delivery
     description: >-
@@ -4488,7 +4594,7 @@ x-flows:
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: &ref_9
+        example: &ref_19
           summary: Logistics Buyer requests for status update
           description: null
           value:
@@ -4791,7 +4897,7 @@ x-flows:
         api: search
         description: Search for parent category - Express Delivery or Air Delivery.
         reference: if any
-        example: &ref_10
+        example: &ref_20
           summary: Search Logistics - Air Delivery
           description: Search for parent category - Express Delivery or Air Delivery.
           value:
@@ -4920,7 +5026,7 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: &ref_11
+        example: &ref_21
           summary: LSP sends catalog
           description: >-
             Logistics service provider sends the catalog based on search + Sends
@@ -5095,7 +5201,7 @@ x-flows:
           Logistics Buyer fills the KYC form and sends the submission Id while
           initializing the order.
         reference: if any
-        example: &ref_12
+        example: &ref_22
           summary: Logistics Buyer initializes the order.
           description: >-
             Logistics Buyer fills the KYC form and sends the submission Id while
@@ -5222,7 +5328,7 @@ x-flows:
           Logistics Provider updates the KYC as successful and sends the breakup
           of the quote.
         reference: if any
-        example: &ref_13
+        example: &ref_23
           summary: Response to order initialization - KYC Failed
           description: Logistics Provider updates the KYC as Failed with the error message.
           value:
@@ -5422,7 +5528,7 @@ x-flows:
         api: confirm
         description: Logistics buyer confirms the order.
         reference: if any
-        example: &ref_14
+        example: &ref_24
           summary: Logistics buyer confirms the order.
           description: Logistics buyer confirms the order.
           value:
@@ -5667,7 +5773,7 @@ x-flows:
         api: on_confirm
         description: Logistics Provider accepts the order.
         reference: if any
-        example: &ref_15
+        example: &ref_25
           summary: Logistics Provider accepts the order.
           description: Logistics Provider accepts the order.
           value:
@@ -5972,7 +6078,7 @@ x-flows:
         api: update
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
-        example: &ref_16
+        example: &ref_26
           summary: Logistics Buyer updates RTS
           description: null
           value:
@@ -6063,7 +6169,7 @@ x-flows:
         api: on_update
         description: LSP updates the weight and measurement differential charges.
         reference: if any
-        example: &ref_17
+        example: &ref_27
           summary: Solicited response to update - package measurement updated
           description: null
           value:
@@ -6255,14 +6361,14 @@ x-flows:
         api: status
         description: Logistics Buyer requests for order status update
         reference: if any
-        example: *ref_9
+        example: *ref_19
       - summary: Responds to order status update - Order Picked up
         api: on_status
         description: >-
           Logistics provider updates the status of fulfillment as Order Picked
           up.
         reference: if any
-        example: &ref_18
+        example: &ref_28
           summary: Status updates
           description: >-
             Logistics provider updates the status of fulfillment as Order Picked
@@ -6536,60 +6642,60 @@ x-flows:
         api: search
         description: Search for parent category - Express Delivery or Air Delivery.
         reference: if any
-        example: *ref_10
+        example: *ref_20
       - summary: LSP sends catalog
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: *ref_11
+        example: *ref_21
       - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
           Logistics Buyer fills the KYC form and sends the submission Id while
           initializing the order.
         reference: if any
-        example: *ref_12
+        example: *ref_22
       - summary: Response to order initialization - KYC Successful
         api: on_init
         description: >-
           Logistics Provider updates the KYC as successful and sends the breakup
           of the quote.
         reference: if any
-        example: *ref_13
+        example: *ref_23
       - summary: Logistics buyer confirms the order.
         api: confirm
         description: Logistics buyer confirms the order.
         reference: if any
-        example: *ref_14
+        example: *ref_24
       - summary: Logistics Provider accepts the order.
         api: on_confirm
         description: Logistics Provider accepts the order.
         reference: if any
-        example: *ref_15
+        example: *ref_25
       - summary: Logistics Buyer updates RTS
         api: update
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
-        example: *ref_16
+        example: *ref_26
       - summary: LSP updates the weight and measurement differential charges.
         api: on_update
         description: LSP updates the weight and measurement differential charges.
         reference: if any
-        example: *ref_17
+        example: *ref_27
       - summary: Request for order status update
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: *ref_9
+        example: *ref_19
       - summary: Responds to order status update - Order Picked up
         api: on_status
         description: >-
           Seller app sends an on_status call to the buyer app informing about
           the current status of the order.
         reference: if any
-        example: *ref_18
+        example: *ref_28
       - summary: Buyer is not available so LSP cancels the order and triggers RTO
         api: on_cancel
         description: Seller app cancels the order by sending unsolicited on_cancel call
@@ -7196,7 +7302,7 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: &ref_24
+        example: &ref_34
           summary: Search Logistics - Air Delivery
           description: Search for parent category - Express Delivery or Air Delivery.
           value:
@@ -7338,7 +7444,7 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: &ref_25
+        example: &ref_35
           summary: LSP sends catalog
           description: >-
             Logistics service provider sends the catalog based on search + Sends
@@ -7510,7 +7616,7 @@ x-flows:
           Logistics Buyer fills the KYC form and sends the submission Id while
           initializing the order.
         reference: if any
-        example: &ref_26
+        example: &ref_36
           summary: Logistics Buyer initializes the order.
           description: >-
             Logistics Buyer fills the KYC form and sends the submission Id while
@@ -7647,7 +7753,7 @@ x-flows:
           Logistics Provider updates the KYC as successful and sends the breakup
           of the quote.
         reference: if any
-        example: &ref_27
+        example: &ref_37
           summary: Response to order initialization - KYC Failed
           description: Logistics Provider updates the KYC as Failed with the error message.
           value:
@@ -7887,7 +7993,7 @@ x-flows:
         api: confirm
         description: Logistics buyer confirms the order.
         reference: if any
-        example: &ref_28
+        example: &ref_38
           summary: Logistics buyer confirms the order
           description: Logistics buyer confirms the order
           value:
@@ -8154,7 +8260,7 @@ x-flows:
         api: on_confirm
         description: Logistics Provider accepts the order.
         reference: if any
-        example: &ref_29
+        example: &ref_39
           summary: Logistics Provider accepts the order.
           description: Logistics Provider accepts the order.
           value:
@@ -8510,7 +8616,7 @@ x-flows:
         api: update
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
-        example: &ref_30
+        example: &ref_40
           summary: Logistics Buyer updates RTS
           description: null
           value:
@@ -8664,7 +8770,7 @@ x-flows:
           LSP updates the weight and measurement differential charges. - If
           Applicable
         reference: if any
-        example: &ref_31
+        example: &ref_41
           summary: Solicited response to update - package measurement updated
           description: null
           value:
@@ -8970,7 +9076,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_19
+        example: &ref_29
           summary: Status updates
           description: >-
             Logistics provider updates the status of fulfillment as Order Picked
@@ -9277,7 +9383,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_20
+        example: &ref_30
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -9583,7 +9689,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_21
+        example: &ref_31
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -9889,7 +9995,7 @@ x-flows:
         api: status
         description: Logistics buyer requests for status update
         reference: if any
-        example: &ref_22
+        example: &ref_32
           summary: Logistics Buyer requests for status update
           description: null
           value:
@@ -9916,7 +10022,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_23
+        example: &ref_33
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -12017,27 +12123,27 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_19
+        example: *ref_29
       - summary: LSP sends status updates - Order Picked up
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_20
+        example: *ref_30
       - summary: LSP sends status updates - Domestic Custom Cleared
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_21
+        example: *ref_31
       - summary: Logistics buyer requests for status update
         api: status
         description: Logistics buyer requests for status update
         reference: if any
-        example: *ref_22
+        example: *ref_32
       - summary: LSP sends status updates - Order Delivered
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_23
+        example: *ref_33
   - summary: B2B International Logistics Cancellation - Buyer Cancels
     description: >-
       The below flow shows the journey of Logistics buyer buying international
@@ -12048,60 +12154,60 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_24
+        example: *ref_34
       - summary: LSP sends catalog
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: *ref_25
+        example: *ref_35
       - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
           Logistics Buyer fills the KYC form and sends the submission Id while
           initializing the order.
         reference: if any
-        example: *ref_26
+        example: *ref_36
       - summary: Response to order initialization - KYC Successful
         api: on_init
         description: >-
           Logistics Provider updates the KYC as successful and sends the breakup
           of the quote.
         reference: if any
-        example: *ref_27
+        example: *ref_37
       - summary: Logistics buyer confirms the order.
         api: confirm
         description: Logistics buyer confirms the order.
         reference: if any
-        example: *ref_28
+        example: *ref_38
       - summary: Logistics Provider accepts the order.
         api: on_confirm
         description: Logistics Provider accepts the order.
         reference: if any
-        example: *ref_29
+        example: *ref_39
       - summary: Logistics Buyer updates RTS
         api: update
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
-        example: *ref_30
+        example: *ref_40
       - summary: LSP updates the weight and measurement differential charges.
         api: on_update
         description: LSP updates the weight and measurement differential charges.
         reference: if any
-        example: *ref_31
+        example: *ref_41
       - summary: Request for order status update
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: *ref_22
+        example: *ref_32
       - summary: Responds to order status update - Pickup Approved
         api: on_status
         description: >-
           Seller app sends an on_status call to the buyer app informing about
           the current status of the order.
         reference: if any
-        example: *ref_19
+        example: *ref_29
       - summary: Logistics Buyer cancels the order
         api: cancel
         description: Logistics Buyer cancels the order
@@ -23906,8 +24012,17 @@ x-attributes:
                 reference: if any
             providers:
               parent: true
+              id:
+                description: logistics service provider id
+                required: required
+                usage: P1
+                reference: if any
+              descriptor:
+                description: details of the logistics service provider
+                required: required
+                usage: Courier Inc
+                reference: if any
               categories:
-                parent: true
                 time:
                   description: >-
                     category level TAT for S2D (ship-to-delivery), can be
@@ -23931,9 +24046,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               items:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       type of shipment; enum -  "P2P" (point-to-point) and
@@ -23950,16 +24063,6 @@ x-attributes:
           parent: true
           order:
             parent: true
-            provider.locations:
-              description: mandatory only if provider.locations was returned in /on_search
-              required: optional
-              usage: '-'
-              reference: if any
-            fulfillments.id:
-              description: fulfillment_id from /on_search corresponding to appropriate type
-              required: required
-              usage: '-'
-              reference: if any
             billing:
               description: >-
                 billing details of the marketplace (MSN or ISN retail seller
@@ -23967,6 +24070,22 @@ x-attributes:
               required: required
               usage: '-'
               reference: if any
+            provider:
+              locations:
+                description: >-
+                  mandatory only if provider.locations was returned in
+                  /on_search
+                required: optional
+                usage: '-'
+                reference: if any
+            fulfillments:
+              id:
+                description: >-
+                  fulfillment_id from /on_search corresponding to appropriate
+                  type
+                required: required
+                usage: '-'
+                reference: if any
             x-input:
               parent: true
               x-input:
@@ -23975,7 +24094,6 @@ x-attributes:
                 usage: '-'
                 reference: if any
               form:
-                parent: true
                 url:
                   description: KYC url which was sent as part of on_search
                   required: optional
@@ -24005,7 +24123,6 @@ x-attributes:
                 usage: '-'
                 reference: if any
               breakup:
-                parent: true
                 breakup:
                   description: logistics provider provides the the breakup of the quote
                   required: required
@@ -24014,16 +24131,20 @@ x-attributes:
                 title:
                   description: >-
                     title of the delivery charges enum - delivery, tax, rto,
-                    diff, for international logistics - enum - Origin, Frieght,
-                    Destination, Custom_Clearance_Service_Origin,
-                    Custom_Clearance_Service_Destination
+                    diff
                   required: required
                   usage: delivery
                   reference: if any
             payments:
               parent: true
+              type:
+                description: >-
+                  stage when fulfillment will be done by logistics seller, enum
+                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+                required: required
+                usage: ON-FULFILLMENT
+                reference: if any
               params:
-                parent: true
                 amount:
                   description: amount as per the quote total value
                   required: required
@@ -24044,13 +24165,6 @@ x-attributes:
                   required: required
                   usage: '-'
                   reference: if any
-              type:
-                description: >-
-                  stage when fulfillment will be done by logistics seller, enum
-                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
-                required: required
-                usage: ON-FULFILLMENT
-                reference: if any
               tags:
                 description: Details of counter party for settling the money
                 required: required
@@ -24066,9 +24180,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               fulfillment_state:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       fulfillment state of the order, enum - Pending,
@@ -24104,10 +24216,13 @@ x-attributes:
             parent: true
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               stops:
-                parent: true
                 instructions:
-                  parent: true
                   code:
                     description: >-
                       type of PCC - enum - "AWB_No" - shipping bill (AWB
@@ -24136,9 +24251,7 @@ x-attributes:
                 usage: 'true'
                 reference: if any
               stops:
-                parent: true
                 time:
-                  parent: true
                   range:
                     description: >-
                       In response to Ready to ship - yes, LSP provides a pickup
@@ -24176,14 +24289,15 @@ x-attributes:
                 required: required
                 usage: logistics_buyer.com
                 reference: if any
-              reason.id:
-                description: >-
-                  cancellation reason id, List of cancellation reason ids can be
-                  found here -
-                  https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
-                required: required
-                usage: '004'
-                reference: if any
+              reason:
+                id:
+                  description: >-
+                    cancellation reason id, List of cancellation reason ids can
+                    be found here -
+                    https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+                  required: required
+                  usage: '004'
+                  reference: if any
             quote:
               description: >-
                 quote should reflect the updated value of logistics order
@@ -24197,29 +24311,31 @@ x-attributes:
         parent: true
         message:
           parent: true
-          fulfillments:
+          order:
             parent: true
-            stops:
+            fulfillments:
               parent: true
-              instructions:
-                parent: true
-                description: instructions for delivery
-                required: code and short_desc required if "ready_to_ship" = yes;
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
                 usage: '-'
                 reference: if any
-                code:
-                  description: The AWB No. of the fulfillment
-                  required: required if ready to ship
-                  usage: '1227262193237777'
-                  reference: if any
-                short_desc:
-                  description: >-
-                    value of PCC - contact no - 10 digits; merchant order no -
-                    max 6 digits; other pickup confirmation code - max 6 digits;
-                    OTP - max 6 digits
-                  required: required if ready to ship
-                  usage: '-'
-                  reference: if any
+              stops:
+                instructions:
+                  code:
+                    description: >-
+                      type of PCC - enum - "AWB_No" - shipping bill (AWB
+                      number), "ACC_No" - If Account exists-Customer code ,
+                      "BKG_No" - Booking reference number provided by LSP at the
+                      time of booking, "GST_No" - GST number
+                    required: required if ready to ship
+                    usage: AWB_No
+                    reference: if any
+                  short_desc:
+                    description: value of PCC
+                    required: required if ready to ship
+                    usage: '1227262193237777'
+                    reference: if any
       on_update:
         parent: true
         message:
@@ -24235,19 +24351,22 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               stops:
-                parent: true
                 type:
                   description: Type of the fulfillment; (start or end)
                   required: mandatory
                   usage: start
                   reference: if any
                 instructions:
-                  parent: true
                   long_desc:
                     description: description of the instruction
                     required: optional
-                    usage: '-'
+                    usage: drop package at security gate
                     reference: if any
                   images:
                     description: provides proof of pickup
@@ -24284,10 +24403,13 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               state:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       Denotes the state of the fulfillment; Enum; Values can be
@@ -24297,9 +24419,7 @@ x-attributes:
                     usage: '-'
                     reference: if any
               stops:
-                parent: true
                 time:
-                  parent: true
                   timestamp:
                     description: Timestamp; fulfillment state code is "Order-picked-up";
                     required: required if fulfillment state is "Order-picked-up"
@@ -24460,8 +24580,17 @@ x-attributes:
                 reference: if any
             providers:
               parent: true
+              id:
+                description: logistics service provider id
+                required: required
+                usage: P1
+                reference: if any
+              descriptor:
+                description: details of the logistics service provider
+                required: required
+                usage: Courier Inc
+                reference: if any
               categories:
-                parent: true
                 time:
                   description: >-
                     category level TAT for S2D (ship-to-delivery), can be
@@ -24485,9 +24614,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               items:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       type of shipment; enum -  "P2P" (point-to-point) and
@@ -24504,16 +24631,6 @@ x-attributes:
           parent: true
           order:
             parent: true
-            provider.locations:
-              description: mandatory only if provider.locations was returned in /on_search
-              required: optional
-              usage: '-'
-              reference: if any
-            fulfillments.id:
-              description: fulfillment_id from /on_search corresponding to appropriate type
-              required: required
-              usage: '-'
-              reference: if any
             billing:
               description: >-
                 billing details of the marketplace (MSN or ISN retail seller
@@ -24521,6 +24638,22 @@ x-attributes:
               required: required
               usage: '-'
               reference: if any
+            provider:
+              locations:
+                description: >-
+                  mandatory only if provider.locations was returned in
+                  /on_search
+                required: optional
+                usage: '-'
+                reference: if any
+            fulfillments:
+              id:
+                description: >-
+                  fulfillment_id from /on_search corresponding to appropriate
+                  type
+                required: required
+                usage: '-'
+                reference: if any
             x-input:
               parent: true
               x-input:
@@ -24529,7 +24662,6 @@ x-attributes:
                 usage: '-'
                 reference: if any
               form:
-                parent: true
                 url:
                   description: KYC url which was sent as part of on_search
                   required: optional
@@ -24559,7 +24691,6 @@ x-attributes:
                 usage: '-'
                 reference: if any
               breakup:
-                parent: true
                 breakup:
                   description: logistics provider provides the the breakup of the quote
                   required: required
@@ -24568,16 +24699,22 @@ x-attributes:
                 title:
                   description: >-
                     title of the delivery charges enum - delivery, tax, rto,
-                    diff, for international logistics - enum - Origin, Frieght,
-                    Destination, Custom_Clearance_Service_Origin,
+                    diff, Origin, Frieght, Destination,
+                    Custom_Clearance_Service_Origin,
                     Custom_Clearance_Service_Destination
                   required: required
                   usage: delivery
                   reference: if any
             payments:
               parent: true
+              type:
+                description: >-
+                  stage when fulfillment will be done by logistics seller, enum
+                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+                required: required
+                usage: ON-FULFILLMENT
+                reference: if any
               params:
-                parent: true
                 amount:
                   description: amount as per the quote total value
                   required: required
@@ -24598,13 +24735,6 @@ x-attributes:
                   required: required
                   usage: '-'
                   reference: if any
-              type:
-                description: >-
-                  stage when fulfillment will be done by logistics seller, enum
-                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
-                required: required
-                usage: ON-FULFILLMENT
-                reference: if any
               tags:
                 description: Details of counter party for settling the money
                 required: required
@@ -24620,9 +24750,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               fulfillment_state:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       fulfillment state of the order, enum - Pending,
@@ -24658,10 +24786,13 @@ x-attributes:
             parent: true
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               stops:
-                parent: true
                 instructions:
-                  parent: true
                   code:
                     description: >-
                       type of PCC - enum - "AWB_No" - shipping bill (AWB
@@ -24690,9 +24821,7 @@ x-attributes:
                 usage: 'true'
                 reference: if any
               stops:
-                parent: true
                 time:
-                  parent: true
                   range:
                     description: >-
                       In response to Ready to ship - yes, LSP provides a pickup
@@ -24730,14 +24859,15 @@ x-attributes:
                 required: required
                 usage: logistics_buyer.com
                 reference: if any
-              reason.id:
-                description: >-
-                  cancellation reason id, List of cancellation reason ids can be
-                  found here -
-                  https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
-                required: required
-                usage: '004'
-                reference: if any
+              reason:
+                id:
+                  description: >-
+                    cancellation reason id, List of cancellation reason ids can
+                    be found here -
+                    https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+                  required: required
+                  usage: '004'
+                  reference: if any
             quote:
               description: >-
                 quote should reflect the updated value of logistics order
@@ -24751,29 +24881,31 @@ x-attributes:
         parent: true
         message:
           parent: true
-          fulfillments:
+          order:
             parent: true
-            stops:
+            fulfillments:
               parent: true
-              instructions:
-                parent: true
-                description: instructions for delivery
-                required: code and short_desc required if "ready_to_ship" = yes;
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
                 usage: '-'
                 reference: if any
-                code:
-                  description: The AWB No. of the fulfillment
-                  required: required if ready to ship
-                  usage: '1227262193237777'
-                  reference: if any
-                short_desc:
-                  description: >-
-                    value of PCC - contact no - 10 digits; merchant order no -
-                    max 6 digits; other pickup confirmation code - max 6 digits;
-                    OTP - max 6 digits
-                  required: required if ready to ship
-                  usage: '-'
-                  reference: if any
+              stops:
+                instructions:
+                  code:
+                    description: >-
+                      type of PCC - enum - "AWB_No" - shipping bill (AWB
+                      number), "ACC_No" - If Account exists-Customer code ,
+                      "BKG_No" - Booking reference number provided by LSP at the
+                      time of booking, "GST_No" - GST number
+                    required: required if ready to ship
+                    usage: AWB_No
+                    reference: if any
+                  short_desc:
+                    description: value of PCC
+                    required: required if ready to ship
+                    usage: '1227262193237777'
+                    reference: if any
       on_update:
         parent: true
         message:
@@ -24789,19 +24921,22 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               stops:
-                parent: true
                 type:
                   description: Type of the fulfillment; (start or end)
                   required: mandatory
                   usage: start
                   reference: if any
                 instructions:
-                  parent: true
                   long_desc:
                     description: description of the instruction
                     required: optional
-                    usage: '-'
+                    usage: drop package at security gate
                     reference: if any
                   images:
                     description: provides proof of pickup
@@ -24838,10 +24973,13 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               state:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       Denotes the state of the fulfillment; Enum; Values can be
@@ -24851,9 +24989,7 @@ x-attributes:
                     usage: '-'
                     reference: if any
               stops:
-                parent: true
                 time:
-                  parent: true
                   timestamp:
                     description: Timestamp; fulfillment state code is "Order-picked-up";
                     required: required if fulfillment state is "Order-picked-up"

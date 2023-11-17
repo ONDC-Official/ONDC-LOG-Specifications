@@ -10,21 +10,24 @@ message:
         usage: "-"
         reference: if any
       breakup:
-        parent: true
         breakup:
           description: logistics provider provides the the breakup of the quote
           required: required
           usage: "-"
           reference: if any
         title:
-          description: title of the delivery charges enum - delivery, tax, rto, diff, for international logistics - enum - Origin, Frieght, Destination, Custom_Clearance_Service_Origin, Custom_Clearance_Service_Destination
+          description: title of the delivery charges enum - delivery, tax, rto, diff
           required: required
           usage: "delivery"
           reference: if any
     payments:
       parent: true
+      type: 
+        description: stage when fulfillment will be done by logistics seller, enum - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+        required: required
+        usage: "ON-FULFILLMENT"
+        reference: if any
       params:
-        parent: true
         amount:
           description: amount as per the quote total value
           required: required
@@ -45,11 +48,6 @@ message:
           required: required
           usage: "-"
           reference: if any
-      type: 
-        description: stage when fulfillment will be done by logistics seller, enum - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
-        required: required
-        usage: "ON-FULFILLMENT"
-        reference: if any
       tags:
         description: Details of counter party for settling the money
         required: required
@@ -63,9 +61,7 @@ message:
         usage: "-"
         reference: if any
       fulfillment_state:
-        parent: true
         descriptor:
-          parent: true
           code:
             description: fulfillment state of the order, enum - Pending, Agent-assigned, Order-picked-up, Out-for-delivery
             required: required
