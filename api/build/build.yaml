@@ -2895,12 +2895,6 @@ x-tags:
               - code: Package_Count
                 description: Define count of packages
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: UNIT_PRICE
-                description: Unit Price
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: ITEM_PRICE
-                description: Item price
-                reference: <PR/Issue/Discussion Links md format text>
               - code: HSN_Code
                 description: >-
                   Valid for international logistics. Specify the HSN code of
@@ -2921,9 +2915,6 @@ x-tags:
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Temp_Max
                 description: Define max value of temperature
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Packaging
-                description: Type of Packaging; Present in International Logistics
                 reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
@@ -23970,6 +23961,14 @@ x-attributes:
                   required: required
                   usage: 12.4535445,77.9283792
                   reference: if any
+                time:
+                  range:
+                    description: >-
+                      To be sent if logistics buyer knows when they want to
+                      initiate the delivery.
+                    required: optional
+                    usage: '-'
+                    reference: if any
             payment:
               parent: true
               collected_by:
@@ -23979,22 +23978,6 @@ x-attributes:
                 required: required
                 usage: BPP
                 reference: if any
-              tags:
-                Collection_Details:
-                  Type:
-                    description: >-
-                      defines the payment type, enum - "ON-ORDER",
-                      "ON-FULFILLMENT", "POST-FULFILLMENT";
-                    required: optional
-                    usage: ON-FULFILLMENT
-                    reference: if any
-                  Amount:
-                    description: >-
-                      amount to be collected by the delivery agent, required for
-                      type "ON-FULFILLMENT"
-                    required: optional
-                    usage: '300'
-                    reference: if any
       on_search:
         parent: true
         message:
@@ -24538,6 +24521,14 @@ x-attributes:
                   required: required
                   usage: 12.4535445,77.9283792
                   reference: if any
+                time:
+                  range:
+                    description: >-
+                      To be sent if logistics buyer knows when they want to
+                      initiate the delivery.
+                    required: optional
+                    usage: '-'
+                    reference: if any
             payment:
               parent: true
               collected_by:
@@ -24547,22 +24538,6 @@ x-attributes:
                 required: required
                 usage: BPP
                 reference: if any
-              tags:
-                Collection_Details: null
-                type:
-                  description: >-
-                    defines the payment type, enum - "ON-ORDER",
-                    "ON-FULFILLMENT", "POST-FULFILLMENT";
-                  required: optional
-                  usage: ON-FULFILLMENT
-                  reference: if any
-                amount:
-                  description: >-
-                    amount to be collected by the delivery agent, required for
-                    type "ON-FULFILLMENT"
-                  required: optional
-                  usage: '300'
-                  reference: if any
       on_search:
         parent: true
         message:

@@ -34,12 +34,6 @@ Package_Details:
   - code: Package_Count
     description: Define count of packages
     reference: <PR/Issue/Discussion Links md format text>
-  - code: UNIT_PRICE
-    description: Unit Price
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: ITEM_PRICE
-    description: Item price
-    reference: <PR/Issue/Discussion Links md format text>
   - code: HSN_Code
     description: Valid for international logistics. Specify the HSN code of item.
     reference: <PR/Issue/Discussion Links md format text>
@@ -75,9 +69,6 @@ Cold_Logistics:
     reference: <PR/Issue/Discussion Links md format text>
   - code: Temp_Max
     description: Define max value of temperature
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: Packaging
-    description: Type of Packaging; Present in International Logistics
     reference: <PR/Issue/Discussion Links md format text>
 Settlement_Details:
   - code: Counterparty
