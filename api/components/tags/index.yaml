@@ -2,3 +2,26 @@ search:
   message:
     intent:
       $ref: "./tag-group.yaml#/intent"
+on_search:
+  message:
+    catalog:
+      descriptor:
+        $ref: "./tag-group.yaml#/descriptor"
+# init: *ref0
+# on_init: &ref0
+#   message:
+#     order:
+#       $ref: "./tag-group.yaml#/order"
+# confirm: *ref0
+# on_confirm: *ref0
+# update: *ref0
+# on_update: *ref0
+# on_cancel: *ref0
+# on_track:
+#   message:
+#     tracking:
+#       $ref: "./tag-group.yaml#/tracking"
+# on_status:
+#   message:
+#     order:
+#       $ref: "./tag-group.yaml#/order/quote"
