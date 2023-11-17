@@ -11,8 +11,17 @@ message:
         reference: if any
     providers:
       parent: true
+      id:
+        description: logistics service provider id
+        required: required
+        usage: "P1"
+        reference: if any
+      descriptor:
+        description: details of the logistics service provider
+        required: required
+        usage: "Courier Inc"
+        reference: if any  
       categories:
-        parent: true
         time:
           description: category level TAT for S2D (ship-to-delivery), can be overridden by item-level TAT whenever there are multiple options for the same category (e.g. 4D, 7D etc.);
           required: required
@@ -29,9 +38,7 @@ message:
         usage: "-"
         reference: if any
       items:
-        parent: true
         descriptor:
-          parent: true
           code: 
             description: type of shipment; enum -  "P2P" (point-to-point) and "P2H2P" (point-to-hub-to-point). P2H2P fulfillments require different packaging and AWB no. This is required for merchants to decide on the packaging required for shipment
             required: optional
