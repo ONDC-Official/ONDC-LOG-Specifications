@@ -14,11 +14,12 @@ message:
         required: required
         usage: "logistics_buyer.com"
         reference: if any
-      "reason.id":
-        description: cancellation reason id, List of cancellation reason ids can be found here - https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
-        required: required
-        usage: "004"
-        reference: if any
+      reason:
+        id:
+          description: cancellation reason id, List of cancellation reason ids can be found here - https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+          required: required
+          usage: "004"
+          reference: if any
     quote:
       description: quote should reflect the updated value of logistics order (including weight differential cost & tax if applicable for forward shipment & RTO) which has to be paid by logistics buyer NP
       required: required

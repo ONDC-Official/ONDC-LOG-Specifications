@@ -1,22 +1,23 @@
 message:
   parent: true
-  fulfillments:
+  order:
     parent: true
-    stops:
+    fulfillments:
       parent: true
-      instructions:
-        parent: true
-        description: instructions for delivery
-        required: code and short_desc required if "ready_to_ship" = yes;
+      fulfillments:
+        description: contains the fulfillment details
+        required: required
         usage: "-"
-        reference: if any
-        code:
-          description: The AWB No. of the fulfillment
-          required: required if ready to ship
-          usage: "1227262193237777"
-          reference: if any
-        short_desc:
-          description: value of PCC - contact no - 10 digits; merchant order no - max 6 digits; other pickup confirmation code - max 6 digits; OTP - max 6 digits
-          required: required if ready to ship
-          usage: "-"
-          reference: if any
+        reference: if any  
+      stops:
+        instructions:
+          code:
+            description: type of PCC - enum - "AWB_No" - shipping bill (AWB number), "ACC_No" - If Account exists-Customer code , "BKG_No" - Booking reference number provided by LSP at the time of booking, "GST_No" - GST number
+            required: required if ready to ship
+            usage: "AWB_No"
+            reference: if any
+          short_desc:
+            description: value of PCC 
+            required: required if ready to ship
+            usage: "1227262193237777"
+            reference: if any

@@ -2895,12 +2895,6 @@ x-tags:
               - code: Package_Count
                 description: Define count of packages
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: UNIT_PRICE
-                description: Unit Price
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: ITEM_PRICE
-                description: Item price
-                reference: <PR/Issue/Discussion Links md format text>
               - code: HSN_Code
                 description: >-
                   Valid for international logistics. Specify the HSN code of
@@ -2921,9 +2915,6 @@ x-tags:
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Temp_Max
                 description: Define max value of temperature
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: Packaging
-                description: Type of Packaging; Present in International Logistics
                 reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
@@ -24245,6 +24236,14 @@ x-attributes:
                   required: required
                   usage: 12.4535445,77.9283792
                   reference: if any
+                time:
+                  range:
+                    description: >-
+                      To be sent if logistics buyer knows when they want to
+                      initiate the delivery.
+                    required: optional
+                    usage: '-'
+                    reference: if any
             payment:
               parent: true
               collected_by:
@@ -24254,22 +24253,6 @@ x-attributes:
                 required: required
                 usage: BPP
                 reference: if any
-              tags:
-                Collection_Details:
-                  Type:
-                    description: >-
-                      defines the payment type, enum - "ON-ORDER",
-                      "ON-FULFILLMENT", "POST-FULFILLMENT";
-                    required: optional
-                    usage: ON-FULFILLMENT
-                    reference: if any
-                  Amount:
-                    description: >-
-                      amount to be collected by the delivery agent, required for
-                      type "ON-FULFILLMENT"
-                    required: optional
-                    usage: '300'
-                    reference: if any
       on_search:
         parent: true
         message:
@@ -24287,8 +24270,17 @@ x-attributes:
                 reference: if any
             providers:
               parent: true
+              id:
+                description: logistics service provider id
+                required: required
+                usage: P1
+                reference: if any
+              descriptor:
+                description: details of the logistics service provider
+                required: required
+                usage: Courier Inc
+                reference: if any
               categories:
-                parent: true
                 time:
                   description: >-
                     category level TAT for S2D (ship-to-delivery), can be
@@ -24312,9 +24304,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               items:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       type of shipment; enum -  "P2P" (point-to-point) and
@@ -24331,16 +24321,6 @@ x-attributes:
           parent: true
           order:
             parent: true
-            provider.locations:
-              description: mandatory only if provider.locations was returned in /on_search
-              required: optional
-              usage: '-'
-              reference: if any
-            fulfillments.id:
-              description: fulfillment_id from /on_search corresponding to appropriate type
-              required: required
-              usage: '-'
-              reference: if any
             billing:
               description: >-
                 billing details of the marketplace (MSN or ISN retail seller
@@ -24348,6 +24328,22 @@ x-attributes:
               required: required
               usage: '-'
               reference: if any
+            provider:
+              locations:
+                description: >-
+                  mandatory only if provider.locations was returned in
+                  /on_search
+                required: optional
+                usage: '-'
+                reference: if any
+            fulfillments:
+              id:
+                description: >-
+                  fulfillment_id from /on_search corresponding to appropriate
+                  type
+                required: required
+                usage: '-'
+                reference: if any
             x-input:
               parent: true
               x-input:
@@ -24356,7 +24352,6 @@ x-attributes:
                 usage: '-'
                 reference: if any
               form:
-                parent: true
                 url:
                   description: KYC url which was sent as part of on_search
                   required: optional
@@ -24386,7 +24381,6 @@ x-attributes:
                 usage: '-'
                 reference: if any
               breakup:
-                parent: true
                 breakup:
                   description: logistics provider provides the the breakup of the quote
                   required: required
@@ -24395,16 +24389,20 @@ x-attributes:
                 title:
                   description: >-
                     title of the delivery charges enum - delivery, tax, rto,
-                    diff, for international logistics - enum - Origin, Frieght,
-                    Destination, Custom_Clearance_Service_Origin,
-                    Custom_Clearance_Service_Destination
+                    diff
                   required: required
                   usage: delivery
                   reference: if any
             payments:
               parent: true
+              type:
+                description: >-
+                  stage when fulfillment will be done by logistics seller, enum
+                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+                required: required
+                usage: ON-FULFILLMENT
+                reference: if any
               params:
-                parent: true
                 amount:
                   description: amount as per the quote total value
                   required: required
@@ -24425,13 +24423,6 @@ x-attributes:
                   required: required
                   usage: '-'
                   reference: if any
-              type:
-                description: >-
-                  stage when fulfillment will be done by logistics seller, enum
-                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
-                required: required
-                usage: ON-FULFILLMENT
-                reference: if any
               tags:
                 description: Details of counter party for settling the money
                 required: required
@@ -24447,9 +24438,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               fulfillment_state:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       fulfillment state of the order, enum - Pending,
@@ -24485,10 +24474,13 @@ x-attributes:
             parent: true
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               stops:
-                parent: true
                 instructions:
-                  parent: true
                   code:
                     description: >-
                       type of PCC - enum - "AWB_No" - shipping bill (AWB
@@ -24517,9 +24509,7 @@ x-attributes:
                 usage: 'true'
                 reference: if any
               stops:
-                parent: true
                 time:
-                  parent: true
                   range:
                     description: >-
                       In response to Ready to ship - yes, LSP provides a pickup
@@ -24557,14 +24547,15 @@ x-attributes:
                 required: required
                 usage: logistics_buyer.com
                 reference: if any
-              reason.id:
-                description: >-
-                  cancellation reason id, List of cancellation reason ids can be
-                  found here -
-                  https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
-                required: required
-                usage: '004'
-                reference: if any
+              reason:
+                id:
+                  description: >-
+                    cancellation reason id, List of cancellation reason ids can
+                    be found here -
+                    https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+                  required: required
+                  usage: '004'
+                  reference: if any
             quote:
               description: >-
                 quote should reflect the updated value of logistics order
@@ -24578,29 +24569,31 @@ x-attributes:
         parent: true
         message:
           parent: true
-          fulfillments:
+          order:
             parent: true
-            stops:
+            fulfillments:
               parent: true
-              instructions:
-                parent: true
-                description: instructions for delivery
-                required: code and short_desc required if "ready_to_ship" = yes;
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
                 usage: '-'
                 reference: if any
-                code:
-                  description: The AWB No. of the fulfillment
-                  required: required if ready to ship
-                  usage: '1227262193237777'
-                  reference: if any
-                short_desc:
-                  description: >-
-                    value of PCC - contact no - 10 digits; merchant order no -
-                    max 6 digits; other pickup confirmation code - max 6 digits;
-                    OTP - max 6 digits
-                  required: required if ready to ship
-                  usage: '-'
-                  reference: if any
+              stops:
+                instructions:
+                  code:
+                    description: >-
+                      type of PCC - enum - "AWB_No" - shipping bill (AWB
+                      number), "ACC_No" - If Account exists-Customer code ,
+                      "BKG_No" - Booking reference number provided by LSP at the
+                      time of booking, "GST_No" - GST number
+                    required: required if ready to ship
+                    usage: AWB_No
+                    reference: if any
+                  short_desc:
+                    description: value of PCC
+                    required: required if ready to ship
+                    usage: '1227262193237777'
+                    reference: if any
       on_update:
         parent: true
         message:
@@ -24616,19 +24609,22 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               stops:
-                parent: true
                 type:
                   description: Type of the fulfillment; (start or end)
                   required: mandatory
                   usage: start
                   reference: if any
                 instructions:
-                  parent: true
                   long_desc:
                     description: description of the instruction
                     required: optional
-                    usage: '-'
+                    usage: drop package at security gate
                     reference: if any
                   images:
                     description: provides proof of pickup
@@ -24665,10 +24661,13 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               state:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       Denotes the state of the fulfillment; Enum; Values can be
@@ -24678,9 +24677,7 @@ x-attributes:
                     usage: '-'
                     reference: if any
               stops:
-                parent: true
                 time:
-                  parent: true
                   timestamp:
                     description: Timestamp; fulfillment state code is "Order-picked-up";
                     required: required if fulfillment state is "Order-picked-up"
@@ -24799,6 +24796,14 @@ x-attributes:
                   required: required
                   usage: 12.4535445,77.9283792
                   reference: if any
+                time:
+                  range:
+                    description: >-
+                      To be sent if logistics buyer knows when they want to
+                      initiate the delivery.
+                    required: optional
+                    usage: '-'
+                    reference: if any
             payment:
               parent: true
               collected_by:
@@ -24808,22 +24813,6 @@ x-attributes:
                 required: required
                 usage: BPP
                 reference: if any
-              tags:
-                Collection_Details: null
-                type:
-                  description: >-
-                    defines the payment type, enum - "ON-ORDER",
-                    "ON-FULFILLMENT", "POST-FULFILLMENT";
-                  required: optional
-                  usage: ON-FULFILLMENT
-                  reference: if any
-                amount:
-                  description: >-
-                    amount to be collected by the delivery agent, required for
-                    type "ON-FULFILLMENT"
-                  required: optional
-                  usage: '300'
-                  reference: if any
       on_search:
         parent: true
         message:
@@ -24841,8 +24830,17 @@ x-attributes:
                 reference: if any
             providers:
               parent: true
+              id:
+                description: logistics service provider id
+                required: required
+                usage: P1
+                reference: if any
+              descriptor:
+                description: details of the logistics service provider
+                required: required
+                usage: Courier Inc
+                reference: if any
               categories:
-                parent: true
                 time:
                   description: >-
                     category level TAT for S2D (ship-to-delivery), can be
@@ -24866,9 +24864,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               items:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       type of shipment; enum -  "P2P" (point-to-point) and
@@ -24885,16 +24881,6 @@ x-attributes:
           parent: true
           order:
             parent: true
-            provider.locations:
-              description: mandatory only if provider.locations was returned in /on_search
-              required: optional
-              usage: '-'
-              reference: if any
-            fulfillments.id:
-              description: fulfillment_id from /on_search corresponding to appropriate type
-              required: required
-              usage: '-'
-              reference: if any
             billing:
               description: >-
                 billing details of the marketplace (MSN or ISN retail seller
@@ -24902,6 +24888,22 @@ x-attributes:
               required: required
               usage: '-'
               reference: if any
+            provider:
+              locations:
+                description: >-
+                  mandatory only if provider.locations was returned in
+                  /on_search
+                required: optional
+                usage: '-'
+                reference: if any
+            fulfillments:
+              id:
+                description: >-
+                  fulfillment_id from /on_search corresponding to appropriate
+                  type
+                required: required
+                usage: '-'
+                reference: if any
             x-input:
               parent: true
               x-input:
@@ -24910,7 +24912,6 @@ x-attributes:
                 usage: '-'
                 reference: if any
               form:
-                parent: true
                 url:
                   description: KYC url which was sent as part of on_search
                   required: optional
@@ -24940,7 +24941,6 @@ x-attributes:
                 usage: '-'
                 reference: if any
               breakup:
-                parent: true
                 breakup:
                   description: logistics provider provides the the breakup of the quote
                   required: required
@@ -24949,16 +24949,22 @@ x-attributes:
                 title:
                   description: >-
                     title of the delivery charges enum - delivery, tax, rto,
-                    diff, for international logistics - enum - Origin, Frieght,
-                    Destination, Custom_Clearance_Service_Origin,
+                    diff, Origin, Frieght, Destination,
+                    Custom_Clearance_Service_Origin,
                     Custom_Clearance_Service_Destination
                   required: required
                   usage: delivery
                   reference: if any
             payments:
               parent: true
+              type:
+                description: >-
+                  stage when fulfillment will be done by logistics seller, enum
+                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+                required: required
+                usage: ON-FULFILLMENT
+                reference: if any
               params:
-                parent: true
                 amount:
                   description: amount as per the quote total value
                   required: required
@@ -24979,13 +24985,6 @@ x-attributes:
                   required: required
                   usage: '-'
                   reference: if any
-              type:
-                description: >-
-                  stage when fulfillment will be done by logistics seller, enum
-                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
-                required: required
-                usage: ON-FULFILLMENT
-                reference: if any
               tags:
                 description: Details of counter party for settling the money
                 required: required
@@ -25001,9 +25000,7 @@ x-attributes:
                 usage: '-'
                 reference: if any
               fulfillment_state:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       fulfillment state of the order, enum - Pending,
@@ -25039,10 +25036,13 @@ x-attributes:
             parent: true
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               stops:
-                parent: true
                 instructions:
-                  parent: true
                   code:
                     description: >-
                       type of PCC - enum - "AWB_No" - shipping bill (AWB
@@ -25071,9 +25071,7 @@ x-attributes:
                 usage: 'true'
                 reference: if any
               stops:
-                parent: true
                 time:
-                  parent: true
                   range:
                     description: >-
                       In response to Ready to ship - yes, LSP provides a pickup
@@ -25111,14 +25109,15 @@ x-attributes:
                 required: required
                 usage: logistics_buyer.com
                 reference: if any
-              reason.id:
-                description: >-
-                  cancellation reason id, List of cancellation reason ids can be
-                  found here -
-                  https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
-                required: required
-                usage: '004'
-                reference: if any
+              reason:
+                id:
+                  description: >-
+                    cancellation reason id, List of cancellation reason ids can
+                    be found here -
+                    https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+                  required: required
+                  usage: '004'
+                  reference: if any
             quote:
               description: >-
                 quote should reflect the updated value of logistics order
@@ -25132,29 +25131,31 @@ x-attributes:
         parent: true
         message:
           parent: true
-          fulfillments:
+          order:
             parent: true
-            stops:
+            fulfillments:
               parent: true
-              instructions:
-                parent: true
-                description: instructions for delivery
-                required: code and short_desc required if "ready_to_ship" = yes;
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
                 usage: '-'
                 reference: if any
-                code:
-                  description: The AWB No. of the fulfillment
-                  required: required if ready to ship
-                  usage: '1227262193237777'
-                  reference: if any
-                short_desc:
-                  description: >-
-                    value of PCC - contact no - 10 digits; merchant order no -
-                    max 6 digits; other pickup confirmation code - max 6 digits;
-                    OTP - max 6 digits
-                  required: required if ready to ship
-                  usage: '-'
-                  reference: if any
+              stops:
+                instructions:
+                  code:
+                    description: >-
+                      type of PCC - enum - "AWB_No" - shipping bill (AWB
+                      number), "ACC_No" - If Account exists-Customer code ,
+                      "BKG_No" - Booking reference number provided by LSP at the
+                      time of booking, "GST_No" - GST number
+                    required: required if ready to ship
+                    usage: AWB_No
+                    reference: if any
+                  short_desc:
+                    description: value of PCC
+                    required: required if ready to ship
+                    usage: '1227262193237777'
+                    reference: if any
       on_update:
         parent: true
         message:
@@ -25170,19 +25171,22 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               stops:
-                parent: true
                 type:
                   description: Type of the fulfillment; (start or end)
                   required: mandatory
                   usage: start
                   reference: if any
                 instructions:
-                  parent: true
                   long_desc:
                     description: description of the instruction
                     required: optional
-                    usage: '-'
+                    usage: drop package at security gate
                     reference: if any
                   images:
                     description: provides proof of pickup
@@ -25219,10 +25223,13 @@ x-attributes:
                 reference: if any
             fulfillments:
               parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
               state:
-                parent: true
                 descriptor:
-                  parent: true
                   code:
                     description: >-
                       Denotes the state of the fulfillment; Enum; Values can be
@@ -25232,9 +25239,7 @@ x-attributes:
                     usage: '-'
                     reference: if any
               stops:
-                parent: true
                 time:
-                  parent: true
                   timestamp:
                     description: Timestamp; fulfillment state code is "Order-picked-up";
                     required: required if fulfillment state is "Order-picked-up"

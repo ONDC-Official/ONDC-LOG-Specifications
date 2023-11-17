@@ -2,21 +2,23 @@ message:
   parent: true
   order:
     parent: true
-    provider.locations: 
-      description: mandatory only if provider.locations was returned in /on_search
-      required: optional
-      usage: "-"
-      reference: if any
-    fulfillments.id:
-      description: fulfillment_id from /on_search corresponding to appropriate type
-      required: required
-      usage: "-"
-      reference: if any
     billing:
       description: billing details of the marketplace (MSN or ISN retail seller app) for invoicing;
       required: required
       usage: "-"
       reference: if any
+    provider:
+      locations:
+        description: mandatory only if provider.locations was returned in /on_search
+        required: optional
+        usage: "-"
+        reference: if any
+    fulfillments:
+      id:
+        description: fulfillment_id from /on_search corresponding to appropriate type
+        required: required
+        usage: "-"
+        reference: if any
     x-input:
       parent: true
       x-input:
@@ -25,7 +27,6 @@ message:
         usage: "-"
         reference: if any
       form:
-        parent: true
         url:
           description: KYC url which was sent as part of on_search
           required: optional
