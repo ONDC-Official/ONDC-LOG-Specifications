@@ -1,0 +1,11 @@
+category_ids:
+    - code: Surface_Delivery
+      description: Surface Delivery
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Air_Delivery
+      description: Air Delivery
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: Ocean_Delivery
+      description: Ocean Delivery
+      reference: <PR/Issue/Discussion Links md format text>
+    
