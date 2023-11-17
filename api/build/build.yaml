@@ -2613,6 +2613,43 @@ x-enum:
     context: *ref_0
 x-tags:
   intent:
+    fulfillments:
+      tags:
+        - code: Delivery_Terms
+          description: Define terms for Delivery here
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: Ready_To_Ship
+              description: Description of the Tag
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: AWB_No
+              description: Description of the Tag
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: RTO_Action
+              description: Description of the Tag
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: INCOTERMS
+              description: Description of the Tag; Present in International Logistics
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: NAMED_PLACE_OF_DELIVERY
+              description: >-
+                If the delivery is on port based on incoterm, the port code
+                should be sent as per UN standard.
+              reference: <PR/Issue/Discussion Links md format text>
+    payment:
+      tags:
+        - code: Collection_Details
+          description: Define terms for Collection Details Here
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: Amount
+              description: >-
+                Collection Details mount needed if logistics seller needs to
+                collect the payment from buyer at the time of delivery.
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: Type
+              description: Description of the Tag
+              reference: <PR/Issue/Discussion Links md format text>
     tags:
       - code: Package_Weight
         description: Define package dead weight here
@@ -2648,7 +2685,9 @@ x-tags:
             description: Define category of package
             reference: <PR/Issue/Discussion Links md format text>
           - code: Dangerous_Goods
-            description: State true if dangerous goods
+            description: >-
+              State true if dangerous goods; If true, the logistics buyer would
+              need to share MSDS certificate.
             reference: <PR/Issue/Discussion Links md format text>
           - code: Stackable
             description: State true if goods are stackable
@@ -2666,85 +2705,14 @@ x-tags:
             description: Item price
             reference: <PR/Issue/Discussion Links md format text>
           - code: HSN_Code
-            description: HSN Code; International Logistics
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Package_Dimensions_Diff
-        description: Define terms for Package Dimensions Diff
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Unit
-            description: Define unit of package dimensions
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Length
-            description: Define length of package dimensions
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Breadth
-            description: Define breadth of package dimensions
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Height
-            description: Define height of package dimensions
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Diff_Proof
-        description: Define terms if Difference Proof is required
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: type
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: url
-            description: Description of the Tag
+            description: Valid for international logistics. Specify the HSN code of item.
             reference: <PR/Issue/Discussion Links md format text>
       - code: Cold_Logistics
         description: Define terms if cold logistics is required
         reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Temp_Control
-            description: State true if require cold logistics
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Temp_Unit
-            description: Define unit of temperature
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Temp_Min
-            description: Define min value of temperature
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Temp_Max
-            description: Define max value of temperature
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Packaging
-            description: Type of Packaging; Present in International Logistics
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Settlement_Details
-        description: Define terms for Settlement Details Here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Counterparty
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Mode
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Beneficiary_Name
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Bank_Account_No
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Ifsc_Code
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: UPI_Address
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Collection_Details
-        description: Define terms for Collection Details Here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Amount
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: Type
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
+        list: null
+  descriptor:
+    tags:
       - code: BPP_Terms
         description: Define BPP terms
         reference: <PR/Issue/Discussion Links md format text>
@@ -2771,55 +2739,6 @@ x-tags:
             description: Description of the Tag
             reference: <PR/Issue/Discussion Links md format text>
           - code: Effective_Date
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: BAP_Terms
-        description: Define terms for BAP
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Accept_BPP_Terms
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Delivery_Terms
-        description: Define terms for Delivery here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: Ready_To_Ship
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: AWB_No
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: RTO_Action
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: INCOTERMS
-            description: Description of the Tag; Present in International Logistics
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: NAMED_PLACE_OF_DELIVERY
-            description: Description of the Tag; Present in International Logistics
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: Quantity
-        description: Define Quantity Tags here
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: count
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: MEASURE_UNIT
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: MEASURE_VALUE
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-      - code: KYC
-        description: Define KYC Terms
-        reference: <PR/Issue/Discussion Links md format text>
-        list:
-          - code: url
-            description: Description of the Tag
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: required
             description: Description of the Tag
             reference: <PR/Issue/Discussion Links md format text>
 x-flows:

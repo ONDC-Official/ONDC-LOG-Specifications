@@ -23,7 +23,7 @@ Package_Details:
     description: Define category of package
     reference: <PR/Issue/Discussion Links md format text>
   - code: Dangerous_Goods
-    description: State true if dangerous goods
+    description: State true if dangerous goods; If true, the logistics buyer would need to share MSDS certificate.
     reference: <PR/Issue/Discussion Links md format text>
   - code: Stackable
     description: State true if goods are stackable
@@ -41,7 +41,7 @@ Package_Details:
     description: Item price
     reference: <PR/Issue/Discussion Links md format text>
   - code: HSN_Code
-    description: HSN Code; International Logistics
+    description: Valid for international logistics. Specify the HSN code of item.
     reference: <PR/Issue/Discussion Links md format text>
 Package_Dimensions_Diff:
   - code: Unit
@@ -100,7 +100,7 @@ Settlement_Details:
     reference: <PR/Issue/Discussion Links md format text>
 Collection_Details:
   - code: Amount
-    description: Description of the Tag
+    description: Collection Details mount needed if logistics seller needs to collect the payment from buyer at the time of delivery.
     reference: <PR/Issue/Discussion Links md format text>
   - code: Type
     description: Description of the Tag
@@ -148,7 +148,7 @@ Delivery_Terms:
     description: Description of the Tag; Present in International Logistics
     reference: <PR/Issue/Discussion Links md format text>
   - code: NAMED_PLACE_OF_DELIVERY
-    description: Description of the Tag; Present in International Logistics
+    description: If the delivery is on port based on incoterm, the port code should be sent as per UN standard.
     reference: <PR/Issue/Discussion Links md format text>
 Quantity:
   - code: count
@@ -161,7 +161,7 @@ Quantity:
     description: Description of the Tag
     reference: <PR/Issue/Discussion Links md format text>
 KYC:
-  - code: url
+  - code: eKYC url for dynamic onboarding of logistics buyers.
     description: Description of the Tag
     reference: <PR/Issue/Discussion Links md format text>
   - code: required
