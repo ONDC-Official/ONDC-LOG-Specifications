@@ -1,0 +1,29 @@
+breakup:
+  title:
+      - code: delivery
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: tax
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Origin
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Frieght
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: Destination
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text> 
+      - code: Custom_Clearance_Service_Origin
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text> 
+      - code: Custom_Clearance_Service_Destination
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>   
+      - code: rto
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text> 
+      - code: diff
+        description: about the enum
+        reference: <PR/Issue/Discussion Links md format text>     
