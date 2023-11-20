@@ -1,5 +1,5 @@
 summary: B2B Domestic Logistics - Surface Delivery
-description: The below flow shows the journey of Logistics buyer buying logistics services for Road/Surface Cargo.
+description: The below flow shows the journey of Logistics buyer buying logistics services - Road/Surface Cargo.
 details: 
   - description: SERVICABILITY & QUOTATION
     mermaidGraph: >-
@@ -73,13 +73,13 @@ details:
 
 reference: if any
 steps:
-  - summary: Search Logistics - Surface Delivery
+  - summary: Search Logistics based on fulfilment start and end location + Product details.
     api: search
-    description: Search intent sent by the buyer based on the category
+    description: Search Logistics based on fulfilment start and end location + Product details.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_surface.yaml"
-  - summary: LSP sends catalog
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_without_category.yaml"
+  - summary: LSP sends catalog - Surface and Air Cargo
     api: on_search
     description: Logistics service provider sends the catalog based on search + Sends the KYC Link. 
     reference: if any

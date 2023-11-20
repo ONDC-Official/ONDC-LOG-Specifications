@@ -1,5 +1,5 @@
 summary: B2B International Logistics - Air Delivery
-description: The below flow shows the journey of Logistics buyer buying International logistics services for Air Cargo.
+description: The below flow shows the journey of Logistics buyer buying International logistics services - Air Cargo.
 details: 
   - description: SERVICABILITY & QUOTATION
     mermaidGraph: >-
@@ -73,13 +73,13 @@ details:
 
 reference: if any
 steps:
-  - summary: Search Logistics - Air Delivery
+  - summary: Search Logistics based on fulfilment start and end location + Product details.
     api: search
-    description: Search intent sent by the buyer based on the category
+    description: Search intent sent by the buyer based on the start & end location + Product details.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Int_Logistics_yaml/search/search_Air_Delivery.yaml"
-  - summary: LSP sends catalog
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/search/search_by_parent_category.yaml"
+  - summary: LSP sends catalog - Air & Ocean Cargo
     api: on_search
     description: Logistics service provider sends the catalog based on search + Sends the KYC Link. 
     reference: if any

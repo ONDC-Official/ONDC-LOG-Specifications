@@ -1,14 +1,14 @@
 summary: B2B Domestic Logistics Cancellation - RTO
-description: The below flow shows the journey of Logistics buyer buying logistics services and Buyer cancelling the order.
+description: The below flow shows the journey of Logistics buyer buying logistics services and LSP trigerring RTO (Return to Origin).
 reference: if any
 steps:
-  - summary: Search Logistics - Air Delivery
+  - summary: Search Logistics based on fulfilment start and end location + Product details.
     api: search
-    description: Search for parent category - Express Delivery or Air Delivery.
+    description: Search Logistics based on fulfilment start and end location + Product details.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_air.yaml"
-  - summary: LSP sends catalog
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_without_category.yaml"
+  - summary: LSP sends catalog - Surface & Air Cargo
     api: on_search
     description: Logistics service provider sends the catalog based on search + Sends the KYC Link. 
     reference: if any

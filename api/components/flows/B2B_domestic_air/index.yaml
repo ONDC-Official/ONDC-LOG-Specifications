@@ -1,5 +1,5 @@
 summary: B2B Domestic Logistics - Air Delivery
-description: The below flow shows the journey of Logistics buyer buying logistics services.
+description: The below flow shows the journey of Logistics buyer buying B2B domestic logistics services - Air Delivery.
 details: 
   - description: SERVICABILITY & QUOTATION
     mermaidGraph: >-
@@ -71,19 +71,19 @@ details:
         B2B BPP->Logistics BPP: **/status**  - Seller requests for Shipment status
         Logistics BPP->B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
 steps:
-  - summary: Search Logistics - Air Delivery
+  - summary: Search Logistics based on fulfilment start and end location + Product details.
     api: search
-    description: Search for parent category - Express Delivery or Air Delivery.
+    description: Search Logistics based on fulfilment start and end location + Product details.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_air.yaml"
-  - summary: LSP sends catalog
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/search/search_without_category.yaml"
+  - summary: LSP sends catalog - Surface and Air Cargo
     api: on_search
     description: Logistics service provider sends the catalog based on search + Sends the KYC Link.
     reference: if any
     example:
       $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_search/on_search_air.yaml"
-  - summary: Logistics Buyer initializes the order.
+  - summary: Logistics Buyer initializes the order - Air Cargo.
     api: init
     description: Logistics Buyer fills the KYC form and sends the submission Id while initializing the order.
     reference: if any

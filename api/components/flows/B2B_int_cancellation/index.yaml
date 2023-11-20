@@ -1,5 +1,5 @@
 summary: B2B International Logistics Cancellation - Buyer Cancels
-description: The below flow shows the journey of Logistics buyer buying international logistics services and buyer cancelling the order.
+description: The below flow shows the journey of Logistics buyer buying international logistics services and Logistics buyer cancelling the order.
 reference: if any
 steps:
   - summary: Search Logistics - Air Delivery
@@ -7,7 +7,7 @@ steps:
     description: Search intent sent by the buyer based on the category
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Int_Logistics_yaml/search/search_Air_Delivery.yaml"
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/search/search_by_parent_category.yaml"
   - summary: LSP sends catalog
     api: on_search
     description: Logistics service provider sends the catalog based on search + Sends the KYC Link. 

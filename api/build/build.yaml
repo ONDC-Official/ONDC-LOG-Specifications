@@ -3118,7 +3118,7 @@ x-flows:
   - summary: B2B Domestic Logistics - Surface Delivery
     description: >-
       The below flow shows the journey of Logistics buyer buying logistics
-      services for Road/Surface Cargo.
+      services - Road/Surface Cargo.
     details:
       - description: SERVICABILITY & QUOTATION
         mermaidGraph: |-
@@ -3190,13 +3190,17 @@ x-flows:
             Logistics BPP->B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
     reference: if any
     steps:
-      - summary: Search Logistics - Surface Delivery
+      - summary: >-
+          Search Logistics based on fulfilment start and end location + Product
+          details.
         api: search
-        description: Search intent sent by the buyer based on the category
+        description: >-
+          Search Logistics based on fulfilment start and end location + Product
+          details.
         reference: if any
-        example:
-          summary: Search Logistics - Surface Delivery
-          description: null
+        example: &ref_19
+          summary: Search Logistics - Air Delivery
+          description: Search for parent category - Express Delivery or Air Delivery.
           value:
             context:
               domain: ONDC:LOG10
@@ -3211,23 +3215,10 @@ x-flows:
               bap_uri: https://logistics_buyer.com/ondc
               transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
               message_id: '1755281254860'
-              timestamp: '2023-10-17T21:10:00.000Z'
+              timestamp: '2023-10-17T21:00:00.000Z'
               ttl: PT30S
             message:
               intent:
-                category:
-                  descriptor:
-                    code: Surface_Delivery
-                provider:
-                  time:
-                    days: 1,2,3,4,5,6,7
-                    schedule:
-                      holidays:
-                        - '2023-10-18'
-                        - '2023-10-19'
-                    range:
-                      start: '1100'
-                      end: '2100'
                 fulfillments:
                   type: Delivery
                   stops:
@@ -3247,6 +3238,16 @@ x-flows:
                       location:
                         gps: 12.342769,77.9129423
                         area_code: '636806'
+                provider:
+                  time:
+                    days: 1,2,3,4,5,6,7
+                    schedule:
+                      holidays:
+                        - '2023-10-18'
+                        - '2023-10-19'
+                    range:
+                      start: '1100'
+                      end: '2100'
                 payment:
                   collected_by: BPP
                   tags:
@@ -3317,7 +3318,7 @@ x-flows:
                       - descriptor:
                           code: Temp_Max
                         value: '4'
-      - summary: LSP sends catalog
+      - summary: LSP sends catalog - Surface and Air Cargo
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
@@ -4654,7 +4655,7 @@ x-flows:
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: &ref_19
+        example: &ref_20
           summary: Logistics Buyer requests for status update
           description: null
           value:
@@ -4949,8 +4950,8 @@ x-flows:
                 updated_at: '2023-10-19T21:00:00.800Z'
   - summary: B2B Domestic Logistics - Air Delivery
     description: >-
-      The below flow shows the journey of Logistics buyer buying logistics
-      services.
+      The below flow shows the journey of Logistics buyer buying B2B domestic
+      logistics services - Air Delivery.
     details:
       - description: SERVICABILITY & QUOTATION
         mermaidGraph: |-
@@ -5021,134 +5022,16 @@ x-flows:
             B2B BPP->Logistics BPP: **/status**  - Seller requests for Shipment status
             Logistics BPP->B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
     steps:
-      - summary: Search Logistics - Air Delivery
+      - summary: >-
+          Search Logistics based on fulfilment start and end location + Product
+          details.
         api: search
-        description: Search for parent category - Express Delivery or Air Delivery.
+        description: >-
+          Search Logistics based on fulfilment start and end location + Product
+          details.
         reference: if any
-        example: &ref_20
-          summary: Search Logistics - Air Delivery
-          description: Search for parent category - Express Delivery or Air Delivery.
-          value:
-            context:
-              domain: ONDC:LOG10
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: search
-              version: 2.0.0
-              bap_id: logistics_buyer.com
-              bap_uri: https://logistics_buyer.com/ondc
-              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-              message_id: '1755281254860'
-              timestamp: '2023-10-17T21:00:00.000Z'
-              ttl: PT30S
-            message:
-              intent:
-                category:
-                  descriptor:
-                    code: Air_Delivery
-                provider:
-                  time:
-                    days: 1,2,3,4,5,6,7
-                    schedule:
-                      holidays:
-                        - '2023-10-18'
-                        - '2023-10-19'
-                    range:
-                      start: '1100'
-                      end: '2100'
-                fulfillments:
-                  type: Delivery
-                  stops:
-                    - id: L1
-                      parent_stop_id: ''
-                      type: start
-                      location:
-                        gps: 12.4535445,77.9283792
-                        area_code: '560041'
-                      time:
-                        range:
-                          start: '2023-10-25T10:00:00.000Z'
-                          end: '2023-10-25T10:30:00.000Z'
-                    - id: L2
-                      parent_stop_id: L1
-                      type: end
-                      location:
-                        gps: 12.342769,77.9129423
-                        area_code: '636806'
-                payment:
-                  collected_by: BPP
-                  tags:
-                    - descriptor:
-                        code: Collection_Details
-                      list:
-                        - descriptor:
-                            code: Amount
-                          value: '20000'
-                        - descriptor:
-                            code: Type
-                          value: ON-FULFILLMENT
-                tags:
-                  - descriptor:
-                      code: Package_Weight
-                    list:
-                      - descriptor:
-                          code: Unit
-                        value: kilogram
-                      - descriptor:
-                          code: Value
-                        Value: '50'
-                  - descriptor:
-                      code: Package_Dimensions
-                    list:
-                      - descriptor:
-                          code: Unit
-                        value: centimeter
-                      - descriptor:
-                          code: Length
-                        value: '100'
-                      - descriptor:
-                          code: Breadth
-                        value: '100'
-                      - descriptor:
-                          code: Height
-                        value: '100'
-                  - descriptor:
-                      code: Package_Details
-                    list:
-                      - descriptor:
-                          code: Category
-                        value: Grocery
-                      - descriptor:
-                          code: Dangerous_Goods
-                        value: 'true'
-                      - descriptor:
-                          code: Stackable
-                        value: 'true'
-                      - descriptor:
-                          code: Shipment_Value
-                        value: '50000'
-                      - descriptor:
-                          code: Package_Count
-                        value: '10'
-                  - descriptor:
-                      code: Cold_Logistics
-                    list:
-                      - descriptor:
-                          code: Temp_Control
-                        value: 'true'
-                      - descriptor:
-                          code: Temp_Unit
-                        value: Celsius
-                      - descriptor:
-                          code: Temp_Min
-                        value: '0'
-                      - descriptor:
-                          code: Temp_Max
-                        value: '4'
-      - summary: LSP sends catalog
+        example: *ref_19
+      - summary: LSP sends catalog - Surface and Air Cargo
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
@@ -5323,7 +5206,7 @@ x-flows:
                           label: TAT
                           duration: P4D
                           timestamp: '2023-10-25T21:00:00.000Z'
-      - summary: Logistics Buyer initializes the order.
+      - summary: Logistics Buyer initializes the order - Air Cargo.
         api: init
         description: >-
           Logistics Buyer fills the KYC form and sends the submission Id while
@@ -6489,7 +6372,7 @@ x-flows:
         api: status
         description: Logistics Buyer requests for order status update
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Responds to order status update - Order Picked up
         api: on_status
         description: >-
@@ -6763,15 +6646,19 @@ x-flows:
   - summary: B2B Domestic Logistics Cancellation - RTO
     description: >-
       The below flow shows the journey of Logistics buyer buying logistics
-      services and Buyer cancelling the order.
+      services and LSP trigerring RTO (Return to Origin).
     reference: if any
     steps:
-      - summary: Search Logistics - Air Delivery
+      - summary: >-
+          Search Logistics based on fulfilment start and end location + Product
+          details.
         api: search
-        description: Search for parent category - Express Delivery or Air Delivery.
+        description: >-
+          Search Logistics based on fulfilment start and end location + Product
+          details.
         reference: if any
-        example: *ref_20
-      - summary: LSP sends catalog
+        example: *ref_19
+      - summary: LSP sends catalog - Surface & Air Cargo
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
@@ -6816,7 +6703,7 @@ x-flows:
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: *ref_19
+        example: *ref_20
       - summary: Responds to order status update - Order Picked up
         api: on_status
         description: >-
@@ -7423,7 +7310,7 @@ x-flows:
   - summary: B2B International Logistics - Air Delivery
     description: >-
       The below flow shows the journey of Logistics buyer buying International
-      logistics services for Air Cargo.
+      logistics services - Air Cargo.
     details:
       - description: SERVICABILITY & QUOTATION
         mermaidGraph: |-
@@ -7495,13 +7382,17 @@ x-flows:
             Logistics BPP->B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
     reference: if any
     steps:
-      - summary: Search Logistics - Air Delivery
+      - summary: >-
+          Search Logistics based on fulfilment start and end location + Product
+          details.
         api: search
-        description: Search intent sent by the buyer based on the category
+        description: >-
+          Search intent sent by the buyer based on the start & end location +
+          Product details.
         reference: if any
-        example: &ref_34
-          summary: Search Logistics - Air Delivery
-          description: Search for parent category - Express Delivery or Air Delivery.
+        example: &ref_29
+          summary: Search by parent category - Express Delivery
+          description: null
           value:
             context:
               domain: ONDC:LOG11
@@ -7522,7 +7413,7 @@ x-flows:
               intent:
                 category:
                   descriptor:
-                    code: Air_Delivery
+                    code: Express_Delivery
                 provider:
                   time:
                     days: 1,2,3,4,5,6,7
@@ -7561,7 +7452,7 @@ x-flows:
                         value: CIF
                       - descriptor:
                           code: NAMED_PLACE_OF_DELIVERY
-                        value: UN:SIN
+                        value: UN:SGSIN
                 payment:
                   collected_by: BPP
                   tags:
@@ -7635,7 +7526,7 @@ x-flows:
                       - descriptor:
                           code: Temp_Max
                         value: '4'
-      - summary: LSP sends catalog
+      - summary: LSP sends catalog - Air & Ocean Cargo
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
@@ -9273,7 +9164,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_29
+        example: &ref_30
           summary: Status updates
           description: >-
             Logistics provider updates the status of fulfillment as Order Picked
@@ -9580,7 +9471,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_30
+        example: &ref_31
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -9886,7 +9777,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_31
+        example: &ref_32
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -10192,7 +10083,7 @@ x-flows:
         api: status
         description: Logistics buyer requests for status update
         reference: if any
-        example: &ref_32
+        example: &ref_33
           summary: Logistics Buyer requests for status update
           description: null
           value:
@@ -10219,7 +10110,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_33
+        example: &ref_34
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -10524,8 +10415,8 @@ x-flows:
                 updated_at: '2023-02-06T22:00:30.000Z'
   - summary: B2B International Logistics - Ocean Delivery
     description: >-
-      The below flow shows the journey of Logistics buyer buying logistics
-      services for Ocean Cargo.
+      The below flow shows the journey of Logistics buyer buying International
+      logistics services - Ocean Cargo.
     details:
       - description: SERVICABILITY & QUOTATION
         mermaidGraph: |-
@@ -10597,147 +10488,16 @@ x-flows:
             Logistics BPP->B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
     reference: if any
     steps:
-      - summary: Search Logistics - Ocean Delivery
+      - summary: >-
+          Search Logistics based on fulfilment start and end location + Product
+          details.
         api: search
-        description: Search intent sent by the buyer based on the category
+        description: >-
+          Search Logistics based on fulfilment start and end location + Product
+          details.
         reference: if any
-        example:
-          summary: Search Logistics - Ocean Delivery
-          description: null
-          value:
-            context:
-              domain: ONDC:LOG11
-              location:
-                city:
-                  code: UN:SIN
-                country:
-                  code: SGP
-              action: search
-              version: 2.0.0
-              bap_id: logistics_buyer.com
-              bap_uri: https://logistics_buyer.com/ondc
-              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-              message_id: '1755281254860'
-              timestamp: '2023-10-17T21:00:00.000Z'
-              ttl: PT30S
-            message:
-              intent:
-                category:
-                  descriptor:
-                    code: Ocean_Delivery
-                provider:
-                  time:
-                    days: 1,2,3,4,5,6,7
-                    schedule:
-                      holidays:
-                        - '2023-10-18'
-                        - '2023-10-19'
-                    range:
-                      start: '1100'
-                      end: '2100'
-                fulfillments:
-                  type: Delivery
-                  stops:
-                    - id: L1
-                      parent_stop_id: ''
-                      type: start
-                      location:
-                        gps: 12.4535445,77.9283792
-                        area_code: '560041'
-                      time:
-                        range:
-                          start: '2023-10-23T10:00:00.000Z'
-                          end: '2023-10-25T10:30:00.000Z'
-                    - id: L2
-                      parent_stop_id: L1
-                      type: end
-                      location:
-                        gps: 1.3806217468119772, 103.74636438437074
-                        area_code: '680230'
-                  tags:
-                    descriptor:
-                      code: Delivery_Terms
-                    list:
-                      - descriptor:
-                          code: INCOTERMS
-                        value: CIF
-                      - descriptor:
-                          code: NAMED_PLACE_OF_DELIVERY
-                        value: UN:SGSIN
-                payment:
-                  collected_by: BPP
-                  tags:
-                    - descriptor:
-                        code: Collection_Details
-                      list:
-                        - descriptor:
-                            code: Amount
-                          value: '20000'
-                        - descriptor:
-                            code: Type
-                          value: ON-FULFILLMENT
-                tags:
-                  - descriptor:
-                      code: Package_Weight
-                    list:
-                      - descriptor:
-                          code: Unit
-                        value: kilogram
-                      - descriptor:
-                          code: Value
-                        Value: '5'
-                  - descriptor:
-                      code: Package_Dimensions
-                    list:
-                      - descriptor:
-                          code: Unit
-                        value: centimeter
-                      - descriptor:
-                          code: Length
-                        value: '100'
-                      - descriptor:
-                          code: Breadth
-                        value: '100'
-                      - descriptor:
-                          code: Height
-                        value: '100'
-                  - descriptor:
-                      code: Package_Details
-                    list:
-                      - descriptor:
-                          code: Category
-                        value: Grocery
-                      - descriptor:
-                          code: Dangerous_Goods
-                        value: 'true'
-                      - descriptor:
-                          code: Stackable
-                        value: 'true'
-                      - descriptor:
-                          code: Shipment_Value
-                        value: '50000'
-                      - descriptor:
-                          code: Package_Count
-                        value: '10'
-                      - descriptor:
-                          code: HSN_Code
-                        value: xxxxxxx
-                  - descriptor:
-                      code: Cold_Logistics
-                    list:
-                      - descriptor:
-                          code: Temp_Control
-                        value: 'true'
-                      - descriptor:
-                          code: Temp_Unit
-                        value: Celsius
-                      - descriptor:
-                          code: Temp_Min
-                        value: '0'
-                      - descriptor:
-                          code: Temp_Max
-                        value: '4'
-      - summary: LSP sends catalog
+        example: *ref_29
+      - summary: LSP sends catalog - Air & Ocean Cargo
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
@@ -12389,38 +12149,38 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_29
+        example: *ref_30
       - summary: LSP sends status updates - Order Picked up
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_30
+        example: *ref_31
       - summary: LSP sends status updates - Domestic Custom Cleared
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_31
+        example: *ref_32
       - summary: Logistics buyer requests for status update
         api: status
         description: Logistics buyer requests for status update
         reference: if any
-        example: *ref_32
+        example: *ref_33
       - summary: LSP sends status updates - Order Delivered
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_33
+        example: *ref_34
   - summary: B2B International Logistics Cancellation - Buyer Cancels
     description: >-
       The below flow shows the journey of Logistics buyer buying international
-      logistics services and buyer cancelling the order.
+      logistics services and Logistics buyer cancelling the order.
     reference: if any
     steps:
       - summary: Search Logistics - Air Delivery
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_34
+        example: *ref_29
       - summary: LSP sends catalog
         api: on_search
         description: >-
@@ -12466,14 +12226,14 @@ x-flows:
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: *ref_32
+        example: *ref_33
       - summary: Responds to order status update - Pickup Approved
         api: on_status
         description: >-
           Seller app sends an on_status call to the buyer app informing about
           the current status of the order.
         reference: if any
-        example: *ref_29
+        example: *ref_30
       - summary: Logistics Buyer cancels the order
         api: cancel
         description: Logistics Buyer cancels the order
