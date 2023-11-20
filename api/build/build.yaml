@@ -3132,8 +3132,8 @@ x-flows:
             B2B BAP-> B2B BPP: RFQ is requested
 
             note over B2B BPP,Logistics BPP: **SERVICABILITY & QUOTATION**
-            B2B BPP->Logistics BPP: **/search**  - Check for servicability based on start and end location and <br/> quotation based on product dimensions.
-            Logistics BPP->B2B BPP: **/on_search** - Returns possible fulfillments and categories of fulfillment <br/>                      + Quotation of each fulfilment type + e-KYC form
+            B2B BPP->>Logistics BPP: **/search**  - Check for servicability based on start and end location and <br/> quotation based on product dimensions.
+            Logistics BPP->>B2B BPP: **/on_search** - Returns possible fulfillments and categories of fulfillment <br/>                      + Quotation of each fulfilment type + e-KYC form
 
 
             note left of B2B BPP:Fills the eKYC form for <br/> selected logistics provider <br/> with required details like <br/> Company Name, Aadhar, \nPAN, GSTIN
@@ -3146,9 +3146,9 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **Final quote + e-KYC**
-            B2B BPP->Logistics BPP: **/init**  - Sends the e-kyc form submission id <br/> and exact address for start and end location
+            B2B BPP->>Logistics BPP: **/init**  - Sends the e-kyc form submission id <br/> and exact address for start and end location
             note right of Logistics BPP: e-verification of KYC 
-            Logistics BPP->B2B BPP: **/on_init** - Confirms KYC and Success or Failure & <br/>                Sends updated quote 
+            Logistics BPP->>B2B BPP: **/on_init** - Confirms KYC and Success or Failure & <br/>                Sends updated quote 
       - description: CONFIRMATION
         mermaidGraph: |-
           sequenceDiagram
@@ -3159,8 +3159,8 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **CONFIRMATION**
-            B2B BPP->Logistics BPP: **/confirm**  - Order is created<br/>                   and all the agreed terms and <br/>                   instructions are communicated.
-            Logistics BPP->B2B BPP: **/on_confirm** - Order is accepted by logistics provider.
+            B2B BPP->>Logistics BPP: **/confirm**  - Order is created<br/>                   and all the agreed terms and <br/>                   instructions are communicated.
+            Logistics BPP->>B2B BPP: **/on_confirm** - Order is accepted by logistics provider.
       - description: READY TO SHIP
         mermaidGraph: |-
           sequenceDiagram
@@ -3171,9 +3171,9 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **READY TO SHIP**
-            B2B BPP->Logistics BPP: **/update**  - Seller updates ReadyToShip=True
+            B2B BPP->>Logistics BPP: **/update**  - Seller updates ReadyToShip=True
 
-            Logistics BPP->B2B BPP: **/on_update** - Shipping label is sent
+            Logistics BPP->>B2B BPP: **/on_update** - Shipping label is sent
 
             note right of Logistics BPP: Logistics provider<br/> picks up the shipment
       - description: ORDER STATUS
@@ -3186,8 +3186,8 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **ORDER STATUS**
-            B2B BPP->Logistics BPP: **/status**  - Seller requests for Shipment status
-            Logistics BPP->B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
+            B2B BPP->>Logistics BPP: **/status**  - Seller requests for Shipment status
+            Logistics BPP->>B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
     reference: if any
     steps:
       - summary: >-
@@ -4965,8 +4965,8 @@ x-flows:
             B2B BAP-> B2B BPP: RFQ is requested
 
             note over B2B BPP,Logistics BPP: **SERVICABILITY & QUOTATION**
-            B2B BPP->Logistics BPP: **/search**  - Check for servicability based on start and end location and <br/> quotation based on product dimensions.
-            Logistics BPP->B2B BPP: **/on_search** - Returns possible fulfillments and categories of fulfillment <br/>                      + Quotation of each fulfilment type + e-KYC form
+            B2B BPP->>Logistics BPP: **/search**  - Check for servicability based on start and end location and <br/> quotation based on product dimensions.
+            Logistics BPP->>B2B BPP: **/on_search** - Returns possible fulfillments and categories of fulfillment <br/>                      + Quotation of each fulfilment type + e-KYC form
 
 
             note left of B2B BPP:Fills the eKYC form for <br/> selected logistics provider <br/> with required details like <br/> Company Name, Aadhar, \nPAN, GSTIN
@@ -4979,9 +4979,9 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **Final quote + e-KYC**
-            B2B BPP->Logistics BPP: **/init**  - Sends the e-kyc form submission id <br/> and exact address for start and end location
+            B2B BPP->>Logistics BPP: **/init**  - Sends the e-kyc form submission id <br/> and exact address for start and end location
             note right of Logistics BPP: e-verification of KYC 
-            Logistics BPP->B2B BPP: **/on_init** - Confirms KYC and Success or Failure & <br/>                Sends updated quote 
+            Logistics BPP->>B2B BPP: **/on_init** - Confirms KYC and Success or Failure & <br/>                Sends updated quote 
       - description: CONFIRMATION
         mermaidGraph: |-
           sequenceDiagram
@@ -4992,8 +4992,8 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **CONFIRMATION**
-            B2B BPP->Logistics BPP: **/confirm**  - Order is created<br/>                   and all the agreed terms and <br/>                   instructions are communicated.
-            Logistics BPP->B2B BPP: **/on_confirm** - Order is accepted by logistics provider.
+            B2B BPP->>Logistics BPP: **/confirm**  - Order is created<br/>                   and all the agreed terms and <br/>                   instructions are communicated.
+            Logistics BPP->>B2B BPP: **/on_confirm** - Order is accepted by logistics provider.
       - description: READY TO SHIP
         mermaidGraph: |-
           sequenceDiagram
@@ -5004,9 +5004,9 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **READY TO SHIP**
-            B2B BPP->Logistics BPP: **/update**  - Seller updates ReadyToShip=True
+            B2B BPP->>Logistics BPP: **/update**  - Seller updates ReadyToShip=True
 
-            Logistics BPP->B2B BPP: **/on_update** - Shipping label is sent
+            Logistics BPP->>B2B BPP: **/on_update** - Shipping label is sent
 
             note right of Logistics BPP: Logistics provider<br/> picks up the shipment
       - description: ORDER STATUS
@@ -5019,8 +5019,8 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **ORDER STATUS**
-            B2B BPP->Logistics BPP: **/status**  - Seller requests for Shipment status
-            Logistics BPP->B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
+            B2B BPP->>Logistics BPP: **/status**  - Seller requests for Shipment status
+            Logistics BPP->>B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
     steps:
       - summary: >-
           Search Logistics based on fulfilment start and end location + Product
@@ -7321,11 +7321,11 @@ x-flows:
             participant Logistics BPP
 
 
-            B2B BAP-> B2B BPP: RFQ is requested
+            B2B BAP->> B2B BPP: RFQ is requested
 
             note over B2B BPP,Logistics BPP: **SERVICABILITY & QUOTATION**
-            B2B BPP->Logistics BPP: **/search**  - Check for servicability based on start and end location and <br/> quotation based on product dimensions & INCOTERMS
-            Logistics BPP->B2B BPP: **/on_search** - Returns possible fulfillments and categories of fulfillment <br/>                      + Quotation of each fulfilment type + e-KYC form
+            B2B BPP->>Logistics BPP: **/search**  - Check for servicability based on start and end location and <br/> quotation based on product dimensions & INCOTERMS
+            Logistics BPP->>B2B BPP: **/on_search** - Returns possible fulfillments and categories of fulfillment <br/>                      + Quotation of each fulfilment type + e-KYC form
 
 
             note left of B2B BPP:Fills the eKYC form for <br/> selected logistics provider <br/> with required details like <br/> Company Name, Aadhar, \nPAN, GSTIN
@@ -7338,9 +7338,9 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **Final quote + e-KYC**
-            B2B BPP->Logistics BPP: **/init**  - Sends the e-kyc form submission id <br/> and exact address for start and end location
+            B2B BPP->>Logistics BPP: **/init**  - Sends the e-kyc form submission id <br/> and exact address for start and end location
             note right of Logistics BPP: e-verification of KYC 
-            Logistics BPP->B2B BPP: **/on_init** - Confirms KYC and Success or Failure & <br/>                Sends updated quote 
+            Logistics BPP->>B2B BPP: **/on_init** - Confirms KYC and Success or Failure & <br/>                Sends updated quote 
       - description: CONFIRMATION
         mermaidGraph: |-
           sequenceDiagram
@@ -7351,8 +7351,8 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **CONFIRMATION**
-            B2B BPP->Logistics BPP: **/confirm**  - Order is created<br/>                   and all the agreed terms and <br/>                   instructions are communicated.
-            Logistics BPP->B2B BPP: **/on_confirm** - Order is accepted by logistics provider.
+            B2B BPP->>Logistics BPP: **/confirm**  - Order is created<br/>                   and all the agreed terms and <br/>                   instructions are communicated.
+            Logistics BPP->>B2B BPP: **/on_confirm** - Order is accepted by logistics provider.
       - description: READY TO SHIP
         mermaidGraph: |-
           sequenceDiagram
@@ -7363,9 +7363,9 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **READY TO SHIP**
-            B2B BPP->Logistics BPP: **/update**  - Seller updates ReadyToShip=True
+            B2B BPP->>Logistics BPP: **/update**  - Seller updates ReadyToShip=True
 
-            Logistics BPP->B2B BPP: **/on_update** - Shipping label is sent
+            Logistics BPP->>B2B BPP: **/on_update** - Shipping label is sent
 
             note right of Logistics BPP: Logistics provider<br/> picks up the shipment
       - description: ORDER STATUS
@@ -7378,8 +7378,8 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **ORDER STATUS**
-            B2B BPP->Logistics BPP: **/status**  - Seller requests for Shipment status
-            Logistics BPP->B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
+            B2B BPP->>Logistics BPP: **/status**  - Seller requests for Shipment status
+            Logistics BPP->>B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
     reference: if any
     steps:
       - summary: >-
@@ -10427,11 +10427,11 @@ x-flows:
             participant Logistics BPP
 
 
-            B2B BAP-> B2B BPP: RFQ is requested
+            B2B BAP->> B2B BPP: RFQ is requested
 
             note over B2B BPP,Logistics BPP: **SERVICABILITY & QUOTATION**
-            B2B BPP->Logistics BPP: **/search**  - Check for servicability based on start and end location and <br/> quotation based on product dimensions & INCOTERMS
-            Logistics BPP->B2B BPP: **/on_search** - Returns possible fulfillments and categories of fulfillment <br/>                      + Quotation of each fulfilment type + e-KYC form
+            B2B BPP->>Logistics BPP: **/search**  - Check for servicability based on start and end location and <br/> quotation based on product dimensions & INCOTERMS
+            Logistics BPP->>B2B BPP: **/on_search** - Returns possible fulfillments and categories of fulfillment <br/>                      + Quotation of each fulfilment type + e-KYC form
 
 
             note left of B2B BPP:Fills the eKYC form for <br/> selected logistics provider <br/> with required details like <br/> Company Name, Aadhar, \nPAN, GSTIN
@@ -10444,9 +10444,9 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **Final quote + e-KYC**
-            B2B BPP->Logistics BPP: **/init**  - Sends the e-kyc form submission id <br/> and exact address for start and end location
+            B2B BPP->>Logistics BPP: **/init**  - Sends the e-kyc form submission id <br/> and exact address for start and end location
             note right of Logistics BPP: e-verification of KYC 
-            Logistics BPP->B2B BPP: **/on_init** - Confirms KYC and Success or Failure & <br/>                Sends updated quote 
+            Logistics BPP->>B2B BPP: **/on_init** - Confirms KYC and Success or Failure & <br/>                Sends updated quote 
       - description: CONFIRMATION
         mermaidGraph: |-
           sequenceDiagram
@@ -10457,8 +10457,8 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **CONFIRMATION**
-            B2B BPP->Logistics BPP: **/confirm**  - Order is created<br/>                   and all the agreed terms and <br/>                   instructions are communicated.
-            Logistics BPP->B2B BPP: **/on_confirm** - Order is accepted by logistics provider.
+            B2B BPP->>Logistics BPP: **/confirm**  - Order is created<br/>                   and all the agreed terms and <br/>                   instructions are communicated.
+            Logistics BPP->>B2B BPP: **/on_confirm** - Order is accepted by logistics provider.
       - description: READY TO SHIP
         mermaidGraph: |-
           sequenceDiagram
@@ -10469,9 +10469,9 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **READY TO SHIP**
-            B2B BPP->Logistics BPP: **/update**  - Seller updates ReadyToShip=True
+            B2B BPP->>Logistics BPP: **/update**  - Seller updates ReadyToShip=True
 
-            Logistics BPP->B2B BPP: **/on_update** - Shipping label is sent
+            Logistics BPP->>B2B BPP: **/on_update** - Shipping label is sent
 
             note right of Logistics BPP: Logistics provider<br/> picks up the shipment
       - description: ORDER STATUS
@@ -10484,8 +10484,8 @@ x-flows:
             participant Logistics BPP
 
             note over B2B BPP,Logistics BPP: **ORDER STATUS**
-            B2B BPP->Logistics BPP: **/status**  - Seller requests for Shipment status
-            Logistics BPP->B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
+            B2B BPP->>Logistics BPP: **/status**  - Seller requests for Shipment status
+            Logistics BPP->>B2B BPP: **/on_status** - Logistics BPP sends <br/>                     the status of shipment
     reference: if any
     steps:
       - summary: >-
