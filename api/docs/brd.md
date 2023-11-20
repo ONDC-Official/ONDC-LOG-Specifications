@@ -116,24 +116,13 @@ B2B International:
 Once the seller is ready to ship the products, the B2B seller app sends the ReadyToShip flag to true through an update call. This informs the logistics provider that the shipment is ready to be picked up from the start location and hence proceeds with the pickup. 
 Once the logistics provider picks up the shipment from the B2B seller warehouse, logistics seller app sends pickup confirmation code to the B2B seller app.
 
-<<<<<<< HEAD
 ![Order Fulfillment](https://raw.githubusercontent.com/abhik-wil/ONDC-LGP-Specifications/draft-2.x/api/docs/brd_images/Order_Fulfillments.png)
-=======
-![Order Fulfillment](https://raw.githubusercontent.com/abhik-wil/ONDC-LGP-Specifications/draft-2.x/api/docs/brd_images/Domestic_B2B_Logistics_Flow.png)
->>>>>>> 3d51a00 (Merge conflicts)
 
 ## Order Tracking
 For shipment tracking, seller can request for shipment status through status call and logistics seller app returns the shipment status or tracking url through an on_status call.
 
-<<<<<<< HEAD
 ![Order Tracking](https://raw.githubusercontent.com/abhik-wil/ONDC-LGP-Specifications/draft-2.x/api/docs/brd_images/Order_Status.png)
 
 # Sequence Diagram (End-to-End Flow)
 
 ![Complete E2E](https://raw.githubusercontent.com/abhik-wil/ONDC-LGP-Specifications/draft-2.x/api/docs/brd_images/Complete_E2E.png)
-=======
-![Order Tracking](https://raw.githubusercontent.com/abhik-wil/ONDC-LGP-Specifications/draft-2.x/api/docs/brd_images/Domestic_B2B_Logistics_Flow.png)
-
-# Sequence Diagram (End-to-End Flow)
-
->>>>>>> 3d51a00 (Merge conflicts)
