@@ -242,3 +242,6 @@ value:
             - code: Static_Terms
               value: >-
                 https://github.com/ONDC-Official/protocol-network-extension/discussions/79
+  error:
+    code: '66006'
+    message: 'KYC Failed - due to xx reason'

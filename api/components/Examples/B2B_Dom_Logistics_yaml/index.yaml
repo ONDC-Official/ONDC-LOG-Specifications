@@ -4,6 +4,7 @@ search:
     - $ref: ./search/search_by_parent_category(Express).yaml
     - $ref: ./search/search_by_parent_category(Standard).yaml
     - $ref: ./search/search_surface.yaml
+    - $ref: ./search/search_without_category.yaml
 init:
   examples:
     - $ref: ./init/init_air.yaml

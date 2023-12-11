@@ -403,5 +403,9 @@
                 }
             ]
         }
+    },
+    "error": {
+        "code": "66006",
+        "message": "KYC Failed - due to xx reason"
     }
 }

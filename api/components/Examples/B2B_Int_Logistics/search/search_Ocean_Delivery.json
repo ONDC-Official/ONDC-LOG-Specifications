@@ -203,6 +203,12 @@
                 "code": "HSN_Code"
               },
               "value": "xxxxxxx"
+            },
+            {
+              "descriptor": {
+                "code": "Transit_Risk_Owner"
+              },
+              "value": "Carrier"
             }
           ]
         },
