@@ -1,8 +1,7 @@
-context:
-  domain: 
-    - code: ONDC:LOG10
-      description: Domestic Logistics
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: ONDC:LOG11
-      description: International Logistics
-      reference: <PR/Issue/Discussion Links md format text>
+domain: 
+  - code: ONDC:LOG10
+    description: Domestic Logistics
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ONDC:LOG11
+    description: International Logistics
+    reference: <PR/Issue/Discussion Links md format text>
