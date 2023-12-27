@@ -22,6 +22,8 @@ var uiPath = "../../ui/build.js";
 // const unresolvedFilePath = `https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/components/index.yaml`
 const tempPath = `./temp.yaml`;
 getSwaggerYaml("example_set", outputPath);
+
+
 const SKIP_VALIDATION = {
   flows: "skip1",
   examples: "skip2",
@@ -105,7 +107,7 @@ async function matchKeyType(
       type = allOfType;
     }
     if (typeof checkEnum?.code != type) {
-          throw Error(`Enum type not matched: ${currentAttrib} in ${logObject}`);
+      throw Error(`Enum type not matched: ${currentAttrib} in ${logObject}`);
     }
   }
 }
@@ -115,7 +117,12 @@ async function checkObjectKeys(currentExamplePos, currentSchemaPos, logObject) {
     const currentSchema = currentSchemaPos[currentAttrib];
     if (currentSchema) {
       if (Array.isArray(currentExample)) {
-        await matchKeyType(currentAttrib, currentExamplePos, currentSchemaPos, logObject);
+        await matchKeyType(
+          currentAttrib,
+          currentExamplePos,
+          currentSchemaPos,
+          logObject
+        );
       } else {
         let schema;
         if (currentSchema.type === "object") {
@@ -157,7 +164,7 @@ async function validateEnumsTags(exampleEnums, schemaMap) {
   }
 }
 async function traverseTags(currentTagValue, schemaForTraversal, logObject) {
-    //console.log('currentTagValue', currentTagValue)
+  //console.log('currentTagValue', currentTagValue)
   for (const currentTagKey of Object.keys(currentTagValue)) {
     const currentTag = currentTagValue[currentTagKey];
     const schemaType = schemaForTraversal[currentTagKey];
@@ -169,8 +176,9 @@ async function traverseTags(currentTagValue, schemaForTraversal, logObject) {
         const schema =
           schemaType.type === "object"
             ? schemaType?.properties
-            : schemaType.items?.properties || schemaType.items?.allOf[0]?.properties
-            || schemaType.allOf[0]?.properties;
+            : schemaType.items?.properties ||
+              schemaType.items?.allOf[0]?.properties ||
+              schemaType.allOf[0]?.properties;
         await traverseTags(currentTag, schema, logObject);
       }
     } else {
@@ -207,6 +215,9 @@ async function getSwaggerYaml(example_set, outputPath) {
         paths[path]?.post?.requestBody?.content?.["application/json"]?.schema;
       schemaMap[path.substring(1)] = pathSchema;
     }
+  
+    
+   
     // console.log('schemaMap', JSON.stringify(schemaMap));
     // return;
     // if (!process.argv.includes(SKIP_VALIDATION.flows)) {
@@ -271,6 +282,7 @@ function addEnumTag(base, layer) {
   base["x-flows"] = layer["flows"];
   base["x-examples"] = layer["examples"];
   base["x-attributes"] = layer["attributes"];
+  base["x-errorcodes"] = layer["error_codes"];
 }
 function GenerateYaml(base, layer, output_yaml) {
   const output = yaml.dump(base);
