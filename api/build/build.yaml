@@ -2638,7 +2638,7 @@ x-enum:
               - code: Origin
                 description: about the enum
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: Frieght
+              - code: Freight
                 description: about the enum
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Destination
