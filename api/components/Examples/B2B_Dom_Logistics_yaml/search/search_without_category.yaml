@@ -1,5 +1,5 @@
-summary: Search Logistics - Air Delivery
-description: Search for parent category - Express Delivery or Air Delivery.           
+summary: Search Logistics - Without Category
+description: Search for logistics without category     
 value:
   context:
     domain: ONDC:LOG10

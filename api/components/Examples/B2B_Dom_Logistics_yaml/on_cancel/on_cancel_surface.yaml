@@ -1,4 +1,4 @@
-summary: Unsolicited on_cancel to Initiate RTO
+summary: Unsolicited on_cancel to Initiate RTO (Surface Delivery)
 description: Unsolicited on_cancel from Logistics provider when Customer does not accept the delivery and initiates RTO.
 value:
   context:

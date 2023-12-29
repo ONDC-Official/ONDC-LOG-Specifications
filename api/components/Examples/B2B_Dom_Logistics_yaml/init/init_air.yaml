@@ -1,4 +1,4 @@
-summary: Logistics Buyer initializes the order.
+summary: Logistics Buyer initializes the order (Air Delivery)
 description: Logistics Buyer fills the KYC form and sends the submission Id while initializing the order.
 value:
   context:

@@ -1,4 +1,4 @@
-summary: Unsoliciated call to update differential charges.
+summary: Unsoliciated call to update differential charges (Surface Delivery)
 description: LSP updates the weight and measurement differential charges.
 value:
   context:

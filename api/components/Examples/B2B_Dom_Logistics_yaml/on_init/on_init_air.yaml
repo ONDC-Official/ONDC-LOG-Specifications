@@ -1,4 +1,4 @@
-summary: Response to order initialization - KYC Failed
+summary: Response to order initialization - KYC Failed (Air Delivery)
 description: Logistics Provider updates the KYC as Failed with the error message.
 value:
   context:
