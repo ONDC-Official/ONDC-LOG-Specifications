@@ -3390,7 +3390,7 @@ x-flows:
                     categories:
                       - id: C1
                         descriptor:
-                          code: EXPRESS_DELIVERY
+                          code: Standard_Delivery
                       - id: R1
                         parent_category_id: C1
                         descriptor:
@@ -3628,8 +3628,10 @@ x-flows:
           of the quote.
         reference: if any
         example:
-          summary: Response to order initialization - KYC Failed
-          description: Logistics Provider updates the KYC as Failed with the error message.
+          summary: Response to order initialization - KYC Successful
+          description: >-
+            Logistics Provider updates the KYC as successful and sends the
+            breakup of the quote.
           value:
             context:
               domain: ONDC:LOG10
@@ -3802,7 +3804,7 @@ x-flows:
                     url: https://lsp.com/xxx/kyc
                     mime_type: text/html
                     submission_id: xxxx44567789999
-                    status: FAIL
+                    status: SUCCESS
                   required: true
                 tags:
                   - code: BPP_Terms
@@ -3820,9 +3822,6 @@ x-flows:
                       - code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-            error:
-              code: '66006'
-              message: KYC Failed - due to xx reason
       - summary: Logistics buyer confirms the order.
         api: confirm
         description: Logistics buyer confirms the order.
@@ -5342,8 +5341,10 @@ x-flows:
           of the quote.
         reference: if any
         example: &ref_23
-          summary: Response to order initialization - KYC Failed
-          description: Logistics Provider updates the KYC as Failed with the error message.
+          summary: Response to order initialization - KYC Successful
+          description: >-
+            Logistics Provider updates the KYC as successful and sends the
+            breakup of the quote.
           value:
             context:
               domain: ONDC:LOG10
@@ -5516,7 +5517,7 @@ x-flows:
                     url: https://lsp.com/xxx/kyc
                     mime_type: text/html
                     submission_id: xxxx44567789999
-                    status: FAIL
+                    status: SUCCESS
                   required: true
                 tags:
                   - code: BPP_Terms
@@ -5534,9 +5535,6 @@ x-flows:
                       - code: Static_Terms
                         value: >-
                           https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-            error:
-              code: '66006'
-              message: KYC Failed - due to xx reason
       - summary: Logistics buyer confirms the order.
         api: confirm
         description: Logistics buyer confirms the order.
@@ -7605,7 +7603,7 @@ x-flows:
                       - id: O1
                         parent_category_id: C1
                         descriptor:
-                          code: OCEAN_CARGO
+                          code: Ocean_Delivery
                         time:
                           label: TAT
                           duration: P7D
@@ -7636,9 +7634,9 @@ x-flows:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: OCEAN Cargo
-                          short_desc: Ocean Cargo
-                          long_desc: Ocean Cargo
+                          name: Ocean Delivery
+                          short_desc: Ocean Delivery
+                          long_desc: Ocean Delivery
                         price:
                           currency: INR
                           value: '4000.0'
@@ -7847,8 +7845,10 @@ x-flows:
           of the quote.
         reference: if any
         example: &ref_37
-          summary: Response to order initialization - KYC Failed
-          description: Logistics Provider updates the KYC as Failed with the error message.
+          summary: Response to order initialization - KYC Successful
+          description: >-
+            Logistics Provider updates the KYC as successful and sends the
+            breakup of the quote.
           value:
             context:
               domain: ONDC:LOG11
@@ -10576,7 +10576,7 @@ x-flows:
                       - id: O1
                         parent_category_id: C1
                         descriptor:
-                          code: OCEAN_CARGO
+                          code: Ocean_Delivery
                         time:
                           label: TAT
                           duration: P7D
@@ -10607,9 +10607,9 @@ x-flows:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: OCEAN Cargo
-                          short_desc: Ocean Cargo
-                          long_desc: Ocean Cargo
+                          name: Ocean Delivery
+                          short_desc: Ocean Delivery
+                          long_desc: Ocean Delivery
                         price:
                           currency: INR
                           value: '4000.0'
@@ -14507,7 +14507,7 @@ x-examples:
                       categories:
                         - id: C1
                           descriptor:
-                            code: EXPRESS_DELIVERY
+                            code: Standard_Delivery
                         - id: R1
                           parent_category_id: C1
                           descriptor:
@@ -20220,7 +20220,7 @@ x-examples:
                         - id: O1
                           parent_category_id: C1
                           descriptor:
-                            code: OCEAN_CARGO
+                            code: Ocean_Delivery
                           time:
                             label: TAT
                             duration: P7D
@@ -20251,9 +20251,9 @@ x-examples:
                             - '1'
                           descriptor:
                             code: P2H2P
-                            name: OCEAN Cargo
-                            short_desc: Ocean Cargo
-                            long_desc: Ocean Cargo
+                            name: Ocean Delivery
+                            short_desc: Ocean Delivery
+                            long_desc: Ocean Delivery
                           price:
                             currency: INR
                             value: '4000.0'
@@ -20385,7 +20385,7 @@ x-examples:
                         - id: O1
                           parent_category_id: C1
                           descriptor:
-                            code: OCEAN_CARGO
+                            code: Ocean_Delivery
                           time:
                             label: TAT
                             duration: P7D
@@ -20416,9 +20416,9 @@ x-examples:
                             - '1'
                           descriptor:
                             code: P2H2P
-                            name: OCEAN Cargo
-                            short_desc: Ocean Cargo
-                            long_desc: Ocean Cargo
+                            name: Ocean Delivery
+                            short_desc: Ocean Delivery
+                            long_desc: Ocean Delivery
                           price:
                             currency: INR
                             value: '4000.0'
@@ -20485,10 +20485,10 @@ x-examples:
                             timestamp: '2023-10-25T21:00:00.000Z'
       on_init:
         examples:
-          - summary: Response to order initialization - KYC Failed
+          - summary: Response to order initialization - KYC Successful
             description: >-
-              Logistics Provider updates the KYC as Failed with the error
-              message.
+              Logistics Provider updates the KYC as successful and sends the
+              breakup of the quote.
             value:
               context:
                 domain: ONDC:LOG11
@@ -25155,9 +25155,3 @@ x-attributes:
                     description: Timestamp; fulfillment state code is "Order-picked-up";
                     required: required if fulfillment state is "Order-picked-up"
                     usage: '2023-06-07T00:00:00.000Z'
-x-errorcodes:
-  code:
-    - Event: Location Serviceability Error
-      Description: Pickup location not serviceable by Logistics Provider
-      From: Logistics Provider
-      code: 60001

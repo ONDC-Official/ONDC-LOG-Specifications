@@ -95,14 +95,14 @@
             {
               "id": "C1",
               "descriptor": {
-                "code": "EXPRESS_DELIVERY"
+                "code": "Express_Delivery"
               }
             },
             {
               "id": "O1",
               "parent_category_id": "C1",
               "descriptor": {
-                "code": "OCEAN_CARGO"
+                "code": "Ocean_Delivery"
               },
               "time": {
                 "label": "TAT",

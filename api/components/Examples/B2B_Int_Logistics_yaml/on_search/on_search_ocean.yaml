@@ -63,7 +63,7 @@ value:
             - id: O1
               parent_category_id: C1
               descriptor:
-                code: OCEAN_CARGO
+                code: Ocean_Delivery
               time:
                 label: TAT
                 duration: P7D
@@ -94,9 +94,9 @@ value:
                 - '1'
               descriptor:
                 code: P2H2P
-                name: OCEAN Cargo
-                short_desc: Ocean Cargo
-                long_desc: Ocean Cargo
+                name: Ocean Delivery
+                short_desc: Ocean Delivery
+                long_desc: Ocean Delivery
               price:
                 currency: INR
                 value: '4000.0'

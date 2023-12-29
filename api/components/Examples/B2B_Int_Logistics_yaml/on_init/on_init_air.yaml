@@ -1,5 +1,5 @@
-summary: Response to order initialization - KYC Failed
-description: Logistics Provider updates the KYC as Failed with the error message.
+summary: Response to order initialization - KYC Successful
+description: Logistics Provider updates the KYC as successful and sends the breakup of the quote.
 value:
   context:
     domain: ONDC:LOG11

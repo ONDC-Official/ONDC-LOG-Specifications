@@ -96,7 +96,7 @@ steps:
     description: Logistics Provider updates the KYC as successful and sends the breakup of the quote.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_init/on_init_surface.yaml"
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_init/on_init_surface_kyc_success.yaml"
   - summary: Logistics buyer confirms the order.
     api: confirm
     description: Logistics buyer confirms the order.

@@ -1,5 +1,0 @@
-code:
-  - Event: Location Serviceability Error
-    Description: Pickup location not serviceable by Logistics Provider
-    From: Logistics Provider	
-    code: 60001

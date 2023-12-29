@@ -59,7 +59,7 @@ value:
           categories:
             - id: C1
               descriptor:
-                code: EXPRESS_DELIVERY
+                code: Standard_Delivery
             - id: R1
               parent_category_id: C1
               descriptor:

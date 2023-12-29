@@ -8,5 +8,3 @@ flows:
   $ref: "./flows/index.yaml"
 attributes:
   $ref: "./attributes/index.yaml"
-error_codes:
-  $ref: "./error_codes/index.yaml"  
