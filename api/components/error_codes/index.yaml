@@ -1,6 +1,6 @@
 code:
-  - Code: 650002
-    Reason: Non serviceable
+  - Code: 66006
+    Reason: KYC Failed - due to xx reason
     Who can use code?: BPP
-    Usage: NACK
+    Usage: Used in error object
     Action: /on_init
