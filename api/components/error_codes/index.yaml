@@ -1,0 +1,6 @@
+code:
+  - Code: 650002
+    Reason: Non serviceable
+    Who can use code?: BPP
+    Usage: NACK
+    Action: /on_init

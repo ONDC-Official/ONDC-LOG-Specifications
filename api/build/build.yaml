@@ -25169,3 +25169,10 @@ x-attributes:
                     description: Timestamp; fulfillment state code is "Order-picked-up";
                     required: required if fulfillment state is "Order-picked-up"
                     usage: '2023-06-07T00:00:00.000Z'
+x-errorcodes:
+  code:
+    - Code: 650002
+      Reason: Non serviceable
+      Who can use code?: BPP
+      Usage: NACK
+      Action: /on_init
