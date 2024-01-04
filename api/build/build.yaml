@@ -3198,8 +3198,8 @@ x-flows:
           details.
         reference: if any
         example: &ref_19
-          summary: Search Logistics - Air Delivery
-          description: Search for parent category - Express Delivery or Air Delivery.
+          summary: Search Logistics - Without Category
+          description: Search for logistics without category
           value:
             context:
               domain: ONDC:LOG10
@@ -3327,7 +3327,7 @@ x-flows:
           the KYC Link.
         reference: if any
         example:
-          summary: LSP sends catalog
+          summary: LSP sends catalog (Surface Delivery)
           description: >-
             Logistics service provider sends the catalog based on search + Sends
             the KYC Link.
@@ -3502,7 +3502,7 @@ x-flows:
           initializing the order.
         reference: if any
         example:
-          summary: Logistics Buyer initializes the order.
+          summary: Logistics Buyer initializes the order (Surface Delivery)
           description: >-
             Logistics Buyer fills the KYC form and sends the submission Id while
             initializing the order.
@@ -3628,7 +3628,7 @@ x-flows:
           of the quote.
         reference: if any
         example:
-          summary: Response to order initialization - KYC Successful
+          summary: Response to order initialization - KYC Successful (Surface Delivery)
           description: >-
             Logistics Provider updates the KYC as successful and sends the
             breakup of the quote.
@@ -3827,7 +3827,7 @@ x-flows:
         description: Logistics buyer confirms the order.
         reference: if any
         example:
-          summary: Logistics buyer confirms the order.
+          summary: Logistics buyer confirms the order (Surface Delivery)
           description: Logistics buyer confirms the order.
           value:
             context:
@@ -4070,7 +4070,7 @@ x-flows:
         description: Logistics Provider accepts the order.
         reference: if any
         example:
-          summary: Logistics Provider accepts the order.
+          summary: Logistics Provider accepts the order (Surface Delivery)
           description: Logistics Provider accepts the order.
           value:
             context:
@@ -4375,7 +4375,7 @@ x-flows:
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
         example:
-          summary: Logistics Buyer updates RTS
+          summary: Logistics Buyer updates RTS (Surface Delivery)
           description: null
           value:
             context:
@@ -4466,7 +4466,9 @@ x-flows:
         description: LSP updates the weight and measurement differential charges.
         reference: if any
         example:
-          summary: Solicited response to update - package measurement updated
+          summary: >-
+            Solicited response to update - package measurement updated (Surface
+            Delivery)
           description: null
           value:
             context:
@@ -4686,7 +4688,7 @@ x-flows:
           the current status of the order.
         reference: if any
         example:
-          summary: Status updates
+          summary: Status updates (Surface Delivery)
           description: >-
             Logistics provider updates the status of fulfillment as Order Picked
             up.
@@ -5039,7 +5041,7 @@ x-flows:
           the KYC Link.
         reference: if any
         example: &ref_21
-          summary: LSP sends catalog
+          summary: LSP sends catalog (Air Delivery)
           description: >-
             Logistics service provider sends the catalog based on search + Sends
             the KYC Link.
@@ -5214,7 +5216,7 @@ x-flows:
           initializing the order.
         reference: if any
         example: &ref_22
-          summary: Logistics Buyer initializes the order.
+          summary: Logistics Buyer initializes the order (Air Delivery)
           description: >-
             Logistics Buyer fills the KYC form and sends the submission Id while
             initializing the order.
@@ -5341,7 +5343,7 @@ x-flows:
           of the quote.
         reference: if any
         example: &ref_23
-          summary: Response to order initialization - KYC Successful
+          summary: Response to order initialization - KYC Successful (Air Delivery)
           description: >-
             Logistics Provider updates the KYC as successful and sends the
             breakup of the quote.
@@ -5540,7 +5542,7 @@ x-flows:
         description: Logistics buyer confirms the order.
         reference: if any
         example: &ref_24
-          summary: Logistics buyer confirms the order.
+          summary: Logistics buyer confirms the order (Air Delivery)
           description: Logistics buyer confirms the order.
           value:
             context:
@@ -5785,7 +5787,7 @@ x-flows:
         description: Logistics Provider accepts the order.
         reference: if any
         example: &ref_25
-          summary: Logistics Provider accepts the order.
+          summary: Logistics Provider accepts the order (Air Delivery)
           description: Logistics Provider accepts the order.
           value:
             context:
@@ -6090,7 +6092,7 @@ x-flows:
         description: Logistics Buyer updates RTS - Ready to Ship
         reference: if any
         example: &ref_26
-          summary: Logistics Buyer updates RTS
+          summary: Logistics Buyer updates RTS (Air Delivery)
           description: null
           value:
             context:
@@ -6181,7 +6183,9 @@ x-flows:
         description: LSP updates the weight and measurement differential charges.
         reference: if any
         example: &ref_27
-          summary: Solicited response to update - package measurement updated
+          summary: >-
+            Solicited response to update - package measurement updated (Air
+            Delivery)
           description: null
           value:
             context:
@@ -6716,7 +6720,7 @@ x-flows:
         description: Seller app cancels the order by sending unsolicited on_cancel call
         reference: if any
         example:
-          summary: Unsolicited on_cancel to Initiate RTO
+          summary: Unsolicited on_cancel to Initiate RTO (Air Delivery)
           description: >-
             Unsolicited on_cancel from Logistics provider when Customer does not
             accept the delivery and initiates RTO.
@@ -7001,7 +7005,7 @@ x-flows:
         description: Seller app sends updates through unsolicited on_status calls
         reference: if any
         example:
-          summary: Status updates
+          summary: Status updates (Air Delivery - Cancelled)
           description: Logistics provider updates the status of fulfillment of RTO.
           value:
             context:
@@ -13079,8 +13083,8 @@ x-examples:
                         - descriptor:
                             code: Temp_Max
                           value: '4'
-          - summary: Search Logistics - Air Delivery
-            description: Search for parent category - Express Delivery or Air Delivery.
+          - summary: Search Logistics - Without Category
+            description: Search for logistics without category
             value:
               context:
                 domain: ONDC:LOG10
@@ -13203,7 +13207,7 @@ x-examples:
                           value: '4'
       init:
         examples:
-          - summary: Logistics Buyer initializes the order.
+          - summary: Logistics Buyer initializes the order (Air Delivery)
             description: >-
               Logistics Buyer fills the KYC form and sends the submission Id
               while initializing the order.
@@ -13323,7 +13327,7 @@ x-examples:
                       submission_id: xxxx44567789999
                       status: SUCCESS
                     required: true
-          - summary: Logistics Buyer initializes the order.
+          - summary: Logistics Buyer initializes the order (Surface Delivery)
             description: >-
               Logistics Buyer fills the KYC form and sends the submission Id
               while initializing the order.
@@ -13444,7 +13448,7 @@ x-examples:
                     required: true
       confirm:
         examples:
-          - summary: Logistics buyer confirms the order.
+          - summary: Logistics buyer confirms the order (Air Delivery)
             description: Logistics buyer confirms the order.
             value:
               context:
@@ -13684,7 +13688,7 @@ x-examples:
                           value: 'Y'
                   created_at: '2023-02-06T22:00:00.000Z'
                   updated_at: '2023-02-06T22:00:00.000Z'
-          - summary: Logistics buyer confirms the order.
+          - summary: Logistics buyer confirms the order (Surface Delivery)
             description: Logistics buyer confirms the order.
             value:
               context:
@@ -14053,7 +14057,7 @@ x-examples:
                             code: Package_Count
                           value: '10'
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: Logistics Buyer updates RTS
+          - summary: Logistics Buyer updates RTS (Air Delivery)
             description: null
             value:
               context:
@@ -14139,7 +14143,7 @@ x-examples:
                                 code: AWB_No
                               value: '1227262193237777'
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: Logistics Buyer updates RTS
+          - summary: Logistics Buyer updates RTS (Surface Delivery)
             description: null
             value:
               context:
@@ -14276,7 +14280,7 @@ x-examples:
                 cancellation_reason_id: '004'
       on_search:
         examples:
-          - summary: LSP sends catalog
+          - summary: LSP sends catalog (Air Delivery)
             description: >-
               Logistics service provider sends the catalog based on search +
               Sends the KYC Link.
@@ -14444,7 +14448,7 @@ x-examples:
                             label: TAT
                             duration: P4D
                             timestamp: '2023-10-25T21:00:00.000Z'
-          - summary: LSP sends catalog
+          - summary: LSP sends catalog (Surface Delivery)
             description: >-
               Logistics service provider sends the catalog based on search +
               Sends the KYC Link.
@@ -14614,7 +14618,7 @@ x-examples:
                             timestamp: '2023-10-25T21:00:00.000Z'
       on_init:
         examples:
-          - summary: Response to order initialization - KYC Successful
+          - summary: Response to order initialization - KYC Successful (Air Delivery)
             description: >-
               Logistics Provider updates the KYC as successful and sends the
               breakup of the quote.
@@ -14808,7 +14812,7 @@ x-examples:
                         - code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-          - summary: Response to order initialization - KYC Failed
+          - summary: Response to order initialization - KYC Failed (Air Delivery)
             description: >-
               Logistics Provider updates the KYC as Failed with the error
               message.
@@ -15005,7 +15009,9 @@ x-examples:
               error:
                 code: '66006'
                 message: KYC Failed - due to xx reason
-          - summary: Response to order initialization - KYC Successful
+          - summary: >-
+              Response to order initialization - KYC Successful (Surface
+              Delivery)
             description: >-
               Logistics Provider updates the KYC as successful and sends the
               breakup of the quote.
@@ -15199,7 +15205,7 @@ x-examples:
                         - code: Static_Terms
                           value: >-
                             https://github.com/ONDC-Official/protocol-network-extension/discussions/79
-          - summary: Response to order initialization - KYC Failed
+          - summary: Response to order initialization - KYC Failed (Surface Delivery)
             description: >-
               Logistics Provider updates the KYC as Failed with the error
               message.
@@ -15398,7 +15404,7 @@ x-examples:
                 message: KYC Failed - due to xx reason
       on_confirm:
         examples:
-          - summary: Logistics Provider accepts the order.
+          - summary: Logistics Provider accepts the order (Air Delivery)
             description: Logistics Provider accepts the order.
             value:
               context:
@@ -15698,7 +15704,7 @@ x-examples:
                           value: 'Y'
                   created_at: '2023-02-06T22:00:00.000Z'
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: Logistics Provider accepts the order.
+          - summary: Logistics Provider accepts the order (Surface Delivery)
             description: Logistics Provider accepts the order.
             value:
               context:
@@ -16263,7 +16269,7 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: Status updates
+          - summary: Status updates (Air Delivery - Cancelled)
             description: Logistics provider updates the status of fulfillment of RTO.
             value:
               context:
@@ -16569,7 +16575,7 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: Status updates
+          - summary: Status updates (Surface Delivery - Cancelled)
             description: Logistics provider updates the status of fulfillment of RTO.
             value:
               context:
@@ -16870,7 +16876,7 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-10-19T21:00:00.800Z'
-          - summary: Status updates
+          - summary: Status updates (Surface Delivery)
             description: >-
               Logistics provider updates the status of fulfillment as Order
               Picked up.
@@ -17135,7 +17141,9 @@ x-examples:
                   updated_at: '2023-10-19T21:00:00.800Z'
       on_update:
         examples:
-          - summary: LSP updates the weight and measurement differential charges.
+          - summary: >-
+              LSP updates the weight and measurement differential charges (Air
+              Delivery)
             description: LSP updates the weight and measurement differential charges.
             value:
               context:
@@ -17416,7 +17424,9 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: Solicited response to update - package measurement updated
+          - summary: >-
+              Solicited response to update - package measurement updated (Air
+              Delivery)
             description: null
             value:
               context:
@@ -17603,7 +17613,9 @@ x-examples:
                                 code: Type
                               value: ON-FULFILLMENT
                   updated_at: '2023-02-06T22:00:30.000Z'
-          - summary: Unsoliciated call to update differential charges.
+          - summary: >-
+              Unsoliciated call to update differential charges (Surface
+              Delivery)
             description: LSP updates the weight and measurement differential charges.
             value:
               context:
@@ -17868,7 +17880,9 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-10-17T21:13:00.601Z'
-          - summary: Solicited response to update - package measurement updated
+          - summary: >-
+              Solicited response to update - package measurement updated
+              (Surface Delivery)
             description: null
             value:
               context:
@@ -18056,7 +18070,7 @@ x-examples:
                   updated_at: '2023-10-17T21:13:00.601Z'
       on_cancel:
         examples:
-          - summary: Unsolicited on_cancel to Initiate RTO
+          - summary: Unsolicited on_cancel to Initiate RTO (Surface Delivery)
             description: >-
               Unsolicited on_cancel from Logistics provider when Customer does
               not accept the delivery and initiates RTO.
@@ -18334,7 +18348,7 @@ x-examples:
                             code: Height
                           value: '1.5'
                   updated_at: '2023-10-17T22:00:00.811Z'
-          - summary: Unsolicited on_cancel to Initiate RTO
+          - summary: Unsolicited on_cancel to Initiate RTO (Air Delivery)
             description: >-
               Unsolicited on_cancel from Logistics provider when Customer does
               not accept the delivery and initiates RTO.
