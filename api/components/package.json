@@ -18,6 +18,7 @@
         "ajv-formats": "^2.1.1",
         "js-yaml": "^4.1.0",
         "json-schema-ref-parser": "^9.0.9",
+        "node-xlsx": "^0.23.0",
         "swagger-cli": "^4.0.4"
     }
 }

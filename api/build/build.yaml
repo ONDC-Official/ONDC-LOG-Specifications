@@ -25171,7 +25171,12 @@ x-attributes:
                     usage: '2023-06-07T00:00:00.000Z'
 x-errorcodes:
   code:
-    - Code: 66006
+    - Code: '66008'
+      Reason: KYC Failed - due to xx reason
+      Who can use code?: BPP
+      Usage: Used in error object
+      Action: /on_init
+    - Code: '66007'
       Reason: KYC Failed - due to xx reason
       Who can use code?: BPP
       Usage: Used in error object

@@ -1,5 +1,5 @@
 code:
-  - Code: 66006
+  - Code: '66006'
     Reason: KYC Failed - due to xx reason
     Who can use code?: BPP
     Usage: Used in error object

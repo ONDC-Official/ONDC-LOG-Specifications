@@ -11,6 +11,7 @@ const addFormats = require("ajv-formats");
 addFormats(ajv);
 require("ajv-errors")(ajv);
 const process = require("process");
+const { buildErrorCodes } = require("./build-error-code");
 const args = process.argv.slice(2);
 // var example_set = args[0]
 // var flow_set = args[1]
@@ -216,7 +217,7 @@ async function getSwaggerYaml(example_set, outputPath) {
       schemaMap[path.substring(1)] = pathSchema;
     }
   
-    
+    await buildErrorCodes();
    
     // console.log('schemaMap', JSON.stringify(schemaMap));
     // return;
