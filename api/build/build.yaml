@@ -25171,13 +25171,156 @@ x-attributes:
                     usage: '2023-06-07T00:00:00.000Z'
 x-errorcodes:
   code:
-    - Code: '66008'
+    - Code: 66006
       Reason: KYC Failed - due to xx reason
       Who can use code?: BPP
       Usage: Used in error object
       Action: /on_init
-    - Code: '66007'
-      Reason: KYC Failed - due to xx reason
+    - Code: 60001
+      Reason: >-
+        Location Serviceability Error - Pickup location not serviceable by
+        Logistics Provider
       Who can use code?: BPP
       Usage: Used in error object
-      Action: /on_init
+    - Code: 60002
+      Reason: >-
+        Location Serviceability Error - Dropoff location not serviceable by
+        Logistics Provider
+      Who can use code?: BPP
+      Usage: Used in error object
+    - Code: 60004
+      Reason: Order Serviceability Error - Delivery Partners not available
+      Who can use code?: BPP
+      Usage: Used in error object
+    - Code: 60005
+      Reason: Invalid Signature - Cannot verify signature for request
+      Who can use code?: BPP
+      Usage: Used in NACK
+    - Code: 60006
+      Reason: Invalid request, not compliant with API contract
+      Who can use code?: BPP
+      Usage: Used in NACK
+    - Code: 60007
+      Reason: >-
+        Policy Error - Cancellation not possible because of Logistics Provider
+        policy
+      Who can use code?: BPP
+    - Code: 60008
+      Reason: >-
+        Invalid Fulfillment TAT - Fulfillment TAT is different from what was
+        quoted earlier
+      Who can use code?: BPP
+    - Code: 60009
+      Reason: Invalid cancellation request - Cancellation reason is invalid
+      Who can use code?: BPP
+    - Code: 60010
+      Reason: >-
+        Cancellation unacceptable - Cancellation request is rejected as
+        fulfillment TAT is not breached
+      Who can use code?: BPP
+    - Code: 60011
+      Reason: >-
+        Difference in packaging details - Weight and / or dimensions provided is
+        different from what was originally provided
+      Who can use code?: BPP
+    - Code: 60012
+      Reason: >-
+        Tracking not enabled - Tracking not enabled for any fulfillment in the
+        order
+      Who can use code?: BPP
+    - Code: 61001
+      Reason: Feature not supported
+      Who can use code?: BPP
+    - Code: 62501
+      Reason: >-
+        Terms and Conditions unacceptable - Logistics Provider terms &
+        conditions not acceptable to Logistics Buyer
+      Who can use code?: BAP
+    - Code: 62502
+      Reason: >-
+        Order terminated - Order terminated as Logistics Provider did not accept
+        terms proposed by Logistics Buyer
+      Who can use code?: BAP
+    - Code: 62503
+      Reason: >-
+        RTO rejected - RTO request rejected as quote does not match the quote
+        provided in catalog
+      Who can use code?: BAP
+    - Code: 62504
+      Reason: Weight differential cost rejected
+      Who can use code?: BAP
+    - Code: 62505
+      Reason: >-
+        Cancellation terms unacceptable -  Logistics Provider cancellation terms
+        not acceptable to Logistics Buyer
+      Who can use code?: BAP
+    - Code: 62506
+      Reason: >-
+        Invalid Fulfillment TAT - Fulfillment TAT is different from what was
+        quoted earlier
+      Who can use code?: BAP
+    - Code: 62507
+      Reason: >-
+        Difference in packaging details - Weight and / or dimensions provided is
+        different from what was originally provided
+      Who can use code?: BAP
+    - Code: 62508
+      Reason: >-
+        Quote difference - Total price is different from what was originally
+        provided
+      Who can use code?: BAP
+    - Code: 62509
+      Reason: >-
+        Invalid Cancellation Terms - Cancellation terms are different from what
+        was quoted earlier
+      Who can use code?: BAP
+    - Code: 62510
+      Reason: Expired authorization - Authorization code has expired
+      Who can use code?: BAP
+    - Code: 62511
+      Reason: Invalid authorization - Authorization code is invalid
+      Who can use code?: BAP
+    - Code: 63001
+      Reason: >-
+        Internal Error - Cannot process response due to internal error, please
+        retry
+      Who can use code?: BAP
+    - Code: 63002
+      Reason: Order validation failure
+      Who can use code?: BAP
+    - Code: 64001
+      Reason: Feature not supported
+      Who can use code?: BAP
+    - Code: 65001
+      Reason: Order Confirm Error - Logistics Provider is unable to confirm the order
+      Who can use code?: BPP
+    - Code: 65002
+      Reason: >-
+        Order terminated as Logistics Buyer did not accept terms proposed by
+        Logistics Provider
+      Who can use code?: BPP
+    - Code: 65003
+      Reason: Stale Request - Cannot process stale request
+      Who can use code?: BPP
+    - Code: 65004
+      Reason: >-
+        Terms unacceptable - Logistics Buyer terms not acceptable to Logistics
+        Provider
+      Who can use code?: BPP
+    - Code: 66001
+      Reason: >-
+        Internal Error - Cannot process response due to internal error, please
+        retry
+      Who can use code?: BPP
+    - Code: 66002
+      Reason: Order validation failure
+      Who can use code?: BPP
+    - Code: 66003
+      Reason: Order processing in progress
+      Who can use code?: BPP
+    - Code: 66004
+      Reason: Invalid Order - Order not found
+      Who can use code?: BPP
+    - Code: 66005
+      Reason: Quote unavailable - Quote no longer available
+      Who can use code?: BPP
