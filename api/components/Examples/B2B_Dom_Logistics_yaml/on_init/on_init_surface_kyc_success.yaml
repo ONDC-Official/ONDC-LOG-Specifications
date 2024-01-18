@@ -73,10 +73,16 @@ value:
             title: delivery
             price:
               currency: INR
-              value: '3500.0'
+              value: '3000.0'
           - item:
               id: I1
             title: tax
+            price:
+              currency: INR
+              value: '500.0'
+          - item:
+              id: I1
+            title: insurance
             price:
               currency: INR
               value: '500.0'

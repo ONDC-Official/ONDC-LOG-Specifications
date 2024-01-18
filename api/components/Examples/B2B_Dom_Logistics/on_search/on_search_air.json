@@ -24,31 +24,49 @@
     "catalog": {
       "descriptor": {
         "name": "LSP Aggregator Inc",
-        "tags":
-        [
+        "tags": [
           {
             "descriptor": {
-              "code":"BPP_Terms"
+              "code": "BPP_Terms"
             },
-            "list":
-            [
+            "list": [
               {
-                "descriptor": {
-                  "code":"Static_Terms"
-                },
-                "value":""
+                "code": "Max_Liability",
+                "value": "2"
+              },
+              {
+                "code": "Max_Liability_Cap",
+                "value": "10000"
+              },
+              {
+                "code": "Mandatory_Arbitration",
+                "value": "false"
+              },
+              {
+                "code": "Court_Jurisdiction",
+                "value": "Bengaluru"
+              },
+              {
+                "code": "Delay_Interest",
+                "value": "1000"
               },
               {
                 "descriptor": {
-                  "code":"Static_Terms_New"
+                  "code": "Static_Terms"
                 },
-                "value":"https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf"
+                "value": ""
               },
               {
                 "descriptor": {
-                  "code":"Effective_Date"
+                  "code": "Static_Terms_New"
                 },
-                "value":"2023-10-01T00:00:00.000Z"
+                "value": "https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf"
+              },
+              {
+                "descriptor": {
+                  "code": "Effective_Date"
+                },
+                "value": "2023-10-01T00:00:00.000Z"
               }
             ]
           },
@@ -166,11 +184,113 @@
                 "label": "TAT",
                 "duration": "P7D",
                 "timestamp": "2023-10-24T21:00:00.000Z"
+              },
+              "tags": {
+                "descriptor": {
+                  "code": "Vehicle_Details"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "Vehicle_Type"
+                    },
+                    "value": "Truck"
+                  },
+                  {
+                    "descriptor": {
+                      "code": "Vehicle_Size"
+                    },
+                    "value": "21Ft"
+                  },
+                  {
+                    "descriptor": {
+                      "code": "Load_Type"
+                    },
+                    "value": "FTL"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "I11",
+              "parent_item_id": "",
+              "category_ids": [
+                "C1",
+                "R1"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "descriptor": {
+                "code": "P2H2P",
+                "name": "Surface Delivery",
+                "short_desc": "Surface Delivery",
+                "long_desc": "Surface Delivery"
+              },
+              "price": {
+                "currency": "INR",
+                "value": "4000.0"
+              },
+              "time": {
+                "label": "TAT",
+                "duration": "P7D",
+                "timestamp": "2023-10-24T21:00:00.000Z"
+              },
+              "tags": {
+                "descriptor": {
+                  "code": "Vehicle_Details"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "Vehicle_Type"
+                    },
+                    "value": "Truck"
+                  },
+                  {
+                    "descriptor": {
+                      "code": "Vehicle_Size"
+                    },
+                    "value": "21Ft"
+                  },
+                  {
+                    "descriptor": {
+                      "code": "Load_Type"
+                    },
+                    "value": "PTL"
+                  }
+                ]
               }
             },
             {
               "id": "I2",
               "parent_item_id": "I1",
+              "category_ids": [
+                "C1",
+                "R1"
+              ],
+              "fulfillment_ids": [
+                "2"
+              ],
+              "descriptor": {
+                "code": "P2H2P",
+                "name": "RTO quote",
+                "short_desc": "RTO quote",
+                "long_desc": "RTO quote"
+              },
+              "price": {
+                "currency": "INR",
+                "value": "2000.0"
+              },
+              "time": {
+                "label": "TAT",
+                "duration": "P7D",
+                "timestamp": "2023-10-31T21:00:00.000Z"
+              }
+            },
+            {
+              "id": "I22",
+              "parent_item_id": "I11",
               "category_ids": [
                 "C1",
                 "R1"
@@ -218,11 +338,113 @@
                 "label": "TAT",
                 "duration": "P4D",
                 "timestamp": "2023-10-21T21:00:00.000Z"
+              },
+              "tags": {
+                "descriptor": {
+                  "code": "Vehicle_Details"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "Vehicle_Type"
+                    },
+                    "value": "Container"
+                  },
+                  {
+                    "descriptor": {
+                      "code": "Vehicle_Size"
+                    },
+                    "value": "24Ft"
+                  },
+                  {
+                    "descriptor": {
+                      "code": "Load_Type"
+                    },
+                    "value": "FCL"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "I33",
+              "parent_item_id": "",
+              "category_ids": [
+                "C2",
+                "A1"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "descriptor": {
+                "code": "P2H2P",
+                "name": "Air Delivery",
+                "short_desc": "Air Delivery",
+                "long_desc": "Air Delivery"
+              },
+              "price": {
+                "currency": "INR",
+                "value": "6000.0"
+              },
+              "time": {
+                "label": "TAT",
+                "duration": "P4D",
+                "timestamp": "2023-10-21T21:00:00.000Z"
+              },
+              "tags": {
+                "descriptor": {
+                  "code": "Vehicle_Details"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "Vehicle_Type"
+                    },
+                    "value": "Container"
+                  },
+                  {
+                    "descriptor": {
+                      "code": "Vehicle_Size"
+                    },
+                    "value": "22Ft"
+                  },
+                  {
+                    "descriptor": {
+                      "code": "Load_Type"
+                    },
+                    "value": "LCL"
+                  }
+                ]
               }
             },
             {
               "id": "I4",
               "parent_item_id": "I3",
+              "category_ids": [
+                "C2",
+                "A1"
+              ],
+              "fulfillment_ids": [
+                "2"
+              ],
+              "descriptor": {
+                "code": "P2H2P",
+                "name": "RTO quote",
+                "short_desc": "RTO quote",
+                "long_desc": "RTO quote"
+              },
+              "price": {
+                "currency": "INR",
+                "value": "3000.0"
+              },
+              "time": {
+                "label": "TAT",
+                "duration": "P4D",
+                "timestamp": "2023-10-25T21:00:00.000Z"
+              }
+            },
+            {
+              "id": "I44",
+              "parent_item_id": "I33",
               "category_ids": [
                 "C2",
                 "A1"

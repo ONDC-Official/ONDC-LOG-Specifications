@@ -90,7 +90,7 @@
             "title": "Clearance_Service_Origin",
             "price": {
               "currency": "INR",
-              "value": "500.0"
+              "value": "300.0"
             }
           },
           {
@@ -100,7 +100,7 @@
             "title": "Clearance_Service_Destination",
             "price": {
               "currency": "INR",
-              "value": "500.0"
+              "value": "300.0"
             }
           },
           {
@@ -111,6 +111,16 @@
             "price": {
               "currency": "INR",
               "value": "500.0"
+            }
+          },
+          {
+            "item": {
+              "id": "I1"
+            },
+            "title": "insurance",
+            "price": {
+              "currency": "INR",
+              "value": "400.0"
             }
           }
         ]
@@ -239,6 +249,18 @@
                     "code": "NAMED_PLACE_OF_DELIVERY"
                   },
                   "value": "UN:SIN"
+                },
+                {
+                  "descriptor": {
+                    "code": "BL_No"
+                  },
+                  "value": "12678908765526353"
+                },
+                {
+                  "descriptor": {
+                    "code": "Doc_Way_Bill_No"
+                  },
+                  "value": "1209878992826353"
                 }
               ]
             }

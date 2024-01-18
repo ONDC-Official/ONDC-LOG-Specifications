@@ -63,7 +63,7 @@
                         "title": "delivery",
                         "price": {
                             "currency": "INR",
-                            "value": "5480.0"
+                            "value": "5000.0"
                         }
                     },
                     {
@@ -74,6 +74,16 @@
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I3"
+                        },
+                        "title": "insurance",
+                        "price": {
+                            "currency": "INR",
+                            "value": "480.0"
                         }
                     }
                 ]

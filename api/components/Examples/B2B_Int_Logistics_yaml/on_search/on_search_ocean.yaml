@@ -104,8 +104,72 @@ value:
                 label: TAT
                 duration: P7D
                 timestamp: '2023-10-24T21:00:00.000Z'
+              tags:
+              - descriptor:
+                  code: Vehicle_Details
+                list:
+                  - descriptor:
+                      code: Vehicle_Type
+                    value: Container
+                  - descriptor:
+                      code: Vehicle_Size
+                    value: 24Ft
+                  - descriptor:
+                      code: Load_Type
+                    value: FCL
+            - id: I11
+              parent_item_id: ''
+              category_ids:
+                - C1
+                - O1
+              fulfillment_ids:
+                - '1'
+              descriptor:
+                code: P2H2P
+                name: Ocean Delivery
+                short_desc: Ocean Delivery
+                long_desc: Ocean Delivery
+              price:
+                currency: INR
+                value: '4000.0'
+              time:
+                label: TAT
+                duration: P7D
+                timestamp: '2023-10-24T21:00:00.000Z'
+              tags:
+              - descriptor:
+                  code: Vehicle_Details
+                list:
+                  - descriptor:
+                      code: Vehicle_Type
+                    value: Container
+                  - descriptor:
+                      code: Vehicle_Size
+                    value: 24Ft
+                  - descriptor:
+                      code: Load_Type
+                    value: LCL
             - id: I2
               parent_item_id: I1
+              category_ids:
+                - C1
+                - O1
+              fulfillment_ids:
+                - '2'
+              descriptor:
+                code: P2H2P
+                name: RTO quote
+                short_desc: RTO quote
+                long_desc: RTO quote
+              price:
+                currency: INR
+                value: '2000.0'
+              time:
+                label: TAT
+                duration: P7D
+                timestamp: '2023-10-31T21:00:00.000Z'
+            - id: I22
+              parent_item_id: I11
               category_ids:
                 - C1
                 - O1
@@ -142,8 +206,72 @@ value:
                 label: TAT
                 duration: P4D
                 timestamp: '2023-10-21T21:00:00.000Z'
+              tags:
+              - descriptor:
+                  code: Vehicle_Details
+                list:
+                  - descriptor:
+                      code: Vehicle_Type
+                    value: Container
+                  - descriptor:
+                      code: Vehicle_Size
+                    value: 24Ft
+                  - descriptor:
+                      code: Load_Type
+                    value: FCL
+            - id: I33
+              parent_item_id: ''
+              category_ids:
+                - C1
+                - A1
+              fulfillment_ids:
+                - '1'
+              descriptor:
+                code: P2H2P
+                name: Air Delivery
+                short_desc: Air Delivery
+                long_desc: Air Delivery
+              price:
+                currency: INR
+                value: '6000.0'
+              time:
+                label: TAT
+                duration: P4D
+                timestamp: '2023-10-21T21:00:00.000Z'
+              tags:
+              - descriptor:
+                  code: Vehicle_Details
+                list:
+                  - descriptor:
+                      code: Vehicle_Type
+                    value: Container
+                  - descriptor:
+                      code: Vehicle_Size
+                    value: 24Ft
+                  - descriptor:
+                      code: Load_Type
+                    value: LCL
             - id: I4
               parent_item_id: I3
+              category_ids:
+                - C1
+                - A1
+              fulfillment_ids:
+                - '2'
+              descriptor:
+                code: P2H2P
+                name: RTO quote
+                short_desc: RTO quote
+                long_desc: RTO quote
+              price:
+                currency: INR
+                value: '3000.0'
+              time:
+                label: TAT
+                duration: P4D
+                timestamp: '2023-10-25T21:00:00.000Z'
+            - id: I44
+              parent_item_id: I33
               category_ids:
                 - C1
                 - A1

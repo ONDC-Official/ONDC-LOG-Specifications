@@ -103,19 +103,25 @@ value:
             title: Clearance_Service_Origin
             price:
               currency: INR
-              value: '500.0'
+              value: '300.0'
           - item:
               id: I1
             title: Clearance_Service_Destination
             price:
               currency: INR
-              value: '500.0'
+              value: '300.0'
           - item:
               id: I1
             title: tax
             price:
               currency: INR
               value: '500.0'
+          - item:
+              id: I1
+            title: insurance
+            price:
+              currency: INR
+              value: '400.0'
         ttl: PT15M
       cancellation_terms:
         - fulfillment_state:

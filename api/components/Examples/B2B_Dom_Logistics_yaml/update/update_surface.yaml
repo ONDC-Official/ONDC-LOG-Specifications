@@ -83,4 +83,10 @@ value:
                 - descriptor:
                     code: AWB_No
                   value: '1227262193237777'
+                - descriptor:
+                    code: LR_No
+                  value: '1209878992826353'
+                - descriptor:
+                    code: Eway_Bill_No
+                  value: '1227262193237777'
       updated_at: '2023-10-17T21:13:00.000Z'

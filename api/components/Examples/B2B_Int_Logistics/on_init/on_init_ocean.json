@@ -157,7 +157,7 @@
                         "title": "Clearance_Service_Origin",
                         "price": {
                             "currency": "INR",
-                            "value": "500.0"
+                            "value": "300.0"
                         }
                     },
                     {
@@ -167,7 +167,7 @@
                         "title": "Clearance_Service_Destination",
                         "price": {
                             "currency": "INR",
-                            "value": "500.0"
+                            "value": "300.0"
                         }
                     },
                     {
@@ -178,6 +178,16 @@
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I1"
+                        },
+                        "title": "insurance",
+                        "price": {
+                            "currency": "INR",
+                            "value": "400.0"
                         }
                     }
                 ] },

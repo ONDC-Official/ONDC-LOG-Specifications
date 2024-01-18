@@ -147,6 +147,9 @@ value:
                 - descriptor:
                     code: RTO_Action
                   value: 'no'
+                - descriptor:
+                    code: Doc_Way_Bill_No
+                  value: '1209567899003'
       billing:
         name: ONDC sellerapp
         address: My house or building name

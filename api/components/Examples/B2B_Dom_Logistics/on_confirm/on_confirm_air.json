@@ -60,7 +60,7 @@
             "title": "delivery",
             "price": {
               "currency": "INR",
-              "value": "5480.0"
+              "value": "5000.0"
             }
           },
           {
@@ -71,6 +71,16 @@
             "price": {
               "currency": "INR",
               "value": "500.0"
+            }
+          },
+          {
+            "item": {
+              "id": "I3"
+            },
+            "title": "insurance",
+            "price": {
+              "currency": "INR",
+              "value": "480.0"
             }
           }
         ]
@@ -161,6 +171,33 @@
                   "end": "2023-02-14T22:45:00.000Z"
                 }
               }
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "Delivery_Terms"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "AWB_No"
+                  },
+                  "value": "1209878992826353"
+                },
+                {
+                  "descriptor": {
+                    "code": "Transporter_Id"
+                  },
+                  "value": "1209878992826353"
+                },
+                {
+                  "descriptor": {
+                    "code": "Doc_Way_Bill_No"
+                  },
+                  "value": "1209878992826353"
+                }
+              ]
             }
           ]
         }

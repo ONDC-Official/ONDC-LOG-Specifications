@@ -222,3 +222,15 @@
     }
   }
 }
+
+
+{ 
+    lr_id = string,
+    lr_status = string,
+    AWB = [ 
+        { 
+            awb_id: string; 
+            awb_status: string
+        }
+    ]
+}

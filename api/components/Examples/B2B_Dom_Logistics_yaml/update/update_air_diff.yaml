@@ -83,6 +83,9 @@ value:
                 - descriptor:
                     code: AWB_No
                   value: '1227262193237777'
+                - descriptor:
+                    code: Eway_Bill_No
+                  value: '1227262193237777'
       tags:
         - descriptor:
             code: Package_Weight

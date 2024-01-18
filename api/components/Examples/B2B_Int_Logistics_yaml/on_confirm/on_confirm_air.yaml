@@ -63,10 +63,16 @@ value:
             title: Clearance_Service_Origin
             price:
               currency: INR
-              value: '500.0'
+              value: '300.0'
           - item:
               id: I3
             title: Clearance_Service_Destination
+            price:
+              currency: INR
+              value: '300.0'
+          - item:
+              id: I3
+            title: tax
             price:
               currency: INR
               value: '500.0'
@@ -75,8 +81,7 @@ value:
             title: tax
             price:
               currency: INR
-              value: '500.0'
-
+              value: '400.0'
       fulfillments:
         - id: '1'
           type: Delivery
@@ -154,6 +159,15 @@ value:
                 - descriptor:
                     code: NAMED_PLACE_OF_DELIVERY
                   value: UN:SIN
+                - descriptor:
+                    code: AWB_No
+                  value: '1209878992826353'
+                - descriptor:
+                    code: LR_No
+                  value: '1209878992826353'
+                - descriptor:
+                    code: Transporter_Id
+                  value: '1209567899003'
       cancellation_terms:
         - fulfillment_state:
             descriptor:

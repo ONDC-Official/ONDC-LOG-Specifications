@@ -134,8 +134,14 @@ value:
                     code: AWB_No
                   value: '1227262193237777'
                 - descriptor:
+                    code: LR_No
+                  value: '1209878992826353'
+                - descriptor:
                     code: RTO_Action
                   value: 'no'
+                - descriptor:
+                    code: Doc_Way_Bill_No
+                  value: '1209567899003'
       billing:
         name: ONDC sellerapp
         address: My house or building name

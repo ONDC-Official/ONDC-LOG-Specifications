@@ -67,20 +67,25 @@ value:
             title: Clearance_Service_Origin
             price:
               currency: INR
-              value: '500.0'
+              value: '300.0'
           - item:
               id: I1
             title: Clearance_Service_Destination
             price:
               currency: INR
-              value: '500.0'
+              value: '300.0'
           - item:
               id: I1
             title: tax
             price:
               currency: INR
               value: '500.0'
-
+          - item:
+              id: I1
+            title: insurance
+            price:
+              currency: INR
+              value: '400.0'
       fulfillments:
         - id: '1'
           type: Delivery
@@ -164,6 +169,18 @@ value:
                 - descriptor:
                     code: NAMED_PLACE_OF_DELIVERY
                   value: UN:SIN
+                - descriptor:
+                    code: AWB_No
+                  value: '1209878992826353'
+                - descriptor:
+                    code: BL_No
+                  value: '1209878992826353'
+                - descriptor:
+                    code: Eway_Bill_No
+                  value: '1209878992826353'
+                - descriptor:
+                    code: Doc_Way_Bill_No
+                  value: '1209567899003'
       billing:
         name: ONDC sellerapp
         address: My house or building name

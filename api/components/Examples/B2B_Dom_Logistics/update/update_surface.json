@@ -116,6 +116,18 @@
                                         "code": "AWB_No"
                                     },
                                     "value": "1227262193237777"
+                                },
+                                {
+                                    "descriptor": {
+                                      "code": "LR_No"
+                                    },
+                                    "value": "12678908765526353"
+                                },
+                                {
+                                    "descriptor": {
+                                        "code": "Eway_Bill_No"
+                                    },
+                                    "value": "1209878992826353"
                                 }
                             ]
                         }

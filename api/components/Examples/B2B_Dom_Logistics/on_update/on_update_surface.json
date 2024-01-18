@@ -63,7 +63,7 @@
                         "title": "delivery",
                         "price": {
                             "currency": "INR",
-                            "value": "3500.0"
+                            "value": "3000.0"
                         }
                     },
                     {
@@ -71,6 +71,16 @@
                             "id": "I1"
                         },
                         "title": "tax",
+                        "price": {
+                            "currency": "INR",
+                            "value": "500.0"
+                        }
+                    },
+                    {
+                        "item": {
+                            "id": "I1"
+                        },
+                        "title": "insurance",
                         "price": {
                             "currency": "INR",
                             "value": "500.0"
@@ -191,9 +201,21 @@
                                 },
                                 {
                                     "descriptor": {
+                                      "code": "LR_No"
+                                    },
+                                    "value": "12678908765526353"
+                                  },
+                                {
+                                    "descriptor": {
                                         "code": "RTO_Action"
                                     },
                                     "value": "no"
+                                },
+                                {
+                                  "descriptor": {
+                                    "code": "Doc_Way_Bill_No"
+                                  },
+                                  "value": "1209878992826353"
                                 }
                             ]
                         }

@@ -45,10 +45,16 @@ value:
             title: delivery
             price:
               currency: INR
-              value: '3500.0'
+              value: '3000.0'
           - item:
               id: I3
             title: tax
+            price:
+              currency: INR
+              value: '500.0'
+          - item:
+              id: I3
+            title: insurance
             price:
               currency: INR
               value: '500.0'
@@ -115,6 +121,22 @@ value:
                 range:
                   start: '2023-02-14T22:30:00.000Z'
                   end: '2023-02-14T22:45:00.000Z'
+          tags:
+            - descriptor:
+                code: Delivery_Terms
+              list:
+                - descriptor:
+                    code: AWB_No
+                  value: '1209878992826353'
+                - descriptor:
+                    code: LR_No
+                  value: '1209878992826353'
+                - descriptor:
+                    code: Transporter_Id
+                  value: '1209878992826353'
+                - descriptor:
+                    code: Doc_Way_Bill_No
+                  value: '1209567899003'
       cancellation_terms:
         - fulfillment_state:
             descriptor:

@@ -81,7 +81,7 @@ value:
                     code: Ready_To_Ship
                   value: 'yes'
                 - descriptor:
-                    code: AWB_No
+                    code: Eway_Bill_No
                   value: '1209878992826353'
       tags:
         - descriptor:
