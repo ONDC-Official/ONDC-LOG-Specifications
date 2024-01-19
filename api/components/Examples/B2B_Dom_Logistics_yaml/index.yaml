@@ -26,8 +26,7 @@ cancel:
     - $ref: ./cancel/cancel.yaml
 on_search:
   examples:
-    - $ref: ./on_search/on_search_air.yaml
-    - $ref: ./on_search/on_search_surface.yaml
+    - $ref: ./on_search/on_search.yaml
 on_init:
   examples:
     - $ref: ./on_init/on_init_air_kyc_success.yaml

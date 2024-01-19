@@ -3326,8 +3326,8 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example:
-          summary: LSP sends catalog (Surface Delivery)
+        example: &ref_20
+          summary: LSP sends catalog (Air Delivery)
           description: >-
             Logistics service provider sends the catalog based on search + Sends
             the KYC Link.
@@ -3347,7 +3347,7 @@ x-flows:
               bpp_uri: https://logistics_seller.com/ondc
               transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
               message_id: '1755281254860'
-              timestamp: '2023-10-17T21:10:00.800Z'
+              timestamp: '2023-10-17T21:10:00.000Z'
               ttl: PT30S
             message:
               catalog:
@@ -3391,10 +3391,6 @@ x-flows:
                       - id: C1
                         descriptor:
                           code: Standard_Delivery
-                      - id: R1
-                        parent_category_id: C1
-                        descriptor:
-                          code: Surface_Delivery
                         time:
                           label: TAT
                           duration: P7D
@@ -3402,10 +3398,6 @@ x-flows:
                       - id: C2
                         descriptor:
                           code: Express_Delivery
-                      - id: A1
-                        parent_category_id: C2
-                        descriptor:
-                          code: Air_Delivery
                         time:
                           label: TAT
                           duration: P4D
@@ -3423,12 +3415,11 @@ x-flows:
                         parent_item_id: ''
                         category_ids:
                           - C1
-                          - R1
                         fulfillment_ids:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: Surface Delivery
+                          name: Road Delivery
                           short_desc: Surface Delivery
                           long_desc: Surface Delivery
                         price:
@@ -3440,8 +3431,11 @@ x-flows:
                           timestamp: '2023-10-24T21:00:00.000Z'
                         tags:
                           - descriptor:
-                              code: Vehicle_Details
+                              code: Cargo_Details
                             list:
+                              - descriptor:
+                                  code: Delivery_Mode
+                                value: Road
                               - descriptor:
                                   code: Vehicle_Type
                                 value: Truck
@@ -3455,12 +3449,11 @@ x-flows:
                         parent_item_id: ''
                         category_ids:
                           - C1
-                          - R1
                         fulfillment_ids:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: Surface Delivery
+                          name: Road Delivery
                           short_desc: Surface Delivery
                           long_desc: Surface Delivery
                         price:
@@ -3472,8 +3465,11 @@ x-flows:
                           timestamp: '2023-10-24T21:00:00.000Z'
                         tags:
                           - descriptor:
-                              code: Vehicle_Details
+                              code: Cargo_Details
                             list:
+                              - descriptor:
+                                  code: Delivery_Mode
+                                value: Road
                               - descriptor:
                                   code: Vehicle_Type
                                 value: Truck
@@ -3487,7 +3483,6 @@ x-flows:
                         parent_item_id: I1
                         category_ids:
                           - C1
-                          - R1
                         fulfillment_ids:
                           - '2'
                         descriptor:
@@ -3506,7 +3501,6 @@ x-flows:
                         parent_item_id: I11
                         category_ids:
                           - C1
-                          - R1
                         fulfillment_ids:
                           - '2'
                         descriptor:
@@ -3521,11 +3515,53 @@ x-flows:
                           label: TAT
                           duration: P7D
                           timestamp: '2023-10-31T21:00:00.000Z'
+                      - id: I21
+                        parent_item_id: ''
+                        category_ids:
+                          - C1
+                        fulfillment_ids:
+                          - '1'
+                        descriptor:
+                          code: P2H2P
+                          name: Rail Delivery
+                          short_desc: Surface Delivery
+                          long_desc: Surface Delivery
+                        price:
+                          currency: INR
+                          value: '3000.0'
+                        time:
+                          label: TAT
+                          duration: P6D
+                          timestamp: '2023-10-24T21:00:00.000Z'
+                        tags:
+                          - descriptor:
+                              code: Cargo_Details
+                            list:
+                              - descriptor:
+                                  code: Delivery_Mode
+                                value: Rail
+                      - id: I23
+                        parent_item_id: I21
+                        category_ids:
+                          - C1
+                        fulfillment_ids:
+                          - '2'
+                        descriptor:
+                          code: P2H2P
+                          name: RTO quote
+                          short_desc: RTO quote
+                          long_desc: RTO quote
+                        price:
+                          currency: INR
+                          value: '2000.0'
+                        time:
+                          label: TAT
+                          duration: P6D
+                          timestamp: '2023-10-31T21:00:00.000Z'
                       - id: I3
                         parent_item_id: ''
                         category_ids:
                           - C2
-                          - A1
                         fulfillment_ids:
                           - '1'
                         descriptor:
@@ -3542,14 +3578,17 @@ x-flows:
                           timestamp: '2023-10-21T21:00:00.000Z'
                         tags:
                           - descriptor:
-                              code: Vehicle_Details
+                              code: Cargo_Details
                             list:
+                              - descriptor:
+                                  code: Delivery_Mode
+                                value: Air
                               - descriptor:
                                   code: Vehicle_Type
                                 value: Container
                               - descriptor:
                                   code: Vehicle_Size
-                                value: 22Ft
+                                value: 24Ft
                               - descriptor:
                                   code: Load_Type
                                 value: FCL
@@ -3557,7 +3596,6 @@ x-flows:
                         parent_item_id: ''
                         category_ids:
                           - C2
-                          - A1
                         fulfillment_ids:
                           - '1'
                         descriptor:
@@ -3574,8 +3612,11 @@ x-flows:
                           timestamp: '2023-10-21T21:00:00.000Z'
                         tags:
                           - descriptor:
-                              code: Vehicle_Details
+                              code: Cargo_Details
                             list:
+                              - descriptor:
+                                  code: Delivery_Mode
+                                value: Air
                               - descriptor:
                                   code: Vehicle_Type
                                 value: Container
@@ -3589,7 +3630,6 @@ x-flows:
                         parent_item_id: I3
                         category_ids:
                           - C2
-                          - A1
                         fulfillment_ids:
                           - '2'
                         descriptor:
@@ -3608,7 +3648,6 @@ x-flows:
                         parent_item_id: I33
                         category_ids:
                           - C2
-                          - A1
                         fulfillment_ids:
                           - '2'
                         descriptor:
@@ -4832,7 +4871,7 @@ x-flows:
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: &ref_20
+        example: &ref_21
           summary: Logistics Buyer requests for status update
           description: null
           value:
@@ -5214,303 +5253,7 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: &ref_21
-          summary: LSP sends catalog (Air Delivery)
-          description: >-
-            Logistics service provider sends the catalog based on search + Sends
-            the KYC Link.
-          value:
-            context:
-              domain: ONDC:LOG10
-              location:
-                city:
-                  code: std:080
-                country:
-                  code: IND
-              action: on_search
-              version: 2.0.0
-              bap_id: logistics_buyer.com
-              bap_uri: https://logistics_buyer.com/ondc
-              bpp_id: logistics_seller.com
-              bpp_uri: https://logistics_seller.com/ondc
-              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-              message_id: '1755281254860'
-              timestamp: '2023-10-17T21:10:00.000Z'
-              ttl: PT30S
-            message:
-              catalog:
-                descriptor:
-                  name: LSP Aggregator Inc
-                  tags:
-                    - descriptor:
-                        code: BPP_Terms
-                      list:
-                        - descriptor:
-                            code: Static_Terms
-                          value: ''
-                        - descriptor:
-                            code: Static_Terms_New
-                          value: >-
-                            https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
-                        - descriptor:
-                            code: Effective_Date
-                          value: '2023-10-01T00:00:00.000Z'
-                    - descriptor:
-                        code: KYC
-                      list:
-                        - descriptor:
-                            code: url
-                          value: https://lsp.com/xxx/kyc
-                        - descriptor:
-                            code: required
-                          value: 'true'
-                fulfillments:
-                  - id: '1'
-                    type: Delivery
-                  - id: '2'
-                    type: RTO
-                providers:
-                  - id: P1
-                    descriptor:
-                      name: Courier Inc
-                      short_desc: Courier Inc
-                      long_desc: Courier Inc
-                    categories:
-                      - id: C1
-                        descriptor:
-                          code: Standard_Delivery
-                      - id: R1
-                        parent_category_id: C1
-                        descriptor:
-                          code: Surface_Delivery
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-17'
-                      - id: C2
-                        descriptor:
-                          code: Express_Delivery
-                      - id: A1
-                        parent_category_id: C2
-                        descriptor:
-                          code: Air_Delivery
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-17'
-                    locations:
-                      - id: L1
-                        gps: 12.967555,77.749666
-                        address:
-                          street: Jayanagar 4th Block
-                          city: Bengaluru
-                          area_code: '560076'
-                          state: KA
-                    items:
-                      - id: I1
-                        parent_item_id: ''
-                        category_ids:
-                          - C1
-                          - R1
-                        fulfillment_ids:
-                          - '1'
-                        descriptor:
-                          code: P2H2P
-                          name: Surface Delivery
-                          short_desc: Surface Delivery
-                          long_desc: Surface Delivery
-                        price:
-                          currency: INR
-                          value: '4000.0'
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-24T21:00:00.000Z'
-                        tags:
-                          - descriptor:
-                              code: Vehicle_Details
-                            list:
-                              - descriptor:
-                                  code: Vehicle_Type
-                                value: Truck
-                              - descriptor:
-                                  code: Vehicle_Size
-                                value: 21Ft
-                              - descriptor:
-                                  code: Load_Type
-                                value: FTL
-                      - id: I11
-                        parent_item_id: ''
-                        category_ids:
-                          - C1
-                          - R1
-                        fulfillment_ids:
-                          - '1'
-                        descriptor:
-                          code: P2H2P
-                          name: Surface Delivery
-                          short_desc: Surface Delivery
-                          long_desc: Surface Delivery
-                        price:
-                          currency: INR
-                          value: '4000.0'
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-24T21:00:00.000Z'
-                        tags:
-                          - descriptor:
-                              code: Vehicle_Details
-                            list:
-                              - descriptor:
-                                  code: Vehicle_Type
-                                value: Truck
-                              - descriptor:
-                                  code: Vehicle_Size
-                                value: 21Ft
-                              - descriptor:
-                                  code: Load_Type
-                                value: PTL
-                      - id: I2
-                        parent_item_id: I1
-                        category_ids:
-                          - C1
-                          - R1
-                        fulfillment_ids:
-                          - '2'
-                        descriptor:
-                          code: P2H2P
-                          name: RTO quote
-                          short_desc: RTO quote
-                          long_desc: RTO quote
-                        price:
-                          currency: INR
-                          value: '2000.0'
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-31T21:00:00.000Z'
-                      - id: I22
-                        parent_item_id: I11
-                        category_ids:
-                          - C1
-                          - R1
-                        fulfillment_ids:
-                          - '2'
-                        descriptor:
-                          code: P2H2P
-                          name: RTO quote
-                          short_desc: RTO quote
-                          long_desc: RTO quote
-                        price:
-                          currency: INR
-                          value: '2000.0'
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-31T21:00:00.000Z'
-                      - id: I3
-                        parent_item_id: ''
-                        category_ids:
-                          - C2
-                          - A1
-                        fulfillment_ids:
-                          - '1'
-                        descriptor:
-                          code: P2H2P
-                          name: Air Delivery
-                          short_desc: Air Delivery
-                          long_desc: Air Delivery
-                        price:
-                          currency: INR
-                          value: '6000.0'
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-21T21:00:00.000Z'
-                        tags:
-                          - descriptor:
-                              code: Vehicle_Details
-                            list:
-                              - descriptor:
-                                  code: Vehicle_Type
-                                value: Container
-                              - descriptor:
-                                  code: Vehicle_Size
-                                value: 22Ft
-                              - descriptor:
-                                  code: Load_Type
-                                value: FCL
-                      - id: I33
-                        parent_item_id: ''
-                        category_ids:
-                          - C2
-                          - A1
-                        fulfillment_ids:
-                          - '1'
-                        descriptor:
-                          code: P2H2P
-                          name: Air Delivery
-                          short_desc: Air Delivery
-                          long_desc: Air Delivery
-                        price:
-                          currency: INR
-                          value: '6000.0'
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-21T21:00:00.000Z'
-                        tags:
-                          - descriptor:
-                              code: Vehicle_Details
-                            list:
-                              - descriptor:
-                                  code: Vehicle_Type
-                                value: Container
-                              - descriptor:
-                                  code: Vehicle_Size
-                                value: 22Ft
-                              - descriptor:
-                                  code: Load_Type
-                                value: LCL
-                      - id: I4
-                        parent_item_id: I3
-                        category_ids:
-                          - C2
-                          - A1
-                        fulfillment_ids:
-                          - '2'
-                        descriptor:
-                          code: P2H2P
-                          name: RTO quote
-                          short_desc: RTO quote
-                          long_desc: RTO quote
-                        price:
-                          currency: INR
-                          value: '3000.0'
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-25T21:00:00.000Z'
-                      - id: I44
-                        parent_item_id: I33
-                        category_ids:
-                          - C2
-                          - A1
-                        fulfillment_ids:
-                          - '2'
-                        descriptor:
-                          code: P2H2P
-                          name: RTO quote
-                          short_desc: RTO quote
-                          long_desc: RTO quote
-                        price:
-                          currency: INR
-                          value: '3000.0'
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-25T21:00:00.000Z'
+        example: *ref_20
       - summary: Logistics Buyer initializes the order - Air Cargo.
         api: init
         description: >-
@@ -6715,7 +6458,7 @@ x-flows:
         api: status
         description: Logistics Buyer requests for order status update
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Responds to order status update - Order Picked up
         api: on_status
         description: >-
@@ -7007,7 +6750,7 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: *ref_21
+        example: *ref_20
       - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
@@ -7046,7 +6789,7 @@ x-flows:
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: *ref_20
+        example: *ref_21
       - summary: Responds to order status update - Order Picked up
         api: on_status
         description: >-
@@ -7878,7 +7621,7 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: &ref_35
+        example: &ref_30
           summary: LSP sends catalog
           description: >-
             Logistics service provider sends the catalog based on search + Sends
@@ -7942,19 +7685,14 @@ x-flows:
                     categories:
                       - id: C1
                         descriptor:
-                          code: EXPRESS_DELIVERY
-                      - id: O1
-                        parent_category_id: C1
-                        descriptor:
-                          code: Ocean_Delivery
+                          code: STANDARD_DELIVERY
                         time:
                           label: TAT
                           duration: P7D
                           timestamp: '2023-10-17'
-                      - id: A1
-                        parent_category_id: C1
+                      - id: C2
                         descriptor:
-                          code: Air_Delivery
+                          code: EXPRESS_Delivery
                         time:
                           label: TAT
                           duration: P4D
@@ -7972,12 +7710,11 @@ x-flows:
                         parent_item_id: ''
                         category_ids:
                           - C1
-                          - O1
                         fulfillment_ids:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: Ocean Delivery
+                          name: Ocean Cargo
                           short_desc: Ocean Delivery
                           long_desc: Ocean Delivery
                         price:
@@ -7989,8 +7726,11 @@ x-flows:
                           timestamp: '2023-10-24T21:00:00.000Z'
                         tags:
                           - descriptor:
-                              code: Vehicle_Details
+                              code: Cargo_Details
                             list:
+                              - descriptor:
+                                  code: Delivery_Mode
+                                value: Ocean
                               - descriptor:
                                   code: Vehicle_Type
                                 value: Container
@@ -8004,12 +7744,11 @@ x-flows:
                         parent_item_id: ''
                         category_ids:
                           - C1
-                          - O1
                         fulfillment_ids:
                           - '1'
                         descriptor:
                           code: P2H2P
-                          name: Ocean Delivery
+                          name: Ocean Cargo
                           short_desc: Ocean Delivery
                           long_desc: Ocean Delivery
                         price:
@@ -8021,8 +7760,11 @@ x-flows:
                           timestamp: '2023-10-24T21:00:00.000Z'
                         tags:
                           - descriptor:
-                              code: Vehicle_Details
+                              code: Cargo_Details
                             list:
+                              - descriptor:
+                                  code: Delivery_Mode
+                                value: Ocean
                               - descriptor:
                                   code: Vehicle_Type
                                 value: Container
@@ -8036,7 +7778,6 @@ x-flows:
                         parent_item_id: I1
                         category_ids:
                           - C1
-                          - O1
                         fulfillment_ids:
                           - '2'
                         descriptor:
@@ -8055,7 +7796,6 @@ x-flows:
                         parent_item_id: I11
                         category_ids:
                           - C1
-                          - O1
                         fulfillment_ids:
                           - '2'
                         descriptor:
@@ -8073,8 +7813,7 @@ x-flows:
                       - id: I3
                         parent_item_id: ''
                         category_ids:
-                          - C1
-                          - A1
+                          - C2
                         fulfillment_ids:
                           - '1'
                         descriptor:
@@ -8091,8 +7830,11 @@ x-flows:
                           timestamp: '2023-10-21T21:00:00.000Z'
                         tags:
                           - descriptor:
-                              code: Vehicle_Details
+                              code: Cargo_Details
                             list:
+                              - descriptor:
+                                  code: Delivery_Mode
+                                value: Air
                               - descriptor:
                                   code: Vehicle_Type
                                 value: Container
@@ -8105,8 +7847,7 @@ x-flows:
                       - id: I33
                         parent_item_id: ''
                         category_ids:
-                          - C1
-                          - A1
+                          - C2
                         fulfillment_ids:
                           - '1'
                         descriptor:
@@ -8123,8 +7864,11 @@ x-flows:
                           timestamp: '2023-10-21T21:00:00.000Z'
                         tags:
                           - descriptor:
-                              code: Vehicle_Details
+                              code: Cargo_Details
                             list:
+                              - descriptor:
+                                  code: Delivery_Mode
+                                value: Air
                               - descriptor:
                                   code: Vehicle_Type
                                 value: Container
@@ -8137,8 +7881,7 @@ x-flows:
                       - id: I4
                         parent_item_id: I3
                         category_ids:
-                          - C1
-                          - A1
+                          - C2
                         fulfillment_ids:
                           - '2'
                         descriptor:
@@ -8156,8 +7899,7 @@ x-flows:
                       - id: I44
                         parent_item_id: I33
                         category_ids:
-                          - C1
-                          - A1
+                          - C2
                         fulfillment_ids:
                           - '2'
                         descriptor:
@@ -9679,7 +9421,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_30
+        example: &ref_31
           summary: Status updates
           description: >-
             Logistics provider updates the status of fulfillment as Order Picked
@@ -9986,7 +9728,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_31
+        example: &ref_32
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -10292,7 +10034,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_32
+        example: &ref_33
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -10598,7 +10340,7 @@ x-flows:
         api: status
         description: Logistics buyer requests for status update
         reference: if any
-        example: &ref_33
+        example: &ref_34
           summary: Logistics Buyer requests for status update
           description: null
           value:
@@ -10625,7 +10367,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_34
+        example: &ref_35
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -11018,300 +10760,7 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example:
-          summary: LSP sends catalog
-          description: >-
-            Logistics service provider sends the catalog based on search + Sends
-            the KYC Link.
-          value:
-            context:
-              domain: ONDC:LOG11
-              location:
-                city:
-                  code: UN:SIN
-                country:
-                  code: SGP
-              action: on_search
-              version: 2.0.0
-              bap_id: logistics_buyer.com
-              bap_uri: https://logistics_buyer.com/ondc
-              bpp_id: logistics_seller.com
-              bpp_uri: https://logistics_seller.com/ondc
-              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-              message_id: '1755281254860'
-              timestamp: '2023-10-17T21:00:00.690Z'
-              ttl: PT30S
-            message:
-              catalog:
-                descriptor:
-                  name: LSP Aggregator Inc
-                  tags:
-                    - descriptor:
-                        code: BPP_Terms
-                      list:
-                        - descriptor:
-                            code: Static_Terms
-                          value: ''
-                        - descriptor:
-                            code: Static_Terms_New
-                          value: >-
-                            https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
-                        - descriptor:
-                            code: Effective_Date
-                          value: '2023-10-01T00:00:00.000Z'
-                    - descriptor:
-                        code: KYC
-                      list:
-                        - descriptor:
-                            code: url
-                          value: https://lsp.com/xxx/kyc
-                        - descriptor:
-                            code: required
-                          value: 'true'
-                fulfillments:
-                  - id: '1'
-                    type: Delivery
-                  - id: '2'
-                    type: RTO
-                providers:
-                  - id: P1
-                    descriptor:
-                      name: Courier Inc
-                      short_desc: Courier Inc
-                      long_desc: Courier Inc
-                    categories:
-                      - id: C1
-                        descriptor:
-                          code: EXPRESS_DELIVERY
-                      - id: O1
-                        parent_category_id: C1
-                        descriptor:
-                          code: Ocean_Delivery
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-17'
-                      - id: A1
-                        parent_category_id: C1
-                        descriptor:
-                          code: Air_Delivery
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-17'
-                    locations:
-                      - id: L1
-                        gps: 12.967555,77.749666
-                        address:
-                          street: Jayanagar 4th Block
-                          city: Bengaluru
-                          area_code: '560076'
-                          state: KA
-                    items:
-                      - id: I1
-                        parent_item_id: ''
-                        category_ids:
-                          - C1
-                          - O1
-                        fulfillment_ids:
-                          - '1'
-                        descriptor:
-                          code: P2H2P
-                          name: Ocean Delivery
-                          short_desc: Ocean Delivery
-                          long_desc: Ocean Delivery
-                        price:
-                          currency: INR
-                          value: '4000.0'
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-24T21:00:00.000Z'
-                        tags:
-                          - descriptor:
-                              code: Vehicle_Details
-                            list:
-                              - descriptor:
-                                  code: Vehicle_Type
-                                value: Container
-                              - descriptor:
-                                  code: Vehicle_Size
-                                value: 24Ft
-                              - descriptor:
-                                  code: Load_Type
-                                value: FCL
-                      - id: I11
-                        parent_item_id: ''
-                        category_ids:
-                          - C1
-                          - O1
-                        fulfillment_ids:
-                          - '1'
-                        descriptor:
-                          code: P2H2P
-                          name: Ocean Delivery
-                          short_desc: Ocean Delivery
-                          long_desc: Ocean Delivery
-                        price:
-                          currency: INR
-                          value: '4000.0'
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-24T21:00:00.000Z'
-                        tags:
-                          - descriptor:
-                              code: Vehicle_Details
-                            list:
-                              - descriptor:
-                                  code: Vehicle_Type
-                                value: Container
-                              - descriptor:
-                                  code: Vehicle_Size
-                                value: 24Ft
-                              - descriptor:
-                                  code: Load_Type
-                                value: LCL
-                      - id: I2
-                        parent_item_id: I1
-                        category_ids:
-                          - C1
-                          - O1
-                        fulfillment_ids:
-                          - '2'
-                        descriptor:
-                          code: P2H2P
-                          name: RTO quote
-                          short_desc: RTO quote
-                          long_desc: RTO quote
-                        price:
-                          currency: INR
-                          value: '2000.0'
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-31T21:00:00.000Z'
-                      - id: I22
-                        parent_item_id: I11
-                        category_ids:
-                          - C1
-                          - O1
-                        fulfillment_ids:
-                          - '2'
-                        descriptor:
-                          code: P2H2P
-                          name: RTO quote
-                          short_desc: RTO quote
-                          long_desc: RTO quote
-                        price:
-                          currency: INR
-                          value: '2000.0'
-                        time:
-                          label: TAT
-                          duration: P7D
-                          timestamp: '2023-10-31T21:00:00.000Z'
-                      - id: I3
-                        parent_item_id: ''
-                        category_ids:
-                          - C1
-                          - A1
-                        fulfillment_ids:
-                          - '1'
-                        descriptor:
-                          code: P2H2P
-                          name: Air Delivery
-                          short_desc: Air Delivery
-                          long_desc: Air Delivery
-                        price:
-                          currency: INR
-                          value: '6000.0'
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-21T21:00:00.000Z'
-                        tags:
-                          - descriptor:
-                              code: Vehicle_Details
-                            list:
-                              - descriptor:
-                                  code: Vehicle_Type
-                                value: Container
-                              - descriptor:
-                                  code: Vehicle_Size
-                                value: 24Ft
-                              - descriptor:
-                                  code: Load_Type
-                                value: FCL
-                      - id: I33
-                        parent_item_id: ''
-                        category_ids:
-                          - C1
-                          - A1
-                        fulfillment_ids:
-                          - '1'
-                        descriptor:
-                          code: P2H2P
-                          name: Air Delivery
-                          short_desc: Air Delivery
-                          long_desc: Air Delivery
-                        price:
-                          currency: INR
-                          value: '6000.0'
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-21T21:00:00.000Z'
-                        tags:
-                          - descriptor:
-                              code: Vehicle_Details
-                            list:
-                              - descriptor:
-                                  code: Vehicle_Type
-                                value: Container
-                              - descriptor:
-                                  code: Vehicle_Size
-                                value: 24Ft
-                              - descriptor:
-                                  code: Load_Type
-                                value: LCL
-                      - id: I4
-                        parent_item_id: I3
-                        category_ids:
-                          - C1
-                          - A1
-                        fulfillment_ids:
-                          - '2'
-                        descriptor:
-                          code: P2H2P
-                          name: RTO quote
-                          short_desc: RTO quote
-                          long_desc: RTO quote
-                        price:
-                          currency: INR
-                          value: '3000.0'
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-25T21:00:00.000Z'
-                      - id: I44
-                        parent_item_id: I33
-                        category_ids:
-                          - C1
-                          - A1
-                        fulfillment_ids:
-                          - '2'
-                        descriptor:
-                          code: P2H2P
-                          name: RTO quote
-                          short_desc: RTO quote
-                          long_desc: RTO quote
-                        price:
-                          currency: INR
-                          value: '3000.0'
-                        time:
-                          label: TAT
-                          duration: P4D
-                          timestamp: '2023-10-25T21:00:00.000Z'
+        example: *ref_30
       - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
@@ -12834,27 +12283,27 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_30
+        example: *ref_31
       - summary: LSP sends status updates - Order Picked up
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_31
+        example: *ref_32
       - summary: LSP sends status updates - Domestic Custom Cleared
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_32
+        example: *ref_33
       - summary: Logistics buyer requests for status update
         api: status
         description: Logistics buyer requests for status update
         reference: if any
-        example: *ref_33
+        example: *ref_34
       - summary: LSP sends status updates - Order Delivered
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_34
+        example: *ref_35
   - summary: B2B International Logistics Cancellation - Buyer Cancels
     description: >-
       The below flow shows the journey of Logistics buyer buying international
@@ -12872,7 +12321,7 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: *ref_35
+        example: *ref_30
       - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
@@ -12911,14 +12360,14 @@ x-flows:
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: *ref_33
+        example: *ref_34
       - summary: Responds to order status update - Pickup Approved
         api: on_status
         description: >-
           Seller app sends an on_status call to the buyer app informing about
           the current status of the order.
         reference: if any
-        example: *ref_30
+        example: *ref_31
       - summary: Logistics Buyer cancels the order
         api: cancel
         description: Logistics Buyer cancels the order
@@ -15044,10 +14493,6 @@ x-examples:
                         - id: C1
                           descriptor:
                             code: Standard_Delivery
-                        - id: R1
-                          parent_category_id: C1
-                          descriptor:
-                            code: Surface_Delivery
                           time:
                             label: TAT
                             duration: P7D
@@ -15055,10 +14500,6 @@ x-examples:
                         - id: C2
                           descriptor:
                             code: Express_Delivery
-                        - id: A1
-                          parent_category_id: C2
-                          descriptor:
-                            code: Air_Delivery
                           time:
                             label: TAT
                             duration: P4D
@@ -15076,12 +14517,11 @@ x-examples:
                           parent_item_id: ''
                           category_ids:
                             - C1
-                            - R1
                           fulfillment_ids:
                             - '1'
                           descriptor:
                             code: P2H2P
-                            name: Surface Delivery
+                            name: Road Delivery
                             short_desc: Surface Delivery
                             long_desc: Surface Delivery
                           price:
@@ -15093,8 +14533,11 @@ x-examples:
                             timestamp: '2023-10-24T21:00:00.000Z'
                           tags:
                             - descriptor:
-                                code: Vehicle_Details
+                                code: Cargo_Details
                               list:
+                                - descriptor:
+                                    code: Delivery_Mode
+                                  value: Road
                                 - descriptor:
                                     code: Vehicle_Type
                                   value: Truck
@@ -15108,12 +14551,11 @@ x-examples:
                           parent_item_id: ''
                           category_ids:
                             - C1
-                            - R1
                           fulfillment_ids:
                             - '1'
                           descriptor:
                             code: P2H2P
-                            name: Surface Delivery
+                            name: Road Delivery
                             short_desc: Surface Delivery
                             long_desc: Surface Delivery
                           price:
@@ -15125,8 +14567,11 @@ x-examples:
                             timestamp: '2023-10-24T21:00:00.000Z'
                           tags:
                             - descriptor:
-                                code: Vehicle_Details
+                                code: Cargo_Details
                               list:
+                                - descriptor:
+                                    code: Delivery_Mode
+                                  value: Road
                                 - descriptor:
                                     code: Vehicle_Type
                                   value: Truck
@@ -15140,7 +14585,6 @@ x-examples:
                           parent_item_id: I1
                           category_ids:
                             - C1
-                            - R1
                           fulfillment_ids:
                             - '2'
                           descriptor:
@@ -15159,7 +14603,6 @@ x-examples:
                           parent_item_id: I11
                           category_ids:
                             - C1
-                            - R1
                           fulfillment_ids:
                             - '2'
                           descriptor:
@@ -15174,11 +14617,53 @@ x-examples:
                             label: TAT
                             duration: P7D
                             timestamp: '2023-10-31T21:00:00.000Z'
+                        - id: I21
+                          parent_item_id: ''
+                          category_ids:
+                            - C1
+                          fulfillment_ids:
+                            - '1'
+                          descriptor:
+                            code: P2H2P
+                            name: Rail Delivery
+                            short_desc: Surface Delivery
+                            long_desc: Surface Delivery
+                          price:
+                            currency: INR
+                            value: '3000.0'
+                          time:
+                            label: TAT
+                            duration: P6D
+                            timestamp: '2023-10-24T21:00:00.000Z'
+                          tags:
+                            - descriptor:
+                                code: Cargo_Details
+                              list:
+                                - descriptor:
+                                    code: Delivery_Mode
+                                  value: Rail
+                        - id: I23
+                          parent_item_id: I21
+                          category_ids:
+                            - C1
+                          fulfillment_ids:
+                            - '2'
+                          descriptor:
+                            code: P2H2P
+                            name: RTO quote
+                            short_desc: RTO quote
+                            long_desc: RTO quote
+                          price:
+                            currency: INR
+                            value: '2000.0'
+                          time:
+                            label: TAT
+                            duration: P6D
+                            timestamp: '2023-10-31T21:00:00.000Z'
                         - id: I3
                           parent_item_id: ''
                           category_ids:
                             - C2
-                            - A1
                           fulfillment_ids:
                             - '1'
                           descriptor:
@@ -15195,14 +14680,17 @@ x-examples:
                             timestamp: '2023-10-21T21:00:00.000Z'
                           tags:
                             - descriptor:
-                                code: Vehicle_Details
+                                code: Cargo_Details
                               list:
+                                - descriptor:
+                                    code: Delivery_Mode
+                                  value: Air
                                 - descriptor:
                                     code: Vehicle_Type
                                   value: Container
                                 - descriptor:
                                     code: Vehicle_Size
-                                  value: 22Ft
+                                  value: 24Ft
                                 - descriptor:
                                     code: Load_Type
                                   value: FCL
@@ -15210,7 +14698,6 @@ x-examples:
                           parent_item_id: ''
                           category_ids:
                             - C2
-                            - A1
                           fulfillment_ids:
                             - '1'
                           descriptor:
@@ -15227,8 +14714,11 @@ x-examples:
                             timestamp: '2023-10-21T21:00:00.000Z'
                           tags:
                             - descriptor:
-                                code: Vehicle_Details
+                                code: Cargo_Details
                               list:
+                                - descriptor:
+                                    code: Delivery_Mode
+                                  value: Air
                                 - descriptor:
                                     code: Vehicle_Type
                                   value: Container
@@ -15242,7 +14732,6 @@ x-examples:
                           parent_item_id: I3
                           category_ids:
                             - C2
-                            - A1
                           fulfillment_ids:
                             - '2'
                           descriptor:
@@ -15261,303 +14750,6 @@ x-examples:
                           parent_item_id: I33
                           category_ids:
                             - C2
-                            - A1
-                          fulfillment_ids:
-                            - '2'
-                          descriptor:
-                            code: P2H2P
-                            name: RTO quote
-                            short_desc: RTO quote
-                            long_desc: RTO quote
-                          price:
-                            currency: INR
-                            value: '3000.0'
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-25T21:00:00.000Z'
-          - summary: LSP sends catalog (Surface Delivery)
-            description: >-
-              Logistics service provider sends the catalog based on search +
-              Sends the KYC Link.
-            value:
-              context:
-                domain: ONDC:LOG10
-                location:
-                  city:
-                    code: std:080
-                  country:
-                    code: IND
-                action: on_search
-                version: 2.0.0
-                bap_id: logistics_buyer.com
-                bap_uri: https://logistics_buyer.com/ondc
-                bpp_id: logistics_seller.com
-                bpp_uri: https://logistics_seller.com/ondc
-                transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-                message_id: '1755281254860'
-                timestamp: '2023-10-17T21:10:00.800Z'
-                ttl: PT30S
-              message:
-                catalog:
-                  descriptor:
-                    name: LSP Aggregator Inc
-                    tags:
-                      - descriptor:
-                          code: BPP_Terms
-                        list:
-                          - descriptor:
-                              code: Static_Terms
-                            value: ''
-                          - descriptor:
-                              code: Static_Terms_New
-                            value: >-
-                              https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
-                          - descriptor:
-                              code: Effective_Date
-                            value: '2023-10-01T00:00:00.000Z'
-                      - descriptor:
-                          code: KYC
-                        list:
-                          - descriptor:
-                              code: url
-                            value: https://lsp.com/xxx/kyc
-                          - descriptor:
-                              code: required
-                            value: 'true'
-                  fulfillments:
-                    - id: '1'
-                      type: Delivery
-                    - id: '2'
-                      type: RTO
-                  providers:
-                    - id: P1
-                      descriptor:
-                        name: Courier Inc
-                        short_desc: Courier Inc
-                        long_desc: Courier Inc
-                      categories:
-                        - id: C1
-                          descriptor:
-                            code: Standard_Delivery
-                        - id: R1
-                          parent_category_id: C1
-                          descriptor:
-                            code: Surface_Delivery
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-17'
-                        - id: C2
-                          descriptor:
-                            code: Express_Delivery
-                        - id: A1
-                          parent_category_id: C2
-                          descriptor:
-                            code: Air_Delivery
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-17'
-                      locations:
-                        - id: L1
-                          gps: 12.967555,77.749666
-                          address:
-                            street: Jayanagar 4th Block
-                            city: Bengaluru
-                            area_code: '560076'
-                            state: KA
-                      items:
-                        - id: I1
-                          parent_item_id: ''
-                          category_ids:
-                            - C1
-                            - R1
-                          fulfillment_ids:
-                            - '1'
-                          descriptor:
-                            code: P2H2P
-                            name: Surface Delivery
-                            short_desc: Surface Delivery
-                            long_desc: Surface Delivery
-                          price:
-                            currency: INR
-                            value: '4000.0'
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-24T21:00:00.000Z'
-                          tags:
-                            - descriptor:
-                                code: Vehicle_Details
-                              list:
-                                - descriptor:
-                                    code: Vehicle_Type
-                                  value: Truck
-                                - descriptor:
-                                    code: Vehicle_Size
-                                  value: 21Ft
-                                - descriptor:
-                                    code: Load_Type
-                                  value: FTL
-                        - id: I11
-                          parent_item_id: ''
-                          category_ids:
-                            - C1
-                            - R1
-                          fulfillment_ids:
-                            - '1'
-                          descriptor:
-                            code: P2H2P
-                            name: Surface Delivery
-                            short_desc: Surface Delivery
-                            long_desc: Surface Delivery
-                          price:
-                            currency: INR
-                            value: '4000.0'
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-24T21:00:00.000Z'
-                          tags:
-                            - descriptor:
-                                code: Vehicle_Details
-                              list:
-                                - descriptor:
-                                    code: Vehicle_Type
-                                  value: Truck
-                                - descriptor:
-                                    code: Vehicle_Size
-                                  value: 21Ft
-                                - descriptor:
-                                    code: Load_Type
-                                  value: PTL
-                        - id: I2
-                          parent_item_id: I1
-                          category_ids:
-                            - C1
-                            - R1
-                          fulfillment_ids:
-                            - '2'
-                          descriptor:
-                            code: P2H2P
-                            name: RTO quote
-                            short_desc: RTO quote
-                            long_desc: RTO quote
-                          price:
-                            currency: INR
-                            value: '2000.0'
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-31T21:00:00.000Z'
-                        - id: I22
-                          parent_item_id: I11
-                          category_ids:
-                            - C1
-                            - R1
-                          fulfillment_ids:
-                            - '2'
-                          descriptor:
-                            code: P2H2P
-                            name: RTO quote
-                            short_desc: RTO quote
-                            long_desc: RTO quote
-                          price:
-                            currency: INR
-                            value: '2000.0'
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-31T21:00:00.000Z'
-                        - id: I3
-                          parent_item_id: ''
-                          category_ids:
-                            - C2
-                            - A1
-                          fulfillment_ids:
-                            - '1'
-                          descriptor:
-                            code: P2H2P
-                            name: Air Delivery
-                            short_desc: Air Delivery
-                            long_desc: Air Delivery
-                          price:
-                            currency: INR
-                            value: '6000.0'
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-21T21:00:00.000Z'
-                          tags:
-                            - descriptor:
-                                code: Vehicle_Details
-                              list:
-                                - descriptor:
-                                    code: Vehicle_Type
-                                  value: Container
-                                - descriptor:
-                                    code: Vehicle_Size
-                                  value: 22Ft
-                                - descriptor:
-                                    code: Load_Type
-                                  value: FCL
-                        - id: I33
-                          parent_item_id: ''
-                          category_ids:
-                            - C2
-                            - A1
-                          fulfillment_ids:
-                            - '1'
-                          descriptor:
-                            code: P2H2P
-                            name: Air Delivery
-                            short_desc: Air Delivery
-                            long_desc: Air Delivery
-                          price:
-                            currency: INR
-                            value: '6000.0'
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-21T21:00:00.000Z'
-                          tags:
-                            - descriptor:
-                                code: Vehicle_Details
-                              list:
-                                - descriptor:
-                                    code: Vehicle_Type
-                                  value: Container
-                                - descriptor:
-                                    code: Vehicle_Size
-                                  value: 22Ft
-                                - descriptor:
-                                    code: Load_Type
-                                  value: LCL
-                        - id: I4
-                          parent_item_id: I3
-                          category_ids:
-                            - C2
-                            - A1
-                          fulfillment_ids:
-                            - '2'
-                          descriptor:
-                            code: P2H2P
-                            name: RTO quote
-                            short_desc: RTO quote
-                            long_desc: RTO quote
-                          price:
-                            currency: INR
-                            value: '3000.0'
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-25T21:00:00.000Z'
-                        - id: I44
-                          parent_item_id: I33
-                          category_ids:
-                            - C2
-                            - A1
                           fulfillment_ids:
                             - '2'
                           descriptor:
@@ -21269,19 +20461,14 @@ x-examples:
                       categories:
                         - id: C1
                           descriptor:
-                            code: EXPRESS_DELIVERY
-                        - id: O1
-                          parent_category_id: C1
-                          descriptor:
-                            code: Ocean_Delivery
+                            code: STANDARD_DELIVERY
                           time:
                             label: TAT
                             duration: P7D
                             timestamp: '2023-10-17'
-                        - id: A1
-                          parent_category_id: C1
+                        - id: C2
                           descriptor:
-                            code: Air_Delivery
+                            code: EXPRESS_Delivery
                           time:
                             label: TAT
                             duration: P4D
@@ -21299,12 +20486,11 @@ x-examples:
                           parent_item_id: ''
                           category_ids:
                             - C1
-                            - O1
                           fulfillment_ids:
                             - '1'
                           descriptor:
                             code: P2H2P
-                            name: Ocean Delivery
+                            name: Ocean Cargo
                             short_desc: Ocean Delivery
                             long_desc: Ocean Delivery
                           price:
@@ -21316,8 +20502,11 @@ x-examples:
                             timestamp: '2023-10-24T21:00:00.000Z'
                           tags:
                             - descriptor:
-                                code: Vehicle_Details
+                                code: Cargo_Details
                               list:
+                                - descriptor:
+                                    code: Delivery_Mode
+                                  value: Ocean
                                 - descriptor:
                                     code: Vehicle_Type
                                   value: Container
@@ -21331,12 +20520,11 @@ x-examples:
                           parent_item_id: ''
                           category_ids:
                             - C1
-                            - O1
                           fulfillment_ids:
                             - '1'
                           descriptor:
                             code: P2H2P
-                            name: Ocean Delivery
+                            name: Ocean Cargo
                             short_desc: Ocean Delivery
                             long_desc: Ocean Delivery
                           price:
@@ -21348,8 +20536,11 @@ x-examples:
                             timestamp: '2023-10-24T21:00:00.000Z'
                           tags:
                             - descriptor:
-                                code: Vehicle_Details
+                                code: Cargo_Details
                               list:
+                                - descriptor:
+                                    code: Delivery_Mode
+                                  value: Ocean
                                 - descriptor:
                                     code: Vehicle_Type
                                   value: Container
@@ -21363,7 +20554,6 @@ x-examples:
                           parent_item_id: I1
                           category_ids:
                             - C1
-                            - O1
                           fulfillment_ids:
                             - '2'
                           descriptor:
@@ -21382,7 +20572,6 @@ x-examples:
                           parent_item_id: I11
                           category_ids:
                             - C1
-                            - O1
                           fulfillment_ids:
                             - '2'
                           descriptor:
@@ -21400,8 +20589,7 @@ x-examples:
                         - id: I3
                           parent_item_id: ''
                           category_ids:
-                            - C1
-                            - A1
+                            - C2
                           fulfillment_ids:
                             - '1'
                           descriptor:
@@ -21418,8 +20606,11 @@ x-examples:
                             timestamp: '2023-10-21T21:00:00.000Z'
                           tags:
                             - descriptor:
-                                code: Vehicle_Details
+                                code: Cargo_Details
                               list:
+                                - descriptor:
+                                    code: Delivery_Mode
+                                  value: Air
                                 - descriptor:
                                     code: Vehicle_Type
                                   value: Container
@@ -21432,8 +20623,7 @@ x-examples:
                         - id: I33
                           parent_item_id: ''
                           category_ids:
-                            - C1
-                            - A1
+                            - C2
                           fulfillment_ids:
                             - '1'
                           descriptor:
@@ -21450,8 +20640,11 @@ x-examples:
                             timestamp: '2023-10-21T21:00:00.000Z'
                           tags:
                             - descriptor:
-                                code: Vehicle_Details
+                                code: Cargo_Details
                               list:
+                                - descriptor:
+                                    code: Delivery_Mode
+                                  value: Air
                                 - descriptor:
                                     code: Vehicle_Type
                                   value: Container
@@ -21464,8 +20657,7 @@ x-examples:
                         - id: I4
                           parent_item_id: I3
                           category_ids:
-                            - C1
-                            - A1
+                            - C2
                           fulfillment_ids:
                             - '2'
                           descriptor:
@@ -21483,301 +20675,7 @@ x-examples:
                         - id: I44
                           parent_item_id: I33
                           category_ids:
-                            - C1
-                            - A1
-                          fulfillment_ids:
-                            - '2'
-                          descriptor:
-                            code: P2H2P
-                            name: RTO quote
-                            short_desc: RTO quote
-                            long_desc: RTO quote
-                          price:
-                            currency: INR
-                            value: '3000.0'
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-25T21:00:00.000Z'
-          - summary: LSP sends catalog
-            description: >-
-              Logistics service provider sends the catalog based on search +
-              Sends the KYC Link.
-            value:
-              context:
-                domain: ONDC:LOG11
-                location:
-                  city:
-                    code: UN:SIN
-                  country:
-                    code: SGP
-                action: on_search
-                version: 2.0.0
-                bap_id: logistics_buyer.com
-                bap_uri: https://logistics_buyer.com/ondc
-                bpp_id: logistics_seller.com
-                bpp_uri: https://logistics_seller.com/ondc
-                transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-                message_id: '1755281254860'
-                timestamp: '2023-10-17T21:00:00.690Z'
-                ttl: PT30S
-              message:
-                catalog:
-                  descriptor:
-                    name: LSP Aggregator Inc
-                    tags:
-                      - descriptor:
-                          code: BPP_Terms
-                        list:
-                          - descriptor:
-                              code: Static_Terms
-                            value: ''
-                          - descriptor:
-                              code: Static_Terms_New
-                            value: >-
-                              https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf
-                          - descriptor:
-                              code: Effective_Date
-                            value: '2023-10-01T00:00:00.000Z'
-                      - descriptor:
-                          code: KYC
-                        list:
-                          - descriptor:
-                              code: url
-                            value: https://lsp.com/xxx/kyc
-                          - descriptor:
-                              code: required
-                            value: 'true'
-                  fulfillments:
-                    - id: '1'
-                      type: Delivery
-                    - id: '2'
-                      type: RTO
-                  providers:
-                    - id: P1
-                      descriptor:
-                        name: Courier Inc
-                        short_desc: Courier Inc
-                        long_desc: Courier Inc
-                      categories:
-                        - id: C1
-                          descriptor:
-                            code: EXPRESS_DELIVERY
-                        - id: O1
-                          parent_category_id: C1
-                          descriptor:
-                            code: Ocean_Delivery
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-17'
-                        - id: A1
-                          parent_category_id: C1
-                          descriptor:
-                            code: Air_Delivery
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-17'
-                      locations:
-                        - id: L1
-                          gps: 12.967555,77.749666
-                          address:
-                            street: Jayanagar 4th Block
-                            city: Bengaluru
-                            area_code: '560076'
-                            state: KA
-                      items:
-                        - id: I1
-                          parent_item_id: ''
-                          category_ids:
-                            - C1
-                            - O1
-                          fulfillment_ids:
-                            - '1'
-                          descriptor:
-                            code: P2H2P
-                            name: Ocean Delivery
-                            short_desc: Ocean Delivery
-                            long_desc: Ocean Delivery
-                          price:
-                            currency: INR
-                            value: '4000.0'
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-24T21:00:00.000Z'
-                          tags:
-                            - descriptor:
-                                code: Vehicle_Details
-                              list:
-                                - descriptor:
-                                    code: Vehicle_Type
-                                  value: Container
-                                - descriptor:
-                                    code: Vehicle_Size
-                                  value: 24Ft
-                                - descriptor:
-                                    code: Load_Type
-                                  value: FCL
-                        - id: I11
-                          parent_item_id: ''
-                          category_ids:
-                            - C1
-                            - O1
-                          fulfillment_ids:
-                            - '1'
-                          descriptor:
-                            code: P2H2P
-                            name: Ocean Delivery
-                            short_desc: Ocean Delivery
-                            long_desc: Ocean Delivery
-                          price:
-                            currency: INR
-                            value: '4000.0'
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-24T21:00:00.000Z'
-                          tags:
-                            - descriptor:
-                                code: Vehicle_Details
-                              list:
-                                - descriptor:
-                                    code: Vehicle_Type
-                                  value: Container
-                                - descriptor:
-                                    code: Vehicle_Size
-                                  value: 24Ft
-                                - descriptor:
-                                    code: Load_Type
-                                  value: LCL
-                        - id: I2
-                          parent_item_id: I1
-                          category_ids:
-                            - C1
-                            - O1
-                          fulfillment_ids:
-                            - '2'
-                          descriptor:
-                            code: P2H2P
-                            name: RTO quote
-                            short_desc: RTO quote
-                            long_desc: RTO quote
-                          price:
-                            currency: INR
-                            value: '2000.0'
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-31T21:00:00.000Z'
-                        - id: I22
-                          parent_item_id: I11
-                          category_ids:
-                            - C1
-                            - O1
-                          fulfillment_ids:
-                            - '2'
-                          descriptor:
-                            code: P2H2P
-                            name: RTO quote
-                            short_desc: RTO quote
-                            long_desc: RTO quote
-                          price:
-                            currency: INR
-                            value: '2000.0'
-                          time:
-                            label: TAT
-                            duration: P7D
-                            timestamp: '2023-10-31T21:00:00.000Z'
-                        - id: I3
-                          parent_item_id: ''
-                          category_ids:
-                            - C1
-                            - A1
-                          fulfillment_ids:
-                            - '1'
-                          descriptor:
-                            code: P2H2P
-                            name: Air Delivery
-                            short_desc: Air Delivery
-                            long_desc: Air Delivery
-                          price:
-                            currency: INR
-                            value: '6000.0'
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-21T21:00:00.000Z'
-                          tags:
-                            - descriptor:
-                                code: Vehicle_Details
-                              list:
-                                - descriptor:
-                                    code: Vehicle_Type
-                                  value: Container
-                                - descriptor:
-                                    code: Vehicle_Size
-                                  value: 24Ft
-                                - descriptor:
-                                    code: Load_Type
-                                  value: FCL
-                        - id: I33
-                          parent_item_id: ''
-                          category_ids:
-                            - C1
-                            - A1
-                          fulfillment_ids:
-                            - '1'
-                          descriptor:
-                            code: P2H2P
-                            name: Air Delivery
-                            short_desc: Air Delivery
-                            long_desc: Air Delivery
-                          price:
-                            currency: INR
-                            value: '6000.0'
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-21T21:00:00.000Z'
-                          tags:
-                            - descriptor:
-                                code: Vehicle_Details
-                              list:
-                                - descriptor:
-                                    code: Vehicle_Type
-                                  value: Container
-                                - descriptor:
-                                    code: Vehicle_Size
-                                  value: 24Ft
-                                - descriptor:
-                                    code: Load_Type
-                                  value: LCL
-                        - id: I4
-                          parent_item_id: I3
-                          category_ids:
-                            - C1
-                            - A1
-                          fulfillment_ids:
-                            - '2'
-                          descriptor:
-                            code: P2H2P
-                            name: RTO quote
-                            short_desc: RTO quote
-                            long_desc: RTO quote
-                          price:
-                            currency: INR
-                            value: '3000.0'
-                          time:
-                            label: TAT
-                            duration: P4D
-                            timestamp: '2023-10-25T21:00:00.000Z'
-                        - id: I44
-                          parent_item_id: I33
-                          category_ids:
-                            - C1
-                            - A1
+                            - C2
                           fulfillment_ids:
                             - '2'
                           descriptor:

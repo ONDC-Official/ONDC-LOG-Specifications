@@ -20,8 +20,7 @@ status:
     - $ref: ./status/status.yaml
 on_search:
   examples:
-    - $ref: ./on_search/on_search_Air.yaml
-    - $ref: ./on_search/on_search_ocean.yaml
+    - $ref: ./on_search/on_search.yaml
 on_init:
   examples:
     - $ref: ./on_init/on_init_air.yaml

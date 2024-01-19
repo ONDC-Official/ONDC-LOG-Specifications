@@ -82,7 +82,7 @@ steps:
     description: Logistics service provider sends the catalog based on search + Sends the KYC Link.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_search/on_search_air.yaml"
+      $ref: "../../Examples/B2B_Dom_Logistics_yaml/on_search/on_search.yaml"
   - summary: Logistics Buyer initializes the order - Air Cargo.
     api: init
     description: Logistics Buyer fills the KYC form and sends the submission Id while initializing the order.

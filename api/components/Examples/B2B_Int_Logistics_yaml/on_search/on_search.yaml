@@ -1,13 +1,13 @@
-summary: LSP sends catalog (Surface Delivery)
+summary: LSP sends catalog
 description: Logistics service provider sends the catalog based on search + Sends the KYC Link.
 value:
   context:
-    domain: ONDC:LOG10
+    domain: ONDC:LOG11
     location:
       city:
-        code: std:080
+        code: UN:SIN
       country:
-        code: IND
+        code: SGP
     action: on_search
     version: 2.0.0
     bap_id: logistics_buyer.com
@@ -16,7 +16,7 @@ value:
     bpp_uri: https://logistics_seller.com/ondc
     transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
     message_id: '1755281254860'
-    timestamp: '2023-10-17T21:10:00.800Z'
+    timestamp: '2023-10-17T21:10:00.000Z'
     ttl: PT30S
   message:
     catalog:
@@ -59,22 +59,14 @@ value:
           categories:
             - id: C1
               descriptor:
-                code: Standard_Delivery
-            - id: R1
-              parent_category_id: C1
-              descriptor:
-                code: Surface_Delivery
+                code: STANDARD_DELIVERY
               time:
                 label: TAT
                 duration: P7D
                 timestamp: '2023-10-17'
             - id: C2
               descriptor:
-                code: Express_Delivery
-            - id: A1
-              parent_category_id: C2
-              descriptor:
-                code: Air_Delivery
+                code: EXPRESS_Delivery
               time:
                 label: TAT
                 duration: P4D
@@ -92,14 +84,13 @@ value:
               parent_item_id: ''
               category_ids:
                 - C1
-                - R1
               fulfillment_ids:
                 - '1'
               descriptor:
                 code: P2H2P
-                name: Surface Delivery
-                short_desc: Surface Delivery
-                long_desc: Surface Delivery
+                name: Ocean Cargo
+                short_desc: Ocean Delivery
+                long_desc: Ocean Delivery
               price:
                 currency: INR
                 value: '4000.0'
@@ -109,29 +100,31 @@ value:
                 timestamp: '2023-10-24T21:00:00.000Z'
               tags:
               - descriptor:
-                  code: Vehicle_Details
+                  code: Cargo_Details
                 list:
                   - descriptor:
+                      code: Delivery_Mode
+                    value: Ocean
+                  - descriptor:
                       code: Vehicle_Type
-                    value: Truck
+                    value: Container
                   - descriptor:
                       code: Vehicle_Size
-                    value: 21Ft
+                    value: 24Ft
                   - descriptor:
                       code: Load_Type
-                    value: FTL
+                    value: FCL
             - id: I11
               parent_item_id: ''
               category_ids:
                 - C1
-                - R1
               fulfillment_ids:
                 - '1'
               descriptor:
                 code: P2H2P
-                name: Surface Delivery
-                short_desc: Surface Delivery
-                long_desc: Surface Delivery
+                name: Ocean Cargo
+                short_desc: Ocean Delivery
+                long_desc: Ocean Delivery
               price:
                 currency: INR
                 value: '4000.0'
@@ -141,22 +134,24 @@ value:
                 timestamp: '2023-10-24T21:00:00.000Z'
               tags:
               - descriptor:
-                  code: Vehicle_Details
+                  code: Cargo_Details
                 list:
                   - descriptor:
+                      code: Delivery_Mode
+                    value: Ocean
+                  - descriptor:
                       code: Vehicle_Type
-                    value: Truck
+                    value: Container
                   - descriptor:
                       code: Vehicle_Size
-                    value: 21Ft
+                    value: 24Ft
                   - descriptor:
                       code: Load_Type
-                    value: PTL
+                    value: LCL
             - id: I2
               parent_item_id: I1
               category_ids:
                 - C1
-                - R1
               fulfillment_ids:
                 - '2'
               descriptor:
@@ -175,7 +170,6 @@ value:
               parent_item_id: I11
               category_ids:
                 - C1
-                - R1
               fulfillment_ids:
                 - '2'
               descriptor:
@@ -194,7 +188,6 @@ value:
               parent_item_id: ''
               category_ids:
                 - C2
-                - A1
               fulfillment_ids:
                 - '1'
               descriptor:
@@ -211,14 +204,17 @@ value:
                 timestamp: '2023-10-21T21:00:00.000Z'
               tags:
               - descriptor:
-                  code: Vehicle_Details
+                  code: Cargo_Details
                 list:
+                  - descriptor:
+                      code: Delivery_Mode
+                    value: Air
                   - descriptor:
                       code: Vehicle_Type
                     value: Container
                   - descriptor:
                       code: Vehicle_Size
-                    value: 22Ft
+                    value: 24Ft
                   - descriptor:
                       code: Load_Type
                     value: FCL
@@ -226,7 +222,6 @@ value:
               parent_item_id: ''
               category_ids:
                 - C2
-                - A1
               fulfillment_ids:
                 - '1'
               descriptor:
@@ -243,14 +238,17 @@ value:
                 timestamp: '2023-10-21T21:00:00.000Z'
               tags:
               - descriptor:
-                  code: Vehicle_Details
+                  code: Cargo_Details
                 list:
+                  - descriptor:
+                      code: Delivery_Mode
+                    value: Air
                   - descriptor:
                       code: Vehicle_Type
                     value: Container
                   - descriptor:
                       code: Vehicle_Size
-                    value: 22Ft
+                    value: 24Ft
                   - descriptor:
                       code: Load_Type
                     value: LCL
@@ -258,7 +256,6 @@ value:
               parent_item_id: I3
               category_ids:
                 - C2
-                - A1
               fulfillment_ids:
                 - '2'
               descriptor:
@@ -277,7 +274,6 @@ value:
               parent_item_id: I33
               category_ids:
                 - C2
-                - A1
               fulfillment_ids:
                 - '2'
               descriptor:

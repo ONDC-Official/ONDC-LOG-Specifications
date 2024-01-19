@@ -1,12 +1,12 @@
 {
   "context": {
-    "domain": "ONDC:LOG11",
+    "domain": "ONDC:LOG10",
     "location": {
       "city": {
-        "code": "UN:SIN"
+        "code": "std:080"
       },
       "country": {
-        "code": "SGP"
+        "code": "IND"
       }
     },
     "action": "on_search",
@@ -24,31 +24,49 @@
     "catalog": {
       "descriptor": {
         "name": "LSP Aggregator Inc",
-        "tags":
-        [
+        "tags": [
           {
             "descriptor": {
-              "code":"BPP_Terms"
+              "code": "BPP_Terms"
             },
-            "list":
-            [
+            "list": [
               {
-                "descriptor": {
-                  "code":"Static_Terms"
-                },
-                "value":""
+                "code": "Max_Liability",
+                "value": "2"
+              },
+              {
+                "code": "Max_Liability_Cap",
+                "value": "10000"
+              },
+              {
+                "code": "Mandatory_Arbitration",
+                "value": "false"
+              },
+              {
+                "code": "Court_Jurisdiction",
+                "value": "Bengaluru"
+              },
+              {
+                "code": "Delay_Interest",
+                "value": "1000"
               },
               {
                 "descriptor": {
-                  "code":"Static_Terms_New"
+                  "code": "Static_Terms"
                 },
-                "value":"https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf"
+                "value": ""
               },
               {
                 "descriptor": {
-                  "code":"Effective_Date"
+                  "code": "Static_Terms_New"
                 },
-                "value":"2023-10-01T00:00:00.000Z"
+                "value": "https://github.com/ONDC-Official/NP-Static-Terms/lspNP_LSP/1.0/tc.pdf"
+              },
+              {
+                "descriptor": {
+                  "code": "Effective_Date"
+                },
+                "value": "2023-10-01T00:00:00.000Z"
               }
             ]
           },
@@ -95,14 +113,7 @@
             {
               "id": "C1",
               "descriptor": {
-                "code": "Express_Delivery"
-              }
-            },
-            {
-              "id": "O1",
-              "parent_category_id": "C1",
-              "descriptor": {
-                "code": "Ocean_Delivery"
+                "code": "Standard_Delivery"
               },
               "time": {
                 "label": "TAT",
@@ -111,10 +122,9 @@
               }
             },
             {
-              "id": "A1",
-              "parent_category_id": "C1",
+              "id": "C2",
               "descriptor": {
-                "code": "Air_Delivery"
+                "code": "Express_Delivery"
               },
               "time": {
                 "label": "TAT",
@@ -140,17 +150,16 @@
               "id": "I1",
               "parent_item_id": "",
               "category_ids": [
-                "C1",
-                "O1"
+                "C1"
               ],
               "fulfillment_ids": [
                 "1"
               ],
               "descriptor": {
                 "code": "P2H2P",
-                "name": "OCEAN Cargo",
-                "short_desc": "Ocean Cargo",
-                "long_desc": "Ocean Cargo"
+                "name": "Road Delivery",
+                "short_desc": "Road Delivery",
+                "long_desc": "Road Delivery"
               },
               "price": {
                 "currency": "INR",
@@ -163,26 +172,32 @@
               },
               "tags": {
                 "descriptor": {
-                  "code": "Vehicle_Details"
+                  "code": "Cargo_Details"
                 },
                 "list": [
                   {
                     "descriptor": {
+                      "code": "Delivery_Mode"
+                    },
+                    "value": "Road"
+                  },
+                  {
+                    "descriptor": {
                       "code": "Vehicle_Type"
                     },
-                    "value": "Container"
+                    "value": "Truck"
                   },
                   {
                     "descriptor": {
                       "code": "Vehicle_Size"
                     },
-                    "value": "24Ft"
+                    "value": "21Ft"
                   },
                   {
                     "descriptor": {
                       "code": "Load_Type"
                     },
-                    "value": "FCL"
+                    "value": "FTL"
                   }
                 ]
               }
@@ -191,17 +206,16 @@
               "id": "I11",
               "parent_item_id": "",
               "category_ids": [
-                "C1",
-                "O1"
+                "C1"
               ],
               "fulfillment_ids": [
                 "1"
               ],
               "descriptor": {
                 "code": "P2H2P",
-                "name": "OCEAN Cargo",
-                "short_desc": "Ocean Cargo",
-                "long_desc": "Ocean Cargo"
+                "name": "Road Delivery",
+                "short_desc": "Surface Delivery",
+                "long_desc": "Surface Delivery"
               },
               "price": {
                 "currency": "INR",
@@ -214,26 +228,32 @@
               },
               "tags": {
                 "descriptor": {
-                  "code": "Vehicle_Details"
+                  "code": "Cargo_Details"
                 },
                 "list": [
                   {
                     "descriptor": {
+                      "code": "Delivery_Mode"
+                    },
+                    "value": "Road"
+                  },
+                  {
+                    "descriptor": {
                       "code": "Vehicle_Type"
                     },
-                    "value": "Container"
+                    "value": "Truck"
                   },
                   {
                     "descriptor": {
                       "code": "Vehicle_Size"
                     },
-                    "value": "24Ft"
+                    "value": "21Ft"
                   },
                   {
                     "descriptor": {
                       "code": "Load_Type"
                     },
-                    "value": "LCL"
+                    "value": "PTL"
                   }
                 ]
               }
@@ -242,8 +262,7 @@
               "id": "I2",
               "parent_item_id": "I1",
               "category_ids": [
-                "C1",
-                "O1"
+                "C1"
               ],
               "fulfillment_ids": [
                 "2"
@@ -268,8 +287,7 @@
               "id": "I22",
               "parent_item_id": "I11",
               "category_ids": [
-                "C1",
-                "O1"
+                "C1"
               ],
               "fulfillment_ids": [
                 "2"
@@ -291,11 +309,73 @@
               }
             },
             {
+              "id": "I21",
+              "parent_item_id": "",
+              "category_ids": [
+                "C1"
+              ],
+              "fulfillment_ids": [
+                "1"
+              ],
+              "descriptor": {
+                "code": "P2H2P",
+                "name": "Rail Delivery",
+                "short_desc": "Surface Delivery",
+                "long_desc": "Surface Delivery"
+              },
+              "price": {
+                "currency": "INR",
+                "value": "3000.0"
+              },
+              "time": {
+                "label": "TAT",
+                "duration": "P6D",
+                "timestamp": "2023-10-24T21:00:00.000Z"
+              },
+              "tags": {
+                "descriptor": {
+                  "code": "Cargo_Details"
+                },
+                "list": [
+                  {
+                    "descriptor": {
+                      "code": "Delivery_Mode"
+                    },
+                    "value": "Rail"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "I23",
+              "parent_item_id": "I21",
+              "category_ids": [
+                "C1"
+              ],
+              "fulfillment_ids": [
+                "2"
+              ],
+              "descriptor": {
+                "code": "P2H2P",
+                "name": "RTO quote",
+                "short_desc": "RTO quote",
+                "long_desc": "RTO quote"
+              },
+              "price": {
+                "currency": "INR",
+                "value": "2000.0"
+              },
+              "time": {
+                "label": "TAT",
+                "duration": "P6D",
+                "timestamp": "2023-10-31T21:00:00.000Z"
+              }
+            },
+            {
               "id": "I3",
               "parent_item_id": "",
               "category_ids": [
-                "C1",
-                "A1"
+                "C2"
               ],
               "fulfillment_ids": [
                 "1"
@@ -317,9 +397,15 @@
               },
               "tags": {
                 "descriptor": {
-                  "code": "Vehicle_Details"
+                  "code": "Cargo_Details"
                 },
                 "list": [
+                  {
+                    "descriptor": {
+                      "code": "Delivery_Mode"
+                    },
+                    "value": "Air"
+                  },
                   {
                     "descriptor": {
                       "code": "Vehicle_Type"
@@ -345,8 +431,7 @@
               "id": "I33",
               "parent_item_id": "",
               "category_ids": [
-                "C1",
-                "A1"
+                "C2"
               ],
               "fulfillment_ids": [
                 "1"
@@ -368,9 +453,15 @@
               },
               "tags": {
                 "descriptor": {
-                  "code": "Vehicle_Details"
+                  "code": "Cargo_Details"
                 },
                 "list": [
+                  {
+                    "descriptor": {
+                      "code": "Delivery_Mode"
+                    },
+                    "value": "Air"
+                  },
                   {
                     "descriptor": {
                       "code": "Vehicle_Type"
@@ -381,7 +472,7 @@
                     "descriptor": {
                       "code": "Vehicle_Size"
                     },
-                    "value": "24Ft"
+                    "value": "22Ft"
                   },
                   {
                     "descriptor": {
@@ -396,8 +487,7 @@
               "id": "I4",
               "parent_item_id": "I3",
               "category_ids": [
-                "C1",
-                "A1"
+                "C2"
               ],
               "fulfillment_ids": [
                 "2"
@@ -422,8 +512,7 @@
               "id": "I44",
               "parent_item_id": "I33",
               "category_ids": [
-                "C1",
-                "A1"
+                "C2"
               ],
               "fulfillment_ids": [
                 "2"
