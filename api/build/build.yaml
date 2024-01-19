@@ -5215,7 +5215,7 @@ x-flows:
           the KYC Link.
         reference: if any
         example: &ref_21
-          summary: LSP sends catalog (Air Delivery)
+          summary: LSP sends catalog
           description: >-
             Logistics service provider sends the catalog based on search + Sends
             the KYC Link.
@@ -14980,7 +14980,7 @@ x-examples:
                 cancellation_reason_id: '004'
       on_search:
         examples:
-          - summary: LSP sends catalog (Air Delivery)
+          - summary: LSP sends catalog
             description: >-
               Logistics service provider sends the catalog based on search +
               Sends the KYC Link.
