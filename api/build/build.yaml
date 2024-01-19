@@ -7476,7 +7476,7 @@ x-flows:
           Search intent sent by the buyer based on the start & end location +
           Product details.
         reference: if any
-        example: &ref_29
+        example: &ref_35
           summary: Search by parent category - Express Delivery
           description: null
           value:
@@ -7621,7 +7621,7 @@ x-flows:
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: &ref_30
+        example: &ref_29
           summary: LSP sends catalog
           description: >-
             Logistics service provider sends the catalog based on search + Sends
@@ -9421,7 +9421,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_31
+        example: &ref_30
           summary: Status updates
           description: >-
             Logistics provider updates the status of fulfillment as Order Picked
@@ -9728,7 +9728,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_32
+        example: &ref_31
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -10034,7 +10034,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_33
+        example: &ref_32
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -10340,7 +10340,7 @@ x-flows:
         api: status
         description: Logistics buyer requests for status update
         reference: if any
-        example: &ref_34
+        example: &ref_33
           summary: Logistics Buyer requests for status update
           description: null
           value:
@@ -10367,7 +10367,7 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: &ref_35
+        example: &ref_34
           summary: Status updates
           description: Logistics provider updates the status of fulfillment
           value:
@@ -10753,14 +10753,152 @@ x-flows:
           Search Logistics based on fulfilment start and end location + Product
           details.
         reference: if any
-        example: *ref_29
+        example:
+          summary: Search Logistics - Ocean Delivery
+          description: null
+          value:
+            context:
+              domain: ONDC:LOG11
+              location:
+                city:
+                  code: UN:SIN
+                country:
+                  code: SGP
+              action: search
+              version: 2.0.0
+              bap_id: logistics_buyer.com
+              bap_uri: https://logistics_buyer.com/ondc
+              transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+              message_id: '1755281254860'
+              timestamp: '2023-10-17T21:00:00.000Z'
+              ttl: PT30S
+            message:
+              intent:
+                category:
+                  descriptor:
+                    code: Ocean_Delivery
+                provider:
+                  time:
+                    days: 1,2,3,4,5,6,7
+                    schedule:
+                      holidays:
+                        - '2023-10-18'
+                        - '2023-10-19'
+                    range:
+                      start: '1100'
+                      end: '2100'
+                fulfillments:
+                  type: Delivery
+                  stops:
+                    - id: L1
+                      parent_stop_id: ''
+                      type: start
+                      location:
+                        gps: 12.4535445,77.9283792
+                        area_code: '560041'
+                      time:
+                        range:
+                          start: '2023-10-23T10:00:00.000Z'
+                          end: '2023-10-25T10:30:00.000Z'
+                    - id: L2
+                      parent_stop_id: L1
+                      type: end
+                      location:
+                        gps: 1.3806217468119772, 103.74636438437074
+                        area_code: '680230'
+                  tags:
+                    descriptor:
+                      code: Delivery_Terms
+                    list:
+                      - descriptor:
+                          code: INCOTERMS
+                        value: CIF
+                      - descriptor:
+                          code: NAMED_PLACE_OF_DELIVERY
+                        value: UN:SGSIN
+                payment:
+                  collected_by: BPP
+                  tags:
+                    - descriptor:
+                        code: Collection_Details
+                      list:
+                        - descriptor:
+                            code: Amount
+                          value: '20000'
+                        - descriptor:
+                            code: Type
+                          value: ON-FULFILLMENT
+                tags:
+                  - descriptor:
+                      code: Package_Weight
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: kilogram
+                      - descriptor:
+                          code: Value
+                        Value: '5'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                  - descriptor:
+                      code: Package_Details
+                    list:
+                      - descriptor:
+                          code: Category
+                        value: Grocery
+                      - descriptor:
+                          code: Dangerous_Goods
+                        value: 'true'
+                      - descriptor:
+                          code: Stackable
+                        value: 'true'
+                      - descriptor:
+                          code: Shipment_Value
+                        value: '50000'
+                      - descriptor:
+                          code: Package_Count
+                        value: '10'
+                      - descriptor:
+                          code: HSN_Code
+                        value: xxxxxxx
+                      - descriptor:
+                          code: Transit_Risk_Owner
+                        value: Carrier
+                  - descriptor:
+                      code: Cold_Logistics
+                    list:
+                      - descriptor:
+                          code: Temp_Control
+                        value: 'true'
+                      - descriptor:
+                          code: Temp_Unit
+                        value: Celsius
+                      - descriptor:
+                          code: Temp_Min
+                        value: '0'
+                      - descriptor:
+                          code: Temp_Max
+                        value: '4'
       - summary: LSP sends catalog - Air & Ocean Cargo
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: *ref_30
+        example: *ref_29
       - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
@@ -12283,27 +12421,27 @@ x-flows:
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_31
+        example: *ref_30
       - summary: LSP sends status updates - Order Picked up
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_32
+        example: *ref_31
       - summary: LSP sends status updates - Domestic Custom Cleared
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_33
+        example: *ref_32
       - summary: Logistics buyer requests for status update
         api: status
         description: Logistics buyer requests for status update
         reference: if any
-        example: *ref_34
+        example: *ref_33
       - summary: LSP sends status updates - Order Delivered
         api: on_status
         description: LSP sends status updates
         reference: if any
-        example: *ref_35
+        example: *ref_34
   - summary: B2B International Logistics Cancellation - Buyer Cancels
     description: >-
       The below flow shows the journey of Logistics buyer buying international
@@ -12314,14 +12452,14 @@ x-flows:
         api: search
         description: Search intent sent by the buyer based on the category
         reference: if any
-        example: *ref_29
+        example: *ref_35
       - summary: LSP sends catalog
         api: on_search
         description: >-
           Logistics service provider sends the catalog based on search + Sends
           the KYC Link.
         reference: if any
-        example: *ref_30
+        example: *ref_29
       - summary: Logistics Buyer initializes the order.
         api: init
         description: >-
@@ -12360,14 +12498,14 @@ x-flows:
         api: status
         description: Buyer requests for the order status update
         reference: if any
-        example: *ref_34
+        example: *ref_33
       - summary: Responds to order status update - Pickup Approved
         api: on_status
         description: >-
           Seller app sends an on_status call to the buyer app informing about
           the current status of the order.
         reference: if any
-        example: *ref_31
+        example: *ref_30
       - summary: Logistics Buyer cancels the order
         api: cancel
         description: Logistics Buyer cancels the order
@@ -12708,131 +12846,6 @@ x-examples:
     example_set:
       search:
         examples:
-          - summary: Search Logistics - Air Delivery
-            description: Search for parent category - Express Delivery or Air Delivery.
-            value:
-              context:
-                domain: ONDC:LOG10
-                location:
-                  city:
-                    code: std:080
-                  country:
-                    code: IND
-                action: search
-                version: 2.0.0
-                bap_id: logistics_buyer.com
-                bap_uri: https://logistics_buyer.com/ondc
-                transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-                message_id: '1755281254860'
-                timestamp: '2023-10-17T21:00:00.000Z'
-                ttl: PT30S
-              message:
-                intent:
-                  category:
-                    descriptor:
-                      code: Air_Delivery
-                  provider:
-                    time:
-                      days: 1,2,3,4,5,6,7
-                      schedule:
-                        holidays:
-                          - '2023-10-18'
-                          - '2023-10-19'
-                      range:
-                        start: '1100'
-                        end: '2100'
-                  fulfillments:
-                    type: Delivery
-                    stops:
-                      - id: L1
-                        parent_stop_id: ''
-                        type: start
-                        location:
-                          gps: 12.4535445,77.9283792
-                          area_code: '560041'
-                        time:
-                          range:
-                            start: '2023-10-25T10:00:00.000Z'
-                            end: '2023-10-25T10:30:00.000Z'
-                      - id: L2
-                        parent_stop_id: L1
-                        type: end
-                        location:
-                          gps: 12.342769,77.9129423
-                          area_code: '636806'
-                  payment:
-                    collected_by: BPP
-                    tags:
-                      - descriptor:
-                          code: Collection_Details
-                        list:
-                          - descriptor:
-                              code: Amount
-                            value: '20000'
-                          - descriptor:
-                              code: Type
-                            value: ON-FULFILLMENT
-                  tags:
-                    - descriptor:
-                        code: Package_Weight
-                      list:
-                        - descriptor:
-                            code: Unit
-                          value: kilogram
-                        - descriptor:
-                            code: Value
-                          Value: '50'
-                    - descriptor:
-                        code: Package_Dimensions
-                      list:
-                        - descriptor:
-                            code: Unit
-                          value: centimeter
-                        - descriptor:
-                            code: Length
-                          value: '100'
-                        - descriptor:
-                            code: Breadth
-                          value: '100'
-                        - descriptor:
-                            code: Height
-                          value: '100'
-                    - descriptor:
-                        code: Package_Details
-                      list:
-                        - descriptor:
-                            code: Category
-                          value: Grocery
-                        - descriptor:
-                            code: Dangerous_Goods
-                          value: 'true'
-                        - descriptor:
-                            code: Stackable
-                          value: 'true'
-                        - descriptor:
-                            code: Shipment_Value
-                          value: '50000'
-                        - descriptor:
-                            code: Package_Count
-                          value: '10'
-                        - descriptor:
-                            code: Transit_Risk_Owner
-                          value: Carrier
-                    - descriptor:
-                        code: Cold_Logistics
-                      list:
-                        - descriptor:
-                            code: Temp_Control
-                          value: 'true'
-                        - descriptor:
-                            code: Temp_Unit
-                          value: Celsius
-                        - descriptor:
-                            code: Temp_Min
-                          value: '0'
-                        - descriptor:
-                            code: Temp_Max
-                          value: '4'
           - summary: Search by parent category - Express Delivery
             description: null
             value:
@@ -12981,131 +12994,6 @@ x-examples:
                   category:
                     descriptor:
                       code: STANDARD_DELIVERY
-                  provider:
-                    time:
-                      days: 1,2,3,4,5,6,7
-                      schedule:
-                        holidays:
-                          - '2023-10-18'
-                          - '2023-10-19'
-                      range:
-                        start: '1100'
-                        end: '2100'
-                  fulfillments:
-                    type: Delivery
-                    stops:
-                      - id: L1
-                        parent_stop_id: ''
-                        type: start
-                        location:
-                          gps: 12.4535445,77.9283792
-                          area_code: '560041'
-                        time:
-                          range:
-                            start: '2023-02-03T10:00:00.000Z'
-                            end: '2023-02-03T10:30:00.000Z'
-                      - id: L2
-                        parent_stop_id: L1
-                        type: end
-                        location:
-                          gps: 12.342769,77.9129423
-                          area_code: '636806'
-                  payment:
-                    collected_by: BPP
-                    tags:
-                      - descriptor:
-                          code: Collection_Details
-                        list:
-                          - descriptor:
-                              code: Amount
-                            value: '20000'
-                          - descriptor:
-                              code: Type
-                            value: ON-FULFILLMENT
-                  tags:
-                    - descriptor:
-                        code: Package_Weight
-                      list:
-                        - descriptor:
-                            code: Unit
-                          value: kilogram
-                        - descriptor:
-                            code: Value
-                          Value: '5'
-                    - descriptor:
-                        code: Package_Dimensions
-                      list:
-                        - descriptor:
-                            code: Unit
-                          value: centimeter
-                        - descriptor:
-                            code: Length
-                          value: '100'
-                        - descriptor:
-                            code: Breadth
-                          value: '100'
-                        - descriptor:
-                            code: Height
-                          value: '100'
-                    - descriptor:
-                        code: Package_Details
-                      list:
-                        - descriptor:
-                            code: Category
-                          value: Grocery
-                        - descriptor:
-                            code: Dangerous_Goods
-                          value: 'true'
-                        - descriptor:
-                            code: Stackable
-                          value: 'true'
-                        - descriptor:
-                            code: Shipment_Value
-                          value: '50000'
-                        - descriptor:
-                            code: Package_Count
-                          value: '10'
-                        - descriptor:
-                            code: Transit_Risk_Owner
-                          value: Carrier
-                    - descriptor:
-                        code: Cold_Logistics
-                      list:
-                        - descriptor:
-                            code: Temp_Control
-                          value: 'true'
-                        - descriptor:
-                            code: Temp_Unit
-                          value: Celsius
-                        - descriptor:
-                            code: Temp_Min
-                          value: '0'
-                        - descriptor:
-                            code: Temp_Max
-                          value: '4'
-          - summary: Search Logistics - Surface Delivery
-            description: null
-            value:
-              context:
-                domain: ONDC:LOG10
-                location:
-                  city:
-                    code: std:080
-                  country:
-                    code: IND
-                action: search
-                version: 2.0.0
-                bap_id: logistics_buyer.com
-                bap_uri: https://logistics_buyer.com/ondc
-                transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-                message_id: '1755281254860'
-                timestamp: '2023-10-17T21:10:00.000Z'
-                ttl: PT30S
-              message:
-                intent:
-                  category:
-                    descriptor:
-                      code: Surface_Delivery
                   provider:
                     time:
                       days: 1,2,3,4,5,6,7
@@ -18868,144 +18756,6 @@ x-examples:
     example_set:
       search:
         examples:
-          - summary: Search Logistics - Air Delivery
-            description: Search for parent category - Express Delivery or Air Delivery.
-            value:
-              context:
-                domain: ONDC:LOG11
-                location:
-                  city:
-                    code: UN:SIN
-                  country:
-                    code: SGP
-                action: search
-                version: 2.0.0
-                bap_id: logistics_buyer.com
-                bap_uri: https://logistics_buyer.com/ondc
-                transaction_id: 9fdb667c-76c6-456a-9742-ba9caa5eb765
-                message_id: '1755281254860'
-                timestamp: '2023-10-17T21:00:00.000Z'
-                ttl: PT30S
-              message:
-                intent:
-                  category:
-                    descriptor:
-                      code: Air_Delivery
-                  provider:
-                    time:
-                      days: 1,2,3,4,5,6,7
-                      schedule:
-                        holidays:
-                          - '2023-10-18'
-                          - '2023-10-19'
-                      range:
-                        start: '1100'
-                        end: '2100'
-                  fulfillments:
-                    type: Delivery
-                    stops:
-                      - id: L1
-                        parent_stop_id: ''
-                        type: start
-                        location:
-                          gps: 12.4535445,77.9283792
-                          area_code: '560041'
-                        time:
-                          range:
-                            start: '2023-10-23T10:00:00.000Z'
-                            end: '2023-10-25T10:30:00.000Z'
-                      - id: L2
-                        parent_stop_id: L1
-                        type: end
-                        location:
-                          gps: 1.3806217468119772, 103.74636438437074
-                          area_code: '680230'
-                    tags:
-                      descriptor:
-                        code: Delivery_Terms
-                      list:
-                        - descriptor:
-                            code: INCOTERMS
-                          value: CIF
-                        - descriptor:
-                            code: NAMED_PLACE_OF_DELIVERY
-                          value: UN:SIN
-                  payment:
-                    collected_by: BPP
-                    tags:
-                      - descriptor:
-                          code: Collection_Details
-                        list:
-                          - descriptor:
-                              code: Amount
-                            value: '20000'
-                          - descriptor:
-                              code: Type
-                            value: ON-FULFILLMENT
-                  tags:
-                    - descriptor:
-                        code: Package_Weight
-                      list:
-                        - descriptor:
-                            code: Unit
-                          value: kilogram
-                        - descriptor:
-                            code: Value
-                          Value: '5'
-                    - descriptor:
-                        code: Package_Dimensions
-                      list:
-                        - descriptor:
-                            code: Unit
-                          value: centimeter
-                        - descriptor:
-                            code: Length
-                          value: '100'
-                        - descriptor:
-                            code: Breadth
-                          value: '100'
-                        - descriptor:
-                            code: Height
-                          value: '100'
-                    - descriptor:
-                        code: Package_Details
-                      list:
-                        - descriptor:
-                            code: Category
-                          value: Grocery
-                        - descriptor:
-                            code: Dangerous_Goods
-                          value: 'true'
-                        - descriptor:
-                            code: Stackable
-                          value: 'true'
-                        - descriptor:
-                            code: Shipment_Value
-                          value: '50000'
-                        - descriptor:
-                            code: Package_Count
-                          value: '10'
-                        - descriptor:
-                            code: HSN_Code
-                          value: xxxxxxx
-                        - descriptor:
-                            code: Transit_Risk_Owner
-                          value: Carrier
-                    - descriptor:
-                        code: Cold_Logistics
-                      list:
-                        - descriptor:
-                            code: Temp_Control
-                          value: 'true'
-                        - descriptor:
-                            code: Temp_Unit
-                          value: Celsius
-                        - descriptor:
-                            code: Temp_Min
-                          value: '0'
-                        - descriptor:
-                            code: Temp_Max
-                          value: '4'
           - summary: Search by parent category - Express Delivery
             description: null
             value:

@@ -1,8 +1,7 @@
 search:
   examples:
-    - $ref: ./search/search_Air_Delivery.yaml
-    - $ref: ./search/search_by_parent_category.yaml
-    - $ref: ./search/search_Ocean_Delivery.yaml
+    - $ref: ./search/search_by_Express.yaml
+    - $ref: ./search/search_Standard_Delivery.yaml
 init:
   examples:
     - $ref: ./init/init_air.yaml

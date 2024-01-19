@@ -78,7 +78,7 @@ steps:
     description: Search intent sent by the buyer based on the start & end location + Product details.
     reference: if any
     example:
-      $ref: "../../Examples/B2B_Int_Logistics_yaml/search/search_by_parent_category.yaml"
+      $ref: "../../Examples/B2B_Int_Logistics_yaml/search/search_by_Express.yaml"
   - summary: LSP sends catalog - Air & Ocean Cargo
     api: on_search
     description: Logistics service provider sends the catalog based on search + Sends the KYC Link. 

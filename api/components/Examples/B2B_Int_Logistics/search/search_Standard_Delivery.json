@@ -22,7 +22,7 @@
     "intent": {
       "category": {
         "descriptor": {
-          "code": "OCEAN_CARGO"
+          "code": "STANDARD_DELIVERY"
         }
       },
       "provider": {
