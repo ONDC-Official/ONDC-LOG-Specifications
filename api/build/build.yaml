@@ -7477,7 +7477,7 @@ x-flows:
           Product details.
         reference: if any
         example: &ref_35
-          summary: Search by parent category - Express Delivery
+          summary: Search by category - Express Delivery
           description: null
           value:
             context:
@@ -10754,7 +10754,7 @@ x-flows:
           details.
         reference: if any
         example:
-          summary: Search Logistics - Ocean Delivery
+          summary: Search by Category - Standard Delivery
           description: null
           value:
             context:
@@ -12846,7 +12846,7 @@ x-examples:
     example_set:
       search:
         examples:
-          - summary: Search by parent category - Express Delivery
+          - summary: Search by Category - Express Delivery
             description: null
             value:
               context:
@@ -12971,7 +12971,7 @@ x-examples:
                         - descriptor:
                             code: Temp_Max
                           value: '4'
-          - summary: Search by Parent Category - Standard Delivery
+          - summary: Search by Category - Standard Delivery
             description: null
             value:
               context:
@@ -18756,7 +18756,7 @@ x-examples:
     example_set:
       search:
         examples:
-          - summary: Search by parent category - Express Delivery
+          - summary: Search by category - Express Delivery
             description: null
             value:
               context:
@@ -18894,7 +18894,7 @@ x-examples:
                         - descriptor:
                             code: Temp_Max
                           value: '4'
-          - summary: Search Logistics - Ocean Delivery
+          - summary: Search by Category - Standard Delivery
             description: null
             value:
               context:
