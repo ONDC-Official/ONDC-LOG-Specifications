@@ -1,4 +1,4 @@
-summary: LSP sends catalog
+summary: LSP sends catalog (Air Delivery)
 description: Logistics service provider sends the catalog based on search + Sends the KYC Link.
 value:
   context:
