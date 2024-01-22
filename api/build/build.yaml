@@ -24076,3 +24076,1281 @@ x-examples:
                             code: url
                           value: https://xxxxx/xx.png
                   updated_at: '2023-02-06T22:00:30.000Z'
+x-attributes:
+  B2B Domestic Logistics:
+    attribute_set:
+      search:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: domain code, enums - ONDC:LOG10 ( Domestic Logistics )
+            required: mandatory
+            usage: ONDC:LOG10
+            reference: if any
+          city:
+            code:
+              description: >-
+                city code for search where product needs to be delivered. List
+                of city codes for domestic, with pincode mapping, are here -
+                https://docs.google.com/spreadsheets/d/12A_B-nDtvxyFh_FWDfp85ss2qpb65kZ7/edit#gid=213574534
+              required: mandatory
+              usage: std:080
+              reference: if any
+          country:
+            code:
+              description: >-
+                ISO standard 3 digit country code where product needs to be
+                delivered
+              required: mandatory
+              usage: IND
+              reference: if any
+          bap_id:
+            description: subscriber id for logistics buyer app
+            required: mandatory
+            usage: logistics_buyer.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://logistics_buyer.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2023-10-17T21:10:00.000Z'
+            reference: if any
+          ttl:
+            description: validity of message
+            required: mandatory
+            usage: PT30S
+            reference: if any
+        message:
+          parent: true
+          intent:
+            parent: true
+            category:
+              parent: true
+              category:
+                description: Category of the search
+                required: optional
+                usage: '-'
+                reference: if any
+              descriptor:
+                code:
+                  description: >-
+                    delivery category for the order, enums for parent category -
+                    Standard Delivery (Child - Surface Delivery) & Express
+                    Delivery (Child - Air Delivery)
+                  required: required, if category present
+                  usage: Surface_Delivery
+                  reference: if any
+            provider:
+              parent: true
+              provider:
+                description: >-
+                  provider object to share the provider details like provider
+                  availability timings.
+                required: optional
+                usage: '-'
+                reference: if any
+              time:
+                days:
+                  description: >-
+                    store pickup timings - days of week - 1 - Monday till 7 -
+                    Sunday
+                  required: optional
+                  usage: 1,2,3,4,5,6,7
+                  reference: if any
+                schedule:
+                  holidays:
+                    description: store pickup timings - list of future dated holidays
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                  range:
+                    description: >-
+                      define store order pickup timing, for "days" above, here
+                      it means the store order pickup timings are from 1100 to
+                      2100 from Monday to Sunday
+                    required: optional
+                    usage: start:1100,end:2100
+                    reference: if any
+            fulfillment:
+              parent: true
+              type:
+                description: fulfillment type for the order, enum - "Delivery", "Return"
+                required: required
+                usage: Delivery
+                reference: if any
+              stops:
+                location:
+                  description: >-
+                    pickup/drop location gps coordinates, should be atleast 6
+                    digit decimal precision
+                  required: required
+                  usage: 12.4535445,77.9283792
+                  reference: if any
+                time:
+                  range:
+                    description: >-
+                      To be sent if logistics buyer knows when they want to
+                      initiate the delivery.
+                    required: optional
+                    usage: '-'
+                    reference: if any
+            payment:
+              parent: true
+              collected_by:
+                description: >-
+                  Payment collected by, enum - "BAP" (Buyer App), "BPP" (Seller
+                  App)
+                required: required
+                usage: BPP
+                reference: if any
+      on_search:
+        parent: true
+        message:
+          parent: true
+          catalog:
+            parent: true
+            descriptor:
+              parent: true
+              name:
+                description: >-
+                  name of logistics aggregator or logistics provider, as
+                  applicable
+                required: required
+                usage: LSP Aggregator Inc
+                reference: if any
+            providers:
+              parent: true
+              id:
+                description: logistics service provider id
+                required: required
+                usage: P1
+                reference: if any
+              descriptor:
+                description: details of the logistics service provider
+                required: required
+                usage: Courier Inc
+                reference: if any
+              categories:
+                time:
+                  description: >-
+                    category level TAT for S2D (ship-to-delivery), can be
+                    overridden by item-level TAT whenever there are multiple
+                    options for the same category (e.g. 4D, 7D etc.);
+                  required: required
+                  usage: 7D
+                  reference: if any
+                time.timestamp:
+                  description: >-
+                    refers to date (vis-a-vis Context.timestamp) for which this
+                    TAT is provided
+                  required: required
+                  usage: '2023-10-17'
+                  reference: if any
+              locations:
+                description: >-
+                  mandatory only for cases where shipment has to be dropped off
+                  at LSP location
+                required: optional
+                usage: '-'
+                reference: if any
+              items:
+                descriptor:
+                  code:
+                    description: >-
+                      type of shipment; enum -  "P2P" (point-to-point) and
+                      "P2H2P" (point-to-hub-to-point). P2H2P fulfillments
+                      require different packaging and AWB no. This is required
+                      for merchants to decide on the packaging required for
+                      shipment
+                    required: optional
+                    usage: '-'
+                    reference: if any
+      init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            billing:
+              description: >-
+                billing details of the marketplace (MSN or ISN retail seller
+                app) for invoicing;
+              required: required
+              usage: '-'
+              reference: if any
+            provider:
+              locations:
+                description: >-
+                  mandatory only if provider.locations was returned in
+                  /on_search
+                required: optional
+                usage: '-'
+                reference: if any
+            fulfillments:
+              id:
+                description: >-
+                  fulfillment_id from /on_search corresponding to appropriate
+                  type
+                required: required
+                usage: '-'
+                reference: if any
+            x-input:
+              parent: true
+              x-input:
+                description: details of KYC
+                required: optional
+                usage: '-'
+                reference: if any
+              form:
+                url:
+                  description: KYC url which was sent as part of on_search
+                  required: optional
+                  usage: https://lsp.com/kyc
+                  reference: if any
+                submission_id:
+                  description: submission id, when it is submitted by logistics buyer
+                  required: optional
+                  usage: '234244567789999'
+                  reference: if any
+                status:
+                  description: KYC status, if KYC successfully submitted
+                  required: optional
+                  usage: SUCCESS
+                  reference: if any
+      on_init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            quote:
+              parent: true
+              quote:
+                description: quote to be sent from LSP
+                required: required
+                usage: '-'
+                reference: if any
+              breakup:
+                breakup:
+                  description: logistics provider provides the the breakup of the quote
+                  required: required
+                  usage: '-'
+                  reference: if any
+                title:
+                  description: >-
+                    title of the delivery charges enum - delivery, tax, rto,
+                    diff
+                  required: required
+                  usage: delivery
+                  reference: if any
+            payments:
+              parent: true
+              type:
+                description: >-
+                  stage when fulfillment will be done by logistics seller, enum
+                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+                required: required
+                usage: ON-FULFILLMENT
+                reference: if any
+              params:
+                amount:
+                  description: amount as per the quote total value
+                  required: required
+                  usage: '6000'
+                  reference: if any
+                currency:
+                  description: currency in which to receive the amount
+                  required: required
+                  usage: INR
+                  reference: if any
+                bank_account_number:
+                  description: Logistics service provider bank account number
+                  required: required
+                  usage: '001404845678'
+                  reference: if any
+                virtual_payment_address:
+                  description: Logistics service provider payment link address
+                  required: required
+                  usage: '-'
+                  reference: if any
+              tags:
+                description: Details of counter party for settling the money
+                required: required
+                usage: '-'
+                reference: if any
+            cancellation_terms:
+              parent: true
+              cancellation_terms:
+                description: >-
+                  Cancellation terms will be defined by the LSP for the order in
+                  /on_init
+                required: required
+                usage: '-'
+                reference: if any
+              fulfillment_state:
+                descriptor:
+                  code:
+                    description: >-
+                      fulfillment state of the order, enum - Pending,
+                      Agent-assigned, Order-picked-up, Out-for-delivery
+                    required: required
+                    usage: Pending
+                    reference: if any
+                  short_desc:
+                    description: reason code, mandatory if reason_required is "true"
+                    required: optional
+                    usage: '001'
+                    reference: if any
+              refund_eligible:
+                description: >-
+                  whether cancellation in this state is eligible for refund
+                  (boolean)
+                required: optional
+                usage: 'true'
+                reference: if any
+              reason_required:
+                description: >-
+                  whether cancellation reason code is required. List of
+                  cancellation reason codes is
+                  "https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031"
+                required: optional
+                usage: 'true'
+                reference: if any
+      confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              stops:
+                instructions:
+                  code:
+                    description: >-
+                      type of PCC - enum - "AWB_No" - shipping bill (AWB
+                      number), "ACC_No" - If Account exists-Customer code ,
+                      "BKG_No" - Booking reference number provided by LSP at the
+                      time of booking, "GST_No" - GST number
+                    required: optional
+                    usage: AWB_No
+                    reference: if any
+      on_confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            status:
+              description: status of the order, enum - "Created", "Accepted", "Cancelled"
+              required: required
+              usage: Created
+              reference: if any
+            fulfillments:
+              parent: true
+              tracking:
+                description: should be true if live tracking is enabled
+                required: optional
+                usage: 'true'
+                reference: if any
+              stops:
+                time:
+                  range:
+                    description: >-
+                      In response to Ready to ship - yes, LSP provides a pickup
+                      time slot
+                    required: optional
+                    usage: '-'
+                    reference: if any
+      cancel:
+        parent: true
+        message:
+          parent: true
+          cancellation_reason_id:
+            description: >-
+              cancellation reason id, List of cancellation reason codes can be
+              found here
+              https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+            required: required
+            usage: '004'
+            reference: if any
+      on_cancel:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            status:
+              description: order status
+              required: required
+              usage: Cancelled
+              reference: if any
+            cancellation:
+              parent: true
+              cancelled_by:
+                description: NP which cancels the order
+                required: required
+                usage: logistics_buyer.com
+                reference: if any
+              reason:
+                id:
+                  description: >-
+                    cancellation reason id, List of cancellation reason ids can
+                    be found here -
+                    https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+                  required: required
+                  usage: '004'
+                  reference: if any
+            quote:
+              description: >-
+                quote should reflect the updated value of logistics order
+                (including weight differential cost & tax if applicable for
+                forward shipment & RTO) which has to be paid by logistics buyer
+                NP
+              required: required
+              usage: '-'
+              reference: if any
+      update:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              stops:
+                instructions:
+                  code:
+                    description: >-
+                      type of PCC - enum - "AWB_No" - shipping bill (AWB
+                      number), "ACC_No" - If Account exists-Customer code ,
+                      "BKG_No" - Booking reference number provided by LSP at the
+                      time of booking, "GST_No" - GST number
+                    required: required if ready to ship
+                    usage: AWB_No
+                    reference: if any
+                  short_desc:
+                    description: value of PCC
+                    required: required if ready to ship
+                    usage: '1227262193237777'
+                    reference: if any
+      on_update:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              locations:
+                description: locations as listed
+                required: mandatory only if in /confirm
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              stops:
+                type:
+                  description: Type of the fulfillment; (start or end)
+                  required: mandatory
+                  usage: start
+                  reference: if any
+                instructions:
+                  long_desc:
+                    description: description of the instruction
+                    required: optional
+                    usage: drop package at security gate
+                    reference: if any
+                  images:
+                    description: provides proof of pickup
+                    required: optional
+                    usage: '-'
+                    reference: if any
+      on_status:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            status:
+              description: >-
+                Status of the order; Enum; Values can be
+                "Created","Accepted","In-progress","Completed","Cancelled"
+              required: mandatory
+              usage: if any
+              reference: if any
+            cancellation:
+              description: >-
+                Details the cancellation reason; Reason ID needs to be a valid
+                code from
+                https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1698485244
+              required: mandatory if status if "cancelled"
+              usage: '-'
+              reference: if any
+            provider:
+              parent: true
+              locations:
+                description: Locations for fulfillments
+                required: required if mentioned in /confirm
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              state:
+                descriptor:
+                  code:
+                    description: >-
+                      Denotes the state of the fulfillment; Enum; Values can be
+                      - "Cancelled", "Order-picked-up", "Pickup-approved",
+                      "Custom-cleared-domestic", "Order-delivered";
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+              stops:
+                time:
+                  timestamp:
+                    description: Timestamp; fulfillment state code is "Order-picked-up";
+                    required: required if fulfillment state is "Order-picked-up"
+                    usage: '2023-06-07T00:00:00.000Z'
+  B2B International Logistics:
+    attribute_set:
+      search:
+        parent: true
+        context:
+          parent: true
+          domain:
+            description: domain code, ONDC:LOG11 ( International Logistics)
+            required: mandatory
+            usage: ONDC:LOG11
+            reference: if any
+          city:
+            code:
+              description: >-
+                city code for search where product needs to be delivered. Follow
+                UN standard city codes for international logistics
+              required: mandatory
+              usage: UN:SIN
+              reference: if any
+          country:
+            code:
+              description: >-
+                ISO standard 3 digit country code where product needs to be
+                delivered
+              required: mandatory
+              usage: SGP
+              reference: if any
+          bap_id:
+            description: subscriber id for logistics buyer app
+            required: mandatory
+            usage: logistics_buyer.com
+            reference: if any
+          bap_uri:
+            description: subscriber URI for buyer app
+            required: mandatory
+            usage: https://logistics_buyer.com/ondc
+            reference: if any
+          timestamp:
+            description: RFC3339 compliant timestamp
+            required: mandatory
+            usage: '2023-10-17T21:10:00.000Z'
+            reference: if any
+          ttl:
+            description: validity of message
+            required: mandatory
+            usage: PT30S
+            reference: if any
+        message:
+          parent: true
+          intent:
+            parent: true
+            category:
+              parent: true
+              category:
+                description: Category of the search
+                required: optional
+                usage: '-'
+                reference: if any
+              descriptor:
+                code:
+                  description: >-
+                    delivery category for the order, enums for parent category -
+                    Express Delivery (Child - Air Delivery & Ocean Delivery)
+                  required: required
+                  usage: Express_Delivery
+                  reference: if any
+            provider:
+              parent: true
+              provider:
+                description: >-
+                  provider object to share the provider details like provider
+                  availability timings.
+                required: optional
+                usage: '-'
+                reference: if any
+              time:
+                description: store pickup timings
+                required: optional
+                usage: '-'
+                reference: if any
+                days:
+                  description: days of week - 1 - Monday till 7 - Sunday
+                  required: optional
+                  usage: 1,2,3,4,5,6,7
+                  reference: if any
+                schedule:
+                  holidays:
+                    description: list of future dated holidays
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                range:
+                  description: >-
+                    define store order pickup timing, for "days" above, here it
+                    means the store order pickup timings are from 1100 to 2100
+                    from Monday to Sunday
+                  required: optional
+                  usage: start:1100,end:2100
+                  reference: if any
+            fulfillment:
+              parent: true
+              type:
+                description: fulfillment type for the order, enum - "Delivery"
+                required: required
+                usage: Delivery
+                reference: if any
+              stops:
+                location:
+                  description: >-
+                    pickup/drop location gps coordinates, should be atleast 6
+                    digit decimal precision
+                  required: required
+                  usage: 12.4535445,77.9283792
+                  reference: if any
+                time:
+                  range:
+                    description: >-
+                      To be sent if logistics buyer knows when they want to
+                      initiate the delivery.
+                    required: optional
+                    usage: '-'
+                    reference: if any
+            payment:
+              parent: true
+              collected_by:
+                description: >-
+                  Payment collected by, enum - "BAP" (Buyer App), "BPP" (Seller
+                  App)
+                required: required
+                usage: BPP
+                reference: if any
+      on_search:
+        parent: true
+        message:
+          parent: true
+          catalog:
+            parent: true
+            descriptor:
+              parent: true
+              name:
+                description: >-
+                  name of logistics aggregator or logistics provider, as
+                  applicable
+                required: required
+                usage: LSP Aggregator Inc
+                reference: if any
+            providers:
+              parent: true
+              id:
+                description: logistics service provider id
+                required: required
+                usage: P1
+                reference: if any
+              descriptor:
+                description: details of the logistics service provider
+                required: required
+                usage: Courier Inc
+                reference: if any
+              categories:
+                time:
+                  description: >-
+                    category level TAT for S2D (ship-to-delivery), can be
+                    overridden by item-level TAT whenever there are multiple
+                    options for the same category (e.g. 4D, 7D etc.);
+                  required: required
+                  usage: 7D
+                  reference: if any
+                time.timestamp:
+                  description: >-
+                    refers to date (vis-a-vis Context.timestamp) for which this
+                    TAT is provided
+                  required: required
+                  usage: '2023-10-17'
+                  reference: if any
+              locations:
+                description: >-
+                  mandatory only for cases where shipment has to be dropped off
+                  at LSP location
+                required: optional
+                usage: '-'
+                reference: if any
+              items:
+                descriptor:
+                  code:
+                    description: >-
+                      type of shipment; enum -  "P2P" (point-to-point) and
+                      "P2H2P" (point-to-hub-to-point). P2H2P fulfillments
+                      require different packaging and AWB no. This is required
+                      for merchants to decide on the packaging required for
+                      shipment
+                    required: optional
+                    usage: '-'
+                    reference: if any
+      init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            billing:
+              description: >-
+                billing details of the marketplace (MSN or ISN retail seller
+                app) for invoicing;
+              required: required
+              usage: '-'
+              reference: if any
+            provider:
+              locations:
+                description: >-
+                  mandatory only if provider.locations was returned in
+                  /on_search
+                required: optional
+                usage: '-'
+                reference: if any
+            fulfillments:
+              id:
+                description: >-
+                  fulfillment_id from /on_search corresponding to appropriate
+                  type
+                required: required
+                usage: '-'
+                reference: if any
+            x-input:
+              parent: true
+              x-input:
+                description: details of KYC
+                required: optional
+                usage: '-'
+                reference: if any
+              form:
+                url:
+                  description: KYC url which was sent as part of on_search
+                  required: optional
+                  usage: https://lsp.com/kyc
+                  reference: if any
+                submission_id:
+                  description: submission id, when it is submitted by logistics buyer
+                  required: optional
+                  usage: '234244567789999'
+                  reference: if any
+                status:
+                  description: KYC status, if KYC successfully submitted
+                  required: optional
+                  usage: SUCCESS
+                  reference: if any
+      on_init:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            quote:
+              parent: true
+              quote:
+                description: quote to be sent from LSP
+                required: required
+                usage: '-'
+                reference: if any
+              breakup:
+                breakup:
+                  description: logistics provider provides the the breakup of the quote
+                  required: required
+                  usage: '-'
+                  reference: if any
+                title:
+                  description: >-
+                    title of the delivery charges enum - delivery, tax, rto,
+                    diff, Origin, Frieght, Destination,
+                    Custom_Clearance_Service_Origin,
+                    Custom_Clearance_Service_Destination
+                  required: required
+                  usage: delivery
+                  reference: if any
+            payments:
+              parent: true
+              type:
+                description: >-
+                  stage when fulfillment will be done by logistics seller, enum
+                  - "ON-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"
+                required: required
+                usage: ON-FULFILLMENT
+                reference: if any
+              params:
+                amount:
+                  description: amount as per the quote total value
+                  required: required
+                  usage: '6000'
+                  reference: if any
+                currency:
+                  description: currency in which to receive the amount
+                  required: required
+                  usage: INR
+                  reference: if any
+                bank_account_number:
+                  description: Logistics service provider bank account number
+                  required: required
+                  usage: '001404845678'
+                  reference: if any
+                virtual_payment_address:
+                  description: Logistics service provider payment link address
+                  required: required
+                  usage: '-'
+                  reference: if any
+              tags:
+                description: Details of counter party for settling the money
+                required: required
+                usage: '-'
+                reference: if any
+            cancellation_terms:
+              parent: true
+              cancellation_terms:
+                description: >-
+                  Cancellation terms will be defined by the LSP for the order in
+                  /on_init
+                required: required
+                usage: '-'
+                reference: if any
+              fulfillment_state:
+                descriptor:
+                  code:
+                    description: >-
+                      fulfillment state of the order, enum - Pending,
+                      Agent-assigned, Order-picked-up, Out-for-delivery
+                    required: required
+                    usage: Pending
+                    reference: if any
+                  short_desc:
+                    description: reason code, mandatory if reason_required is "true"
+                    required: optional
+                    usage: '001'
+                    reference: if any
+              refund_eligible:
+                description: >-
+                  whether cancellation in this state is eligible for refund
+                  (boolean)
+                required: optional
+                usage: 'true'
+                reference: if any
+              reason_required:
+                description: >-
+                  whether cancellation reason code is required. List of
+                  cancellation reason codes is
+                  "https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031"
+                required: optional
+                usage: 'true'
+                reference: if any
+      confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              stops:
+                instructions:
+                  code:
+                    description: >-
+                      type of PCC - enum - "AWB_No" - shipping bill (AWB
+                      number), "ACC_No" - If Account exists-Customer code ,
+                      "BKG_No" - Booking reference number provided by LSP at the
+                      time of booking, "GST_No" - GST number
+                    required: optional
+                    usage: AWB_No
+                    reference: if any
+      on_confirm:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            status:
+              description: status of the order, enum - "Created", "Accepted", "Cancelled"
+              required: required
+              usage: Created
+              reference: if any
+            fulfillments:
+              parent: true
+              tracking:
+                description: should be true if live tracking is enabled
+                required: optional
+                usage: 'true'
+                reference: if any
+              stops:
+                time:
+                  range:
+                    description: >-
+                      In response to Ready to ship - yes, LSP provides a pickup
+                      time slot
+                    required: optional
+                    usage: '-'
+                    reference: if any
+      cancel:
+        parent: true
+        message:
+          parent: true
+          cancellation_reason_id:
+            description: >-
+              cancellation reason id, List of cancellation reason codes can be
+              found here
+              https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+            required: required
+            usage: '004'
+            reference: if any
+      on_cancel:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            status:
+              description: order status
+              required: required
+              usage: Cancelled
+              reference: if any
+            cancellation:
+              parent: true
+              cancelled_by:
+                description: NP which cancels the order
+                required: required
+                usage: logistics_buyer.com
+                reference: if any
+              reason:
+                id:
+                  description: >-
+                    cancellation reason id, List of cancellation reason ids can
+                    be found here -
+                    https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1095388031
+                  required: required
+                  usage: '004'
+                  reference: if any
+            quote:
+              description: >-
+                quote should reflect the updated value of logistics order
+                (including weight differential cost & tax if applicable for
+                forward shipment & RTO) which has to be paid by logistics buyer
+                NP
+              required: required
+              usage: '-'
+              reference: if any
+      update:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              stops:
+                instructions:
+                  code:
+                    description: >-
+                      type of PCC - enum - "AWB_No" - shipping bill (AWB
+                      number), "ACC_No" - If Account exists-Customer code ,
+                      "BKG_No" - Booking reference number provided by LSP at the
+                      time of booking, "GST_No" - GST number
+                    required: required if ready to ship
+                    usage: AWB_No
+                    reference: if any
+                  short_desc:
+                    description: value of PCC
+                    required: required if ready to ship
+                    usage: '1227262193237777'
+                    reference: if any
+      on_update:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            provider:
+              parent: true
+              locations:
+                description: locations as listed
+                required: mandatory only if in /confirm
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              stops:
+                type:
+                  description: Type of the fulfillment; (start or end)
+                  required: mandatory
+                  usage: start
+                  reference: if any
+                instructions:
+                  long_desc:
+                    description: description of the instruction
+                    required: optional
+                    usage: drop package at security gate
+                    reference: if any
+                  images:
+                    description: provides proof of pickup
+                    required: optional
+                    usage: '-'
+                    reference: if any
+      on_status:
+        parent: true
+        message:
+          parent: true
+          order:
+            parent: true
+            status:
+              description: >-
+                Status of the order; Enum; Values can be
+                "Created","Accepted","In-progress","Completed","Cancelled"
+              required: mandatory
+              usage: if any
+              reference: if any
+            cancellation:
+              description: >-
+                Details the cancellation reason; Reason ID needs to be a valid
+                code from
+                https://docs.google.com/spreadsheets/d/1_qAtG6Bu2we3AP6OpXr4GVP3X-32v2xNRNSYQhhR6kA/edit#gid=1698485244
+              required: mandatory if status if "cancelled"
+              usage: '-'
+              reference: if any
+            provider:
+              parent: true
+              locations:
+                description: Locations for fulfillments
+                required: required if mentioned in /confirm
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: contains the fulfillment details
+                required: required
+                usage: '-'
+                reference: if any
+              state:
+                descriptor:
+                  code:
+                    description: >-
+                      Denotes the state of the fulfillment; Enum; Values can be
+                      - "Cancelled", "Order-picked-up", "Pickup-approved",
+                      "Custom-cleared-domestic", "Order-delivered";
+                    required: mandatory
+                    usage: '-'
+                    reference: if any
+              stops:
+                time:
+                  timestamp:
+                    description: Timestamp; fulfillment state code is "Order-picked-up";
+                    required: required if fulfillment state is "Order-picked-up"
+                    usage: '2023-06-07T00:00:00.000Z'
+x-errorcodes:
+  code:
+    - Code: 66006
+      Reason: KYC Failed - due to xx reason
+      Who can use code?: BPP
+      Usage: Used in error object
+      Action: /on_init
+    - Code: 60001
+      Reason: >-
+        Location Serviceability Error - Pickup location not serviceable by
+        Logistics Provider
+      Who can use code?: BPP
+      Usage: Used in error object
+    - Code: 60002
+      Reason: >-
+        Location Serviceability Error - Dropoff location not serviceable by
+        Logistics Provider
+      Who can use code?: BPP
+      Usage: Used in error object
+    - Code: 60004
+      Reason: Order Serviceability Error - Delivery Partners not available
+      Who can use code?: BPP
+      Usage: Used in error object
+    - Code: 60005
+      Reason: Invalid Signature - Cannot verify signature for request
+      Who can use code?: BPP
+      Usage: Used in NACK
+    - Code: 60006
+      Reason: Invalid request, not compliant with API contract
+      Who can use code?: BPP
+      Usage: Used in NACK
+    - Code: 60007
+      Reason: >-
+        Policy Error - Cancellation not possible because of Logistics Provider
+        policy
+      Who can use code?: BPP
+    - Code: 60008
+      Reason: >-
+        Invalid Fulfillment TAT - Fulfillment TAT is different from what was
+        quoted earlier
+      Who can use code?: BPP
+    - Code: 60009
+      Reason: Invalid cancellation request - Cancellation reason is invalid
+      Who can use code?: BPP
+    - Code: 60010
+      Reason: >-
+        Cancellation unacceptable - Cancellation request is rejected as
+        fulfillment TAT is not breached
+      Who can use code?: BPP
+    - Code: 60011
+      Reason: >-
+        Difference in packaging details - Weight and / or dimensions provided is
+        different from what was originally provided
+      Who can use code?: BPP
+    - Code: 60012
+      Reason: >-
+        Tracking not enabled - Tracking not enabled for any fulfillment in the
+        order
+      Who can use code?: BPP
+    - Code: 61001
+      Reason: Feature not supported
+      Who can use code?: BPP
+    - Code: 62501
+      Reason: >-
+        Terms and Conditions unacceptable - Logistics Provider terms &
+        conditions not acceptable to Logistics Buyer
+      Who can use code?: BAP
+    - Code: 62502
+      Reason: >-
+        Order terminated - Order terminated as Logistics Provider did not accept
+        terms proposed by Logistics Buyer
+      Who can use code?: BAP
+    - Code: 62503
+      Reason: >-
+        RTO rejected - RTO request rejected as quote does not match the quote
+        provided in catalog
+      Who can use code?: BAP
+    - Code: 62504
+      Reason: Weight differential cost rejected
+      Who can use code?: BAP
+    - Code: 62505
+      Reason: >-
+        Cancellation terms unacceptable -  Logistics Provider cancellation terms
+        not acceptable to Logistics Buyer
+      Who can use code?: BAP
+    - Code: 62506
+      Reason: >-
+        Invalid Fulfillment TAT - Fulfillment TAT is different from what was
+        quoted earlier
+      Who can use code?: BAP
+    - Code: 62507
+      Reason: >-
+        Difference in packaging details - Weight and / or dimensions provided is
+        different from what was originally provided
+      Who can use code?: BAP
+    - Code: 62508
+      Reason: >-
+        Quote difference - Total price is different from what was originally
+        provided
+      Who can use code?: BAP
+    - Code: 62509
+      Reason: >-
+        Invalid Cancellation Terms - Cancellation terms are different from what
+        was quoted earlier
+      Who can use code?: BAP
+    - Code: 62510
+      Reason: Expired authorization - Authorization code has expired
+      Who can use code?: BAP
+    - Code: 62511
+      Reason: Invalid authorization - Authorization code is invalid
+      Who can use code?: BAP
+    - Code: 63001
+      Reason: >-
+        Internal Error - Cannot process response due to internal error, please
+        retry
+      Who can use code?: BAP
+    - Code: 63002
+      Reason: Order validation failure
+      Who can use code?: BAP
+    - Code: 64001
+      Reason: Feature not supported
+      Who can use code?: BAP
+    - Code: 65001
+      Reason: Order Confirm Error - Logistics Provider is unable to confirm the order
+      Who can use code?: BPP
+    - Code: 65002
+      Reason: >-
+        Order terminated as Logistics Buyer did not accept terms proposed by
+        Logistics Provider
+      Who can use code?: BPP
+    - Code: 65003
+      Reason: Stale Request - Cannot process stale request
+      Who can use code?: BPP
+    - Code: 65004
+      Reason: >-
+        Terms unacceptable - Logistics Buyer terms not acceptable to Logistics
+        Provider
+      Who can use code?: BPP
+    - Code: 66001
+      Reason: >-
+        Internal Error - Cannot process response due to internal error, please
+        retry
+      Who can use code?: BPP
+    - Code: 66002
+      Reason: Order validation failure
+      Who can use code?: BPP
+    - Code: 66003
+      Reason: Order processing in progress
+      Who can use code?: BPP
+    - Code: 66004
+      Reason: Invalid Order - Order not found
+      Who can use code?: BPP
+    - Code: 66005
+      Reason: Quote unavailable - Quote no longer available
+      Who can use code?: BPP
