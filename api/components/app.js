@@ -11,13 +11,13 @@ const addFormats = require("ajv-formats");
 addFormats(ajv);
 require("ajv-errors")(ajv);
 const process = require("process");
-//const { buildErrorCodes } = require("./build-error-code");
+const { buildErrorCodes } = require("./build-error-code");
 const args = process.argv.slice(2);
 // var example_set = args[0]
 // var flow_set = args[1]
 var base_yaml = "./beckn_yaml.yaml"; //args[0];
 var example_yaml = "./index.yaml"; //args[1];
-var outputPath = "../build/build.yaml";.
+var outputPath = "../build/build.yaml"; 
 var uiPath = "../../ui/build.js";
 // const outputPath = `./build.yaml`;
 // const unresolvedFilePath = `https://raw.githubusercontent.com/beckn/protocol-specifications/master/api/transaction/components/index.yaml`
@@ -217,7 +217,7 @@ async function getSwaggerYaml(example_set, outputPath) {
       schemaMap[path.substring(1)] = pathSchema;
     }
   
-    //await buildErrorCodes();
+    await buildErrorCodes();
    
     // console.log('schemaMap', JSON.stringify(schemaMap));
     // return;
