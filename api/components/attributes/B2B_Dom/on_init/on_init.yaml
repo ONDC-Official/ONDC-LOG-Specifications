@@ -92,13 +92,14 @@ message:
         required: optional
         usage: "-"
         reference: if any
-        percentage:
-          description: 
-          required: optional
-          usage: "100"
-          reference: if any
-        amount:
-          description: 
-          required: optional
-          usage: will have two properties currency and value
-          reference: if any
+        cancellation_fee:
+          percentage:
+            description: 
+            required: optional
+            usage: "100"
+            reference: if any
+          amount:
+            description: 
+            required: optional
+            usage: will have two properties currency and value
+            reference: if any
