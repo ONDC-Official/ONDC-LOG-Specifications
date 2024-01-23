@@ -88,7 +88,7 @@ message:
         usage: "true"
         reference: if any
       cancellation_fee:
-        description: cancellation fees, if any, for this state & reason code - either percentage (of order value minus taxes, in the above format between "0.00" and "100.00") or amount needs to be provided (if both provided, minimum should be considered by LBNP); LSP can calculate based on what needs to be deducted e.g. delivery charges, etc;
+        description: cancellation fee, if any, for this state & reason code - either percentage (of order value minus taxes, in the above format between "0.00" and "100.00") or amount needs to be provided (if both provided, minimum should be considered by LBNP); LSP can calculate based on what needs to be deducted e.g. delivery charges, etc;
         required: optional
         usage: "-"
         reference: if any
