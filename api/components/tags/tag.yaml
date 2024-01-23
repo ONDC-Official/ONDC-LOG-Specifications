@@ -165,12 +165,12 @@ Cargo_Details:
   - code: Delivery_Mode
     description: mode of delivery(Road,Air)
     reference: <PR/Issue/Discussion Links md format text>
-   - code: Vehicle_Type
+  - code: Vehicle_Type
     description: define type of vehicle
     reference: <PR/Issue/Discussion Links md format text>
-   - code: Vehicle_Size
+  - code: Vehicle_Size
     description: define size of the vehicle
     reference: <PR/Issue/Discussion Links md format text>
-   - code: Load_Type
+  - code: Load_Type
     description: define load type(FCL,FTL,LTL)
     reference: <PR/Issue/Discussion Links md format text>

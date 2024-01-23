@@ -46,7 +46,7 @@ message:
             reference: if any
           price:
             description: price of the shipment
-          required: required
+            required: required
             usage: "4000"
             reference: if any
           

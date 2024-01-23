@@ -36,7 +36,6 @@ message:
             required: optional
             usage: "-"
             reference: if any
-          authorization:
             type: 
               description: enum - "OTP", others TBD;
               required: optional

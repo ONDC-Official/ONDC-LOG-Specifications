@@ -2840,8 +2840,8 @@ x-tags:
               list: &ref_9
                 - code: Amount
                   description: >-
-                    Collection Details mount needed if logistics seller needs to
-                    collect the payment from buyer at the time of delivery.
+                    Collection Details amount needed if logistics seller needs
+                    to collect the payment from buyer at the time of delivery.
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: Type
                   description: Description of the Tag
@@ -2898,6 +2898,9 @@ x-tags:
                 description: >-
                   Valid for international logistics. Specify the HSN code of
                   item.
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: Transit_Risk_Owner
+                description: null
                 reference: <PR/Issue/Discussion Links md format text>
           - code: Cold_Logistics
             description: Define terms if cold logistics is required
@@ -24186,8 +24189,8 @@ x-attributes:
               stops:
                 location:
                   description: >-
-                    pickup/drop location gps coordinates, should be atleast 6
-                    digit decimal precision
+                    pickup/drop area codes and location gps coordinates, should
+                    be atleast 6 digit decimal precision
                   required: required
                   usage: 12.4535445,77.9283792
                   reference: if any
@@ -24203,8 +24206,8 @@ x-attributes:
               parent: true
               collected_by:
                 description: >-
-                  Payment collected by, enum - "BAP" (Buyer App), "BPP" (Seller
-                  App)
+                  payment to be collected after the fulfilment(Delivery,Return)
+                  by, eum -  "BAP" (Buyer App), "BPP" (Seller App)
                 required: required
                 usage: BPP
                 reference: if any
@@ -24270,6 +24273,11 @@ x-attributes:
                     required: optional
                     usage: '-'
                     reference: if any
+                  price:
+                    description: price of the shipment
+                    required: required
+                    usage: '4000'
+                    reference: if any
       init:
         parent: true
         message:
@@ -24280,6 +24288,11 @@ x-attributes:
               description: >-
                 billing details of the marketplace (MSN or ISN retail seller
                 app) for invoicing;
+              required: required
+              usage: '-'
+              reference: if any
+            items:
+              description: list items selected from the response of /on_search
               required: required
               usage: '-'
               reference: if any
@@ -24298,6 +24311,26 @@ x-attributes:
                   type
                 required: required
                 usage: '-'
+                reference: if any
+            payment:
+              parent: true
+              description: >-
+                This payment object should be consistent with the /confirm
+                payment object
+              required: required
+              usage: '-'
+              reference: if any
+              type:
+                description: >-
+                  enum ON-ORDER" (prepaid), "ON-FULFILLMENT" (CoD),
+                  "POST-FULFILLMENT" (post fulfillment);
+                required: required
+                usage: '-'
+                reference: if any
+              collected_by:
+                description: payment to be collected by
+                required: optional
+                usage: BPP
                 reference: if any
             x-input:
               parent: true
@@ -24322,6 +24355,11 @@ x-attributes:
                   required: optional
                   usage: SUCCESS
                   reference: if any
+                mime_type:
+                  description: define the type of data contained
+                  required: optional
+                  usage: text/html
+                  reference: if any
       on_init:
         parent: true
         message:
@@ -24332,6 +24370,11 @@ x-attributes:
               parent: true
               quote:
                 description: quote to be sent from LSP
+                required: required
+                usage: '-'
+                reference: if any
+              price:
+                description: total price of the quote
                 required: required
                 usage: '-'
                 reference: if any
@@ -24421,6 +24464,27 @@ x-attributes:
                 required: optional
                 usage: 'true'
                 reference: if any
+              cancellation_fee:
+                description: >-
+                  cancellation fee, if any, for this state & reason code -
+                  either percentage (of order value minus taxes, in the above
+                  format between "0.00" and "100.00") or amount needs to be
+                  provided (if both provided, minimum should be considered by
+                  LBNP); LSP can calculate based on what needs to be deducted
+                  e.g. delivery charges, etc;
+                required: optional
+                usage: '-'
+                reference: if any
+                percentage:
+                  description: null
+                  required: optional
+                  usage: '100'
+                  reference: if any
+                amount:
+                  description: null
+                  required: optional
+                  usage: will have two properties currency and value
+                  reference: if any
       confirm:
         parent: true
         message:
@@ -24445,6 +24509,26 @@ x-attributes:
                     required: optional
                     usage: AWB_No
                     reference: if any
+            provider:
+              description: contains the provider details
+              required: required
+              usage: '-'
+              reference: if any
+            items:
+              description: contains the items details
+              required: required
+              usage: '-'
+              reference: if any
+            billing:
+              description: contains the billing details passed from /init call
+              required: required
+              usage: '-'
+              reference: if any
+            payment:
+              description: contains the payment details
+              required: required
+              usage: '-'
+              reference: if any
       on_confirm:
         parent: true
         message:
@@ -24455,6 +24539,33 @@ x-attributes:
               description: status of the order, enum - "Created", "Accepted", "Cancelled"
               required: required
               usage: Created
+              reference: if any
+            provider:
+              description: contains the provider details
+              required: required
+              usage: '-'
+              reference: if any
+            items:
+              description: contains the items details
+              required: required
+              usage: '-'
+              reference: if any
+            billing:
+              description: contains the billing details, should be same as in /init
+              required: required
+              usage: '-'
+              reference: if any
+            payment:
+              description: contains the billing details same from /confirm
+              required: required
+              usage: '-'
+              reference: if any
+            cancellation_terms:
+              description: >-
+                as proposed in /on_init; if different from what was proposed in
+                /on_init, buyer NP can NACK with error code 62509
+              required: required
+              usage: '-'
               reference: if any
             fulfillments:
               parent: true
@@ -24526,6 +24637,11 @@ x-attributes:
           parent: true
           order:
             parent: true
+            items:
+              description: contains the item details
+              required: required
+              usage: '-'
+              reference: if any
             fulfillments:
               parent: true
               fulfillments:
@@ -24549,12 +24665,64 @@ x-attributes:
                     required: required if ready to ship
                     usage: '1227262193237777'
                     reference: if any
+                  additional_desc:
+                    description: reverse QC online checklist, contains content_type and url
+                    required: >-
+                      required only for fulfillment type = "Return" (if not in
+                      /confirm);
+                    usage: '-'
+                    reference: if any
+                  authorization:
+                    description: reverse QC online checklist, contains content_type and url
+                    required: optional
+                    usage: '-'
+                    reference: if any
+                    type:
+                      description: enum - "OTP", others TBD;
+                      required: optional
+                      usage: '-'
+                      reference: if any
+                    token:
+                      description: otp code
+                      required: optional
+                      usage: '-'
+                      reference: if any
+                    vaild_from:
+                      description: valid from date
+                      required: optional
+                      usage: '2023-06-06T12:00:00.000Z'
+                      reference: if any
+                    valid_to:
+                      description: valid to date
+                      required: optional
+                      usage: '2023-06-06T14:00:00.000Z'
+                      reference: if any
       on_update:
         parent: true
         message:
           parent: true
           order:
             parent: true
+            status:
+              description: status of the order
+              required: required
+              usage: In-progress
+              reference: if any
+            items:
+              description: contains the items details
+              required: required
+              usage: '-'
+              reference: if any
+            billing:
+              description: contains the billing details, should be same as in /init
+              required: required
+              usage: '-'
+              reference: if any
+            payment:
+              description: contains the billing details same from /confirm
+              required: required
+              usage: '-'
+              reference: if any
             provider:
               parent: true
               locations:

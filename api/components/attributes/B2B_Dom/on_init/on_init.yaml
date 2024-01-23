@@ -92,7 +92,6 @@ message:
         required: optional
         usage: "-"
         reference: if any
-      cancellation_fee:
         percentage:
           description: 
           required: optional
