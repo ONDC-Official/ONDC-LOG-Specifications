@@ -87,7 +87,8 @@ message:
         reference: if any
       stops:
         location:
-          description: pickup/drop location gps coordinates, should be atleast 6 digit decimal precision
+          # description: pickup/drop location gps coordinates, should be atleast 6 digit decimal precision
+          description: pickup/drop area codes and location gps coordinates, should be atleast 6 digit decimal precision
           required: required
           usage: "12.4535445,77.9283792"
           reference: if any
@@ -100,7 +101,8 @@ message:
     payment:
       parent: true
       collected_by:
-        description: Payment collected by, enum - "BAP" (Buyer App), "BPP" (Seller App)
+        # description: Payment collected by, enum - "BAP" (Buyer App), "BPP" (Seller App)
+        description: payment to be collected after the fulfilment(Delivery,Return) by, eum -  "BAP" (Buyer App), "BPP" (Seller App)
         required: required
         usage: "BPP"
         reference: if any

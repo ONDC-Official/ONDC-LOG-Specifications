@@ -37,6 +37,9 @@ Package_Details:
   - code: HSN_Code
     description: Valid for international logistics. Specify the HSN code of item.
     reference: <PR/Issue/Discussion Links md format text>
+  - code: Transit_Risk_Owner
+    description: 
+    reference: <PR/Issue/Discussion Links md format text>  
 Package_Dimensions_Diff:
   - code: Unit
     description: Define unit of package dimensions
@@ -91,7 +94,7 @@ Settlement_Details:
     reference: <PR/Issue/Discussion Links md format text>
 Collection_Details:
   - code: Amount
-    description: Collection Details mount needed if logistics seller needs to collect the payment from buyer at the time of delivery.
+    description: Collection Details amount needed if logistics seller needs to collect the payment from buyer at the time of delivery.
     reference: <PR/Issue/Discussion Links md format text>
   - code: Type
     description: Description of the Tag
@@ -157,4 +160,17 @@ KYC:
     reference: <PR/Issue/Discussion Links md format text>
   - code: required
     description: Description of the Tag
+    reference: <PR/Issue/Discussion Links md format text>
+Cargo_Details:
+  - code: Delivery_Mode
+    description: mode of delivery(Road,Air)
+    reference: <PR/Issue/Discussion Links md format text>
+   - code: Vehicle_Type
+    description: define type of vehicle
+    reference: <PR/Issue/Discussion Links md format text>
+   - code: Vehicle_Size
+    description: define size of the vehicle
+    reference: <PR/Issue/Discussion Links md format text>
+   - code: Load_Type
+    description: define load type(FCL,FTL,LTL)
     reference: <PR/Issue/Discussion Links md format text>

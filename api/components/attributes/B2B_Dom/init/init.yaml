@@ -7,6 +7,11 @@ message:
       required: required
       usage: "-"
       reference: if any
+    items:
+      description: list items selected from the response of /on_search
+      required: required
+      usage: "-"
+      reference: if any
     provider:
       locations:
         description: mandatory only if provider.locations was returned in /on_search
@@ -18,6 +23,22 @@ message:
         description: fulfillment_id from /on_search corresponding to appropriate type
         required: required
         usage: "-"
+        reference: if any
+    payment:
+        description: This payment object should be consistent with the /confirm payment object
+        required: required
+        usage: "-"
+        reference: if any
+    payment:
+      type:
+        description: enum ON-ORDER" (prepaid), "ON-FULFILLMENT" (CoD), "POST-FULFILLMENT" (post fulfillment);
+        required: required
+        usage: "-"
+        reference: if any
+      collected_by:
+        description: payment to be collected by
+        required: optional
+        usage: "BPP"
         reference: if any
     x-input:
       parent: true
@@ -41,4 +62,9 @@ message:
           description: KYC status, if KYC successfully submitted
           required: optional
           usage: "SUCCESS"
+          reference: if any 
+        mime_type:
+          description: define the type of data contained
+          required: optional
+          usage: "text/html"
           reference: if any    

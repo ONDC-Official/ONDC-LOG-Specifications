@@ -2,6 +2,26 @@ message:
   parent: true
   order:
     parent: true
+    status:
+      description: status of the order
+      required: required
+      usage: "In-progress"
+      reference: if any
+    items:
+      description: contains the items details
+      required: required
+      usage: "-"
+      reference: if any
+    billing:
+      description: contains the billing details, should be same as in /init
+      required: required
+      usage: "-"
+      reference: if any
+    payment:
+      description: contains the billing details same from /confirm
+      required: required
+      usage: "-"
+      reference: if any
     provider:
       parent: true
       locations:

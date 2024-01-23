@@ -7,6 +7,31 @@ message:
       required: required
       usage: "Created"
       reference: if any
+    provider:
+      description: contains the provider details
+      required: required
+      usage: "-"
+      reference: if any
+    items:
+      description: contains the items details
+      required: required
+      usage: "-"
+      reference: if any
+    billing:
+      description: contains the billing details, should be same as in /init
+      required: required
+      usage: "-"
+      reference: if any
+    payment:
+      description: contains the billing details same from /confirm
+      required: required
+      usage: "-"
+      reference: if any
+    cancellation_terms:
+      description: as proposed in /on_init; if different from what was proposed in /on_init, buyer NP can NACK with error code 62509
+      required: required
+      usage: "-"
+      reference: if any
     fulfillments:
       parent: true
       tracking:

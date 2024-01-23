@@ -2,6 +2,11 @@ message:
   parent: true
   order:
     parent: true
+    items:
+        description: contains the item details
+        required: required
+        usage: "-"
+        reference: if any 
     fulfillments:
       parent: true
       fulfillments:
@@ -21,3 +26,35 @@ message:
             required: required if ready to ship
             usage: "1227262193237777"
             reference: if any
+          additional_desc:
+            description: reverse QC online checklist, contains content_type and url
+            required: required only for fulfillment type = "Return" (if not in /confirm);
+            usage: "-"
+            reference: if any
+          authorization:
+            description: reverse QC online checklist, contains content_type and url
+            required: optional
+            usage: "-"
+            reference: if any
+          authorization:
+            type: 
+              description: enum - "OTP", others TBD;
+              required: optional
+              usage: "-"
+              reference: if any
+            token: 
+              description: otp code
+              required: optional
+              usage: "-"
+              reference: if any
+            vaild_from: 
+              description: valid from date
+              required: optional
+              usage: "2023-06-06T12:00:00.000Z"
+              reference: if any
+            valid_to: 
+              description: valid to date
+              required: optional
+              usage: "2023-06-06T14:00:00.000Z"
+              reference: if any
+

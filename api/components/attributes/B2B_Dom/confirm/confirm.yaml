@@ -16,3 +16,23 @@ message:
             required: optional
             usage: "AWB_No"
             reference: if any
+    provider:
+      description: contains the provider details
+      required: required
+      usage: "-"
+      reference: if any
+    items:
+      description: contains the items details
+      required: required
+      usage: "-"
+      reference: if any
+    billing:
+      description: contains the billing details passed from /init call
+      required: required
+      usage: "-"
+      reference: if any
+    payment:
+      description: contains the payment details
+      required: required
+      usage: "-"
+      reference: if any
