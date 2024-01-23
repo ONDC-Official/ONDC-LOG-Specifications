@@ -88,17 +88,18 @@ message:
         usage: "true"
         reference: if any
       cancellation_fee:
+        parent: false
         description: cancellation fee, if any, for this state & reason code - either percentage (of order value minus taxes, in the above format between "0.00" and "100.00") or amount needs to be provided (if both provided, minimum should be considered by LBNP); LSP can calculate based on what needs to be deducted e.g. delivery charges, etc;
         required: optional
         usage: "-"
         reference: if any
-      "cancellation_fee.percentage":
-          description: 
+      cancellation_fee.percentage:
+          description: cancellation fee percentage 
           required: optional
           usage: "100"
           reference: if any
-      "cancellation_fee.amount":
-          description: 
+      cancellation_fee.amount:
+          description:  will have two properties currency and value
           required: optional
-          usage: will have two properties currency and value
+          usage: "-"
           reference: if any

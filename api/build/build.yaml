@@ -24314,21 +24314,22 @@ x-attributes:
                 reference: if any
             payment:
               parent: true
-              description: >-
-                This payment object should be consistent with the /confirm
-                payment object
-              required: required
-              usage: '-'
-              reference: if any
-              type:
+              payment:
+                description: >-
+                  This payment object should be consistent with the /confirm
+                  payment object
+                required: required
+                usage: '-'
+                reference: if any
+              payment.type:
                 description: >-
                   enum ON-ORDER" (prepaid), "ON-FULFILLMENT" (CoD),
                   "POST-FULFILLMENT" (post fulfillment);
                 required: required
                 usage: '-'
                 reference: if any
-              collected_by:
-                description: payment to be collected by
+              payment.collected_by:
+                description: payment to be collected by BPP or BAP
                 required: optional
                 usage: BPP
                 reference: if any
@@ -24465,6 +24466,7 @@ x-attributes:
                 usage: 'true'
                 reference: if any
               cancellation_fee:
+                parent: false
                 description: >-
                   cancellation fee, if any, for this state & reason code -
                   either percentage (of order value minus taxes, in the above
@@ -24476,14 +24478,14 @@ x-attributes:
                 usage: '-'
                 reference: if any
               cancellation_fee.percentage:
-                description: null
+                description: cancellation fee percentage
                 required: optional
                 usage: '100'
                 reference: if any
               cancellation_fee.amount:
-                description: null
+                description: will have two properties currency and value
                 required: optional
-                usage: will have two properties currency and value
+                usage: '-'
                 reference: if any
       confirm:
         parent: true
@@ -24509,26 +24511,57 @@ x-attributes:
                     required: optional
                     usage: AWB_No
                     reference: if any
+              type:
+                description: enum -  delivery or return
+                required: required
+                usage: DELIVERY
+                reference: if any
+              agent:
+                person:
+                  description: details of the delivery agent, contains name property
+                  required: required
+                  usage: Ramu
+                  reference: if any
             provider:
-              description: contains the provider details
-              required: required
-              usage: '-'
-              reference: if any
+              parent: true
+              provider:
+                description: contains the provider details
+                required: required
+                usage: '-'
+                reference: if any
+              provider.locations:
+                id:
+                  description: >-
+                    mandatory only if provider.locations was returned in
+                    /on_search
+                  required: optional
+                  usage: '-'
+                  reference: if any
             items:
-              description: contains the items details
-              required: required
-              usage: '-'
-              reference: if any
+              descriptor:
+                code:
+                  description: >-
+                    type of shipment; enum -  "P2P" (point-to-point) and "P2H2P"
+                    (point-to-hub-to-point). P2H2P fulfillments require
+                    different packaging and AWB no. This is required for
+                    merchants to decide on the packaging required for shipment
+                  required: optional
+                  usage: '-'
+                  reference: if any
             billing:
-              description: contains the billing details passed from /init call
-              required: required
-              usage: '-'
-              reference: if any
-            payment:
-              description: contains the payment details
-              required: required
-              usage: '-'
-              reference: if any
+              parent: true
+              billing:
+                description: contains the billing details passed from /init call
+                required: required
+                usage: '-'
+                reference: if any
+            payments:
+              parent: true
+              payments:
+                description: contains the payment details
+                required: required
+                usage: '-'
+                reference: if any
       on_confirm:
         parent: true
         message:
@@ -24541,12 +24574,13 @@ x-attributes:
               usage: Created
               reference: if any
             provider:
-              description: contains the provider details
-              required: required
-              usage: '-'
-              reference: if any
+              locations:
+                description: required only if in /confirm
+                required: optional
+                usage: '-'
+                reference: if any
             items:
-              description: contains the items details
+              description: contains the items details from /confirm
               required: required
               usage: '-'
               reference: if any
@@ -24574,6 +24608,11 @@ x-attributes:
                 required: optional
                 usage: 'true'
                 reference: if any
+              state:
+                description: refer enum - message.order.fulfillments.state.descriptor.code
+                required: required
+                usage: 'true'
+                reference: if any
               stops:
                 time:
                   range:
@@ -24583,6 +24622,11 @@ x-attributes:
                     required: optional
                     usage: '-'
                     reference: if any
+                type: null
+                description: should be true if live tracking is enabled
+                required: optional
+                usage: 'true'
+                reference: if any
       cancel:
         parent: true
         message:

@@ -26,17 +26,18 @@ message:
         reference: if any
     payment:
         parent: true
-        description: This payment object should be consistent with the /confirm payment object
-        required: required
-        usage: "-"
-        reference: if any
-        type:
+        payment:
+          description: This payment object should be consistent with the /confirm payment object
+          required: required
+          usage: "-"
+          reference: if any
+        payment.type:
           description: enum ON-ORDER" (prepaid), "ON-FULFILLMENT" (CoD), "POST-FULFILLMENT" (post fulfillment);
           required: required
           usage: "-"
           reference: if any
-        collected_by:
-          description: payment to be collected by
+        payment.collected_by:
+          description: payment to be collected by BPP or BAP
           required: optional
           usage: "BPP"
           reference: if any
