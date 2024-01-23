@@ -24475,16 +24475,16 @@ x-attributes:
                 required: optional
                 usage: '-'
                 reference: if any
-                cancellation_fee.percentage:
-                  description: null
-                  required: optional
-                  usage: '100'
-                  reference: if any
-                cancellation_fee.amount:
-                  description: null
-                  required: optional
-                  usage: will have two properties currency and value
-                  reference: if any
+              cancellation_fee.percentage:
+                description: null
+                required: optional
+                usage: '100'
+                reference: if any
+              cancellation_fee.amount:
+                description: null
+                required: optional
+                usage: will have two properties currency and value
+                reference: if any
       confirm:
         parent: true
         message:

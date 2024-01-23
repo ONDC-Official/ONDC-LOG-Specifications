@@ -92,12 +92,12 @@ message:
         required: optional
         usage: "-"
         reference: if any
-        "cancellation_fee.percentage":
+      "cancellation_fee.percentage":
           description: 
           required: optional
           usage: "100"
           reference: if any
-        "cancellation_fee.amount":
+      "cancellation_fee.amount":
           description: 
           required: optional
           usage: will have two properties currency and value
