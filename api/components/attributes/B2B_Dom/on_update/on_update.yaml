@@ -18,7 +18,7 @@ message:
       usage: "-"
       reference: if any
     payment:
-      description: contains the billing details same from /confirm
+      description: contains the payment details same from /confirm
       required: required
       usage: "-"
       reference: if any

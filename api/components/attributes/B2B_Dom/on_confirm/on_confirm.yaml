@@ -2,6 +2,11 @@ message:
   parent: true
   order:
     parent: true
+    id:
+      description: will be received from LSP
+      required: required
+      usage: "01"
+      reference: if any
     status:
       description: status of the order, enum - "Created", "Accepted", "Cancelled"
       required: required
@@ -41,19 +46,7 @@ message:
         usage: "true"
         reference: if any
       state:
-        description: refer enum - message.order.fulfillments.state.descriptor.code
+        description: define the fulfillment state, refer enum - message.order.fulfillments.state.descriptor.code
         required: required
-        usage: "true"
-        reference: if any
-      stops:
-        time:
-          range:
-            description:  In response to Ready to ship - yes, LSP provides a pickup time slot
-            required: optional
-            usage: "-"
-            reference: if any
-        type:
-        description: should be true if live tracking is enabled
-        required: optional
-        usage: "true"
+        usage: "Pending"
         reference: if any

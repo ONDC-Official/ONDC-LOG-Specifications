@@ -1,5 +1,10 @@
 message:
   parent: true
+  update_target:
+    description: contains the item details
+    required: required
+    usage: "-"
+    reference: if any,
   order:
     parent: true
     items:

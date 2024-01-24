@@ -2,6 +2,11 @@ message:
   parent: true
   order:
     parent: true
+    status:
+      description: status of the order, enum- Created, Accepted, In-progress, Completed, Cancelled
+      required: required
+      usage: "Created"
+      reference: if any
     fulfillments:
       parent: true
       fulfillments:
@@ -11,11 +16,30 @@ message:
         reference: if any
       stops:
         instructions:
-          code:
-            description:  type of PCC - enum - "AWB_No" - shipping bill (AWB number), "ACC_No" - If Account exists-Customer code , "BKG_No" - Booking reference number provided by LSP at the time of booking, "GST_No" - GST number
-            required: optional
-            usage: "AWB_No"
-            reference: if any
+          description:  code, short_desc required if "ready_to_ship" = yes in /confirm
+          required: optional
+          usage: "-"
+          reference: if any
+        instructions.code:
+          description:  type of PCC - enum - "AWB_No" - shipping bill (AWB number), "ACC_No" - If Account exists-Customer code , "BKG_No" - Booking reference number provided by LSP at the time of booking, "GST_No" - GST number
+          required: optional
+          usage: "AWB_No"
+          reference: if any
+        instructions.short_desc:
+          description: "value of PCC: merchant order no - max 6 alphanumeric other pickup confirmation code - max 6 alphanumeric OTP - max 6 alphanumeric"
+          required: optional
+          usage: "value of PCC"
+          reference: if any   
+        instructions.long_desc:  
+          description: additional instructions for pickup
+          required: optional
+          usage: "-"
+          reference: if any  
+        instructions.additional_desc:
+          description: reverse QC online checklist, may be provided for fulfillment type = "Return"
+          required: optional
+          usage: "url:https://reverse_qc_sop_form.html, content_type:text/html"
+          reference: if any 
       type:
         description: enum -  delivery or return
         required: required
@@ -57,7 +81,7 @@ message:
     payments:
       parent: true
       payments: 
-        description: contains the payment details
+        description: contains the payment details passed from /on_init call
         required: required
         usage: "-"
         reference: if any

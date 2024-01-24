@@ -9,6 +9,18 @@ message:
         required: required
         usage: "LSP Aggregator Inc"
         reference: if any
+      tags:
+        description: refer to message.catalog.descriptor.tags for more information
+        required: required
+        usage: "-"
+        reference: if any
+    fulfillments:
+      parent: true
+      fulfillments:
+        description: type of fulfillments provided by BPP, refer to enum message.catalog.fulfillments.type for more info
+        required: required
+        usage: object with id and value of the type
+        reference: if any
     providers:
       parent: true
       id:
@@ -17,11 +29,27 @@ message:
         usage: "P1"
         reference: if any
       descriptor:
-        description: details of the logistics service provider
-        required: required
-        usage: "Courier Inc"
-        reference: if any  
+        name:
+          description: name of the logistics service provider
+          required: required
+          usage: "Courier Inc"
+          reference: if any  
+        short_desc:
+          description: short description
+          required: required
+          usage: "Courier Inc"
+          reference: if any 
+        long_desc:
+          description: long description
+          required: required
+          usage: "Courier Inc"
+          reference: if any 
       categories:
+        descriptor.code:
+          description: Standard_Delivery or Express_Delivery
+          required: required
+          usage: "Standard_Delivery"
+          reference: if any
         time:
           description: category level TAT for S2D (ship-to-delivery), can be overridden by item-level TAT whenever there are multiple options for the same category (e.g. 4D, 7D etc.);
           required: required
@@ -38,6 +66,16 @@ message:
         usage: "-"
         reference: if any
       items:
+        category_id:
+          description: type of the category, should be mapped from categories
+          required: required
+          usage: "[C1]"
+          reference: if any
+        fulfillment_id:
+          description: indicates forward shipment item with quote;
+          required: required
+          usage: "[1]"
+          reference: if any
         descriptor:
           code: 
             description: type of shipment; enum -  "P2P" (point-to-point) and "P2H2P" (point-to-hub-to-point). P2H2P fulfillments require different packaging and AWB no. This is required for merchants to decide on the packaging required for shipment
@@ -49,6 +87,18 @@ message:
             required: required
             usage: "4000"
             reference: if any
+          time:
+            description: same as in categories object
+            required: required
+            usage: "7D"
+            reference: if any
+          tags:
+            descriptor:
+              code:
+                description: Cargo details
+                required: optional
+                usage: refer to items.
+                reference: if any
           
           
 

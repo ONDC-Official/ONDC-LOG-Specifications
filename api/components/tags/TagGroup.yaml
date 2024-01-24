@@ -9,7 +9,7 @@ intent:
   payment:
     tags:
       - code: Collection_Details
-        description: Define terms for Collection Details Here
+        description: Collection Details needed if logistics seller needs to collect the payment from buyer at the time of delivery.
         reference: <PR/Issue/Discussion Links md format text>
         list:
           $ref: "./Tag.yaml#/Collection_Details"
@@ -37,10 +37,15 @@ intent:
 descriptor:
   tags:
     - code: BPP_Terms
-      description: Define BPP terms
+      description: Defines the mandatory arbitrations applicable for the LSP seller
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./Tag.yaml#/BPP_Terms"
+    - code: KYC
+      description: Defines the KYC details with a url
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./Tag.yaml#/KYC"
 
 order:
   payment:
@@ -61,3 +66,11 @@ order:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./Tag.yaml#/BPP_Terms"
+
+items:
+  tags:
+  - code: Cargo_Deatils
+    description: Define cargo details
+    reference: <PR/Issue/Discussion Links md format text>
+    list:
+      $ref: "./Tag.yaml#/Cargo_Details"

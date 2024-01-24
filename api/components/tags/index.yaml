@@ -7,6 +7,9 @@ on_search:
     catalog:
       descriptor:
         $ref: "./TagGroup.yaml#/descriptor"
+      providers:
+        items:
+          $ref: "./TagGroup.yaml#/items"
 
 init:
   message:

@@ -7,6 +7,16 @@ message:
       required: required
       usage: "-"
       reference: if any
+    billing.name:
+      description: name on the invoice
+      required: required
+      usage: ONDC sellerapp
+      reference: if any
+    billing.address:
+      description: address on the invoice
+      required: required
+      usage: My house or building name
+      reference: if any
     items:
       description: list items selected from the response of /on_search
       required: required
@@ -24,6 +34,22 @@ message:
         required: required
         usage: "-"
         reference: if any
+      stops:
+        type:
+          description: type of delivery stop(start or end)
+          required: required
+          usage: "start"
+          reference: if any
+        location:
+          description: pickup/drop area codes, country.code, state.name, address and location gps coordinates(should be atleast 6 digit decimal precision)
+          required: required
+          usage: "12.4535445,77.9283792"
+          reference: if any
+        contact:
+          description: contains phone and email properties
+          required: required
+          usage: "{ 'phone': '9886098860', 'email': 'abcd.efgh@gmail.com' }"
+          reference: if any
     payment:
         parent: true
         payment:
@@ -38,6 +64,11 @@ message:
           reference: if any
         payment.collected_by:
           description: payment to be collected by BPP or BAP
+          required: optional
+          usage: "BPP"
+          reference: if any
+        payment.tags:
+          description: refer to message.order.payment.tags
           required: optional
           usage: "BPP"
           reference: if any

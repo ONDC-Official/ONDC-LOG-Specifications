@@ -1,5 +1,20 @@
 context:
   parent: true
+  action:
+    description: call to action /search
+    required: mandatory
+    usage: "search"
+    reference: if any
+  transaction_id:
+    description: transaction id
+    required: mandatory
+    usage: "9fdb667c-76c6-456a-9742-ba9caa5eb765"
+    reference: if any
+  message_id:
+    description: message id
+    required: mandatory
+    usage: "1755281254860"
+    reference: if any
   domain:
     description: domain code, enums - ONDC:LOG10 ( Domestic Logistics )
     required: mandatory
@@ -50,7 +65,7 @@ message:
         reference: if any
       descriptor:
         code:
-          description: delivery category for the order, enums for parent category - Standard Delivery (Child - Surface Delivery) & Express Delivery (Child - Air Delivery)
+          description: delivery category for the order, enums for parent category - Standard Delivery (Surface Delivery) & Express Delivery (Air Delivery)
           required: required, if category present
           usage: "Surface_Delivery"
           reference: if any
@@ -86,8 +101,12 @@ message:
         usage: "Delivery"
         reference: if any
       stops:
+        type:
+          description: type of delivery stop(start or end)
+          required: required
+          usage: "start"
+          reference: if any
         location:
-          # description: pickup/drop location gps coordinates, should be atleast 6 digit decimal precision
           description: pickup/drop area codes and location gps coordinates, should be atleast 6 digit decimal precision
           required: required
           usage: "12.4535445,77.9283792"
@@ -101,8 +120,17 @@ message:
     payment:
       parent: true
       collected_by:
-        # description: Payment collected by, enum - "BAP" (Buyer App), "BPP" (Seller App)
         description: payment to be collected after the fulfilment(Delivery,Return) by, eum -  "BAP" (Buyer App), "BPP" (Seller App)
         required: required
         usage: "BPP"
+        reference: if any
+      tags:
+        description: refer to tags message.intent.payment for information
+        required: required
+        usage: "BPP"
+        reference: if any
+    tags:
+        description: refer to tags message.intent.tags for information
+        required: required
+        usage: "Package_Weight"
         reference: if any

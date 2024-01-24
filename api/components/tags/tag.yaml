@@ -38,7 +38,7 @@ Package_Details:
     description: Valid for international logistics. Specify the HSN code of item.
     reference: <PR/Issue/Discussion Links md format text>
   - code: Transit_Risk_Owner
-    description: 
+    description: defines the responsibility of risk that may occur during the transportation. enum- CARRIER,OWNER
     reference: <PR/Issue/Discussion Links md format text>  
 Package_Dimensions_Diff:
   - code: Unit
@@ -94,10 +94,10 @@ Settlement_Details:
     reference: <PR/Issue/Discussion Links md format text>
 Collection_Details:
   - code: Amount
-    description: Collection Details amount needed if logistics seller needs to collect the payment from buyer at the time of delivery.
+    description: Value of the collected amount
     reference: <PR/Issue/Discussion Links md format text>
   - code: Type
-    description: Description of the Tag
+    description: Information about the type of collection details(ON_FULLFILLMENT)
     reference: <PR/Issue/Discussion Links md format text>
 BPP_Terms:
   - code: Max_Liability
@@ -155,21 +155,21 @@ Quantity:
     description: Description of the Tag
     reference: <PR/Issue/Discussion Links md format text>
 KYC:
-  - code: eKYC url for dynamic onboarding of logistics buyers.
-    description: Description of the Tag
+  - code: url
+    description: eKYC url for dynamic onboarding of logistics buyers.
     reference: <PR/Issue/Discussion Links md format text>
   - code: required
-    description: Description of the Tag
+    description: required if value is true
     reference: <PR/Issue/Discussion Links md format text>
 Cargo_Details:
   - code: Delivery_Mode
     description: mode of delivery(Road,Air)
     reference: <PR/Issue/Discussion Links md format text>
   - code: Vehicle_Type
-    description: define type of vehicle
+    description: define type of vehicle(Truck)
     reference: <PR/Issue/Discussion Links md format text>
   - code: Vehicle_Size
-    description: define size of the vehicle
+    description: define size of the vehicle(21Ft)
     reference: <PR/Issue/Discussion Links md format text>
   - code: Load_Type
     description: define load type(FCL,FTL,LTL)
