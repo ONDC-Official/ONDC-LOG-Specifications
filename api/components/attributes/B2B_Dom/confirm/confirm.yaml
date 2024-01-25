@@ -2,6 +2,11 @@ message:
   parent: true
   order:
     parent: true
+    id:
+      description: order id
+      required: required
+      usage: "01"
+      reference: if any
     status:
       description: status of the order, enum- Created, Accepted, In-progress, Completed, Cancelled
       required: required
@@ -48,7 +53,7 @@ message:
       agent:
         person:
           description: details of the delivery agent, contains name property
-          required: required
+          required: optional
           usage: "Ramu"
           reference: if any
     provider:
@@ -84,4 +89,14 @@ message:
         description: contains the payment details passed from /on_init call
         required: required
         usage: "-"
+        reference: if any
+  created_at: 
+        description: order created at 
+        required: required
+        usage: "2023-02-06T22:00:00.000Z"
+        reference: if any
+  updated_at: 
+        description: order updated at
+        required: required
+        usage: "2023-02-06T22:00:00.000Z"
         reference: if any

@@ -101,6 +101,11 @@ message:
         usage: "Delivery"
         reference: if any
       stops:
+        parent_stop_id:
+          description: used in case of multiple end stops.
+          required: optional
+          usage: "-"
+          reference: if any
         type:
           description: type of delivery stop(start or end)
           required: required

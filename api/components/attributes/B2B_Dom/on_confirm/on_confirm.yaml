@@ -3,7 +3,7 @@ message:
   order:
     parent: true
     id:
-      description: will be received from LSP
+      description: will be passed from /confirm call
       required: required
       usage: "01"
       reference: if any

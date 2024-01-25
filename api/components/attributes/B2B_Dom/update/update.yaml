@@ -1,9 +1,9 @@
 message:
   parent: true
   update_target:
-    description: contains the item details
+    description: what object is getting updated
     required: required
-    usage: "-"
+    usage: "fulfillments"
     reference: if any,
   order:
     parent: true

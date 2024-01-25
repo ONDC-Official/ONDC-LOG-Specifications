@@ -31,17 +31,17 @@ message:
       descriptor:
         name:
           description: name of the logistics service provider
-          required: required
+          required: 
           usage: "Courier Inc"
           reference: if any  
         short_desc:
           description: short description
-          required: required
+          required: 
           usage: "Courier Inc"
           reference: if any 
         long_desc:
           description: long description
-          required: required
+          required: 
           usage: "Courier Inc"
           reference: if any 
       categories:
@@ -66,6 +66,11 @@ message:
         usage: "-"
         reference: if any
       items:
+        parent_item_id:
+          description: multiple items tags to single parent item id, in case of variants
+          required: optional
+          usage: "-"
+          reference: if any
         category_id:
           description: type of the category, should be mapped from categories
           required: required
