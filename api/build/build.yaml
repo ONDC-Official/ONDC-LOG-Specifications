@@ -24400,22 +24400,24 @@ x-attributes:
           order:
             parent: true
             billing:
-              description: >-
-                billing details of the marketplace (MSN or ISN retail seller
-                app) for invoicing;
-              required: required
-              usage: '-'
-              reference: if any
-            billing.name:
-              description: name on the invoice
-              required: required
-              usage: ONDC sellerapp
-              reference: if any
-            billing.address:
-              description: address on the invoice
-              required: required
-              usage: My house or building name
-              reference: if any
+              parent: true
+              billing:
+                description: >-
+                  billing details of the marketplace (MSN or ISN retail seller
+                  app) for invoicing;
+                required: required
+                usage: '-'
+                reference: if any
+              name:
+                description: name on the invoice
+                required: required
+                usage: ONDC sellerapp
+                reference: if any
+              address:
+                description: address on the invoice
+                required: required
+                usage: My house or building name
+                reference: if any
             items:
               description: list items selected from the response of /on_search
               required: required
@@ -24465,19 +24467,19 @@ x-attributes:
                 required: required
                 usage: '-'
                 reference: if any
-              payment.type:
+              type:
                 description: >-
                   enum ON-ORDER" (prepaid), "ON-FULFILLMENT" (CoD),
                   "POST-FULFILLMENT" (post fulfillment);
                 required: required
                 usage: '-'
                 reference: if any
-              payment.collected_by:
+              collected_by:
                 description: payment to be collected by BPP or BAP
                 required: optional
                 usage: BPP
                 reference: if any
-              payment.tags:
+              tags:
                 description: refer to message.order.payment.tags
                 required: optional
                 usage: BPP
