@@ -2835,16 +2835,18 @@ x-tags:
         payment:
           tags:
             - code: Collection_Details
-              description: Define terms for Collection Details Here
+              description: >-
+                Collection Details needed if logistics seller needs to collect
+                the payment from buyer at the time of delivery.
               reference: <PR/Issue/Discussion Links md format text>
               list: &ref_9
                 - code: Amount
-                  description: >-
-                    Collection Details amount needed if logistics seller needs
-                    to collect the payment from buyer at the time of delivery.
+                  description: Value of the collected amount
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: Type
-                  description: Description of the Tag
+                  description: >-
+                    Information about the type of collection
+                    details(ON_FULLFILLMENT)
                   reference: <PR/Issue/Discussion Links md format text>
         tags:
           - code: Package_Weight
@@ -2900,7 +2902,9 @@ x-tags:
                   item.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: Transit_Risk_Owner
-                description: null
+                description: >-
+                  defines the responsibility of risk that may occur during the
+                  transportation. enum- CARRIER,OWNER
                 reference: <PR/Issue/Discussion Links md format text>
           - code: Cold_Logistics
             description: Define terms if cold logistics is required
@@ -2924,7 +2928,7 @@ x-tags:
         descriptor:
           tags:
             - code: BPP_Terms
-              description: Define BPP terms
+              description: Defines the mandatory arbitrations applicable for the LSP seller
               reference: <PR/Issue/Discussion Links md format text>
               list: &ref_11
                 - code: Max_Liability
@@ -2951,6 +2955,35 @@ x-tags:
                 - code: Effective_Date
                   description: Description of the Tag
                   reference: <PR/Issue/Discussion Links md format text>
+            - code: KYC
+              description: Defines the KYC details with a url
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: url
+                  description: eKYC url for dynamic onboarding of logistics buyers.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: required
+                  description: required if value is true
+                  reference: <PR/Issue/Discussion Links md format text>
+        providers:
+          items:
+            tags:
+              - code: Cargo_Deatils
+                description: Define cargo details
+                reference: <PR/Issue/Discussion Links md format text>
+                list:
+                  - code: Delivery_Mode
+                    description: mode of delivery(Road,Air)
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Vehicle_Type
+                    description: define type of vehicle(Truck)
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Vehicle_Size
+                    description: define size of the vehicle(21Ft)
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: Load_Type
+                    description: define load type(FCL,FTL,LTL)
+                    reference: <PR/Issue/Discussion Links md format text>
   init:
     message:
       order:
@@ -24086,6 +24119,21 @@ x-attributes:
         parent: true
         context:
           parent: true
+          action:
+            description: call to action /search
+            required: mandatory
+            usage: search
+            reference: if any
+          transaction_id:
+            description: transaction id
+            required: mandatory
+            usage: 9fdb667c-76c6-456a-9742-ba9caa5eb765
+            reference: if any
+          message_id:
+            description: message id
+            required: mandatory
+            usage: '1755281254860'
+            reference: if any
           domain:
             description: domain code, enums - ONDC:LOG10 ( Domestic Logistics )
             required: mandatory
@@ -24143,8 +24191,8 @@ x-attributes:
                 code:
                   description: >-
                     delivery category for the order, enums for parent category -
-                    Standard Delivery (Child - Surface Delivery) & Express
-                    Delivery (Child - Air Delivery)
+                    Standard Delivery (Surface Delivery) & Express Delivery (Air
+                    Delivery)
                   required: required, if category present
                   usage: Surface_Delivery
                   reference: if any
@@ -24187,6 +24235,11 @@ x-attributes:
                 usage: Delivery
                 reference: if any
               stops:
+                type:
+                  description: type of delivery stop(start or end)
+                  required: required
+                  usage: start
+                  reference: if any
                 location:
                   description: >-
                     pickup/drop area codes and location gps coordinates, should
@@ -24211,6 +24264,16 @@ x-attributes:
                 required: required
                 usage: BPP
                 reference: if any
+              tags:
+                description: refer to tags message.intent.payment for information
+                required: required
+                usage: BPP
+                reference: if any
+            tags:
+              description: refer to tags message.intent.tags for information
+              required: required
+              usage: Package_Weight
+              reference: if any
       on_search:
         parent: true
         message:
@@ -24226,6 +24289,20 @@ x-attributes:
                 required: required
                 usage: LSP Aggregator Inc
                 reference: if any
+              tags:
+                description: refer to message.catalog.descriptor.tags for more information
+                required: required
+                usage: '-'
+                reference: if any
+            fulfillments:
+              parent: true
+              fulfillments:
+                description: >-
+                  type of fulfillments provided by BPP, refer to enum
+                  message.catalog.fulfillments.type for more info
+                required: required
+                usage: object with id and value of the type
+                reference: if any
             providers:
               parent: true
               id:
@@ -24234,11 +24311,27 @@ x-attributes:
                 usage: P1
                 reference: if any
               descriptor:
-                description: details of the logistics service provider
-                required: required
-                usage: Courier Inc
-                reference: if any
+                name:
+                  description: name of the logistics service provider
+                  required: required
+                  usage: Courier Inc
+                  reference: if any
+                short_desc:
+                  description: short description
+                  required: required
+                  usage: Courier Inc
+                  reference: if any
+                long_desc:
+                  description: long description
+                  required: required
+                  usage: Courier Inc
+                  reference: if any
               categories:
+                descriptor.code:
+                  description: Standard_Delivery or Express_Delivery
+                  required: required
+                  usage: Standard_Delivery
+                  reference: if any
                 time:
                   description: >-
                     category level TAT for S2D (ship-to-delivery), can be
@@ -24262,6 +24355,16 @@ x-attributes:
                 usage: '-'
                 reference: if any
               items:
+                category_id:
+                  description: type of the category, should be mapped from categories
+                  required: required
+                  usage: '[C1]'
+                  reference: if any
+                fulfillment_id:
+                  description: indicates forward shipment item with quote;
+                  required: required
+                  usage: '[1]'
+                  reference: if any
                 descriptor:
                   code:
                     description: >-
@@ -24278,6 +24381,18 @@ x-attributes:
                     required: required
                     usage: '4000'
                     reference: if any
+                  time:
+                    description: same as in categories object
+                    required: required
+                    usage: 7D
+                    reference: if any
+                  tags:
+                    descriptor:
+                      code:
+                        description: Cargo details
+                        required: optional
+                        usage: refer to items.
+                        reference: if any
       init:
         parent: true
         message:
@@ -24290,6 +24405,16 @@ x-attributes:
                 app) for invoicing;
               required: required
               usage: '-'
+              reference: if any
+            billing.name:
+              description: name on the invoice
+              required: required
+              usage: ONDC sellerapp
+              reference: if any
+            billing.address:
+              description: address on the invoice
+              required: required
+              usage: My house or building name
               reference: if any
             items:
               description: list items selected from the response of /on_search
@@ -24312,6 +24437,25 @@ x-attributes:
                 required: required
                 usage: '-'
                 reference: if any
+              stops:
+                type:
+                  description: type of delivery stop(start or end)
+                  required: required
+                  usage: start
+                  reference: if any
+                location:
+                  description: >-
+                    pickup/drop area codes, country.code, state.name, address
+                    and location gps coordinates(should be atleast 6 digit
+                    decimal precision)
+                  required: required
+                  usage: 12.4535445,77.9283792
+                  reference: if any
+                contact:
+                  description: contains phone and email properties
+                  required: required
+                  usage: '{ ''phone'': ''9886098860'', ''email'': ''abcd.efgh@gmail.com'' }'
+                  reference: if any
             payment:
               parent: true
               payment:
@@ -24330,6 +24474,11 @@ x-attributes:
                 reference: if any
               payment.collected_by:
                 description: payment to be collected by BPP or BAP
+                required: optional
+                usage: BPP
+                reference: if any
+              payment.tags:
+                description: refer to message.order.payment.tags
                 required: optional
                 usage: BPP
                 reference: if any
@@ -24375,7 +24524,9 @@ x-attributes:
                 usage: '-'
                 reference: if any
               price:
-                description: total price of the quote
+                description: >-
+                  total price of the quote, contains price object with currency
+                  and value property
                 required: required
                 usage: '-'
                 reference: if any
@@ -24466,7 +24617,6 @@ x-attributes:
                 usage: 'true'
                 reference: if any
               cancellation_fee:
-                parent: false
                 description: >-
                   cancellation fee, if any, for this state & reason code -
                   either percentage (of order value minus taxes, in the above
@@ -24487,12 +24637,24 @@ x-attributes:
                 required: optional
                 usage: '-'
                 reference: if any
+            xinput:
+              description: kyc details passed from /init
+              required: optional
+              usage: '-'
+              reference: if any
       confirm:
         parent: true
         message:
           parent: true
           order:
             parent: true
+            status:
+              description: >-
+                status of the order, enum- Created, Accepted, In-progress,
+                Completed, Cancelled
+              required: required
+              usage: Created
+              reference: if any
             fulfillments:
               parent: true
               fulfillments:
@@ -24502,15 +24664,41 @@ x-attributes:
                 reference: if any
               stops:
                 instructions:
-                  code:
-                    description: >-
-                      type of PCC - enum - "AWB_No" - shipping bill (AWB
-                      number), "ACC_No" - If Account exists-Customer code ,
-                      "BKG_No" - Booking reference number provided by LSP at the
-                      time of booking, "GST_No" - GST number
-                    required: optional
-                    usage: AWB_No
-                    reference: if any
+                  description: >-
+                    code, short_desc required if "ready_to_ship" = yes in
+                    /confirm
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                instructions.code:
+                  description: >-
+                    type of PCC - enum - "AWB_No" - shipping bill (AWB number),
+                    "ACC_No" - If Account exists-Customer code , "BKG_No" -
+                    Booking reference number provided by LSP at the time of
+                    booking, "GST_No" - GST number
+                  required: optional
+                  usage: AWB_No
+                  reference: if any
+                instructions.short_desc:
+                  description: >-
+                    value of PCC: merchant order no - max 6 alphanumeric other
+                    pickup confirmation code - max 6 alphanumeric OTP - max 6
+                    alphanumeric
+                  required: optional
+                  usage: value of PCC
+                  reference: if any
+                instructions.long_desc:
+                  description: additional instructions for pickup
+                  required: optional
+                  usage: '-'
+                  reference: if any
+                instructions.additional_desc:
+                  description: >-
+                    reverse QC online checklist, may be provided for fulfillment
+                    type = "Return"
+                  required: optional
+                  usage: url:https://reverse_qc_sop_form.html, content_type:text/html
+                  reference: if any
               type:
                 description: enum -  delivery or return
                 required: required
@@ -24558,7 +24746,7 @@ x-attributes:
             payments:
               parent: true
               payments:
-                description: contains the payment details
+                description: contains the payment details passed from /on_init call
                 required: required
                 usage: '-'
                 reference: if any
@@ -24568,6 +24756,11 @@ x-attributes:
           parent: true
           order:
             parent: true
+            id:
+              description: will be received from LSP
+              required: required
+              usage: '01'
+              reference: if any
             status:
               description: status of the order, enum - "Created", "Accepted", "Cancelled"
               required: required
@@ -24609,23 +24802,11 @@ x-attributes:
                 usage: 'true'
                 reference: if any
               state:
-                description: refer enum - message.order.fulfillments.state.descriptor.code
+                description: >-
+                  define the fulfillment state, refer enum -
+                  message.order.fulfillments.state.descriptor.code
                 required: required
-                usage: 'true'
-                reference: if any
-              stops:
-                time:
-                  range:
-                    description: >-
-                      In response to Ready to ship - yes, LSP provides a pickup
-                      time slot
-                    required: optional
-                    usage: '-'
-                    reference: if any
-                type: null
-                description: should be true if live tracking is enabled
-                required: optional
-                usage: 'true'
+                usage: Pending
                 reference: if any
       cancel:
         parent: true
@@ -24679,6 +24860,11 @@ x-attributes:
         parent: true
         message:
           parent: true
+          update_target:
+            description: contains the item details
+            required: required
+            usage: '-'
+            reference: if any,
           order:
             parent: true
             items:
@@ -24763,7 +24949,7 @@ x-attributes:
               usage: '-'
               reference: if any
             payment:
-              description: contains the billing details same from /confirm
+              description: contains the payment details same from /confirm
               required: required
               usage: '-'
               reference: if any
