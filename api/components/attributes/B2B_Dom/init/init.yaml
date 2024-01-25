@@ -31,6 +31,7 @@ message:
         usage: "-"
         reference: if any
     fulfillments:
+      parent: true
       id:
         description: fulfillment_id from /on_search corresponding to appropriate type
         required: required
@@ -42,16 +43,16 @@ message:
           required: required
           usage: "start"
           reference: if any
-        location:
-          description: pickup/drop area codes, country.code, state.name, address and location gps coordinates(should be atleast 6 digit decimal precision)
-          required: required
-          usage: "12.4535445,77.9283792"
-          reference: if any
-        contact:
-          description: contains phone and email properties
-          required: required
-          usage: "{ 'phone': '9886098860', 'email': 'abcd.efgh@gmail.com' }"
-          reference: if any
+      location:
+        description: pickup/drop area codes, country.code, state.name, address and location gps coordinates(should be atleast 6 digit decimal precision)
+        required: required
+        usage: "12.4535445,77.9283792"
+        reference: if any
+      contact:
+        description: contains phone and email properties
+        required: required
+        usage: "{ 'phone': '9886098860', 'email': 'abcd.efgh@gmail.com' }"
+        reference: if any
     payment:
         parent: true
         payment:
