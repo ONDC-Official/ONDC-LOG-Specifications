@@ -2,10 +2,41 @@ message:
   parent: true
   order:
     parent: true
+    id:
+      description: will be passed from /confirm call
+      required: required
+      usage: "01"
+      reference: if any
     status:
       description: status of the order, enum - "Created", "Accepted", "Cancelled"
       required: required
       usage: "Created"
+      reference: if any
+    provider:
+      locations:
+        description: required only if in /confirm
+        required: optional
+        usage: "-"
+        reference: if any
+    items:
+      description: contains the items details from /confirm
+      required: required
+      usage: "-"
+      reference: if any
+    billing:
+      description: contains the billing details, should be same as in /init
+      required: required
+      usage: "-"
+      reference: if any
+    payment:
+      description: contains the billing details same from /confirm
+      required: required
+      usage: "-"
+      reference: if any
+    cancellation_terms:
+      description: as proposed in /on_init; if different from what was proposed in /on_init, buyer NP can NACK with error code 62509
+      required: required
+      usage: "-"
       reference: if any
     fulfillments:
       parent: true
@@ -14,10 +45,8 @@ message:
         required: optional
         usage: "true"
         reference: if any
-      stops:
-        time:
-          range:
-            description:  In response to Ready to ship - yes, LSP provides a pickup time slot
-            required: optional
-            usage: "-"
-            reference: if any
+      state:
+        description: define the fulfillment state, refer enum - message.order.fulfillments.state.descriptor.code
+        required: required
+        usage: "Pending"
+        reference: if any

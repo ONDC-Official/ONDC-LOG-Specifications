@@ -2,6 +2,16 @@ message:
   parent: true
   order:
     parent: true
+    id:
+      description: order id
+      required: required
+      usage: "01"
+      reference: if any
+    status:
+      description: status of the order, enum- Created, Accepted, In-progress, Completed, Cancelled
+      required: required
+      usage: "Created"
+      reference: if any
     fulfillments:
       parent: true
       fulfillments:
@@ -11,8 +21,82 @@ message:
         reference: if any
       stops:
         instructions:
-          code:
-            description:  type of PCC - enum - "AWB_No" - shipping bill (AWB number), "ACC_No" - If Account exists-Customer code , "BKG_No" - Booking reference number provided by LSP at the time of booking, "GST_No" - GST number
+          description:  code, short_desc required if "ready_to_ship" = yes in /confirm
+          required: optional
+          usage: "-"
+          reference: if any
+        instructions.code:
+          description:  type of PCC - enum - "AWB_No" - shipping bill (AWB number), "ACC_No" - If Account exists-Customer code , "BKG_No" - Booking reference number provided by LSP at the time of booking, "GST_No" - GST number
+          required: optional
+          usage: "AWB_No"
+          reference: if any
+        instructions.short_desc:
+          description: "value of PCC: merchant order no - max 6 alphanumeric other pickup confirmation code - max 6 alphanumeric OTP - max 6 alphanumeric"
+          required: optional
+          usage: "value of PCC"
+          reference: if any   
+        instructions.long_desc:  
+          description: additional instructions for pickup
+          required: optional
+          usage: "-"
+          reference: if any  
+        instructions.additional_desc:
+          description: reverse QC online checklist, may be provided for fulfillment type = "Return"
+          required: optional
+          usage: "url:https://reverse_qc_sop_form.html, content_type:text/html"
+          reference: if any 
+      type:
+        description: enum -  delivery or return
+        required: required
+        usage: "DELIVERY"
+        reference: if any
+      agent:
+        person:
+          description: details of the delivery agent, contains name property
+          required: optional
+          usage: "Ramu"
+          reference: if any
+    provider:
+      parent: true
+      provider:
+        description: contains the provider details
+        required: required
+        usage: "-"
+        reference: if any
+      provider.locations:
+        id:
+          description: mandatory only if provider.locations was returned in /on_search
+          required: optional
+          usage: "-"
+          reference: if any
+    items:
+        descriptor:
+          code: 
+            description: type of shipment; enum -  "P2P" (point-to-point) and "P2H2P" (point-to-hub-to-point). P2H2P fulfillments require different packaging and AWB no. This is required for merchants to decide on the packaging required for shipment
             required: optional
-            usage: "AWB_No"
+            usage: "-"
             reference: if any
+    billing:
+      parent: true
+      billing:
+        description: contains the billing details passed from /init call
+        required: required
+        usage: "-"
+        reference: if any
+    payments:
+      parent: true
+      payments: 
+        description: contains the payment details passed from /on_init call
+        required: required
+        usage: "-"
+        reference: if any
+  created_at: 
+        description: order created at 
+        required: required
+        usage: "2023-02-06T22:00:00.000Z"
+        reference: if any
+  updated_at: 
+        description: order updated at
+        required: required
+        usage: "2023-02-06T22:00:00.000Z"
+        reference: if any
