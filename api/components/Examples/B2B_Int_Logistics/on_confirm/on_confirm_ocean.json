@@ -36,7 +36,7 @@
         {
           "id": "I1",
           "fulfillment_ids": ["1"],
-          "category_ids": ["C1", "O1"],
+          "category_ids": ["C1"],
           "descriptor": {
             "code": "P2H2P"
           }

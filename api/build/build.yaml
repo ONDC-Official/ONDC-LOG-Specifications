@@ -3320,6 +3320,27 @@ x-flows:
                       - descriptor:
                           code: Height
                         value: '100'
+                      - descriptor:
+                          code: Count
+                        value: '10'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                      - descriptor:
+                          code: Count
+                        value: '5'
                   - descriptor:
                       code: Package_Details
                     list:
@@ -3335,9 +3356,6 @@ x-flows:
                       - descriptor:
                           code: Shipment_Value
                         value: '50000'
-                      - descriptor:
-                          code: Package_Count
-                        value: '10'
                       - descriptor:
                           code: Transit_Risk_Owner
                         value: Carrier
@@ -5329,7 +5347,6 @@ x-flows:
                   - id: I3
                     category_ids:
                       - C2
-                      - A1
                     fulfillment_ids:
                       - '1'
                     descriptor:
@@ -5458,7 +5475,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C2
-                      - A1
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -5663,7 +5679,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C2
-                      - A1
                     descriptor:
                       code: P2H2P
                 fulfillments:
@@ -5912,7 +5927,6 @@ x-flows:
                   - id: I3
                     category_ids:
                       - C1
-                      - A1
                     fulfillment_ids:
                       - '1'
                     descriptor:
@@ -6239,7 +6253,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C2
-                      - A1
                     descriptor:
                       code: P2H2P
                 fulfillments:
@@ -6332,7 +6345,6 @@ x-flows:
                   - id: I3
                     category_ids:
                       - C2
-                      - A1
                     fulfillment_ids:
                       - '1'
                     descriptor:
@@ -6536,7 +6548,6 @@ x-flows:
                   - id: I3
                     category_ids:
                       - C2
-                      - A1
                     descriptor:
                       code: P2H2P
                     time:
@@ -6876,7 +6887,6 @@ x-flows:
                   - id: I3
                     category_ids:
                       - C1
-                      - A1
                     descriptor:
                       code: P2H2P
                     fulfillment_ids:
@@ -7159,7 +7169,6 @@ x-flows:
                   - id: I3
                     category_ids:
                       - C2
-                      - A1
                     fulfillment_ids:
                       - '1'
                     descriptor:
@@ -7171,7 +7180,6 @@ x-flows:
                   - id: I4
                     category_ids:
                       - C2
-                      - A1
                     fulfillment_ids:
                       - '2'
                     descriptor:
@@ -7612,6 +7620,27 @@ x-flows:
                       - descriptor:
                           code: Height
                         value: '100'
+                      - descriptor:
+                          code: Count
+                        value: '10'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                      - descriptor:
+                          code: Count
+                        value: '5'
                   - descriptor:
                       code: Package_Details
                     list:
@@ -7627,9 +7656,6 @@ x-flows:
                       - descriptor:
                           code: Shipment_Value
                         value: '50000'
-                      - descriptor:
-                          code: Package_Count
-                        value: '10'
                       - descriptor:
                           code: HSN_Code
                         value: xxxxxxx
@@ -7989,7 +8015,6 @@ x-flows:
                   - id: I3
                     category_ids:
                       - C2
-                      - A1
                     fulfillment_ids:
                       - '1'
                     descriptor:
@@ -8128,7 +8153,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - A1
                 fulfillments:
                   - id: '1'
                     type: Delivery
@@ -8376,7 +8400,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - A1
                     descriptor:
                       code: P2H2P
                 fulfillments:
@@ -8643,7 +8666,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - A1
                     descriptor:
                       code: P2H2P
                 quote:
@@ -8778,6 +8800,9 @@ x-flows:
                             value: '1209878992826353'
                           - descriptor:
                               code: Transporter_Id
+                            value: '1209567899003'
+                          - descriptor:
+                              code: Doc_Way_Bill_No
                             value: '1209567899003'
                 cancellation_terms:
                   - fulfillment_state:
@@ -9015,7 +9040,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C2
-                      - A1
                     descriptor:
                       code: P2H2P
                 fulfillments:
@@ -9168,7 +9192,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - A1
                     descriptor:
                       code: P2H2P
                     time:
@@ -9494,7 +9517,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - A1
                     descriptor:
                       code: P2H2P
                     time:
@@ -9799,7 +9821,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - A1
                     descriptor:
                       code: P2H2P
                     time:
@@ -10105,7 +10126,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - A1
                     descriptor:
                       code: P2H2P
                     time:
@@ -10438,7 +10458,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - A1
                     descriptor:
                       code: P2H2P
                     time:
@@ -10889,6 +10908,27 @@ x-flows:
                       - descriptor:
                           code: Height
                         value: '100'
+                      - descriptor:
+                          code: Count
+                        value: '10'
+                  - descriptor:
+                      code: Package_Dimensions
+                    list:
+                      - descriptor:
+                          code: Unit
+                        value: centimeter
+                      - descriptor:
+                          code: Length
+                        value: '100'
+                      - descriptor:
+                          code: Breadth
+                        value: '100'
+                      - descriptor:
+                          code: Height
+                        value: '100'
+                      - descriptor:
+                          code: Count
+                        value: '5'
                   - descriptor:
                       code: Package_Details
                     list:
@@ -10904,9 +10944,6 @@ x-flows:
                       - descriptor:
                           code: Shipment_Value
                         value: '50000'
-                      - descriptor:
-                          code: Package_Count
-                        value: '10'
                       - descriptor:
                           code: HSN_Code
                         value: xxxxxxx
@@ -10974,7 +11011,6 @@ x-flows:
                   - id: I1
                     category_ids:
                       - C1
-                      - O1
                     fulfillment_ids:
                       - '1'
                     descriptor:
@@ -11113,7 +11149,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - O1
                     descriptor:
                       code: P2H2P
                 fulfillments:
@@ -11363,7 +11398,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - O1
                     descriptor:
                       code: P2H2P
                 fulfillments:
@@ -11633,7 +11667,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - O1
                     descriptor:
                       code: P2H2P
                 quote:
@@ -12011,7 +12044,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - O1
                     descriptor:
                       code: P2H2P
                 fulfillments:
@@ -12165,7 +12197,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - O1
                     descriptor:
                       code: P2H2P
                     time:
@@ -12613,7 +12644,6 @@ x-flows:
                       - '1'
                     category_ids:
                       - C1
-                      - A1
                     descriptor:
                       code: P2H2P
                     time:
@@ -12971,6 +13001,27 @@ x-examples:
                         - descriptor:
                             code: Height
                           value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '10'
+                    - descriptor:
+                        code: Package_Dimensions
+                      list:
+                        - descriptor:
+                            code: Unit
+                          value: centimeter
+                        - descriptor:
+                            code: Length
+                          value: '100'
+                        - descriptor:
+                            code: Breadth
+                          value: '100'
+                        - descriptor:
+                            code: Height
+                          value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '5'
                     - descriptor:
                         code: Package_Details
                       list:
@@ -12986,9 +13037,6 @@ x-examples:
                         - descriptor:
                             code: Shipment_Value
                           value: '50000'
-                        - descriptor:
-                            code: Package_Count
-                          value: '10'
                         - descriptor:
                             code: Transit_Risk_Owner
                           value: Carrier
@@ -13096,6 +13144,27 @@ x-examples:
                         - descriptor:
                             code: Height
                           value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '10'
+                    - descriptor:
+                        code: Package_Dimensions
+                      list:
+                        - descriptor:
+                            code: Unit
+                          value: centimeter
+                        - descriptor:
+                            code: Length
+                          value: '100'
+                        - descriptor:
+                            code: Breadth
+                          value: '100'
+                        - descriptor:
+                            code: Height
+                          value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '5'
                     - descriptor:
                         code: Package_Details
                       list:
@@ -13111,9 +13180,6 @@ x-examples:
                         - descriptor:
                             code: Shipment_Value
                           value: '50000'
-                        - descriptor:
-                            code: Package_Count
-                          value: '10'
                         - descriptor:
                             code: Transit_Risk_Owner
                           value: Carrier
@@ -13218,6 +13284,27 @@ x-examples:
                         - descriptor:
                             code: Height
                           value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '10'
+                    - descriptor:
+                        code: Package_Dimensions
+                      list:
+                        - descriptor:
+                            code: Unit
+                          value: centimeter
+                        - descriptor:
+                            code: Length
+                          value: '100'
+                        - descriptor:
+                            code: Breadth
+                          value: '100'
+                        - descriptor:
+                            code: Height
+                          value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '5'
                     - descriptor:
                         code: Package_Details
                       list:
@@ -13233,9 +13320,6 @@ x-examples:
                         - descriptor:
                             code: Shipment_Value
                           value: '50000'
-                        - descriptor:
-                            code: Package_Count
-                          value: '10'
                         - descriptor:
                             code: Transit_Risk_Owner
                           value: Carrier
@@ -13288,7 +13372,6 @@ x-examples:
                     - id: I3
                       category_ids:
                         - C2
-                        - A1
                       fulfillment_ids:
                         - '1'
                       descriptor:
@@ -13531,7 +13614,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C2
-                        - A1
                       descriptor:
                         code: P2H2P
                   fulfillments:
@@ -14024,7 +14106,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C2
-                        - A1
                       descriptor:
                         code: P2H2P
                   fulfillments:
@@ -14156,7 +14237,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C2
-                        - A1
                       descriptor:
                         code: P2H2P
                   fulfillments:
@@ -14724,7 +14804,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C2
-                        - A1
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -14924,7 +15003,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C2
-                        - A1
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -15532,7 +15610,6 @@ x-examples:
                     - id: I3
                       category_ids:
                         - C1
-                        - A1
                       fulfillment_ids:
                         - '1'
                       descriptor:
@@ -16177,7 +16254,6 @@ x-examples:
                     - id: I3
                       category_ids:
                         - C2
-                        - A1
                       descriptor:
                         code: P2H2P
                       time:
@@ -16442,7 +16518,6 @@ x-examples:
                     - id: I3
                       category_ids:
                         - C2
-                        - A1
                       fulfillment_ids:
                         - '1'
                       descriptor:
@@ -16454,7 +16529,6 @@ x-examples:
                     - id: I4
                       category_ids:
                         - C2
-                        - A1
                       fulfillment_ids:
                         - '2'
                       descriptor:
@@ -17312,7 +17386,6 @@ x-examples:
                     - id: I3
                       category_ids:
                         - C2
-                        - A1
                       fulfillment_ids:
                         - '1'
                       descriptor:
@@ -17598,7 +17671,6 @@ x-examples:
                     - id: I3
                       category_ids:
                         - C2
-                        - A1
                       fulfillment_ids:
                         - '1'
                       descriptor:
@@ -18541,7 +18613,6 @@ x-examples:
                     - id: I3
                       category_ids:
                         - C1
-                        - A1
                       descriptor:
                         code: P2H2P
                       fulfillment_ids:
@@ -18891,6 +18962,27 @@ x-examples:
                         - descriptor:
                             code: Height
                           value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '10'
+                    - descriptor:
+                        code: Package_Dimensions
+                      list:
+                        - descriptor:
+                            code: Unit
+                          value: centimeter
+                        - descriptor:
+                            code: Length
+                          value: '100'
+                        - descriptor:
+                            code: Breadth
+                          value: '100'
+                        - descriptor:
+                            code: Height
+                          value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '5'
                     - descriptor:
                         code: Package_Details
                       list:
@@ -18906,9 +18998,6 @@ x-examples:
                         - descriptor:
                             code: Shipment_Value
                           value: '50000'
-                        - descriptor:
-                            code: Package_Count
-                          value: '10'
                         - descriptor:
                             code: HSN_Code
                           value: xxxxxxx
@@ -19029,6 +19118,27 @@ x-examples:
                         - descriptor:
                             code: Height
                           value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '10'
+                    - descriptor:
+                        code: Package_Dimensions
+                      list:
+                        - descriptor:
+                            code: Unit
+                          value: centimeter
+                        - descriptor:
+                            code: Length
+                          value: '100'
+                        - descriptor:
+                            code: Breadth
+                          value: '100'
+                        - descriptor:
+                            code: Height
+                          value: '100'
+                        - descriptor:
+                            code: Count
+                          value: '5'
                     - descriptor:
                         code: Package_Details
                       list:
@@ -19044,9 +19154,6 @@ x-examples:
                         - descriptor:
                             code: Shipment_Value
                           value: '50000'
-                        - descriptor:
-                            code: Package_Count
-                          value: '10'
                         - descriptor:
                             code: HSN_Code
                           value: xxxxxxx
@@ -19102,7 +19209,6 @@ x-examples:
                     - id: I3
                       category_ids:
                         - C2
-                        - A1
                       fulfillment_ids:
                         - '1'
                       descriptor:
@@ -19232,7 +19338,6 @@ x-examples:
                     - id: I1
                       category_ids:
                         - C1
-                        - O1
                       fulfillment_ids:
                         - '1'
                       descriptor:
@@ -19366,7 +19471,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                       descriptor:
                         code: P2H2P
                   fulfillments:
@@ -19628,7 +19732,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - O1
                       descriptor:
                         code: P2H2P
                   fulfillments:
@@ -19896,7 +19999,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C2
-                        - A1
                       descriptor:
                         code: P2H2P
                   fulfillments:
@@ -20043,7 +20145,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - O1
                       descriptor:
                         code: P2H2P
                   fulfillments:
@@ -20512,7 +20613,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -20755,7 +20855,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                   fulfillments:
                     - id: '1'
                       type: Delivery
@@ -21010,7 +21109,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - O1
                       descriptor:
                         code: P2H2P
                   fulfillments:
@@ -21259,7 +21357,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                       descriptor:
                         code: P2H2P
                       time:
@@ -21559,7 +21656,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                       descriptor:
                         code: P2H2P
                       time:
@@ -21859,7 +21955,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                       descriptor:
                         code: P2H2P
                       time:
@@ -22160,7 +22255,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                       descriptor:
                         code: P2H2P
                       time:
@@ -22461,7 +22555,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                       descriptor:
                         code: P2H2P
                       time:
@@ -22765,7 +22858,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                       descriptor:
                         code: P2H2P
                   quote:
@@ -22900,6 +22992,9 @@ x-examples:
                               value: '1209878992826353'
                             - descriptor:
                                 code: Transporter_Id
+                              value: '1209567899003'
+                            - descriptor:
+                                code: Doc_Way_Bill_No
                               value: '1209567899003'
                   cancellation_terms:
                     - fulfillment_state:
@@ -23131,7 +23226,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - O1
                       descriptor:
                         code: P2H2P
                   quote:
@@ -23505,7 +23599,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - A1
                       descriptor:
                         code: P2H2P
                       time:
@@ -23824,7 +23917,6 @@ x-examples:
                         - '1'
                       category_ids:
                         - C1
-                        - O1
                       descriptor:
                         code: P2H2P
                       time:
@@ -24235,6 +24327,11 @@ x-attributes:
                 usage: Delivery
                 reference: if any
               stops:
+                parent_stop_id:
+                  description: used in case of multiple end stops.
+                  required: optional
+                  usage: '-'
+                  reference: if any
                 type:
                   description: type of delivery stop(start or end)
                   required: required
@@ -24313,17 +24410,17 @@ x-attributes:
               descriptor:
                 name:
                   description: name of the logistics service provider
-                  required: required
+                  required: null
                   usage: Courier Inc
                   reference: if any
                 short_desc:
                   description: short description
-                  required: required
+                  required: null
                   usage: Courier Inc
                   reference: if any
                 long_desc:
                   description: long description
-                  required: required
+                  required: null
                   usage: Courier Inc
                   reference: if any
               categories:
@@ -24355,6 +24452,13 @@ x-attributes:
                 usage: '-'
                 reference: if any
               items:
+                parent_item_id:
+                  description: >-
+                    multiple items tags to single parent item id, in case of
+                    variants
+                  required: optional
+                  usage: '-'
+                  reference: if any
                 category_id:
                   description: type of the category, should be mapped from categories
                   required: required
@@ -24651,6 +24755,11 @@ x-attributes:
           parent: true
           order:
             parent: true
+            id:
+              description: order id
+              required: required
+              usage: '01'
+              reference: if any
             status:
               description: >-
                 status of the order, enum- Created, Accepted, In-progress,
@@ -24710,7 +24819,7 @@ x-attributes:
               agent:
                 person:
                   description: details of the delivery agent, contains name property
-                  required: required
+                  required: optional
                   usage: Ramu
                   reference: if any
             provider:
@@ -24753,6 +24862,16 @@ x-attributes:
                 required: required
                 usage: '-'
                 reference: if any
+          created_at:
+            description: order created at
+            required: required
+            usage: '2023-02-06T22:00:00.000Z'
+            reference: if any
+          updated_at:
+            description: order updated at
+            required: required
+            usage: '2023-02-06T22:00:00.000Z'
+            reference: if any
       on_confirm:
         parent: true
         message:
@@ -24760,7 +24879,7 @@ x-attributes:
           order:
             parent: true
             id:
-              description: will be received from LSP
+              description: will be passed from /confirm call
               required: required
               usage: '01'
               reference: if any
@@ -24864,9 +24983,9 @@ x-attributes:
         message:
           parent: true
           update_target:
-            description: contains the item details
+            description: what object is getting updated
             required: required
-            usage: '-'
+            usage: fulfillments
             reference: if any,
           order:
             parent: true

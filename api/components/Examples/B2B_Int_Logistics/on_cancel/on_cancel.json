@@ -43,7 +43,7 @@
         {
           "id": "I3",
           "fulfillment_ids": ["1"],
-          "category_ids": ["C1", "A1"],
+          "category_ids": ["C1"],
           "descriptor": {
             "code": "P2H2P"
           },

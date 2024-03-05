@@ -136,6 +136,49 @@
                 "code": "Height"
               },
               "value": "100"
+            },
+            {
+              "descriptor": {
+                "code": "Count"
+              },
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "descriptor": {
+            "code": "Package_Dimensions"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "code": "Unit"
+              },
+              "value": "centimeter"
+            },
+            {
+              "descriptor": {
+                "code": "Length"
+              },
+              "value": "100"
+            },
+            {
+              "descriptor": {
+                "code": "Breadth"
+              },
+              "value": "100"
+            },
+            {
+              "descriptor": {
+                "code": "Height"
+              },
+              "value": "100"
+            },
+            {
+              "descriptor": {
+                "code": "Count"
+              },
+              "value": "5"
             }
           ]
         },
@@ -167,12 +210,6 @@
                 "code": "Shipment_Value"
               },
               "value": "50000"
-            },
-            {
-              "descriptor": {
-                "code": "Package_Count"
-              },
-              "value": "10"
             },
             {
               "descriptor": {

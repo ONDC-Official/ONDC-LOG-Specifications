@@ -36,7 +36,6 @@ value:
             - "1"
           category_ids:
             - C1
-            - A1
           descriptor:
             code: P2H2P
           time:

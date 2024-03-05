@@ -230,6 +230,12 @@
                                         "code": "RTO_Action"
                                     },
                                     "value": "no"
+                                },
+                                {
+                                  "descriptor": {
+                                    "code": "Doc_Way_Bill_No"
+                                  },
+                                  "value": "1209878992826353"
                                 }
                             ]
                         }

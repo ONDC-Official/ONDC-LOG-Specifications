@@ -30,7 +30,6 @@ value:
             - '1'
           category_ids:
             - C2
-            - A1
       fulfillments:
         - id: '1'
           type: Delivery

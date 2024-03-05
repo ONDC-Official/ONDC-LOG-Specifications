@@ -32,7 +32,6 @@ value:
             - '1'
           category_ids:
             - C1
-            - A1
           descriptor:
             code: P2H2P
       quote:
@@ -167,6 +166,9 @@ value:
                   value: '1209878992826353'
                 - descriptor:
                     code: Transporter_Id
+                  value: '1209567899003'
+                - descriptor:
+                    code: Doc_Way_Bill_No
                   value: '1209567899003'
       cancellation_terms:
         - fulfillment_state:

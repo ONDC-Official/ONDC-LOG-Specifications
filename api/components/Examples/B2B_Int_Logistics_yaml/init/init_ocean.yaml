@@ -28,7 +28,6 @@ value:
         - id: I1
           category_ids:
             - C1
-            - O1
           fulfillment_ids:
             - '1'
           descriptor:

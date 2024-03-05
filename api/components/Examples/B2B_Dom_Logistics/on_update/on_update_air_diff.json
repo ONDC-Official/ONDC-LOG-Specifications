@@ -35,7 +35,7 @@
       "items": [
         {
           "id": "I3",
-          "category_ids": ["C2", "A1"],
+          "category_ids": ["C2"],
           "fulfillment_ids": ["1"],
           "descriptor": {
             "code": "P2H2P"

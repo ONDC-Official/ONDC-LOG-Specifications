@@ -32,7 +32,6 @@ value:
             - '1'
           category_ids:
             - C1
-            - O1
           descriptor:
             code: P2H2P
       quote:

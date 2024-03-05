@@ -42,8 +42,7 @@
                 {
                     "id": "I3",
                     "category_ids": [
-                        "C1",
-                        "A1"
+                        "C1"
                     ],
                     "descriptor": {
                         "code": "P2H2P"

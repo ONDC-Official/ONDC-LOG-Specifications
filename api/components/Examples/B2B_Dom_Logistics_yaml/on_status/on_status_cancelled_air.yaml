@@ -34,7 +34,6 @@ value:
         - id: I3
           category_ids:
             - C2
-            - A1
           fulfillment_ids:
             - "1"
           descriptor:
@@ -46,7 +45,6 @@ value:
         - id: I4
           category_ids:
             - C2
-            - A1
           fulfillment_ids:
             - "2"
           descriptor:

@@ -33,7 +33,6 @@ value:
             - '1'
           category_ids:
             - C2
-            - A1
           descriptor:
             code: P2H2P
       fulfillments:

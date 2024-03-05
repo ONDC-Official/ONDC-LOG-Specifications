@@ -36,8 +36,7 @@
         {
           "id": "I3",
           "category_ids": [
-            "C1",
-            "A1"
+            "C1"
           ],
           "fulfillment_ids": [
             "1"

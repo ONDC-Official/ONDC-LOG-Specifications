@@ -36,8 +36,7 @@
                 {
                     "id": "I3",
                     "category_ids": [
-                        "C2",
-                        "A1"
+                        "C2"
                     ],
                     "fulfillment_ids": ["1"],
                     "descriptor": {
@@ -203,6 +202,12 @@
                                         "code": "RTO_Action"
                                     },
                                     "value": "no"
+                                },
+                                {
+                                  "descriptor": {
+                                    "code": "Doc_Way_Bill_No"
+                                  },
+                                  "value": "1209878992826353"
                                 }
                             ]
                         }
