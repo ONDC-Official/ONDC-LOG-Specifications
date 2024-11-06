@@ -122,6 +122,27 @@ value:
             - descriptor:
                 code: Height
               value: '100'
+            - descriptor:
+                code: Count
+              value: '10'
+        - descriptor:
+            code: Package_Dimensions
+          list:
+            - descriptor:
+                code: Unit
+              value: centimeter
+            - descriptor:
+                code: Length
+              value: '100'
+            - descriptor:
+                code: Breadth
+              value: '100'
+            - descriptor:
+                code: Height
+              value: '100'
+            - descriptor:
+                code: Count
+              value: '5'
         - descriptor:
             code: Package_Details
           list:
@@ -137,7 +158,4 @@ value:
             - descriptor:
                 code: Shipment_Value
               value: '50000'
-            - descriptor:
-                code: Package_Count
-              value: '10'
       updated_at: '2023-10-17T22:00:30.000Z'
